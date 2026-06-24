@@ -878,17 +878,15 @@ e. Transmit the data files to IBM.
 (4) Include the snap and ctsnap from the LPAR 
 
 (5) Include the pedbg from the HMC (FSM or SDMC) 
-```
-# How to disable LPM from command line
 
-Enable/Disable
+# How to disable LPM from command line
 ```
 chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=1"
 chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=0"
 lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F name,migration_disabled
 ```
 
-Disable de toutes les lpars HEAHMC01 en 1 ligne de commande
+# Disable de toutes les lpars HEAHMC01 en 1 ligne de commande
 ```
 for serv in $(lssyscfg -r sys -F name | sort)
 do
@@ -898,11 +896,12 @@ do
    done
 done
 ```
-Vérification en CLI
+
+# Vérification en CLI
 ```
 lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F "name,migration_disabled"
 ```
-en 1 ligne de commande sur toutes les lpars
+# en 1 ligne de commande sur toutes les lpars
 ```
 for serv in $(lssyscfg -r sys -F name | sort)
 do
