@@ -1,0 +1,541 @@
+0516-510 varyonvg: Physical volume not found for physical volume
+        identifier 00c6e5853fd81b88.
+
+		
+		
+lqueryvg -Atp vg_data
+0516-1396 lqueryvg: The physical volume vg_data, was not found in the
+system database.
+0516-024 lqueryvg: Unable to open physical volume.
+        Either PV was not configured or could not be opened. Run
+        diagnostics.
+
+		
+varyonvg -f vg_data
+0516-510 varyonvg: Physical volume not found for physical volume
+        identifier 00c6e5853fd81b88.
+
+		
+root@s00va9922460:/home/root$ lqueryvg -Atp vg_data
+0516-1396 lqueryvg: The physical volume vg_data, was not found in the
+system database.
+0516-024 lqueryvg: Unable to open physical volume.
+        Either PV was not configured or could not be opened. Run
+        diagnostics.
+
+###########################################################################################
+
+
+
+25      cd disquetteITS
+26      ls
+27      cd etc
+28      ls
+29      vi machine.ini
+30      vi machine.ini
+31      cd ..
+32      ls
+33      cd internaltools
+34      ls
+35      ./genere_date_valid.ksh
+36      ./genere_date_valid.ksh 12 2015
+37      cd ..
+38      ls
+39      cd bin
+40      ls
+41      ./setup_all.ksh
+42      ls
+43      cd ..
+44      ls
+45      df
+46      cd /itsmasters
+47      ls -rlt
+48      oslevel -s
+49      cd disquetteITS
+50      ls -rlt
+51      cd etc
+52      kls -rlt
+53      ls -rlt
+54      vi machine.ini
+55      cd ../bin
+56      ls -rlt
+57      ksh setup_all.ksh
+58      cd ..
+59      ls -rlt
+60      cd /etc
+61      ls -rlt
+62      cd -
+63      cd etc
+64      ls -rt
+65      ls -rlt
+66      vi machine.ini
+67      cd ../bin
+68      ls -rlt ,
+69      ls -rlt
+70      ksh desinstall.ksh
+71      lsvg -l rootvg
+72      cd /apps
+73      ls -rlt
+74      rm -fr unicenter
+75      cd /etc
+76      cd local
+77      ls
+78      cd /usr/bin
+79      ls -rlt *E*
+80      rm -f EnvironnementAT EnvironnementTNG
+81      cd -
+82      ping oz14
+83      showmount -e oz14
+84      cd /tmp
+85      ls -rlt
+86      vi script_xfert_scripts.ksh
+87      lsvg -l rootvg
+88      cd /itsmasters
+89      ls -rlt
+90      df -g .
+91      cd
+92      umount -f /itsmasters
+93      rmfs -r /itsmasters
+94      mount oz14:/export/nim/shells /mnt
+95      cd mnt
+96      cd /mnt
+97      ls -rlt *xfert*
+98      ksh script_xfert_scripts.ksh
+99      rm -fr /tmp/SCRIPTS
+100     ksh script_xfert_scripts.ksh
+101     cd /tmp
+102     ls -rlt
+103     ksh script_xfert_nsm.ksh
+104     cd /mnt
+105     resize
+106     cd /mnt
+107     ls -rlt *xfert*
+108     ksh script_xfert_nsm.ksh
+109     ls -rlt
+110     umount -f /mnt
+111     mount nimprod:/export/nim/shells /mn t
+112     mount nimprod:/export/nim/shells /mnt
+113     cd /mnt
+114     ls -rlt *xfert*
+115     ksh script_xfert_scripts.ksh
+116     rm -fr /tmp/SCRIPTS
+117     ksh script_xfert_scripts.ksh
+118     ls -rlt *xfrt*
+119     ls -lrt *xfert*
+120     ksh script_xfert_nsm.ksh
+121     df
+122     umount -f /itsmasters
+123     ls -rlt *xfert*
+124     ksh script_xfert_nsm.ksh
+125     df
+126     cd /itsmasters
+127     mls -rlt
+128     ls -rlt
+129     tar -xvf disquetteITSProd.tar
+130     ifconfig -a
+131     cd disquetteITSProd
+132     cd disquetteITSProd
+133     ls
+134     cd disquetteITS
+135     cd etc
+136     ls -rlt
+137     vi machine.ini
+138     cd ../bin
+139     ls -rlt
+140     ksh setup_all.ksh
+141     cd ..
+142     ls -rlt
+143     cd internaltools
+144     ls -lr t
+145     ls -rlt
+146     ksh genere_date_valid.ksh 12 2015
+147     cd ../bin
+148     ls -rlt
+149     ksh setup_all.ksh
+150     cd ..
+151     cd ..
+152     ls -rlt *master_AIX610_AT3164*
+153     ls -rlt *NASV1.33.tar.Z*
+154     ls -lrt
+155     ftp oz14
+156     ls
+157     cd disquetteITS
+158     cd bin
+159     ls -rlt
+160     ksh setup_all.ksh
+161     cd ..
+162     cd ..
+163     ftp nimprod
+164     ls -rlt
+165     cd disquetteITS
+166     ls -rlt
+167     cd bin
+168     ls -rlt
+169     ksh setup_all.ksh
+170     cd /opt/CA/CAlib/
+171     ls -rtl *.o
+172     unlink licutil_64.o
+173     cd -
+174     ksh setup_all.ksh
+175     cd /bin/
+176     ls -rlt *libawscomm.a*
+177     ls -rtl
+178     ls -rlt /etc/services/bin/libawscomm.a
+179     ls -rlt /opt/CA/services/bin/libawscomm.a
+180     find / -name "*libawscomm.a*" -print
+181     cd /apps/unicenter/AT/3.1/services/bin/
+182     cd /apps
+183     ls -rtl
+184     rm -fr unicenter
+185     rm -fr unicenter
+186     df
+187     umount -f /apps/unicenter
+188     cd ./
+189     umount -f /apps/unicenter
+190     lsof /apps/unicenter
+191     fuser -kux /apps/unicenter
+192     umount -f /apps/unicenter
+193     lsof /apps/unicenter
+194     ps -ef |grep -i /apps/unicenter
+195     umount -f /apps/unicenter
+196     ps -ef
+197     lsvg -l rootvg
+198     umoiunt -f /apps/unicenter/AT/3.1/NewAgentScript
+199     umount /apps/unicenter/AT/3.1/NewAgentScript
+200     rmfs -r /apps/unicenter/AT/3.1/NewAgentScript
+201     umount /apps/unicenter
+202     rmfs -r umount
+203     rmfs -r /apps/unicenter
+204     cd §
+205     cd /itsmasters
+206     ls
+207     cd disquetteITS
+208     cd bin
+209     kls -rlt
+210     ls -rt
+211     ls -rlt
+212     ksh setup_all.ksh
+213     ksh setup_all.ksh
+214     cd ..etc
+215     cd /etc
+216     cd  -
+217     ls -rlt
+218     cd ../etc
+219     ls -rlt
+220     vi machine.ini
+221     cd ../bin
+222     ls -rtl
+223     ksh desinstall.ksh
+224     cd /usr
+225     cd bin
+226     ls -rlt *E*
+227     rm -f EnvironnementAT
+228     cd -
+229     cd /itsmasters/disquetteITS/bin
+230     ksh setup_all.ksh
+231     cd /apps/
+232     ls
+233     rm -fr unicenter
+234     cd -
+235     ksh setup_all.ksh
+236     lsvg -l rootvg
+237     cd /etc/local
+238     ls -rlt
+239     cd /usr
+240     cd bin
+241     ls -rtl *E*
+242     rm -f EnvironnementTNG
+243     cd -
+244     cd /itsmasters/disquetteITS/bin
+245     ksh setup_all.ksh
+246     vi /etc/profile
+247     cd /apps
+248     ls -rlt
+249     ps -ef
+250     kill -9 4653310
+251     cd /etc/local
+252     ls -rlt
+253     ./eTAC stop
+254     cd /usr
+255     cd bin
+256     ls -rtl *E*
+257     cd -
+258     cd /itsmasters/disquetteITS/bin
+259     ls -rtl
+260     ksh setup_all.ksh
+261     cd /opt
+262     ls
+263     rml -fr CA
+264     rm -fr CA
+265     lsvg -l rootvg
+266     umount -f /opt/CA
+267     rmfs -r /opt/CA
+268     cd /itsmasters/disquetteITS/bin
+269     ls -rkt
+270     ksh setup_all.ksh
+271     cd ../etc
+272     ls -rtl
+273     vi machine.ini
+274     cd ../bin
+275     ls -rlt
+276     ksh setup_all.ksh
+277     cd /etc/local
+278     ls -rlt
+279     ./eTAC start
+280     cd -
+281     ksh setup_all.ksh
+282     cd ../etc
+283     ls -rlt
+284     vi machine.ini
+285     cd /etc
+286     ls -rlt
+287     cd local
+288     ls -rlt
+289     ./eTAC stop
+290     rm -f eTAC
+291     lsvg -l rootvg
+292     umount -f /apps/eTAC
+293     rmfs -r /apps/eTAC
+294     vi /etc/profile
+295     lsvg -l rootvg
+296     grep -i et /etc/passwd
+297     grep -i secadm /etc/passwd
+298     smitty users
+299     cd -
+300     cd /apps
+301     Df
+302     df
+303     cd /dev/lv_masters    4194304   3492928   17%     2259     1% /itsmasters
+304     cd /itsmasters
+305     ls -rlt
+306     cd disquetteITS
+307     cd bin
+308     ls -rlt
+309     cd /usr
+310     cd bin
+311     ls -rlt
+312     *
+313     ls -rlt *E*
+314     rm -f EnvironnementTAC
+315     cd -
+316     cdf
+317     df
+318     cd /itsmasters
+319     ls -rlt
+320     cd disquetteITS
+321     cd bin
+322     ls -rlt
+323     ksh setup_all.ksh
+324     lsvg -l rootvg
+325     ps -ef
+326     shutdown -Fr
+327     cd istmasters
+328     cd /istmasters
+329     cd itsmasters
+330     cd /itsmasters/disquetteITS/bin
+331     ls
+332     cd /tmp
+333     cd itsgroup
+334     ls
+335     vi machine.ini
+336     cd /itsmasters/disquetteITS/bin
+337     ls
+338     ksh setup_all.ksh
+339     cd /etc/local
+340     ls
+341     cd /opt/CA
+342     ls
+343     cd SharedComponents
+344     ls
+345     cd ccs
+346     ls
+347     cd cam
+348     ls
+349     cd -
+350     cd sysperf
+351     ls
+352     cd /apps/unicenter/AT/3.1/load24/reflocal
+353     ls
+354     cd /apps/D*
+355     ls
+356     ftp nimprod
+357     cat /apps/D*/L*/H*
+358     ftp nimprod
+359     ls
+360     rm -r CA_NSM_ATEXPLOIT_1.0_1.5_ALLOS_GEN CA_NSM_ATEXPLOIT_1.0_1.5_ALLOS_GEN.tar
+361     tar xpf IBM_SCM_AGT_5.1_1.1_AIX-5-6-7_GEN64.tar
+362     cd IBM_SCM_AGT_5.1_1.1_AIX-5-6-7_GEN64
+363     ls
+364     ksh Install_SCMAGT_MAN.ksh
+365     cd -
+366     ls
+367     rm -r IBM_SCM_AGT_5.1_1.1_AIX-5-6-7_GEN64 IBM_SCM_AGT_5.1_1.1_AIX-5-6-7_GEN64.tar
+368     tar xpf CA_ETRUST_AC_12.6_SP2_1.6_AIX53-AIX61-AIX71_GEN.tar
+369     cd CA_ETRUST_AC_12.6_SP2_1.6_AIX53-AIX61-AIX71_GEN
+370     ls
+371     ksh Install_ETACAGT_MAN.ksh
+372     cat /apps/Deploy/CA_ETRUST_AC_12.6_SP2_1.6_AIX53-AIX61-AIX71_GEN/Install.log
+373     cat /apps/Deploy/Logs/CA_ETRUST_AC_12.6_SP2_1.6_AIX53-AIX61-AIX71_GEN_Install.log
+374     ls
+375     ksh Uninst_ETACAGT_MAN.ksh
+376     ls
+377     ksh Install_ETACAGT_MAN.ksh
+378     cd -
+379     ls
+380     rm -r CA_ETRUST_AC_12.6_SP2_1.6_AIX53-AIX61-AIX71_GEN CA_ETRUST_AC_12.6_SP2_1.6_AIX53-AIX61-AIX71_GEN.tar
+381     tar xpf CA_NIMSOFT_AGT_7.0_0_2.8_AIX53-AIX61-AIX71_GEN.tar
+382     cd CA_NIMSOFT_AGT_7.0_0_2.8_AIX53-AIX61-AIX71_GEN
+383     ls
+384     ksh Install_AGT-NIMSOFT_MAN.ksh
+385     cd -
+386     ls
+387     rm -r CA_NIMSOFT_AGT_7.0_0_2.8_AIX53-AIX61-AIX71_GEN CA_NIMSOFT_AGT_7.0_0_2.8_AIX53-AIX61-AIX71_GEN.tar
+388     tar xpf IBM_TADD_ILMT_7.5.0_FP3_1.0_AIX_GEN.tar
+389     cd IBM_TADD_ILMT_7.5.0_FP3_1.0_AIX_GEN
+390     ls
+391     ksh Install_AgtILMT_MAN.ksh
+392     cd -
+393     ls
+394     rm -r IBM_TADD_ILMT_7.5.0_FP3_1.0_AIX_GEN IBM_TADD_ILMT_7.5.0_FP3_1.0_AIX_GEN.tar
+395     ls
+396     cat /apps/D*/L*/H*
+397     cd
+398     cd /apps/unicenter/AT/3.1/load24/reflocal
+399     ls
+400     rm Hacmp53
+401     rm -r Hacmp53
+402     cd s00va9922460
+403     ls
+404     vi s00va9922460_description.txt
+405     cd ../..
+406     cd reflocal
+407     ftp nimprod
+408     tar xpf ref24.tar
+409     ls
+410     cd -
+411     ls
+412     ksh loadconfigset_all.ksh local restart
+413     cd /etc/local
+414     ls
+415     ./EM status
+416     ./EM status
+417     df
+418     ls -lrt
+419     exit
+420     df -g
+421     ps -edf |grep EM
+422     passwd root
+423     df -g
+424     cd /apps/unicenter/EM
+425     ls
+426     cd 3.1
+427     ls -ltr
+428     exit
+429     su - atlas
+430     cd /apps
+431     ls
+432     cd /etc
+433     ls
+434     cd rc*
+435     ls -ltr r*
+436     cdrc.d
+437     cd rc.d
+438     ls
+439     ls -ltr
+440     df -g
+441     lspv |grep -i none
+442     bootinfo -s hdiskpower126
+443     bootinfo -s hdiskpower1
+444     bootinfo -s hdiskpower108
+445     bootinfo -s hdiskpower109
+446     set -o vi
+447     bootinfo -s hdiskpower110
+448     bootinfo -s hdiskpower111
+449     bootinfo -s hdiskpower112
+450     bootinfo -s hdiskpower113
+451     bootinfo -s hdiskpower114
+452     bootinfo -s hdiskpower121
+453     bootinfo -s hdiskpower120
+454     bootinfo -s hdiskpower118
+455     bootinfo -s hdiskpower117
+456     bootinfo -s hdiskpower116
+457     bootinfo -s hdiskpower115
+458     bootinfo -s hdiskpower122
+459     lsvg
+460     lsvg vg_apps
+461     lsvg vg_data
+462     varyonvg vg_data
+463     lsvg
+464     lsvg vg_data
+465     varyonvg vg_data
+466     lsvg -l vg_apps
+467     lsvg -p vg_apps
+468     lsvg vg_data
+469     lsvg vg_data
+470     lsvg -p vg_data
+471     df -g
+472     passwd root
+473     df -g
+474     lsvg
+475     lsvg vg_apps
+476     lsvg vg_data
+477     varyonvg vg_data
+478     lsvg
+479     lsvg vg_data
+480     varyonvg uptime
+481     uptimle
+482     uptime
+483     varyoff vg_data
+484     varyoffvg vg_data
+485     varyonvg vg_data
+486     lspv
+487     f
+488     shutdown -Fr
+489     lsvg
+490     lsvg vg_data
+491     varyonvg vg_data
+492     lsvg vg_data
+493     lspv
+494     lspv |grep 00c6e5853fd81b88
+495     lsvg
+496     lsvg vg_apps
+497     lsvg vg_data
+498     varyonvg vg_data
+499     lsvg -l vg_apps
+500     lsvg -p vg_apps
+501     bootinfo -s hdiskpower0
+502     cd /ficsav
+503     df -g
+504     su - cft
+505     df -g
+506     cd /apps/unicenter/EM/3.1/opr/logs
+507     ls
+508     ls -ltr
+509     date
+510     unifstat
+511     df -g
+512     df -g
+513     mklv -y lv_meo -t jfs2 -e x vg_apps 50G
+514     crfs -v jfs2 -d lv_meo   -m /ficsav/EQUIPE_MEO  -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /ficsav/EQUIPE_MEO
+515     df -g
+516     chmod 777 /ficsav/EQUIPE_MEO
+517     lsvg
+518     lsvg vg_data
+519     lsvg -p vg_data
+520     varyonvg vg_data
+521     lspv
+522     lsvg -o
+523     lsvg
+524     lspv
+525     lsvg -o
+526     smit vg
+527     smit vg
+528     lspv | grep -i 00c6e5853fd81b88
+529     man varyonvg
+530     varyonvg -f vg_data
+531     errpt -aD  | grep vg
+532     errpt -aD
+533     errpt -aD | more
+534     errpt -aD  | grep disk
+535     lqueryvg -Atp vg_data
+536     fc -l 1

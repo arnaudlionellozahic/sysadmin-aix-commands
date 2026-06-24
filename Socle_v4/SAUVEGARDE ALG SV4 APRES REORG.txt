@@ -1,0 +1,11 @@
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps/oracledata:
+->nohup gtar cvzf /apps/oracle/backup/IAM1DZP0/IAM1DZP0.tgz IAM1DZP0 &
+[1]     65667524
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps/oracledata:
+->Sending output to nohup.out
+
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps/oracledata:
+->date
+Fri Aug  1 14:50:56 CEST 2014
+
+HNO DIMANCHE 3 AOUT 1H

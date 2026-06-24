@@ -1,0 +1,102 @@
+########################################################################
+Sur le serveur parva4000641, merci de bien vouloir ajouter 700 Go (7 disques de 100 Go si possible) et de les associer au VG extvgda
+
+Commentaire de réalisation : # Demande traitée.
+# Merci de contacter l'équipe MOA pour la suite des opérations.
+# Résultats du traitement ci-dessous.
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Disk: hdiskpower36     PVID: 00c5699c4c55d9c3   VG: None            N/A                Size (Go):    54   TDEV: 600601600E203900B04ACBC3F7B1E411 [LUN_PL_06_6119]   Baie: CKM00142501585 [SG_parva4000641]  q_depth=32 res_policy=single_path res_lock=
+# Disk: hdiskpower37     PVID: 00c5699c4c5cc0f5   VG: None            N/A                Size (Go):    54   TDEV: 600601600E203900B24ACBC3F7B1E411 [LUN_PL_06_6120]   Baie: CKM00142501585 [SG_parva4000641]  q_depth=32 res_policy=single_path res_lock=
+# Disk: hdiskpower38     PVID: 00c5699c4c63a0ce   VG: None            N/A                Size (Go):    54   TDEV: 600601600E203900B44ACBC3F7B1E411 [LUN_PL_06_6121]   Baie: CKM00142501585 [SG_parva4000641]  q_depth=32 res_policy=single_path res_lock=
+# Disk: hdiskpower39     PVID: 00c5699c4c5b55bb   VG: None            N/A                Size (Go):    54   TDEV: 600601600E203900B64ACBC3F7B1E411 [LUN_PL_06_6122]   Baie: CKM00142501585 [SG_parva4000641]  q_depth=32 res_policy=single_path res_lock=
+# Disk: hdiskpower40     PVID: 00c5699c4c62a0ab   VG: None            N/A                Size (Go):    54   TDEV: 600601600E203900B84ACBC3F7B1E411 [LUN_PL_06_6123]   Baie: CKM00142501585 [SG_parva4000641]  q_depth=32 res_policy=single_path res_lock=
+# Disk: hdiskpower41     PVID: 00c5699c4c59a47b   VG: None            N/A                Size (Go):    54   TDEV: 600601600E2039000A2726D6F7B1E411 [LUN_PL_06_6147]   Baie: CKM00142501585 [SG_parva4000641]  q_depth=32 res_policy=single_path res_lock=
+# Disk: hdiskpower42     PVID: 00c5699c4c60ae1a   VG: None            N/A                Size (Go):   108   TDEV: 600601600E203900B8D15637FAB1E411 [LUN_PL_06_6424]   Baie: CKM00142501585 [SG_parva4000641]  q_depth=32 res_policy=single_path res_lock=
+# Disk: hdiskpower43     PVID: 00c5699c4c57edf5   VG: None            N/A                Size (Go):   108   TDEV: 600601600E203900BBAE5F3DFAB1E411 [LUN_PL_06_6426]   Baie: CKM00142501585 [SG_parva4000641]  
+########################################################################
+
+PROCEDURE
+
+pour voir si les disques sont utilisés par un VG
+
+lspv -l hdiskpower36
+lspv -l hdiskpower37
+lspv -l hdiskpower38
+lspv -l hdiskpower39
+lspv -l hdiskpower40
+lspv -l hdiskpower41
+lspv -l hdiskpower42
+lspv -l hdiskpower43
+
+on rattache le disque au vg extvgda
+extendvg extvgda hdiskpower36
+extendvg extvgda hdiskpower37
+extendvg extvgda hdiskpower38
+extendvg extvgda hdiskpower39
+extendvg extvgda hdiskpower40
+extendvg extvgda hdiskpower41
+extendvg extvgda hdiskpower42
+extendvg extvgda hdiskpower43
+
+lsvg -p extvgda 
+hdiskpower36      active            435         435         87..87..87..87..87
+hdiskpower37      active            435         435         87..87..87..87..87
+hdiskpower38      active            435         435         87..87..87..87..87
+hdiskpower39      active            435         435         87..87..87..87..87
+hdiskpower40      active            435         435         87..87..87..87..87
+hdiskpower41      active            435         435         87..87..87..87..87
+hdiskpower42      active            871         871         175..174..174..174..174
+hdiskpower43      active            871         871         175..174..174..174..174
+
+lsvg extvgda
+VOLUME GROUP:       extvgda                  VG IDENTIFIER:  0022a2ca00004c00000000fd7a16d81b
+VG STATE:           active                   PP SIZE:        128 megabyte(s)
+VG PERMISSION:      read/write               TOTAL PPs:      37449 (4793472 megabytes)
+MAX LVs:            512                      FREE PPs:       4386 (561408 megabytes)
+LVs:                39                       USED PPs:       33063 (4232064 megabytes)
+OPEN LVs:           39                       QUORUM:         16 (Enabled)
+TOTAL PVs:          30                       VG DESCRIPTORS: 30
+STALE PVs:          0                        STALE PPs:      0
+ACTIVE PVs:         30                       AUTO ON:        yes
+MAX PPs per VG:     130048
+MAX PPs per PV:     2032                     MAX PVs:        64
+LTG size:           128 kilobyte(s)          AUTO SYNC:      no
+HOT SPARE:          no                       BB POLICY:      relocatable
+
+Je remets l'espace pris avant.
+chfs -a size=+80G /apps/atlas/atlas2v0/sa8/data1/fic
+chfs -a size=+80G /apps/atlas/atlas2v0/sa6/data1/fic
+chfs -a size=+40G /apps/atlas/atlas2v0/sa1/data1/fic
+
+agrandir l'epace sur la quel on fait la restauration
+chfs -a size=+160G /apps/atlas/atlas2v0/sa4/data1/fic
+0516-787 extendlv: Maximum allocation for logical volume lv_sa4data1fic
+        is 4096.ls 
+
+chlv -x 10000 lv_sa4data1fic		
+
+chfs -a size=+100G /apps/atlas/atlas2v0/sa4/data1/fic
+chfs -a size=+100G /apps/atlas/atlas2v0/sa4/data1/fic
+
+
+J'essaie de retirer un disque
+reducevg extvgda hdiskpower40
+0516-016 ldeletepv: Cannot delete physical volume with allocated
+        partitions. Use either migratepv to move the partitions or
+        reducevg with the -d option to delete the partitions.
+0516-884 reducevg: Unable to remove physical volume hdiskpower40.
+parva4000641 => PRE-PRODUCTION ANTILLES  (root) /apps/Rennes/reserve_extvgd0 :
+
+pour voir les lv liées aux disques
+lspv -l hdiskpower40
+
+L'ajout de volumétrie s'est réparti sur les disques
+
+Seul le 41 a pu être démonté
+reducevg extvgda hdiskpower41
+
+Je le rattache au vg extvgd0
+extendvg extvgd0 hdiskpower41
+
+agrandir l'epace sur la quel on fait la restauration
+chfs -a size=+60G /apps/Rennes/reserve_extvgd0

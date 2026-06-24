@@ -1,0 +1,1464 @@
+CREATION GROUP + USER
+=====================
+
+ORACLE 
+ATLAS 
+CFT 
+CONV 
+ETUDES 
+BKOF1 
+BKOF2
+NKOF3
+
+
+CREATION FS
+============
+
+
+mklv -y lv_meo -t jfs2 -e x vg_apps 50G
+crfs -v jfs2 -d lv_meo   -m /ficsav/EQUIPE_MEO  -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /ficsav/EQUIPE_MEO
+chmod 777 /ficsav/EQUIPE_MEO
+
+mklv -y lv_oracle -t jfs2 -e x vg_apps 7G
+crfs -v jfs2 -d lv_oracle   -m /apps/oracle -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount  /apps/oracle
+
+
+mklv -y lv_oracle11 -t jfs2 -e x vg_apps 15G
+crfs -v jfs2 -d lv_oracle11   -m /apps/oracle/product/1120 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oracle/product/1120
+
+
+mklv -y lv_oraclework -t jfs2 -e x vg_apps 13G
+crfs -v jfs2 -d lv_oraclework   -m /apps/work/ora_1120  -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/work/ora_1120 
+
+
+mklv -y lv_oradbf -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_oradbf -m /apps/oradbf  -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oradbf 
+
+
+mklv -y lv_carto -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_carto  -m /apps/carto_data -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/carto_data
+
+
+mklv -y lv_amelia -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_amelia  -m /apps/amelia -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/amelia
+
+
+mklv -y lv_ameliap -t jfs2 -e x vg_apps 5G
+crfs -v jfs2 -d lv_ameliap  -m /apps/matl/packages -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/matl/packages
+
+mklv -y lv_packages -t jfs2 -e x vg_apps 3G
+crfs -v jfs2 -d lv_packages -m /apps/amelia/packages -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/amelia/packages
+
+mklv -y lv_express -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_express -m /apps/dmexpress/ -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/dmexpress
+
+
+mklv -y lv_cobol -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/cobol 
+
+mklv -y lv_oraclient -t jfs2 -e x vg_apps 15G
+crfs -v jfs2 -d lv_oraclient -m /apps/oracle/product/1120cli32 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oracle/product/1120cli32
+
+
+mklv -y lv_oradbfbck -t jfs2 -e x vg_apps 5G
+crfs -v jfs2 -d lv_oradbfbck  -m /apps/oradbf/backup -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oradbf/backup
+
+
+mklv -y lv_exploit -t jfs2 -e x vg_apps 2G
+crfs -v jfs2 -d lv_exploit  -m /apps/exploit -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/exploit
+chmod 777 /apps/exploit
+
+
+mklv -y lv_work -t jfs2 -e x vg_apps 25G
+crfs -v jfs2 -d lv_work -m /apps/exploit/work -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/exploit/work
+chmod 777 /apps/exploit/work && chown atlas.atlas /apps/exploit/work
++CREATION REP etatsunikix
+
+mklv -y lv_unikix -t jfs2 -e x vg_apps 500M
+crfs -v jfs2 -d lv_unikix  -m /apps/unikix -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/unikix
+
+
+mklv -y lv_ead -t jfs2 -e x extvgda1 4G
+crfs -v jfs2 -d lv_ead -m /apps/ead -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ead
+
+
+mklv -y lv_livr -t jfs2 -e x vg_data 10G
+crfs -v jfs2 -d lv_livr -m /livraisons -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /livraisons
+
+mklv -y lvmeoatlas2 -t jfs2 -e x vg_data 2G
+crfs -v jfs2 -d lvmeoatlas2 -m /apps/meoatlas2 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/meoatlas2
+
+mklv -y lv_savfj -t jfs2 -e x vg_apps 100G
+crfs -v jfs2 -d lv_savfj -m /apps/savesite -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/savesite
+
+mklv -y lv_intsn -t jfs2 -e x vg_apps 500M
+crfs -v jfs2 -d lv_intsn -m /apps/intsn -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/intsn
+
+mklv -y lv_shell -t jfs2 -e x vg_apps 50M
+crfs -v jfs2 -d lv_shell -m /apps/exploit/shell -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/exploit/shell
+
+mklv -y lv_arch -t jfs2 -e x vg_apps 100G
+crfs -v jfs2 -d lv_arch -m /apps/arch -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/arch
+
+mklv -y lv_atlas2v0 -t jfs2 -e x vg_apps 4G
+crfs -v jfs2 -d lv_atlas2v0 -m /apps/atlas/atlas2v0 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/atlas/atlas2v0
+
+mklv -y lv_matlgdi -t jfs2 -e x vg_apps 6G
+crfs -v jfs2 -d lv_matlgdi -m /apps/matl/GDI -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/matl/GDI
+
+mklv -y lv_pgp -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_pgp -m /apps/pgp -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/pgp
+
+mklv -y lv_meopgp -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_meopgp -m /apps/meopgp -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/meopgp
+
+mklv -y lv_ppe -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_ppe -m /apps/ppe -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ppe
+
+mklv -y lv_supct -t jfs2 -e x vg_apps 500M
+crfs -v jfs2 -d lv_supct -m /apps/supct -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/supct
+
+mklv -y lv_xrdj -t jfs2 -e x vg_apps 250M
+crfs -v jfs2 -d lv_xrdj -m /apps/xrdj -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/xrdj
+
+mklv -y lv_usd -t jfs2 -e x vg_apps 250M
+crfs -v jfs2 -d lv_usd -m /apps/usd -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/usd
+
+
+
+
+=============================================
+INSTALL ORACLE CLIENT 32
+
+CHECK PREREQUIS ORACLE :
+
+1.2.1	Intégrité du serveur
+=============================
+
+
+root@s00va9941870:/apps$ lppchk -v
+root@s00va9941870:/apps$
+
+
+1.2.2	Présence des filesets obligatoires
+=============================================
+
+root@s00va9941870:/apps$ lppchk -v
+root@s00va9941870:/apps$ lslpp -l bos.adt.base
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.base              6.1.7.17  COMMITTED  Base Application Development
+                                                 Toolkit
+
+Path: /etc/objrepos
+  bos.adt.base              6.1.7.17  COMMITTED  Base Application Development
+                                                 Toolkit
+
+root@s00va9941870:/apps$ lslpp -l bos.adt.lib
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.lib                6.1.2.0  COMMITTED  Base Application Development
+                                                 Libraries
+
+
+root@s00va9941870:/apps$ lslpp -l bos.adt.libm
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.libm              6.1.7.16  COMMITTED  Base Application Development
+                                                 Math Library
+
+root@s00va9941870:/apps$ lslpp -l bos.perf.libperfstat
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.libperfstat      6.1.7.18  COMMITTED  Performance Statistics Library
+                                                 Interface
+
+Path: /etc/objrepos
+  bos.perf.libperfstat      6.1.7.18  COMMITTED  Performance Statistics Library
+                                                 Interface
+
+
+root@s00va9941870:/apps$ lslpp -l bos.perf.perfstat
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.perfstat         6.1.7.18  COMMITTED  Performance Statistics
+                                                 Interface
+
+Path: /etc/objrepos
+  bos.perf.perfstat          6.1.0.0  COMMITTED  Performance Statistics
+                                                 Interface
+
+root@s00va9941870:/apps$ lslpp -l bos.perf.proctools
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.proctools        6.1.7.17  COMMITTED  Proc Filesystem Tools
+
+
+root@s00va9941870:/apps$ lslpp -l bos.rte
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.rte                   6.1.7.15  COMMITTED  Base Operating System Runtime
+
+Path: /etc/objrepos
+  bos.rte                   6.1.7.15  COMMITTED  Base Operating System Runtime
+
+
+root@s00va9941870:/apps$ lslpp -l xlC.aix61.rte
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  xlC.aix61.rte             11.1.0.2  COMMITTED  XL C/C++ Runtime for AIX 6.1
+
+
+
+1.2.3	Présence des fixes obligatoires
+=========================================
+
+
+root@s00va9941870:/apps$ instfix -i -k IV09580
+    All filesets for IV09580 were found.
+
+
+
+1.2.4	Test system en 64bits
+==============================
+
+
+root@s00va9941870:/apps$ getconf HARDWARE_BITMODE
+64
+root@s00va9941870:/apps$ getconf KERNEL_BITMODE
+64
+root@s00va9941870:/apps$ bootinfo -K
+64
+
+
+
+1.2.5	Vérifications mémoire
+==============================
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ lsattr -E -l sys0 -a realmem
+realmem 27262976 Amount of usable physical memory in Kbytes False
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ lsps -a
+Page Space      Physical Volume   Volume Group    Size %Used Active Auto  Type Chksum
+hd6             hdisk0            rootvg       16384MB     0   yes   yes    lv     0
+
+
+
+1.2.6	Vérification des autres prérequis 
+==========================================
+
+root@s00va9941870:/apps$ ioo -o aio_maxreqs
+aio_maxreqs = 65536
+
+root@s00va9941870:/apps$ lsattr -E -l sys0 -a maxuproc
+maxuproc 6144 Maximum number of PROCESSES allowed per user True
+root@s00va9941870:/apps$ chdev -l sys0 -a maxuproc='16384'
+sys0 changed
+
+root@s00va9941870:/apps$ lsattr -E -l sys0 -a ncargs
+ncargs 256 ARG/ENV list size in 4K byte blocks True
+
+
+
+1.2.7	Vérification des groupes et utilisateurs
+===================================================
+
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ lsgroup dba
+dba id=300 admin=false users=taddmux,atlas,oracle,bkof1,bkof2,bkof3 registry=files
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ lsuser oracle
+oracle id=300 pgrp=dba groups=dba,cft,atlas home=/apps/oracle 
+
+
+
+1.2.8	Espace disque nécessaire
+=================================
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ df -g /tmp
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/hd3           1.00      0.51   50%      522     1% /tmp
+
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ df -g /apps/oracle
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/lv_oracle      7.00      6.97    1%        7     1% /apps/oracle
+
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ df -g /apps/oracle/product/1120cli32
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/lv_oraclient     15.00     14.94    1%        4     1% /apps/oracle/product/1120cli32
+
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ df -g /apps/work/ora_1120
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/lv_oraclework     13.00     12.95    1%        4     1% /apps/work/ora_1120
+
+
+
+2	TACHES PRELIMINAIRES
+=============================
+2.1	Profile du compte oracle
+
+root@s00va9941870:/home/oracle$ vi .profile
+
+export VERS=1120
+if tty -s ; then
+PS3="Choisir l'environnement souhaite..."
+select choix in "Sortie" "Oracle 11.2.0.2" "Oracle 11.2.0.2 cli32"
+do
+   case $choix in
+ "Sortie")
+  exit
+  ;;
+"Oracle 11.2.0.2")
+  export ORACLE_HOME=$A2_PRODUITS/oracle/product/1120
+  export AIXTHREAD_SCOPE=S
+  break
+  ;;
+ "Oracle 11.2.0.2 cli32")
+  export ORACLE_HOME=$A2_PRODUITS/oracle/product/1120cli32
+  export AIXTHREAD_SCOPE=S
+  break
+  ;;
+*)
+echo "choix incorrect"
+  ;;
+esac
+done
+else
+  export ORACLE_HOME=$A2_PRODUITS/oracle/product/$VERS
+  export AIXTHREAD_SCOPE=S
+fi
+
+export PATH=$ORACLE_HOME/bin:$ORACLE_HOME/oui/bin:/usr/lbin:$PATH:.
+export ORACLE_DOC=$ORACLE_HOME/doc
+export ORACLE_BASE=$A2_PRODUITS/oracle
+export LIBPATH=$ORACLE_HOME/lib:$ORACLE_HOME/precomp/public
+export TMPDIR=/tmp
+export TNS_ADMIN=$A2_PRODUITS/oracle/network/admin
+umask 022
+#pour partager kes librairies au link d'un programme C
+export ORA_CLIENT_LIB=shared
+export HOST=`hostname`
+PS1="$LOGNAME@$HOST:\$ORACLE_SID:$VERSION_ORACLE:\$PWD/ "
+export PS1='[$LOGNAME$VERSION_ORACLE@$HOST|$ORACLE_SID]${PWD##}> '
+export NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P1
+export PATH=$PATH:$A2_BNP/exploit/outilsora:$A2_BNP/exploit/outils
+export NLSPATH=$NLSPATH:$A2_BNP/exploit/msg/%L/%N:$A2_BNP/exploit/msg/%L/%N.cat
+export LC_MESSAGES=fr_FR
+
+
+2.2	Création des file systems
+==================================
+
+
+root@s00va9941870:/apps/oracle$ chown oracle.dba /apps/oracle/product/1120cli32
+root@s00va9941870:/apps/oracle$ chmod 775 /apps/oracle/product/1120cli32
+root@s00va9941870:/apps/oracle$ chmod a-s /apps/oracle/product/1120cli32
+
+
+root@s00va9941870:/apps/oracle$ chown oracle.dba /apps/oradbf
+root@s00va9941870:/apps/oracle$ chmod 755 /apps/oradbf
+root@s00va9941870:/apps/oracle$ chmod a-s /apps/oradbf
+
+
+root@s00va9941870:/apps/oracle$ chown oracle.dba /apps/oradbf/backup
+root@s00va9941870:/apps/oracle$ chmod 755 /apps/oradbf/backup
+root@s00va9941870:/apps/oracle$ chmod a-s /apps/oradbf/backup
+
+METTRE LES DROITS SUR /APPS/ORACLE
+
+root@s00va9941870:/apps$ chown -R oracle.dba /apps/oracle && chmod 777 /apps/oracle
+root@s00va9941870:/apps$ ls -ld oracle
+drwxrwxrwx    4 oracle   dba             256 Aug 11 16:41 oracle
+chown -R oracle.dba /apps/oracle
+root@s00va9941870:/apps$         chown oracle.dba oracle
+root@s00va9941870:/apps$ chmod 777 oracle
+
+
+ !!! A CHECKER !! ALGERIE = parva4000632 => PRODUCTION ALGERIE SV4  (atlas) /apps
+ls -ld oracle
+drwxrwxr-x   13 atlas    atlas          4096 Jul 24 10:34 oracle
+
+
+
+
+2.3	Récupération des sources d'installation sur le disque
+==============================================================
+
+root@s00va9941870:/apps$ cd /apps/work/ora_1120
+root@s00va9941870:/apps/work/ora_1120$ gtar -xpzf /ficsav/EQUIPE_MEO/oracle_11.2.0.2_client.tar.gz
+root@s00va9941870:/apps/work/ora_1120$ ls -ltr
+total 9505184
+-rw-r--r--    1 oracle   dba       802416640 Apr 26 2012  stage.tar
+-rw-r--r--    1 oracle   dba      4064225280 Apr 27 2012  master1120client32.tar
+drwxr-xr-x    2 root     system          256 Aug 11 16:05 lost+found
+root@s00va9941870:/apps/work/ora_1120$ tar xvf stage.tar
+x stage
+x stage/install
+[...]
+
+root@s00va9941870:/apps/work/ora_1120$ cd stage
+root@s00va9941870:/apps/work/ora_1120/stage$ ./rootpre.sh
+./rootpre.sh output will be logged in /tmp/rootpre.out_15-08-11.16:52:19
+
+Checking if group services should be configured....
+Nothing to configure.
+
+
+root@s00va9941870:/apps/work/ora_1120/stage$ ls -ltr /etc/oraInst.loc
+/etc/oraInst.loc not found
+
+root@s00va9941870:/apps/work/ora_1120/stage$ cd /etc
+root@s00va9941870:/etc$ vi oraInst.loc
+
+root@s00va9941870:/etc$ cat oraInst.loc
+inventory_loc=/apps/oracle/oraInventory
+inst_group=dba
+
+root@s00va9941870:/etc$ chown oracle:dba /etc/oraInst.loc
+
+
+3.2	Vérification des pré-requis
+====================================
+
+[oracle@s00va9941870|]/apps/oracle> umask
+022
+
+CREATION REP OraInventory/logs
+
+root@s00va9941870:/apps/oracle$ mkdir oraInventory
+root@s00va9941870:/apps/oracle$ cd oraInventory
+root@s00va9941870:/apps/oracle/oraInventory$ mkdir logs
+root@s00va9941870:/apps/oracle/oraInventory$ cd ..
+root@s00va9941870:/apps/oracle$ chmod -R 777 oraInventory
+root@s00va9941870:/apps/oracle$ ls -ltr
+total 16
+drwxr-xr-x    2 oracle   dba             256 Aug 11 16:05 lost+found
+drwxr-xr-x    4 oracle   dba             256 Aug 11 16:08 product
+-rw-r--r--    1 oracle   dba            1693 Aug 11 16:38 .profile
+-rw-------    1 oracle   dba             198 Aug 11 16:56 .sh_history
+drwxrwxrwx    3 root     system          256 Aug 11 16:57 oraInventory
+root@s00va9941870:/apps/oracle$ chown oracle.dba *
+
+
+
+
+
+root@s00va9941870:/apps/oracle$ sesu - oracle
+Please enter your password:
+1) Sortie
+2) Oracle 11.2.0.2
+3) Oracle 11.2.0.2 cli32
+Choisir l'environnement souhaite...2
+.profile[60]: /apps/toolboxes/sgbd/oracle/profile_oracle/profile_toolbox_oracle:  not found
+[oracle@s00va9941870|]/apps/oracle> cd /apps/work/ora_1120/stage
+[oracle@s00va9941870|]/apps/work/ora_1120/stage> ./runInstaller -executePrereqs -silent -waitforcompletion -responseFile $PWD/response/db_install.rsp
+********************************************************************************
+
+Your platform requires the root user to perform certain pre-installation
+OS preparation.  The root user should run the shell script 'rootpre.sh' before
+you proceed with Oracle installation.  rootpre.sh can be found at the top level
+of the CD or the stage area.
+
+Answer 'y' if root has run 'rootpre.sh' so you can proceed with Oracle
+installation.
+Answer 'n' to abort installation and then ask root to run 'rootpre.sh'.
+
+********************************************************************************
+
+Has 'rootpre.sh' been run by root? [y/n] (n)
+y
+
+Starting Oracle Universal Installer...
+
+Checking Temp space: must be greater than 190 MB.   Actual 517 MB    Passed
+Checking swap space: must be greater than 150 MB.   Actual 16384 MB    Passed
+Preparing to launch Oracle Universal Installer from /tmp/OraInstall2015-08-11_04-59-13PM. Please wait ...[WARNING] [INS-13014] Target environment do not meet some optional requirements.
+   CAUSE: Some of the optional prerequisites are not met. See logs for details. /apps/oracle/oraInventory/logs/installActions2015-08-11_04-59-13PM.log
+   ACTION: Identify the list of failed prerequisite checks from the log: /apps/oracle/oraInventory/logs/installActions2015-08-11_04-59-13PM.log. Then either from the log file or from installation manual find the appropriate configuration to meet the prerequisites and fix it manually.
+[oracle@s00va9941870|]/apps/work/ora_1120/stage> vi /apps/oracle/oraInventory/logs/installActions2015-08-11_04-59-13PM.log
+
+
+
+3.3	Application du clone
+===============================
+
+
+root@s00va9941870:/apps/oracle/product/1120cli32$ cd /apps/oracle/product/1120cli32
+root@s00va9941870:/apps/oracle/product/1120cli32$ tar xpf /apps/work/ora_1120/master1120client32.tar
+root@s00va9941870:/apps/oracle/product/1120cli32$ cd /apps/oracle
+root@s00va9941870:/apps/oracle$ tar cpf oraInventoryAvant.tar oraInventory
+
+[oracle@s00va9941870|]/apps/oracle> cd /apps/oracle/product/1120cli32/clone/bin
+[oracle@s00va9941870|]/apps/oracle/product/1120cli32/clone/bin> 0cli32" ORACLE_HOME_NAME="Ora11gR2cli32" ORACLE_BASE="/apps/oracle" OSDBA_GROUP=dba OSOPER_GROUP=dba <
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+        LC_ALL = (unset),
+        LC__FASTMSG = "true",
+        LC_MESSAGES = "fr_FR",
+        LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+./runInstaller -clone -waitForCompletion  "ORACLE_HOME=/apps/oracle/product/1120cli32" "ORACLE_HOME_NAME=Ora11gR2cli32" "ORACLE_BASE=/apps/oracle" "oracle_install_OSDBA=dba" "oracle_install_OSOPER=dba" -silent -noConfig -nowait
+Starting Oracle Universal Installer...
+
+Checking swap space: must be greater than 500 MB.   Actual 16384 MB    Passed
+Preparing to launch Oracle Universal Installer from /tmp/OraInstall2015-08-11_05-05-00PM. Please wait ...Oracle Universal Installer, Version 11.2.0.2.0 Production
+Copyright (C) 1999, 2010, Oracle. All rights reserved.
+
+You can find the log of this install session at:
+ /apps/oracle/oraInventory/logs/cloneActions2015-08-11_05-05-00PM.log
+.................................................................................................... 100% Done.
+
+
+
+Installation in progress (Tuesday, August 11, 2015 5:05:09 PM CEST)
+.......................................................................                                                         71% Done.
+Install successful
+
+Linking in progress (Tuesday, August 11, 2015 5:05:13 PM CEST)
+Link successful
+
+Setup in progress (Tuesday, August 11, 2015 5:05:57 PM CEST)
+.................                                               100% Done.
+Setup successful
+
+End of install phases.(Tuesday, August 11, 2015 5:05:59 PM CEST)
+WARNING:
+The following configuration scripts need to be executed as the "root" user.
+/apps/oracle/product/1120cli32/root.sh
+To execute the configuration scripts:
+    1. Open a terminal window
+    2. Log in as "root"
+    3. Run the scripts
+
+The cloning of Ora11gR2cli32 was successful.
+Please check '/apps/oracle/oraInventory/logs/cloneActions2015-08-11_05-05-00PM.log' for more details.
+
+
+OUVERTURE AUTRE SHELL
+
+root@s00va9941870:/home/root$ /apps/oracle/product/1120cli32/root.sh
+Check /apps/oracle/product/1120cli32/install/root_s00va9930801_2014-10-15_15-03-54.log for the output of root script
+root@s00va9941870:/home/root$ cat /apps/oracle/product/1120cli32/install/root_s00va9930801_2014-10-15_15-03-54.log
+
+Running Oracle 11g root script...
+
+The following environment variables are set as:
+    ORACLE_OWNER= oracle
+    ORACLE_HOME=  /apps/oracle/product/1120cli32
+Creating /usr/local/bin directory...
+
+Creating /etc/oratab file...
+Entries will be added to the /etc/oratab file as needed by
+Database Configuration Assistant when a database is created
+Finished running generic part of root script.
+Now product-specific root actions will be performed.
+
+
+4	POST-INSTALLATION
+==========================
+
+root@s00va9941870:/apps/oracle$ rm /apps/oracle/product/1120cli32/lib/libociei.so
+
+INSTALL CLIENT32 OK
+========================
+
+
+INSTALL CLIENT32 OK
+===========================================================================================
+INSTALL ORACLE SERVEUR 64 doc : Installation d’Oracle 11.2.0.2 serveur 64bits pour AIX 6.1
+===========================================================================================
+
+
+root@s00va9941870:/apps/oracle$ cd /apps/work/ora_1120
+root@s00va9941870:/apps/work/ora_1120$ rm -rf stage
+root@s00va9941870:/apps/work/ora_1120$ rm -rf master1120client32.tar
+root@s00va9941870:/apps/work/ora_1120$ gtar -xpzf /ficsav/EQUIPE_MEO/oracle_11202.tar.Z
+root@s00va9941870:/apps/work/ora_1120$ tar xf stage.tar
+root@s00va9941870:/apps/work/ora_1120$ cd stageroot@s00va9941870:/apps/work/ora_1120/stage$ ./rootpre.sh
+./rootpre.sh output will be logged in /tmp/rootpre.out_15-08-11.17:12:15
+
+Checking if group services should be configured....
+Nothing to configure.
+
+
+3.2	Vérification des pré-requis.
+=====================================
+
+
+root@s00va9941870:/apps/work/ora_1120/stage$ sesu - oracle
+Please enter your password:
+1) Sortie
+2) Oracle 11.2.0.2
+3) Oracle 11.2.0.2 cli32
+Choisir l'environnement souhaite...2
+[oracle@s00va9930801|]/apps/oracle> umask
+022
+
+[oracle@s00va9930801|]/apps/work/ora_1120/stage> ./runInstaller -executePrereqs -silent -waitforcompletion -responseFile $PWD/response/db_install.rsp
+********************************************************************************
+
+Your platform requires the root user to perform certain pre-installation
+OS preparation.  The root user should run the shell script 'rootpre.sh' before
+you proceed with Oracle installation.  rootpre.sh can be found at the top level
+of the CD or the stage area.
+
+Answer 'y' if root has run 'rootpre.sh' so you can proceed with Oracle
+installation.
+Answer 'n' to abort installation and then ask root to run 'rootpre.sh'.
+
+********************************************************************************
+
+Has 'rootpre.sh' been run by root? [y/n] (n)
+
+Starting Oracle Universal Installer...
+
+Checking Temp space: must be greater than 190 MB.   Actual 515 MB    Passed
+Checking swap space: must be greater than 150 MB.   Actual 16384 MB    Passed
+Preparing to launch Oracle Universal Installer from /tmp/OraInstall2015-08-11_05-14-04PM. Please wait ...[WARNING] [INS-13014] Target environment do not meet some optional requirements.
+   CAUSE: Some of the optional prerequisites are not met. See logs for details. /apps/oracle/oraInventory/logs/installActions2015-08-11_05-14-04PM.log
+   ACTION: Identify the list of failed prerequisite checks from the log: /apps/oracle/oraInventory/logs/installActions2015-08-11_05-14-04PM.log. Then either from the log file or from installation manual find the appropriate configuration to meet the prerequisites and fix it manually.
+
+
+
+
+3.3	Application du clone.
+=============================
+
+
+root@s00va9941870:/apps/work/ora_1120/stage$ cd /apps/oracle/product/1120
+root@s00va9941870:/apps/oracle/product/1120$ tar xpf /apps/work/ora_1120/master1120serveur64.tar
+root@s00va9941870:/apps/oracle/product/1120$ cd /apps/oracle
+root@s00va9941870:/apps/oracle$ tar cpf oraInventoryAvant.tar oraInventory
+
+root@s00va9941870:/apps/oracle$ su - oracle
+1) Sortie
+2) Oracle 11.2.0.2
+3) Oracle 11.2.0.2 cli32
+Choisir l'environnement souhaite...2
+[oracle@s00va9930801|]/apps/oracle> cd /apps/oracle/product/1120/clone/bin
+
+[oracle@s00va9941870|]/apps/oracle/product/1120/clone/bin>  ORACLE_HOME_NAME="Ora11gR2db" ORACLE_BASE="/apps/oracle" OSDBA_GROUP=dba OSOPER_GROUP=dba                <
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+        LC_ALL = (unset),
+        LC__FASTMSG = "true",
+        LC_MESSAGES = "fr_FR",
+        LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+********************************************************************************
+
+Your platform requires the root user to perform certain pre-clone
+OS preparation.  The root user should run the shell script 'rootpre.sh' before
+you proceed with cloning.  rootpre.sh can be found at
+/apps/oracle/product/1120/clone directory.
+Answer 'y' if the root user has run 'rootpre.sh' script.
+
+********************************************************************************
+
+Has 'rootpre.sh' been run by the root user? [y/n] (n)
+y
+./runInstaller -clone -waitForCompletion  "ORACLE_HOME=/apps/oracle/product/1120" "ORACLE_HOME_NAME=Ora11gR2db" "ORACLE_BASE=/apps/oracle" "oracle_install_OSDBA=dba" "oracle_install_OSOPER=dba" -silent -noConfig -nowait
+Starting Oracle Universal Installer...
+
+Checking swap space: must be greater than 500 MB.   Actual 16384 MB    Passed
+Preparing to launch Oracle Universal Installer from /tmp/OraInstall2015-08-11_05-24-51PM. Please wait ...Oracle Universal Installer, Version 11.2.0.2.0 Production
+Copyright (C) 1999, 2010, Oracle. All rights reserved.
+
+You can find the log of this install session at:
+ /apps/oracle/oraInventory/logs/cloneActions2015-08-11_05-24-51PM.log
+.................................................................................................... 100% Done.
+
+
+
+Installation in progress (Tuesday, August 11, 2015 5:25:03 PM CEST)
+...............................................................................                                                 79% Done.
+Install successful
+
+Linking in progress (Tuesday, August 11, 2015 5:25:10 PM CEST)
+Link successful
+
+Setup in progress (Tuesday, August 11, 2015 5:26:33 PM CEST)
+Setup successful
+
+End of install phases.(Tuesday, August 11, 2015 5:26:37 PM CEST)
+WARNING:
+The following configuration scripts need to be executed as the "root" user.
+/apps/oracle/product/1120/root.sh
+To execute the configuration scripts:
+    1. Open a terminal window
+    2. Log in as "root"
+    3. Run the scripts
+
+The cloning of Ora11gR2db was successful.
+
+
+OUVERTURE AUTRE SHELL
+
+root@s00va9941870:/home/root$ /apps/oracle/product/1120/root.sh
+Check /apps/oracle/product/1120/install/root_s00va9941870_2015-08-11_17-27-41.log for the output of root script
+
+INSTALL ORACLE SERVEUR 64 OK
+
+
+================================================
+INSTALL JAVA : inst_jdk_fr_V1.1
+================================================
+
+2	INSTALLATION DE JAVA
+=============================
+
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ cd /
+root@s00va9941870:/$ zcat  /ficsav/EQUIPE_MEO/ljdk.tar.Z | tar xpvf -
+
+
+
+================================================
+INSTALL COBOL : inst_sx51_32b_aix61_fr_V1.1.doc
+================================================
+
+1.	PRÉREQUIS
+==================
+
+
+root@s00va9941870:/home/root$ 	
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/lv_cobol      1.00      0.99    1%        4     1% /apps/cobol
+
+
+AJOUT VARIABLE DANS /ETC/ENVIRONEMENT
+
+root@s00va9941870:/home/root$ vi /etc/environment
+
+
+ODMDIR=/etc/objrepos
+DEFAULT_BROWSER=netscape
+AIXTHREAD_SCOPE=S
+AIXTHREAD_MNRATIO=1:1
+SPINLOOPTIME=500
+AIXTHREAD_COND_DEBUG=OFF
+AIXTHREAD_MUTEX_DEBUG=OFF
+AIXTHREAD_RWLOCK_DEBUG=OFF
+#MALLOCMULTIHEAP=1
+A2_PRODUITS=/apps
+A2_BNP=/apps
+A2_UNIX=/apps/exploit
+
+RES_TIMEOUT=1
+RES_RETRY=1
+
+
+
+2.	PRÉPARATION DU SYSTÈME
+================================
+
+AJOUT LIGNE DANS /ETC/INITTAB
+
+root@s00va9941870:/home/root$ vi /etc/inittab
+ipcmf:2345:wait:$A2_UNIX/outils/jserex >/dev/null 2>&1
+
+
+
+3.	INSTALLATION COBOL 5.1
+========================================
+
+root@s00va9941870:/home/root$ cd /apps/cobol
+root@s00va9941870:/apps/cobol$ mkdir sx5.1
+root@s00va9941870:/apps/cobol$ cd /apps/cobol/sx5.1
+root@s00va9941870:/apps/cobol/sx5.1$ zcat < /ficsav/EQUIPE_MEO/cobsx51.tar.Z | tar xvpf  -
+
+root@s00va9941870:/apps/cobol/sx5.1$ cd /apps/cobol/sx5.1/bin
+root@s00va9941870:/apps/cobol/sx5.1/bin$ rm rtsora
+root@s00va9941870:/apps/cobol/sx5.1/bin$ ln -fs rtsstd rtsora
+
+root@s00va9941870:/apps/cobol/sx5.1/bin$ export COBDIR=$A2_PRODUITS/cobol/sx5.1
+root@s00va9941870:/apps/cobol/sx5.1/bin$ export LIBPATH=$COBDIR/lib:$LIBPATH
+root@s00va9941870:/apps/cobol/sx5.1/bin$ export COBCONFIG=$COBDIR/lib/ATKXCOBCONFIG
+root@s00va9941870:/apps/cobol/sx5.1/bin$ export COBTERMINFO=$COBDIR/terminfo
+root@s00va9941870:/apps/cobol/sx5.1/bin$ export PATH=$COBDIR/bin:$PATH
+
+
+4.1.	PARTAGE DES LICENCES
+=============================
+
+root@s00va9941870:/apps/cobol/sx5.1/bin$ cd ..
+root@s00va9941870:/apps/cobol/sx5.1$ vi DEVASSHARE
+root@s00va9941870:/apps/cobol/sx5.1$ cat DEVASSHARE
+/apps/cobol/sx5.1
+
+
+4.2.	MISE À JOUR DU GESTIONNAIRE DE LICENCE
+===============================================
+
+root@s00va9941870:/apps/cobol/sx5.1/lmf$ ./lmfgetpv k
+License Manager is not running
+
+root@s00va9941870:/apps/cobol/sx5.1/lmf$ ./lmfinstall
+
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/usr/lib/mflmf
+/usr/lib/mflmf does not exist
+do you wish to create it ? (y/n)
+y
+Empty database created ok
+Do you want only superuser to be able to access the License Admin System? (y/n)
+y
+It is recommended that you let license manager autostart at boot time
+Do you want license manager to be automatically started at boot time? (y/n)
+y
+./lmfinstall[403]: lsitab:  not found
+./lmfinstall[408]: lsitab:  not found
+./lmfinstall[413]: mkitab:  not found
+LMF installation complete
+
+
+4.4.	VERIFICATION DU PARTAGE DE LICENCE 
+===========================================
+
+root@s00va9941870:/usr/lib/mflmf$ ./mflmcmd
+
+Micro Focus License Manager Command Line Interface
+--------------------------------------------------
+Select the function you require from the list:
+License Install   - Enter 'I'
+License Uninstall - Enter 'U'
+I
+Ready to install license
+Enter the Serial Number part of the License Key:
+600000366975AI+
+Enter the License Number part of the License Key:
+03030 1003E 7F4A2 C8D00 C4ED
+License added ok
+
+
+
+Ready to install license
+Enter the Serial Number part of the License Key:
+600000366991AI+
+Enter the License Number part of the License Key:
+03060 1003F FF9A2 CCA09 53E6
+License installed ok
+
+
+
+
+
+
+INSTALL UNIKIX
+================
+
+root@s00va9941870:/apps/unikix$ mkdir t11.3.4
+root@s00va9941870:/apps/unikix$ cd t11.3.4
+root@s00va9941870:/apps/unikix/t11.3.4$ zcat /ficsav/EQUIPE_MEO/aix61_mtp1134.tar.Z|tar xvpf -
+x bin
+x bin/1win, 355 bytes, 1 tape blocks
+x bin/SPOOLER, 1063 bytes, 3 tape blocks
+x bin/build
+x bin/build/line.in, 9777 bytes, 20 tape blocks
+x bin/build/line.out, 8476 bytes, 17 tape blocks
+
+
+
+INSTALL DMEXPRESS
+==================
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress$tar -xvpf /ficsav/EQUIPE_MEO/dmexpress_6911_aix61_32bit.tar
+x 6.9
+x 6.9/.SAPSetup.cfg, 22 bytes, 1 tape blocks
+x 6.9/.databaseSetup.cfg, 42 bytes, 1 tape blocks
+x 6.9/.setup, 2595234 bytes, 5069 tape blocks
+x 6.9/Metadata
+x 6.9/Metadata/JobLog
+x 6.9/Metadata/JobLog/V1.0
+x 6.9/Metadata/JobLog/V1.0/DMXJobLog.xsd, 104403 bytes, 204 tape blocks
+[...]
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$vi DMExpressLicense.txt
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$cat DMExpressLicense.txt
+#
+# DMExpress 11/19/2014 11/30/2015 "" "" * * 65535 224 1024 0 0 0 * * 0000-000
+3h0z8 nfzb8 8ypsw 7ycr9 0u16z k2m0b h1z6e ia4s7 6za06 bepyx hh177 42453
+
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$./applykey
+
+     Installation requires a license key, which  is typically sent
+     to you via email or  on a diskette. Please enter the location
+     of  the  license  key  file DMExpressLicense.txt.
+
+License key file location [ /apps/dmexpress/6.9 ] :
+[...]
+1.  CONTROLLING LANGUAGE.  The controlling language of this SLA will be
+English.  Les parties aux presentes confirment leur volontei' que cette
+--------------------------------------------------------------------------------
+ I (A)ccept  |  I (D)ecline  |  (N)ext Page  |  (P)revious Page  |  (Q)uit :
+
+     The license key you provided enables the following components
+     and features for the displayed configuration:
+
+     DMExpress Components
+         DMExpress Engine
+         DMExpress Server
+
+     System
+         System ID: Any
+         Hardware model: Any
+         Number of processors: Unlimited
+
+     License Expiry Date
+         11/30/2015
+
+     Optional Features
+         No Optional Features
+
+                        Press ENTER to continue...
+
+     The new license key has been successfully applied.
+
+
+
+MAJ CONF DMEXPRESS
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$export COBDIR=$A2_PRODUITS/cobol/sx5.1
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$export LIBPATH=$COBDIR/lib:$LIBPATH
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$export PATH=$COBDIR/bin:$PATH
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$export COBCONFIG=$COBDIR/lib/ATKXCOBCONFIG
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$unset UNIKIX
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/dmexpress/6.9$./install
+
+Installation Options
+
+     Choose "Install extended support options", to  enable support
+     for extended  support  options,  such as Micro Focus SORT and
+     MERGE acceleration, Micro Focus indexed files, etc. Make sure
+     that the appropriate environment variables are defined before
+     proceeding with this option.
+
+     Choose   "Configure   the   DMExpress   Service"   option  to
+     configure and/or  start the DMExpress Service.  Configuration
+     of  DMExpress Service  allows  DMExpress Engine  component to
+     host   applications   submitted   from   DMExpress  Graphical
+     Interface.
+
+
+
+
+Choose one of the following installation options:
+
+   1)        Install extended support options
+   2)        Configure DMExpress Service
+   3)        Uninstall DMExpress Service
+   4)        Quit installation
+
+Please enter your selection [1]: 1
+[...]
+Installation of extended support options completed.
+
+
+
+
+
+=================
+ELEMENT A CREER
+=================
+
+
+CREATION FICHIER INIT_VARS + INIT_VARS.HOSTNAME
+================================================
+
+DANS /APPS/EXPLOIT/OUTILS + LIEN SYMBOLIQUE /APPS
+
+root@s00va9941870:/apps/exploit$ mkdir outils
+root@s00va9941870:/apps/exploit$ chown conv.atlas outils && chmod 777 outils
+root@s00va9941870:/apps/exploit$ cd outils
+root@s00va9941870:/apps/exploit/outils$ cd /apps
+root@s00va9941870:/apps$ mv init_vars /apps/exploit/outils
+root@s00va9941870:/apps$ ln -s /apps/exploit/outils init_vars
+root@s00va9941870:/apps$ ls -ltr init_vars
+lrwxrwxrwx    1 root     system           20 Sep  3 11:41 init_vars -> /apps/exploit/outils
+
+
+root@s00va9941870:/apps$ vi init_vars.s00va9941870
+
+root@s00va9941870:/apps$ cat init_vars.s00va9941870
+export CAIGLBL0000=/apps/unicenter/EM/3.1
+if [[ -e /usr/bin/EnvironnementEM ]] then
+        . /usr/bin/EnvironnementEM
+  else
+       [[ -e $CAIGLBL0000/scripts/envusr ]] && . $CAIGLBL0000/scripts/envusr
+fi
+
+export MEO_OUTILS=/apps/meoatlas2/outils
+export PATH=$PATH:$MEO_OUTILS
+
+export A2I_REP=$A2_BNP/amelia
+export A2I_LOG=$A2I_REP/log
+export PATH=$PATH:$A2I_REP/outils
+export A2I_REP_SESSIONS=$A2I_REP/sessions
+export A2_PACKAGES=$A2_BNP/amelia/packages
+export A2_CARTO=$A2_BNP/carto_data
+
+
+
+
+CREATION KSHRC
+===============
+
+root@s00va9941870:/home/atlas$ vi .kshrc
+root@s00va9941870:/home/atlas$ cat .kshrc
+export LIBPATH=$SAV_LIBPATH
+export NLSPATH=$SAV_NLSPATH
+
+
+CREATION .PROFILE ROOT DANS /HOME/ROOT
+=========================================
+
+
+CREATION .PROFILE ATLAS DANS /HOME/ATLAS
+=========================================
+
+
+CREATION PROFILE.CFT DANS /HOME/ATLAS
+======================================
+
+root@s00va9941870:/home/atlas$ vi profile.cft
+root@s00va9941870:/home/atlas$
+
+
+CREATION PROFILE A2
+=====================
+
+root@s00va9941870:/apps/exploit/profiles$ vi profileA2.s00va9941870
+
+
+
+
+=================================
+INSTALLATION OUTIL UNIX
+===================================
+
+4.2 CREATION D’UN GROUPE UNIX
+===============================
+
+root@s00va9941870:/apps/exploit/outils$ lsgroup conv
+conv id=502 admin=false users=atlas,conv,etudes adms=root registry=files
+root@s00va9941870:/apps/exploit/outils$ lsgroup a2instal
+a2instal id=262 admin=false users=atlas,conv adms=root registry=files
+
+
+4.3 DROITS SUR $A2_CARTO
+===============================
+
+
+chgrp –R a2instal $A2_CARTO
+chmod –R g+rwx $A2_CARTO
+
+
+
+5.2	MISE EN PLACE DE L’AUTOMATE
+=====================================
+
+root@s00va9941870:/apps/amelia$ tar -xvf /ficsav/EQUIPE_MEO/amelia_1.5.6.tar
+
+
+root@s00va9941870:/apps/amelia$ ls -ltr
+total 24
+drwxrwxrwx    4 conv     a2instal        256 Apr 19 2007  msg
+drwxrwxrwx    3 conv     a2instal        256 Apr 19 2007  modeles
+drwxrwxrwx    2 conv     a2instal        256 Feb 11 2009  launcher_list
+drwxrwxrwx    2 conv     a2instal       4096 Aug  1 2011  config
+drwxrwxrwx    2 conv     a2instal        256 Aug  1 2011  data
+drwxrwxrwx    2 conv     a2instal        256 Oct 21 2011  sessions
+drwxrwxrwx    2 conv     a2instal       4096 Oct 21 2011  sh
+drwxrwxrwx    3 conv     a2instal       4096 Oct 25 2011  outils
+drwxrwxrwx    3 conv     a2instal        256 Oct 26 2011  log
+drwxrwxrwx    2 conv     a2instal        256 Oct 10 16:12 lost+found
+
+
+
+5.3	PARAMETRAGE DE L’AUTOMATE
+===================================
+
+root@s00va9941870:/apps/amelia/config$ cp -p param.hostname param.s00va9941870
+
+
+
+5.4	DEMARRAGE DE L’AUTOMATE
+================================
+
+
+root@s00va9941870:/apps/amelia/sh$ a2instd
+a2instd lancé avec root.
+Ce programme doit être lancé avec un chemin absolu
+This program has to be launched with an absolute path
+root@s00va9941870:/apps/amelia/sh$ /apps/amelia/sh/a2instd
+a2instd lancé avec root.
+a2instd : 2014.10.29 14:42 Démarrage de /apps/amelia/sh/a2instd
+                         Start of /apps/amelia/sh/a2instd
+
+
+
+6.1	RECEPTION DU PACKAGE
+=============================
+
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ cp -p 00022220.tar $A2_PACKAGES
+root@s00va9941870:/ficsav/EQUIPE_MEO$ cd $A2_PACKAGES
+root@s00va9941870:/apps/amelia/packages$ ls -ltr
+total 289528
+-rwxrwxrwx    1 atlas    atlas     148234240 Sep  4 10:22 00022220.tar
+
+
+
+6.2	MISE A JOUR DU LANCEUR
+===============================
+
+CREER LE VALDEF.SITE A RECUP SUR SV2
+
+
+root@s00va9941870:/apps/exploit$ chmod 777 exploitv3 && chown conv.atlas exploitv3
+root@s00va9941870:/apps/exploit$ cd exploitv3
+root@s00va9941870:/apps/exploit/exploitv3$ vi valdef.site
+
+root@s00va9941870:/apps/exploit/exploitv3$ chown atlas.atlas valdef.site && chmod 777 valdef.site
+root@s00va9941870:/apps/exploit/exploitv3$ ls -ltr
+total 8
+-rwxrwxrwx    1 atlas    atlas          1203 Sep  4 11:18 valdef.site
+
+
+MODIF VARIABLE A2_CARTO DANS LANCE_TECH
+
+#--------------#
+# CARTO :      #
+#--------------#
+export A2_CARTO=${A2_CARTO:-$A2_BNP/carto}
+CARTOSITE=$(grep 'export A2_CARTO=' $A2_UNIX/exploitv3/valdef.site 2>/dev/null)
+[[ -n $CARTOSITE ]] && eval $CARTOSITE
+
+
+SI MESSAGE PAS PRESENT GTAR /apps/exploit/msg autre machine
+
+
+root@s00va9941870:/apps/exploit$ gtar xvzf msg_anti_sv2.tgz
+msg/
+msg/en_US/
+msg/en_US/.A2version_en_US.xls
+msg/en_US/.A2version_en_US.xls.old
+msg/en_US/jrj6Anti.txt
+msg/en_US/magA2.msg
+msg/en_US/msgA2.cat
+
+
+
+6.3	INSTALLATION DES OUTILS VIA L’AUTOMATE
+==================================================
+
+
+a2interf -i 00022220 -L lance_tech 
+
+ATTENTION
+---------
+Version amelia attendue : V01.5.7
+Version actuelle d'amelia : V01.5.6
+Demandez le package 00016655
+livre via le gdi A2I_GDI
+------------------------------------------
+Voulez vous continuer ?
+Repondre par O/o pour oui, N/n si non [N] :
+o
+DLL TECHN 227384 -- 11/08/2015 14:04:20
+Installation de la livraison ci-dessus ?
+Repondre par O/o pour oui, N/n si non [o] :
+o
+Pas de droit en ecriture pour /apps/amelia/log/tmp
+
+
+root@s00va9941870:/apps/amelia/log$ mkdir tmp
+root@s00va9941870:/apps/amelia/log$ chown conv.a2instal tmp && chmod 777 tmp
+root@s00va9941870:/apps/amelia/log$ ls -ltr
+total 24
+-rw-r--r--    1 root     system            9 Sep  3 17:55 PID.log
+-rw-r--r--    1 root     system          542 Sep  3 23:00 a2instd.20150903.s00va9941870
+-rw-r--r--    1 root     system          804 Sep  4 11:00 a2instd.20150904.s00va9941870
+drwxr-xr-x    2 root     system          256 Sep  4 11:45 cd
+drwxrwxrwx    2 conv     a2instal        256 Sep  4 11:46 tmp
+
+
+
+root@s00va9941870:/apps/amelia/log$ a2interf -i 00022220 -L lance_tech
+Version of Amelia : V01.5.6 / GDI Number : 127137 / Delivery : 00005159
+
+
+Installation realisee en tant que user root (uid 0)
+User attribué aux fichiers conv.a2instal
+
+
+L'automate d'installation (Amelia) est démarré.
+
+WARNING : Lanceur lance_techn, donc on omet par defaut la cartographie post-install.
+Voulez-vous effectivement l'omettre (o/n)? [o]
+Repondre par O/o pour oui, N/n si non [-q] :
+o
+La cartographie post-install sera omise (A2I_CARTO_KO=Y, A2I_JAS9U1=NO).
+
+1 packages present
+0 packages absents.
+
+
+ATTENTION
+---------
+Version amelia attendue : V01.5.7
+Version actuelle d'amelia : V01.5.6
+Demandez le package 00016655
+livre via le gdi A2I_GDI
+------------------------------------------
+Voulez vous continuer ?
+Repondre par O/o pour oui, N/n si non [N] :
+o
+DLL TECHN 227384 -- 11/08/2015 14:04:20
+Installation de la livraison ci-dessus ?
+Repondre par O/o pour oui, N/n si non [o] :
+o
+Execution : </apps/amelia/outils/a2interf -i 00022220 -L lance_tech>
+
+
+RCINSTALL=0 main_reload_ead.sh UNX59 installe dans /apps/exploit/infoc/outilsead/outilsloa
+RCINSTALL=0 modbad.sh UNX59 installe dans /apps/exploit/infoc/outilsead/outilsloa
+RCINSTALL=0 trt_reload_ead.sh UNX59 installe dans /apps/exploit/infoc/outilsead/outilsloa
+RCINSTALL=0 vers.sh UNX59 installe dans /apps/exploit/infoc/outilsead/outilsloa
+2015.09.04 11:48 inst_fic: Step 8 terminé. OK.
+
+2015.09.04 11:48 inst_fic: Step 09 requis
+2015.09.04 11:48 inst_fic: Mise a jour des fichiers de reference de la cartographie
+0151:conv:inst_fic INFO: /apps/carto_data/ref/TECHN/COMP_PARIS.dat mis a jour/updated
+2015.09.04 11:48 inst_fic: Step 9 terminé. OK.
+
+2015.09.04 11:48 inst_fic:  : FIN OK
+
+
+##### Traitement 9999:root:resume_et_nettoie_tmp #############################################################################
+2015.09.04 11:48 a2i_work Exécution de 9999:root:resume_et_nettoie_tmp pour 00000003
+2015.09.04 11:48 resume_et_nettoie_tmp: Début de 9999:root:resume_et_nettoie_tmp
+2015.09.04 11:48 resume_et_nettoie_tmp: Step 01 requis
+2015.09.04 11:48 resume_et_nettoie_tmp: Creation du compte rendu d'installation
+
+--------------------------------------
+Compte rendu disponible:
+--------------------------------------
+
+cat: cannot open /apps/amelia/sessions/00000003/CR_MESSAGES.txt
+2015.09.04 11:49 resume_et_nettoie_tmp: Step 1 terminé. OK.
+
+2015.09.04 11:49 resume_et_nettoie_tmp: Step 02 requis
+2015.09.04 11:49 resume_et_nettoie_tmp: /apps/exploit/TECHN_AMELIA.niv mis a jour.
+2015.09.04 11:49 resume_et_nettoie_tmp: Fin du step 2 en Erreur
+-------------------------------------------------------------------------------------------
+
+
+
+2015.09.04 11:49 a2i_work : NOK
+
+
+APPLIQUER LE TAR MAJ AMELIA 00020658.tar
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/ficsav/EQUIPE_MEO$cp -p 00020658.tar $A2_PACKAGES
+
+a2interf -i 00020658 -L lance_tech
+
+
+
+
+=======================================
+REPERTOIRE A RECUPERER DEPUIS LA SV2 : 
+=======================================
+
+
+DETAR sendfile_zag_sv2.tgz
+=============================
+
+root@s00va9941870:/apps/cft/ifcft$ gtar xvzf /ficsav/EQUIPE_MEO/sendfile_zag_sv2.tgz
+SENDFILE
+SENDFILE-ETB
+SENDFILE220
+SENDFILE230
+SENDFILE_With_SAPPL
+SENDMESS
+
+
+DETAR /APPS/EAD
+================
+
+root@s00va9941870:/apps$ gtar xvzf /ficsav/EQUIPE_MEO/ead_zag_sv2.tgz
+ead/
+ead/EAD_PGLOBAL
+ead/EAD_PGLOBAL.20130425.195500
+ead/FTG/
+ead/FTG/R1360018632/
+ead/FTG/R1360018632/gestab/
+ead/FTG/R1360018632/gestab/STRUCT.ead
+[...]
+
+
+DETAR /USR/LOCAL/BIN
+========================
+
+
+root@s00va9941870:/ficsav/EQUIPE_MEO$ cd /usr/local
+root@s00va9941870:/usr/local$ gtar xvzf /ficsav/EQUIPE_MEO/usrlocalbin_prod_zag_sv2.tgz
+bin/
+bin/implog
+bin/gtar
+bin/gzip
+[...]
+
+
+DETAR KIXREF11
+===============
+
+root@s00va9941870:/apps/exploit$ gtar xvzf /ficsav/EQUIPE_MEO/kixref11.tgz
+kixref11/
+kixref11/40050/
+kixref11/40050/400050.tgz
+kixref11/40050/ATL.ASA.PCA00.Z
+kixref11/40050/ATL.ASA.PCB00.Z
+[...]
+
+
+DETAR FICREF
+=============
+
+
+root@s00va9941870:/apps/atlas/atlas2v0$ gtar xvzf /ficsav/EQUIPE_MEO/fic*
+ficref/
+ficref/305/
+ficref/305/ASA_PCA00
+ficref/305/ASA_PCA00.idx
+ficref/305/ASA_PCF00
+ficref/305/ASA_PCF00.idx
+ficref/305/ASA_PCK00
+
+
+
+
+CREATION ENV UF1
+=================
+
+
+SV2
+====
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (root)
+/usr/local$df -g |grep uf1
+/dev/lv_atlas2v0uf1      5.25      1.65   69%    99896    21% /apps/atlas/atlas2v0/uf1
+/dev/lv_ficsav    187.00     55.26   71%   220133     2% /apps/atlas/atlas2v0/uf1/ficsav
+/dev/lv_uf1data1     89.00     36.45   60%    30222     1% /apps/atlas/atlas2v0/uf1/data1
+/dev/lv_uf1infocdr    150.00     80.52   47%      284     1% /apps/atlas/atlas2v0/uf1/data1/infocdr
+/dev/lv_uf1infoc    143.00     86.37   40%      289     1% /apps/atlas/atlas2v0/uf1/data1/infoc
+/dev/lv_uf1data1imp     35.00     30.62   13%    24255     1% /apps/atlas/atlas2v0/uf1/data1/imp
+/dev/lv_fsit     122.19    108.67   12%    11358     1% /apps/atlas/atlas2v0/uf1/data1/fsit
+/dev/lv_uf1data1fic    839.00    219.78   74%   557852     2% /apps/atlas/atlas2v0/uf1/data1/fic
+
+
+
+
+SV4
+====
+
+mklv -y lv_atpr01  -t jfs2 -e x extvgBCV1 430G (MANQUE 50G)
+mklv -y lv_atdr01  -t jfs2 -e x extvgBCV2 430G (MANQUE 50G)
+mklv -y lv_atl2v0uf1 -t jfs2 -e x extvgBCV 6G
+mklv -y lv_uf1ficsav -t jfs2 -e x vg_data 185G
+mklv -y lv_uf1data1 -t jfs2 -e x extvgBCV 85G
+mklv -y lv_uf1data1imp -t jfs2 -e x extvgBCV 30G
+mklv -y lv_uf1data1fic -t jfs2 -e x extvgBCV 840G
+mklv -y lv_uf1data1info -t jfs2 -e x vg_data 120G
+mklv -y lv_uf1data1infd -t jfs2 -e x vg_data 140G
+mklv -y lv_fsit -t jfs2 -e x vg_data 100G
+
+
+crfs -v jfs2 -d lv_atpr01 -m /apps/oradbf/atpr01 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atdr01 -m /apps/oradbf/atdr01 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0uf1 -m /apps/atlas/atlas2v0/uf1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_uf1ficsav -m /apps/atlas/atlas2v0/uf1/ficsav -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_uf1data1 -m /apps/atlas/atlas2v0/uf1/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_uf1data1imp -m /apps/atlas/atlas2v0/uf1/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_uf1data1fic -m /apps/atlas/atlas2v0/uf1/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_uf1data1info -m /apps/atlas/atlas2v0/uf1/data1/infoc -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_uf1data1infd -m /apps/atlas/atlas2v0/uf1/data1/infocdr -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_fsit -m /apps/atlas/atlas2v0/uf1/data1/fsit -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+mount /apps/oradbf/atpr01
+mount /apps/oradbf/atdr01
+mount /apps/atlas/atlas2v0/uf1
+mount /apps/atlas/atlas2v0/uf1/ficsav
+mount /apps/atlas/atlas2v0/uf1/data1
+mount /apps/atlas/atlas2v0/uf1/data1/imp
+mount /apps/atlas/atlas2v0/uf1/data1/fic
+mount /apps/atlas/atlas2v0/uf1/data1/infoc 
+mount /apps/atlas/atlas2v0/uf1/data1/infocdr
+mount /apps/atlas/atlas2v0/uf1/data1/fsit 
+
+
+root@s00va9941870:/home/atlas$ df -g |grep uf1
+/dev/lv_atl2v0uf1      6.00      5.98    1%        6     1% /apps/atlas/atlas2v0/uf1
+/dev/lv_uf1ficsav    185.00    184.47    1%        4     1% /apps/atlas/atlas2v0/uf1/ficsav
+/dev/lv_uf1data1     85.00     84.65    1%        9     1% /apps/atlas/atlas2v0/uf1/data1
+/dev/lv_uf1data1imp     30.00     29.88    1%        4     1% /apps/atlas/atlas2v0/uf1/data1/imp
+/dev/lv_uf1data1fic    840.00    839.05    1%        4     1% /apps/atlas/atlas2v0/uf1/data1/fic
+/dev/lv_uf1data1info    120.00    119.51    1%        4     1% /apps/atlas/atlas2v0/uf1/data1/infoc
+/dev/lv_uf1data1infd    140.00    139.48    1%        4     1% /apps/atlas/atlas2v0/uf1/data1/infocdr
+/dev/lv_fsit     100.00     99.59    1%        4     1% /apps/atlas/atlas2v0/uf1/data1/fsit
+
+root@s00va9941870:/home/atlas$ df -g |grep atpr01
+/dev/lv_atpr01    430.00    429.43    1%        4     1% /apps/oradbf/atpr01
+
+
+root@s00va9941870:/home/atlas$ df -g |grep atdr01
+/dev/lv_atdr01    430.00    429.43    1%        4     1% /apps/oradbf/atdr01
+
+
+
+
+mklv -y lv_IRP0WDP1 -t jfs2 -e x vg_apps 20G
+crfs -v jfs2 -d lv_IRP0WDP1 -m /apps/oracledata/IRP0WDP1 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oracledata/IRP0WDP1
+
+
+mklv -y lv_atsec -t jfs2 -e x extvgda 125M
+crfs -v jfs2 -d lv_atsec -m /apps/oradbf/atsec -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oradbf/atsec

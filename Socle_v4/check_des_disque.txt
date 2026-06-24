@@ -1,0 +1,448 @@
+
+VERIFICATION DES DISQUES SV4 PROD 
+*******************************************************************************************
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower15
+Pseudo name=hdiskpower15
+Symmetrix ID=000295700006
+Logical device ID=429E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk72   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk76   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk80   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk84   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower0
+Pseudo name=hdiskpower0
+Symmetrix ID=000295700006
+Logical device ID=1B7C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk21   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk33   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk45   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk57   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower1
+Pseudo name=hdiskpower1
+Symmetrix ID=000295700006
+Logical device ID=1B7D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk22   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk34   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk46   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk58   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower2
+Pseudo name=hdiskpower2
+Symmetrix ID=000295700006
+Logical device ID=1B7E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk23   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk35   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk47   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk59   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower3
+Pseudo name=hdiskpower3
+Symmetrix ID=000295700006
+Logical device ID=1B7F
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk24   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk36   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk48   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk60   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower4
+Pseudo name=hdiskpower4
+Symmetrix ID=000295700006
+Logical device ID=1D50
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk25   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk37   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk49   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk61   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower5
+Pseudo name=hdiskpower5
+Symmetrix ID=000295700006
+Logical device ID=1D52
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk26   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk38   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk50   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk62   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower5
+Pseudo name=hdiskpower5
+Symmetrix ID=000295700006
+Logical device ID=1D52
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk26   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk38   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk50   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk62   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower6
+Pseudo name=hdiskpower6
+Symmetrix ID=000295700006
+Logical device ID=1D54
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk27   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk39   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk51   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk63   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower6
+Pseudo name=hdiskpower6
+Symmetrix ID=000295700006
+Logical device ID=1D54
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk27   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk39   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk51   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk63   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower7
+Pseudo name=hdiskpower7
+Symmetrix ID=000295700006
+Logical device ID=1D58
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk28   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk40   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk52   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk64   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower8
+Pseudo name=hdiskpower8
+Symmetrix ID=000295700006
+Logical device ID=1D5A
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk29   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk41   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk53   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk65   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower9
+Pseudo name=hdiskpower9
+Symmetrix ID=000295700006
+Logical device ID=1D5C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk30   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk42   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk54   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk66   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower10
+Pseudo name=hdiskpower10
+Symmetrix ID=000295700006
+Logical device ID=1D5E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk31   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk43   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk55   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk67   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower11
+Pseudo name=hdiskpower11
+Symmetrix ID=000295700006
+Logical device ID=1D60
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk32   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk44   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk56   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk68   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower12
+Pseudo name=hdiskpower12
+Symmetrix ID=000295700006
+Logical device ID=429B
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk69   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk73   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk77   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk81   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower13
+Pseudo name=hdiskpower13
+Symmetrix ID=000295700006
+Logical device ID=429C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk70   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk74   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk78   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk82   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower114
+Bad dev value hdiskpower114, or not under Powerpath control.
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower14
+Pseudo name=hdiskpower14
+Symmetrix ID=000295700006
+Logical device ID=429D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk71   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk75   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk79   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk83   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower15
+Pseudo name=hdiskpower15
+Symmetrix ID=000295700006
+Logical device ID=429E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk72   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk76   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk80   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk84   FA 12gB   active  alive      0      0
+
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+powermt display dev=hdiskpower15
+
+*************************************************************
+
+VERIFICATION DES DISQUES BACKUP SV4 
+--------------------------------------
+
+
+
+s00va9923997 => Machine Backup RBEM SV4  (l802945) /usr/local/bin :
+./checkAIX disk
+           +--------------------------------------------------+
+           |                                                  |
+           |            Debut de l autite Systeme          |
+           |                                                  |
+           +--------------------------------------------------+
+
+PARAM 1 ==> disk OK
+        +--------------------------------------------------------+
+        | ID disque | Nom disque  | Volume group   | disponible  |
+        +--------------------------------------------------------+
+        |        B7C|  hdiskpower0|            None|          Yes|
+        |        B7D|  hdiskpower1|            None|          Yes|
+        |        B7E|  hdiskpower2|            None|          Yes|
+        |        B7F|  hdiskpower3|            None|          Yes|
+        |        D50|  hdiskpower4|            None|          Yes|
+        |        D52|  hdiskpower5|            None|          Yes|
+        |        D54|  hdiskpower6|            None|          Yes|
+        |        D58|  hdiskpower7|            None|          Yes|
+        |        D5A|  hdiskpower8|            None|          Yes|
+        |        D5C|  hdiskpower9|            None|          Yes|
+        |        D5E| hdiskpower10|            None|          Yes|
+        |        D60| hdiskpower11|            None|          Yes|
+        |        "j$| hdiskpower12|            None|          Yes|
+        |        "j%| hdiskpower13|            None|          Yes|
+        |        "j&| hdiskpower14|            None|          Yes|
+        |        "j'| hdiskpower15|            None|          Yes|
+        +--------------------------------------------------------+
+
+
+            +-------------------------------------------------+
+            |                                                 |
+            |                 Fin de l'Audit                  |
+            |                                                 |
+            +-------------------------------------------------+
+
+s00va9923997 => Machine Backup RBEM SV4  (l802945) /usr/local/bin :
+powermt display dev=hdiskpower15
+Pseudo name=hdiskpower15
+Symmetrix ID=000295700006
+Logical device ID=429E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk18   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk34   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk50   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk66   FA 12gB   active  alive      0      0
+
+
+
+s00va9923997 => Machine Backup RBEM SV4  (l802945) /usr/local/bin :
+powermt display dev=hdiskpower14
+Pseudo name=hdiskpower14
+Symmetrix ID=000295700006
+Logical device ID=429D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk17   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk33   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk49   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk65   FA 12gB   active  alive      0      0
+
+
+
+s00va9923997 => Machine Backup RBEM SV4  (l802945) /usr/local/bin :
+powermt display dev=hdiskpower13
+Pseudo name=hdiskpower13
+Symmetrix ID=000295700006
+Logical device ID=429C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk16   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk32   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk48   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk64   FA 12gB   active  alive      0      0
+
+
+
+s00va9923997 => Machine Backup RBEM SV4  (l802945) /usr/local/bin :
+powermt display dev=hdiskpower12
+Pseudo name=hdiskpower12
+Symmetrix ID=000295700006
+Logical device ID=429B
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0
+==============================================================================
+---------------- Host ---------------   - Stor -   -- I/O Path -  -- Stats ---
+###  HW Path                I/O Paths    Interf.   Mode    State  Q-IOs Errors
+==============================================================================
+   0 fscsi0                    hdisk15   FA  6gA   active  alive      0      0
+   0 fscsi0                    hdisk31   FA 11gA   active  alive      0      0
+   1 fscsi2                    hdisk47   FA  5gB   active  alive      0      0
+   1 fscsi2                    hdisk63   FA 12gB   active  alive      0      0
+
+
+
+s00va9923997 => Machine Backup RBEM SV4  (l802945) /usr/local/bin :
+
+

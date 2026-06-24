@@ -1,0 +1,334 @@
+
+
+---------------------- FS créer -------
+
+
+mklv -y lv_domus -t jfs2 -x 1024 vg_data 30G
+
+
+crfs -v jfs2 -d lv_domus   -m /apps/domus  -A yes -p rw -t no && mount /apps/domus
+
+
+
+
+mklv -y lv_cobol -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -t no
+
+
+
+
+
+
+################## variable ajouter dand /etc/envionment ######################
+
+A2_PRODUITS=/apps
+
+
+
+
+
+
+4.4.1 ---> a refaire <------
+-----------
+
+creation du fichier init.var
+
+
+
+
+chown atlas:atlas init_vars
+
+
+modifi du profile atlas selon la preprod senegale PARVA4014152
+
+
+# Definition des variables et alias utilises par ATLAS2, UNIKIX
+[[ -a $A2_BNP/exploit/profiles/profileA2.parva4014152 ]] &&
+  . $A2_BNP/exploit/profiles/profileA2.parva4014152
+
+
+exploit/profiles/profileA2.parva4020780
+
+/apps/exploit/profiles/initenv/init_env_atlas_uf1
+
+
+
+
+
+
+--------installation outil java--------------
+
+cd /
+
+root@parva4020781: / # .//usr/bin/gtar xvzf /ficsav/EQUIPE_MEO/STEVE/ljdk.tar.Z
+
+-----------------------------------------------------------------------------------------------------------
+copie init_vars sur atldsi
+
+init_vars
+cp -p  init_vars /apps
+mkuser atlas
+
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # mkgroup  -A users='atlas' a2instal
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # mkgroup  -A users='atlas atlas
+>
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # mkgroup  -A users='atlas' atlas
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE #
+
+ajout au group oracle
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # id atlas
+uid=203(atlas) gid=1(staff) groups=300(dba),202(a2instal),203(atlas),206(conv)
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE #
+
+-----------------------FS à creer -----------------------
+---->A2_BNP=/apps
+---->$A2_UNIX=/apps/exploit -->3G
+
+---> $A2_OUTILS =/apps/exploit/outils
+
+-->$A2_OUTILSORA =/apps/exploit/outilsora
+--->$A2I_REP=/apps/amelia -->6G
+--> $A2_EXPLOIT=/apps/exploit/exploitv3
+
+
+
+mklv -y lv_meo -t jfs2 -x 1024 vg_data 3G
+
+
+
+
+
+
+
+
+----------------
+
+cd /apps/cobol
+mkdir  sx5.1
+
+
+mklv -y lv_cobol -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -t no
+
+
+
+INSTALLATION COBOL
+
+
+cd  /apps/cobol/sx5.1
+
+
+/usr/bin/gtar xvzf /ficsav/EQUIPE_MEO/STEVE/cobsx51.tar.Z
+
+
+ A2_PRODUITS=/apps
+
+verifier
+echo $ORACLE_HOME/bin/rtsora
+
+/bin/rtsora
+
+
+ajout de la ligne  dans /etc/inittab
+ipcmf:2345:wait:$A2_UNIX/outils/jserex >/dev/null 2>&1
+dans /etc/inittab avant   rctcpip:23456789:wait:/etc/rc.tcpip > /dev/console 2>&1 # Start TCP/IP daemons
+
+
+cd /apps/cobol/sx5.1
+
+
+/usr/local/bin/gtar xvzf /ficsav/EQUIPE_MEO/STEVE/cobsx51.tar.Z
+
+
+cd  /apps/cobol/sx5.1/bin
+
+root@parva4020781: /apps/cobol/sx5.1/bin # echo $A2_PRODUITS
+/apps
+
+
+
+root@parva4018768: /apps/cobol/sx5.1/bin # rm rtsora
+root@parva4018768: /apps/cobol/sx5.1/bin # ln -fs rtsstd rtsora
+
+
+
+export COBDIR=$A2_PRODUITS/cobol/sx5.1
+export LIBPATH=$COBDIR/lib:$LIBPATH
+export COBCONFIG=$COBDIR/lib/ATKXCOBCONFIG 
+export COBTERMINFO=$COBDIR/terminfo
+export PATH=$COBDIR/bin:$PATH
+
+
+/apps/cobol/sx5.1
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $LIBPATH
+/apps/cobol/sx5.1/lib:
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $COBCONFIG
+/apps/cobol/sx5.1/lib/ATKXCOBCONFIG
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $COBTERMINFO
+/apps/cobol/sx5.1/terminfo
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $PATH
+
+
+
+
+
+vi DEVASSHARE
+
+
+
+root@parva4018768: /apps/cobol/sx5.1 # chmod 777 DEVASSHARE
+
+root@parva4018768: /apps/cobol/sx5.1 # echo $COBDIR
+/apps/cobol/sx5.1
+
+
+ARRET serveur de licence
+
+cd $COBDIR/lmf 
+
+root@parva4018768: /apps/cobol/sx5.1/lmf # ./lmfgetpv k
+License Manager is not running
+root@parva4018768: /apps/cobol/sx5.1/lmf #
+
+./lmfinstall
+------------------
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/usr/lib/mflmf 
+
+
+**************ERRORRRRRR*****************
+root@parva4018768: /apps/cobol/sx5.1/lmf # ./lmfinstall
+
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/apps/cobol/sx5.1
+tar: ./bin/cobgetmsg: file changed size
+tar: ./lib/libcobcrtn.2.so: file changed size
+tar: ./lib/libcobcrtn64.2.so: file changed size
+tar: ./lib/libcobrts.2.so: file changed size
+tar: ./lib/libcobrts64.2.so: file changed size
+tar: ./lib/libcobscreen.2.so: file changed size
+tar: ./lib/libcobscreen64.2.so: file changed size
+Could not load program ./bin/rts32:
+        Dependent module /apps/cobol/sx5.1/lmf/lib/libcobrts.2.so could not be loaded.
+        The l_nimpid field in the .loader section header is not positive.
+Examine the .loader section header with the 'dump -Hv' command.
+Do you want only superuser to be able to access the License Admin System? (y/n)
+
+
+
+
+*******************CORRECT*******************
+LMF installation complete
+
+/usr/lib/mflmf
+/usr/lib/mflmf does not exist
+do you wish to create it ? (y/n)
+y
+Empty database created ok
+Do you want only superuser to be able to access the License Admin System? (y/n)
+y
+It is recommended that you let license manager autostart at boot time
+Do you want license manager to be automatically started at boot time? (y/n)
+y
+LMF installation complete
+
+
+
+
+
+
+root@parva4020781: /apps/cobol/sx5.1/lmf # ./mflmman
+MF-LMF:Fri Nov 16 12:17:25 2012: LMF Starting
+MF-LMF:Fri Nov 16 12:17:25 2012: Unable to open License Key database
+MF-LMF:Fri Nov 16 12:17:25 2012: LMF Closing Down
+root@parva4020781: /apps/cobol/sx5.1/lmf #
+
+---------------------------------------------------
+
+
+
+export TERM=ansi
+
+TERM=xterm
+
+License installed ok
+
+./mflmadm
+2012/11/16 12:23:27  Summary of AS Licenses Installed, In System  and In Use:
+-----------------------------------------------------------------------------
+   Installed   Sys   In Use
+   ---------   ---   ------
+/apps/cobol/sx5.1
+    Unlim        0       0             Server Express 32-bit    (Model 2)
+
+
+Continue...
+
+-----------------------------------------------------------
+INSTALLATION TERMINEE
+----------------------------------------
+
+
+
+
+
+root@parva4018768: / #
+
+root@parva4018768: / # chdev -l sys0 -a maxuproc='16384'
+sys0 changed
+
+
+fsize=-1 cpu=-1 data=-1 stack=65536 core=2097151 rss=-1 nofiles=-1 nproc=-1 fsize_hard=-1 
+cpu_hard=-1 stack_hard=-1 rss_hard=-1 nofiles_hard=-1 nproc_hard=-1 roles=
+
+df -g /tmp
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/hd3           1.00      0.94    6%      384     1% /tmp
+root@parva4018768: / #
+
+
+
+----------
+
+  ;;
+esac
+done
+else
+  export ORACLE_HOME=$A2_PRODUITS/oracle/product/$VERS
+  export AIXTHREAD_SCOPE=S
+fi
+
+
+
+
+
+ 
+ 
+
+
+
+---------------------------IL FAUT VERIFIER QUE LES LANGUES CI-DESSOUS SONT BIEN INSTALLEES SUR LE SERVEUR
+locale -a
+
+root@parva4017158:/apps/o400c4_ctx4$ locale -a
+C
+POSIX
+en_US.8859-15
+en_US.ISO8859-1
+en_US
+fr_FR.8859-15@euro
+fr_FR.8859-15@preeuro
+fr_FR.8859-15
+fr_FR.IBM-1252@euro
+fr_FR.IBM-1252@preeuro
+fr_FR.IBM-1252
+fr_FR.ISO8859-1
+fr_FR
+
+---------------------------------INSTALL Synsort-----------------
+
+

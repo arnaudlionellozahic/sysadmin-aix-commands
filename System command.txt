@@ -1,0 +1,37 @@
+Agrandir les lignes de visulation sur putty:
+export COLUMNS=3000
+export LINES=600
+
+
+
+AIX:
+vmstat 2
+bindprocessor -q
+lparstat
+lsconf
+powermt display dev=all (pour afficher la liste des ressources)
+
+Solaris:
+zoneadm à faire man
+ps averc option grand Z voir man
+ps -ef | grep zsched | grep -v grep (si cela répond ces une zone local)
+
+
+Linux:
+Avec top pour voir plus de cpu taper top puis (shift+1)
+pour voir architecture en 32/64: rpm -q --qf "%{ARCH}\n" nom_du_paquet
+mount -o remount,exec /tmp
+strace
+lvextend -L +2G /dev/mapper/vg_wae-lvWAE2PRXd0001
+resize2fs /dev/mapper/vg_wae-lvWAE2PRXd0001
+
+Voir le détail d’un compte linux (expiration)
+chage -l root
+
+Pour faire en sorte que le mot de passe root n’expire jamais :
+chage -m 0 -M 99999 -I -1 -E -1 root
+
+
+root@parvl9011657:/var/log# pam_tally --file=/var/log/tallylog --user l255677 --reset
+
+

@@ -1,0 +1,46 @@
+Bonjour
+
+Est ce que ces bases  ont été déplacée depuis le serveur PARVA4002348 ? 
+
+Je n'arrive pas à me  connecter au serveur  s00va9930231 . Est ce que les accès SAAM ont été demandés ? 
+
+
+Cordialement 
+
+
+
+Je ne vois pas de problème au niveau des tables de la base IAM1MAP0
+
+Par contre on a 2 index à réorganiser au minimum. 
+OWNER	INDEX_NAME	TABLE_NAME	BLEVEL
+ONM_INFOC	X01DZ2A	TDZ2A	4
+ONM_INFOCDR	X01DZ2A	TDZ2A	4
+
+
+
+
+J'ai d'autres questions : 
+
+
+Depuis quelle date vous avez constaté ces pertes de performance ? 
+Est ce que cela à à voir avec la migration en 11 g ? 
+
+Est ce que les dates ci-dessous correspondent aux lenteurs dont vous avez parlé sur la base IAM1MFP0 ? 
+
+Le 3/8/2014 de 18h à 20 h 
+Le 30/7/2014 à 11h 
+La journée du 25/7 à parir de 9 h .
+
+Quels sont les schémas impactés par ces pertes de performance ?  (  ) 
+
+
+Il y a t'il un lien entre les bases  IAM1MFP0 et IAM1MAP0 , ou sont elles totalement indépendantes ? 
+
+
+J'ai noté au passage que : 
+Le paramètre oracle Compatible est à 10.2 alors que la base est en version 11.2
+Les Redologs sont taillés à 200 Mo , il y a beaucoup trop de switchs plus de 300 sur certains jours. 
+
+
+
+Commentaire de réalisation : tuning sur la base IAM1MFP0 voir infos partagées

@@ -1,0 +1,8 @@
+gtar xvzf /apps/Rennes/reserve_extvgsd1/RehearsalFATCA_AMADOU/apres/FIC1.517Go.20150206.020221.tar.Z --exclude '*016_ELRE_2*.txt*' 
+
+--exclude '*/ficsav*' --exclude '*APR_PJR??804-41919-RE*' --exclude '*/PASS*' --exclude '*/SDD*'
+
+
+gtar xvzf /apps/Rennes/reserve_extvgsd1/RehearsalFATCA_AMADOU/apres/FIC2.517Go.20150206.020221.tar.Z --exclude '*016_ELRE_2*.txt*' 
+
+--exclude '*/ficsav*' --exclude '*APR_PJR??804-41919-RE*' --exclude '*/PASS*' --exclude '*/SDD*'

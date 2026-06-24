@@ -1,0 +1,973 @@
+
+
+---------------------- FS créer --------
+
+
+
+mklv -y lv_oracle -t jfs2 -x 1024 vg_data 7G
+
+crfs -v jfs2 -d lv_oracle   -m /apps/oracle -A yes -p rw -t no && mount  /apps/oracle
+
+
+
+
+mklv -y lv_oracle11 -t jfs2 -x 1024 vg_data 15G
+
+crfs -v jfs2 -d lv_oracle11   -m /apps/oracle/product/1120 -A yes -p rw -t no && mount /apps/oracle/product/1120
+
+
+mklv -y lv_oraclework -t jfs2 -x 1024 vg_data 13G
+
+crfs -v jfs2 -d lv_oraclework   -m /apps/work/ora_1120  -A yes -p rw -t no && mount /apps/work/ora_1120 
+
+
+mklv -y lv_meo -t jfs2 -x 1024 vg_data 15G
+
+
+crfs -v jfs2 -d lv_meo   -m /ficsav/EQUIPE_MEO  -A yes -p rw -t no && mount /ficsav/EQUIPE_MEO
+
+
+mklv -y lv_amelia -t jfs2 -x 1024 vg_data 6G
+
+crfs -v jfs2 -d lv_amelia  -m /apps/amelia -A yes -p rw -t no
+
+
+mklv -y lv_carto -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_carto  -m /apps/carto_data -A yes -p rw -t no && mount /apps/carto_data
+
+
+
+
+mklv -y lv_ameliap -t jfs2 -x 1024 vg_data 7G
+
+crfs -v jfs2 -d lv_ameliap  -m /apps/matl/packages -A yes -p rw -t no && mount /apps/matl/packages
+
+
+
+mklv -y lv_express -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_express -m /apps/dmexpress/ -A yes -p rw -t no
+
+
+mklv -y lv_cobol -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -t no
+
+mklv -y lv_oraclient -t jfs2 -x 1024 vg_data 15G
+
+crfs -v jfs2 -d lv_oraclient -m /apps/oracle/product/1120cli32 -A yes -p rw -t no && mount /apps/oracle/product/1120cli32
+
+
+mklv -y lv_oradbfbck -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_oradbfbck  -m /apps/oradbf/backup -A yes -p rw -t no && mount /apps/oradbf/backup
+
+
+mklv -y lv_exploit -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_exploit  -m /apps/exploit -A yes -p rw -t no && mount /apps/exploit
+
+
+
+/apps/exploit
+
+mkuser  id=300 groups='dba' oracle
+
+chown oracle:dba /apps/oracle/product/1120cli32
+
+chmod 775 /apps/oracle/product/1120cli32
+
+
+chmod a-s /apps/oracle/product/1120cli32
+
+chmod a-s $A2_PRODUITS/oradbf/backup
+
+
+------------------------------------preparation de l'environnement atlas -----------------------------------
+
+ verification :
+
+root@parva4020780: /apps/amelia # grep dhcpcd /etc/rc.tcpip
+# Begin: dhcpcd_IF_check
+dhcpcd_IF_check()
+                         status=`lssrc -ls dhcpcd`
+# Start up dhcpcd daemon
+#start /usr/sbin/dhcpcd "$src_running"
+dhcpcd_IF_check "$src_running"
+
+
+excution des commandes unix avec un nombre d'argument étendu
+
+
+Chdev –l sys0 –a ncargs=128
+
+
+ajout ligne dans /etc/environment
+
+
+################## Environnement ATLAS II ######################
+A2_BNP=/apps
+A2_PRODUITS=/apps
+A2_UNIX=$A2_BNP/exploit
+###############################################################
+
+
+
+controle des drivers d'imprimantes
+
+
+
+lslpp –l all | grep printer
+
+
+
+------------- installation amelia----------------
+
+cd /apps/exploit
+
+mkdir -p outils exploitv3 profiles
+
+root@parva4020780: /apps/exploit # mkdir -p work tng outilsora dwhtoolsunl outilsite schemabase
+root@parva4020780: /apps/exploit # chfs -a size=+5G /apps/exploit
+
+
+------> creation des users-----------
+
+ mkuser id=501 atlas
+ mkuser id=502 conv
+
+mkgroup -A users='atlas,conv' id=262 a2instal
+
+mkgroup -A users='atlas,conv' id=503 atlas
+
+ chgrp -R a2instal carto
+
+chmod –R g+rwx  carto
+
+
+4.4.1 ---> a refaire <------
+-----------
+
+creation du fichier init.var
+
+
+
+
+chown atlas:atlas init_vars
+
+
+modifi du profile atlas selon la preprod senegale PARVA4014152
+
+
+# Definition des variables et alias utilises par ATLAS2, UNIKIX
+[[ -a $A2_BNP/exploit/profiles/profileA2.parva4014152 ]] &&
+  . $A2_BNP/exploit/profiles/profileA2.parva4014152
+
+
+exploit/profiles/profileA2.parva4020780
+
+/apps/exploit/profiles/initenv/init_env_atlas_uf1
+
+
+
+--------------installation amelia  -----------
+
+tar xvf /ficsav/EQUIPE_MEO/STEVE/amelia_1.5.6.tar
+
+
+...skipping...
+#        affmsg
+#        func_menu
+#        time_start
+#        time_stop
+#        version
+#</PROG_ASSOC>
+
+
+
+--------installation outil java--------------
+
+
+
+-----------------------------------------------------------------------------------------------------------
+copie init_vars sur atldsi
+
+init_vars
+cp -p  init_vars /apps
+mkuser atlas
+
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # mkgroup  -A users='atlas' a2instal
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # mkgroup  -A users='atlas atlas
+>
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # mkgroup  -A users='atlas' atlas
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE #
+
+ajout au group oracle
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # id atlas
+uid=203(atlas) gid=1(staff) groups=300(dba),202(a2instal),203(atlas),206(conv)
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE #
+
+-----------------------FS à creer -----------------------
+---->A2_BNP=/apps
+---->$A2_UNIX=/apps/exploit -->3G
+
+---> $A2_OUTILS =/apps/exploit/outils
+
+-->$A2_OUTILSORA =/apps/exploit/outilsora
+--->$A2I_REP=/apps/amelia -->6G
+--> $A2_EXPLOIT=/apps/exploit/exploitv3
+
+
+
+mklv -y lv_meo -t jfs2 -x 1024 vg_data 3G
+
+
+/ficsav/EQUIPE_MEO
+4) creer filesystem
+
+crfs -v jfs2 -d lv_exploit  -m /apps/exploit -A yes -p rw -t no
+
+5) monter le systeme
+
+mklv -y lv_amelia -t jfs2 -x 1024 vg_data 6G
+
+crfs -v jfs2 -d lv_amelia  -m /apps/amelia -A yes -p rw -t no
+
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # chown atlas:atlas /apps/amelia
+
+
+ mkdir -p data log sessions outils sh config msg
+ 
+ chown conv:a2instal *
+
+root@parva4018768: /ficsav/EQUIPE_MEO/STEVE # chown atlas:atlas /apps/exploit
+
+creation des sous rep d'exploit
+
+mkdir -p outils exploitv3 profiles
+
+mklv -y lv_carto -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_carto  -m /apps/carto_data -A yes -p rw -t no
+/apps/carto_data
+
+$ cd /apps/carto_data
+$ ls -ltr
+total 0
+drwxr-xr-x    2 root     system          256 Aug 28 16:39 lost+found
+drwxr-xr-x    2 conv     a2instal        256 Aug 28 16:43 work
+drwxr-xr-x    2 conv     a2instal        256 Aug 28 16:43 ref
+$
+
+
+mkdir -p outils exploitv3 profiles
+
+mklv -y lv_ameliap -t jfs2 -x 1024 vg_data 7G
+
+crfs -v jfs2 -d lv_ameliap  -m /apps/matl/packages -A yes -p rw -t no
+
+
+
+/apps/matl/packages
+
+
+
+root@parva4018768: /apps/amelia # cp $A2I_REP/config/param.hostname $A2I_REP/config/param.$(uname -n)
+
+root@parva4020780: /apps/amelia # tail ../init_vars
+export A2I_REP=$A2_BNP/amelia
+export A2I_LOG=$A2I_REP/log
+export PATH=$PATH:$A2I_REP/outils
+export A2I_REP_SESSIONS=$A2I_REP/sessions
+export A2_PACKAGES=$A2_BNP/matl/packages
+ 
+export PATH=$A2I_REP/outils:$PATH
+
+nohup $A2I_REP/sh/a2instd
+
+root@parva4020780: /apps/amelia/sh # ./controle_a2instd
+L'automate d'installation (Amelia) est démarré.
+
+root@parva4020780: /apps/amelia/sh # ps -ef |grep amelia
+    root 17039428        1   0 16:01:44  pts/2  0:00 /usr/bin/ksh /apps/amelia/sh/a2instd
+
+
+/apps/amelia/outils/a2interf_env[157]: crelance_tech:  not found
+lance_tech_19071138_uf1
+a2interf -i 00013062 -B -L lance_tech_19071138_uf1
+Version of Amelia : V01.5.6 / GDI Number : 127137 / Delivery : 00005159
+
+
+Installation realisee en tant que user atlas (uid 501)
+User attribué aux fichiers
+
+
+
+
+export AVEC_AUTO=1
+
+LAUNCHER_NAME=$$ crelance_tech
+launcher_name=lance_tech_"$$"_""${A2_ENV}
+
+echo "$launcher_name"
+echo "a2interf $sav_args -L $launcher_name"
+a2interf $sav_args -L $launcher_name
+
+
+
+-------------------------------------------------------------
+
+mklv -y lv_express -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_express -m /apps/dmexpress/ -A yes -p rw -t no
+
+/apps/dmexpress/6.9 
+
+
+----------------
+
+/apps/cobol
+
+
+mklv -y lv_cobol -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -t no
+
+_________________
+
+
+/apps/matl/packages
+$ tar xvf 00013062.tar
+x 00013062
+
+$ a2interf_env -i 00013062 -B
+Version of Amelia : V01.5.5 / GDI Number : 118953 / Delivery : 00003229
+/apps/amelia/outils/a2interf_env[157]: crelance_tech:  not found
+lance_tech_19529824_
+a2interf -i 00013062 -B -L lance_tech_19529824_
+Version of Amelia : V01.5.6 / GDI Number : 127137 / Delivery : 00005159
+
+
+#############################################
+PAS BESOIN D INSTALLER AMELIA MACHINE  DE DEV
+##############################################
+------------------------------------
+
+INSTALLATION COBOL
+
+
+cd  /apps/cobol/
+
+
+mkdir  sx5.1
+ A2_PRODUITS=/apps
+
+verifier
+echo $ORACLE_HOME/bin/rtsora
+
+/bin/rtsora
+
+
+ajout de la ligne  dans /etc/inittab
+ipcmf:2345:wait:$A2_UNIX/outils/jserex >/dev/null 2>&1
+dans /etc/inittab avant   rctcpip:23456789:wait:/etc/rc.tcpip > /dev/console 2>&1 # Start TCP/IP daemons
+
+
+cd /apps/cobol/sx5.1
+
+
+/usr/local/bin/gtar xvzf /ficsav/EQUIPE_MEO/STEVE/cobsx51.tar.Z
+
+
+cd  /apps/cobol/sx5.1/bin
+
+
+root@parva4018768: /apps/cobol/sx5.1/bin # rm rtsora
+root@parva4018768: /apps/cobol/sx5.1/bin # ln -fs rtsstd rtsora
+
+
+
+export COBDIR=$A2_PRODUITS/cobol/sx5.1
+export LIBPATH=$COBDIR/lib:$LIBPATH
+export COBCONFIG=$COBDIR/lib/ATKXCOBCONFIG 
+export COBTERMINFO=$COBDIR/terminfo
+export PATH=$COBDIR/bin:$PATH
+
+
+/apps/cobol/sx5.1
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $LIBPATH
+/apps/cobol/sx5.1/lib:
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $COBCONFIG
+/apps/cobol/sx5.1/lib/ATKXCOBCONFIG
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $COBTERMINFO
+/apps/cobol/sx5.1/terminfo
+root@parva4020780: /apps/cobol/sx5.1/bin # echo $PATH
+
+
+
+
+
+vi DEVASSHARE
+
+
+
+root@parva4018768: /apps/cobol/sx5.1 # chmod 777 DEVASSHARE
+
+root@parva4018768: /apps/cobol/sx5.1 # echo $COBDIR
+/apps/cobol/sx5.1
+
+
+ARRET serveur de licence
+
+cd $COBDIR/lmf 
+
+root@parva4018768: /apps/cobol/sx5.1/lmf # ./lmfgetpv k
+License Manager is not running
+root@parva4018768: /apps/cobol/sx5.1/lmf #
+
+./lmfinstall
+------------------
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/usr/lib/mflmf 
+
+
+**************ERRORRRRRR*****************
+root@parva4018768: /apps/cobol/sx5.1/lmf # ./lmfinstall
+
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/apps/cobol/sx5.1
+tar: ./bin/cobgetmsg: file changed size
+tar: ./lib/libcobcrtn.2.so: file changed size
+tar: ./lib/libcobcrtn64.2.so: file changed size
+tar: ./lib/libcobrts.2.so: file changed size
+tar: ./lib/libcobrts64.2.so: file changed size
+tar: ./lib/libcobscreen.2.so: file changed size
+tar: ./lib/libcobscreen64.2.so: file changed size
+Could not load program ./bin/rts32:
+        Dependent module /apps/cobol/sx5.1/lmf/lib/libcobrts.2.so could not be loaded.
+        The l_nimpid field in the .loader section header is not positive.
+Examine the .loader section header with the 'dump -Hv' command.
+Do you want only superuser to be able to access the License Admin System? (y/n)
+
+
+
+
+*******************CORRECT*******************
+LMF installation complete
+
+
+root@parva4018768: /apps/cobol/sx5.1/lmf # ./lmfinstall
+
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/usr/lib/mflmf
+Empty database created ok
+Do you want only superuser to be able to access the License Admin System? (y/n)
+y
+It is recommended that you let license manager autostart at boot time
+Do you want license manager to be automatically started at boot time? (y/n)
+y
+LMF installation complete
+
+**************************
+
+
+
+
+root@parva4020780: /usr/lib/mflmf # ./mflmman
+Could not load program ./mflm_manager:
+        Dependent module /usr/lib/mflmf/lib/libcobrts.2.so could not be loaded.
+        The l_nimpid field in the .loader section header is not positive.
+Examine the .loader section header with the 'dump -Hv' command.
+---------------------------------------------------
+
+root@parva4018768: /apps/cobol/sx5.1/lmf # cd /usr/lib/mflmf
+root@parva4018768: /usr/lib/mflmf # ./mflmman
+MF-LMF:Wed Aug 29 12:23:38 2012: LMF Starting
+root@parva4018768: /usr/lib/mflmf #
+
+export TERM=ansi
+
+TERM=xterm
+
+License installed ok
+
+2012/08/29 16:46:15  Summary of AS Licenses Installed, In System  and In Use:
+-----------------------------------------------------------------------------
+   Installed   Sys   In Use
+   ---------   ---   ------
+
+/apps/cobol/sx5.1
+    Unlim        0       0             Server Express 64-bit    (Model 2)
+
+Continue...
+
+-----------------------------------------------------------
+INSTALLATION TERMINEE
+----------------------------------------
+****************************************INSTALLATION ORACLE *****************************
+-->>>>>verification pre-requis -----------------
+
+
+root> lppchk –v
+
+
+
+root@parva4018768: / # lslpp -l bos.adt.base
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.base              6.1.6.16  COMMITTED  Base Application Development
+                                                 Toolkit
+
+Path: /etc/objrepos
+  bos.adt.base              6.1.6.16  COMMITTED  Base Application Development
+                                                 Toolkit
+root@parva4018768: / # lslpp -l bos.adt.base
+root@parva4018768: / # lslpp -l bos.adt.lib
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.lib                6.1.2.0  COMMITTED  Base Application Development
+                                                 Libraries
+root@parva4018768: / # lslpp -l bos.adt.libm
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.libm               6.1.6.0  COMMITTED  Base Application Development
+                                                 Math Library
+root@parva4018768: / # lslpp -l bos.perf.libperfstat
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.libperfstat      6.1.6.16  COMMITTED  Performance Statistics Library
+                                                 Interface
+
+Path: /etc/objrepos
+  bos.perf.libperfstat      6.1.6.16  COMMITTED  Performance Statistics Library
+                                                 Interface
+root@parva4018768: / # lslpp -l bos.perf.perfstat
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.perfstat         6.1.6.16  COMMITTED  Performance Statistics
+                                                 Interface
+
+Path: /etc/objrepos
+  bos.perf.perfstat          6.1.0.0  COMMITTED  Performance Statistics
+                                                 Interface
+root@parva4018768: / # lslpp -l bos.perf.proctools
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.proctools        6.1.6.16  COMMITTED  Proc Filesystem Tools
+root@parva4018768: / # lslpp -l bos.rte
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.rte                   6.1.6.15  COMMITTED  Base Operating System Runtime
+
+Path: /etc/objrepos
+  bos.rte                   6.1.6.15  COMMITTED  Base Operating System Runtime
+root@parva4018768: / # lslpp -l xlC.aix61.rte
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  xlC.aix61.rte             11.1.0.1  COMMITTED  XL C/C++ Runtime for AIX 6.1
+----------------
+
+root@parva4018768: / # /usr/sbin/instfix -i -k IZ52319
+    All filesets for IZ52319 were found.
+root@parva4018768: / #
+
+POUR  AIX61 TL2
+root@parva4018768: / # instfix -i -k IZ41855
+    All filesets for IZ41855 were found.
+	
+	
+	POUR  AIX61 TL3
+	
+	root@parva4018768: / # instfix -i -k IZ51456
+    There was no data for IZ51456 in the fix database.
+	
+	-------
+------------------version aix 64 bits----------------
+
+root@parva4018768: / # /usr/bin/getconf HARDWARE_BITMODE
+64
+root@parva4018768: / # /usr/bin/getconf KERNEL_BITMODE
+64
+root@parva4018768: / # bootinfo -K
+64
+root@parva4018768: / #
+
+-----------------verification de la memoire
+
+/usr/sbin/lsattr -E -l sys0 -a realmem
+
+root@parva4018768: / # /usr/sbin/lsattr -E -l sys0 -a realmem
+realmem 4194304 Amount of usable physical memory in Kbytes False
+root@parva4018768: / #
+
+/usr/sbin/lsps –a
+
+root@parva4018768: / # /usr/sbin/lsps -a
+Page Space      Physical Volume   Volume Group    Size %Used Active Auto  Type Chksum
+hd6             hdisk0            rootvg        4096MB     1   yes   yes    lv     0
+root@parva4018768: / #
+
+-------------verification des autres pre-requis
+
+Si la valeur affichée est inférieure à 65536 , la modifier 
+		root> ioo -p -o aio_maxreqs=65536
+		
+		root@parva4018768: / # ioo -o aio_maxreqs
+aio_maxreqs = 65536
+root@parva4018768: / #
+
+root> lsattr -E -l sys0 -a maxuproc
+
+	Si la valeur affichée est inférieure à 16384, la modifier .
+		root> chdev -l sys0 -a maxuproc='16384' 
+		
+		root@parva4018768: / # lsattr -E -l sys0 -a maxuproc
+maxuproc 6144 Maximum number of PROCESSES allowed per user True
+root@parva4018768: / #
+
+root@parva4018768: / # chdev -l sys0 -a maxuproc='16384'
+sys0 changed
+
+root@parva4018768: / # lsattr -E -l sys0 -a maxuproc
+maxuproc 16384 Maximum number of PROCESSES allowed per user True
+root@parva4018768: / #
+
+oot@parva4018768: / # lsattr -E -l sys0 -a ncargs
+ncargs 256 ARG/ENV list size in 4K byte blocks True
+root@parva4018768: / #
+
+
+root> lsgroup dba
+Valeurs importantes sur la sortie de cette commande :
+dba id=300
+
+------------
+lsuser oracle
+oracle id=300 pgrp=dba groups=dba,system home=/apps/oracle shell=/usr/bin/ksh 
+gecos=Administrateur Oracle login=true su=true rlogin=true daemon=true admin=false 
+sugroups=ALL admgroups= tpath=nosak ttys=ALL expires=0 auth1=SYSTEM auth2=NONE 
+umask=22 registry=files SYSTEM=compat logintimes= loginretries=0 pwdwarntime=0 
+account_locked=false minage=0 maxage=13 maxexpired=-1 minalpha=2 minother=1 mindiff=3 
+maxrepeats=8 minlen=8 histexpire=0 histsize=4 pwdchecks= dictionlist= default_roles= 
+fsize=-1 cpu=-1 data=-1 stack=65536 core=2097151 rss=-1 nofiles=-1 nproc=-1 fsize_hard=-1 
+cpu_hard=-1 stack_hard=-1 rss_hard=-1 nofiles_hard=-1 nproc_hard=-1 roles=
+
+df -g /tmp
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/hd3           1.00      0.94    6%      384     1% /tmp
+root@parva4018768: / #
+
+
+creer FS oracle
+
+
+mklv -y lv_oracle -t jfs2 -x 1024 vg_data 7G
+
+crfs -v jfs2 -d lv_oracle   -m /apps/oracle -A yes -p rw -t no
+
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/lv_oracle      7.00      7.00    1%        4     1% /apps/oracle
+
+
+mklv -y lv_oracle11 -t jfs2 -x 1024 vg_data 15G
+
+crfs -v jfs2 -d lv_oracle11   -m /apps/oracle/product/1120 -A yes -p rw -t no && mount /apps/oracle/product/1120
+
+
+mklv -y lv_oraclework -t jfs2 -x 1024 vg_data 13G
+
+crfs -v jfs2 -d lv_oraclework   -m /apps/work/ora_1120  -A yes -p rw -t no && mount /apps/work/ora_1120 
+
+----------
+a faire
+
+
+2	TACHES PRELIMINAIRES
+2.1	Profile du compte oracle
+
+------------------ nouveau .profile oracle ----------------
+
+
+
+export VERS=1120
+if tty -s ; then
+PS3="Choisir l'environnement souhaite..."
+select choix in "Sortie" "Oracle 11.2.0.2" "Oracle 11.2.0.2 cli32"
+do
+   case $choix in
+ "Sortie")
+  exit
+  ;;
+"Oracle 11.2.0.2")
+  export ORACLE_HOME=$A2_PRODUITS/oracle/product/1120
+  export AIXTHREAD_SCOPE=S
+  break
+  ;;
+ "Oracle 11.2.0.2 cli32")
+  export ORACLE_HOME=$A2_PRODUITS/oracle/product/1120cli32
+  export AIXTHREAD_SCOPE=S
+  break
+  ;;
+*)
+echo "choix incorrect"
+  ;;
+esac
+done
+else
+  export ORACLE_HOME=$A2_PRODUITS/oracle/product/$VERS
+  export AIXTHREAD_SCOPE=S
+fi
+
+export PATH=$ORACLE_HOME/bin:$ORACLE_HOME/oui/bin:/usr/lbin:$PATH:.
+export ORACLE_DOC=$ORACLE_HOME/doc
+export ORACLE_BASE=$A2_PRODUITS/oracle
+export LIBPATH=$ORACLE_HOME/lib:$ORACLE_HOME/precomp/public
+export TMPDIR=/tmp
+export TNS_ADMIN=$A2_PRODUITS/oracle/network/admin
+umask 022
+#pour partager kes librairies au link d'un programme C
+export ORA_CLIENT_LIB=shared
+export HOST=`hostname`
+PS1="$LOGNAME@$HOST:\$ORACLE_SID:$VERSION_ORACLE:\$PWD/ "
+export PS1='[$LOGNAME$VERSION_ORACLE@$HOST|$ORACLE_SID]${PWD##}> '
+export NLS_LANG=AMERICAN_AMERICA.WE8ISO8859P1
+export PATH=$PATH:$A2_BNP/exploit/outilsora:$A2_BNP/exploit/outils
+export NLSPATH=$NLSPATH:$A2_BNP/exploit/msg/%L/%N:$A2_BNP/exploit/msg/%L/%N.cat
+export LC_MESSAGES=fr_FR
+
+---------------------------
+
+root@parva4018768: /apps/oracle # su - oracle
+1) Sortie
+2) Oracle 11.2.0.2
+3) Oracle 11.2.0.2 cli32
+Choisir l'environnement souhaite...
+
+
+root@parva4018768: / # chown -R oracle:dba  /apps/oracle/product/1120
+chmod 775 /apps/oracle/product/1120
+chmod a-s /apps/oracle/product/1120
+
+
+
+mklv -y lv_oradbf -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_oradbf   -m /apps/oradbf -A yes -p rw -t no && mount /apps/oradbf
+
+
+root@parva4018768: / # chown oracle:dba /apps/oradbf
+root@parva4018768: / # chmod 775 /apps/oradbf
+
+
+mklv -y lv_oradbfbck -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_oradbfbck  -m /apps/oradbf/backup -A yes -p rw -t no && mount /apps/oradbf/backup
+
+
+root@parva4018768: / # chown oracle:dba /apps/oradbf/backup
+root@parva4018768: / # chmod 775 /apps/oradbf/backup
+
+-----------
+
+
+ /usr/local/bin/gtar xvzf /ficsav/EQUIPE_MEO/STEVE/oracle_11202.tar.Z
+
+
+ root@parva4018768: /apps/work/ora_1120 # tar xvf stage.tar
+ 
+ cd  stage
+ ./rootpre.sh | tee -a sc.log
+ 
+ 
+ root@parva4018768: /apps/work/ora_1120/stage # ./rootpre.sh | tee -a sc.log
+./rootpre.sh output will be logged in /tmp/rootpre.out_12-08-30.10:53:58
+
+Checking if group services should be configured....
+Nothing to configure.
+
+cd /tmp
+cat rootpre.out_12-08-30.10:53:58
+
+
+root@parva4018768: /tmp # ls -ltd /etc/oraInst.loc
+-rwxr-xr-x    1 root     system           55 Jul  3 15:29 /etc/oraInst.loc
+root@parva4018768: /tmp # chown oracle:dba /etc/oraInst.loc
+root@parva4018768: /tmp # ls -ltd /etc/oraInst.loc
+-rwxr-xr-x    1 oracle   dba              55 Jul  3 15:29 /etc/oraInst.loc
+root@parva4018768: /tmp #
+
+ 
+ root@parva4018768: /apps/work/ora_1120/stage # umask
+022
+
+
+
+
+./runInstaller -executePrereqs -silent waitforcompletion -responseFile $PWD/response/db_install.rsp
+
+
+Your platform requires the root user to perform certain pre-installation
+OS preparation.  The root user should run the shell script 'rootpre.sh' before
+you proceed with Oracle installation.  rootpre.sh can be found at the top level
+of the CD or the stage area.
+
+Answer 'y' if root has run 'rootpre.sh' so you can proceed with Oracle
+installation.
+Answer 'n' to abort installation and then ask root to run 'rootpre.sh'.
+
+********************************************************************************
+
+Has 'rootpre.sh' been run by root? [y/n] (n)
+y
+
+
+The user is root. Oracle Universal Installer cannot continue installation if the user is root.
+: No such file or directory
+
+su - oracle
+
+
+ cd /apps/work/ora_1120/stage
+ 
+ 
+ log --
+ cd 
+ /tmp/OraInstall2012-08-30_11-27-31AM
+ installActions2012-08-30_11-27-31AM.log
+ 
+ cd /apps/oracle/product/1120
+ 
+ tar xvf /apps/work/ora_1120/master1120serveur64.tar
+ 
+ 
+ cd /apps/oracle/product/1120/clone/bin
+ 
+ 
+ perl clone.pl ORACLE_HOME="/apps/oracle/product/1120" ORACLE_HOME_NAME="Ora11gR2db" ORACLE_BASE="/apps/oracle" OSDBA_GROUP=dba OSOPER_GROUP=dba
+ 
+ 
+ perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+        LC_ALL = (unset),
+        LC__FASTMSG = "true",
+        LC_MESSAGES = "fr_FR",
+        LANG = "C"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+********************************************************************************
+
+Your platform requires the root user to perform certain pre-clone
+OS preparation.  The root user should run the shell script 'rootpre.sh' before
+you proceed with cloning.  rootpre.sh can be found at
+/apps/oracle/product/1120/clone directory.
+Answer 'y' if the root user has run 'rootpre.sh' script.
+
+********************************************************************************
+
+Has 'rootpre.sh' been run by the root user? [y/n] (n)
+
+
+ 
+ chlang fr_FR
+
+
+
+---------------------------IL FAUT VERIFIER QUE LES LANGUES CI-DESSOUS SONT BIEN INSTALLEES SUR LE SERVEUR
+locale -a
+
+root@parva4017158:/apps/o400c4_ctx4$ locale -a
+C
+POSIX
+en_US.8859-15
+en_US.ISO8859-1
+en_US
+fr_FR.8859-15@euro
+fr_FR.8859-15@preeuro
+fr_FR.8859-15
+fr_FR.IBM-1252@euro
+fr_FR.IBM-1252@preeuro
+fr_FR.IBM-1252
+fr_FR.ISO8859-1
+fr_FR
+
+Et en suite Lancer la commande   
+cd /apps/oracle/product/1120/clone/bin
+ 
+ 
+ perl clone.pl ORACLE_HOME="/apps/oracle/product/1120" ORACLE_HOME_NAME="Ora11gR2db" ORACLE_BASE="/apps/oracle" OSDBA_GROUP=dba OSOPER_GROUP=dba
+ 
+  et suivre la fin de l'installation .
+  
+  
+###################################################################################################################################
+Les fichiers sont deja transferer voir /ficsav/EQQUIPE/STEVE
+********************************************Installation client oracle*************************************
+
+FS
+root@parva4018768: /apps/oracle # echo $A2_PRODUITS/oracle/product/1120cli32
+/apps/oracle/product/1120cli32
+
+
+mklv -y lvoracle1120cli -t jfs2 -x 1024 vg_data 9G
+
+crfs -v jfs2 -d lvoracle1120cli -m /apps/oracle/product/1120cli32 -A yes -p rw -t no && mount /apps/oracle/product/1120cli32
+
+
+root@parva4018768: /apps/oracle # chown oracle:dba /apps/oracle/product/1120cli32
+root@parva4018768: /apps/oracle # chmod 775 /apps/oracle/product/1120cli32
+root@parva4018768: /apps/oracle # ls -ltd /apps/oracle/product/1120cli32
+drwxrwxr-x    3 oracle   dba             256 Aug 30 10:39 /apps/oracle/product/1120cli32
+root@parva4018768: /apps/oracle # chmod a-s /apps/oracle/product/1120cli32
+root@parva4018768: /apps/oracle # ls -ltd /apps/oracle/product/1120cli32
+drwxrwxr-x    3 oracle   dba             256 Aug 30 10:39 /apps/oracle/product/1120cli32
+
+aller au point 3.1  de la proceduite d'installtion du client oracle 32bits
+
+faire la suite
+##################################################################################################################################
+-----------------------------------------------------------------------
+---------------------------------INSTALL Synsort-----------------
+
+
+ tar xvf /ficsav/EQUIPE_MEO/STEVE/dmexpress_6911_aix61_32bit.tar
+
+  cd /apps/dmexpress/6.9
+  ./applykey
+  
+  License key file location [ /apps/dmexpress/6.9 ] : /apps/dmexpress/6.9
+  
+  Keyinst : (NOLKEY) the license key cannot be installed
+
+     Please  enter  another  location  for  the  license key  file
+     DMExpressLicense.txt.
+
+---------------------------
+	 
+	 Micro Focus Enterprise Server Integration
+
+                        Press ENTER to continue...
+
+     The new license key has been successfully applied.
+
+-
+
+
+root@parva4018768: /apps/dmexpress/6.9 # ./install
+
+
+     Installation of extended support options completed.
+
+	 
+	 *******************************FIN ***************************

@@ -1,0 +1,3772 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Unix2Aix - ou comment devenir un parfait admin AIX quand on est deja admin UNIX</title>
+</head>
+
+<body bgcolor="#ffffff">
+
+<a name="top"></a>
+
+<h1><p align="center">Unix2Aix - ou comment devenir un parfait admin AIX quand on est deja admin UNIX</p><p>&nbsp;</p></h1>
+<a href="#sec1">1. Démarrage du système : init
+</a><br>
+<a href="#sec2">2. Démarrage des services : System Resource Controller 
+</a><br>
+<a href="#sec3">3. Arrêt du système
+</a><br>
+<a href="#sec4">4. Partitions, disques, groupes de volumes
+</a><br>
+<a href="#sec5">5. Physical Volume
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec5.1">5.1. Affichage des PV
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec5.2">5.2. Ajout d'un PV
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec5.3">5.3. Déplacement du contenu du PV
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec5.4">5.4. Suppression d'un disque
+</a><br>
+<a href="#sec6">6. Volume Group
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec6.1">6.1. Affichage des VG
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec6.2">6.2. Ajout d'un VG
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec6.3">6.3. Retrait d'un VG
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec6.4">6.4. Activation / désactivation de VG
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec6.5">6.5. Importation / exportation de VG à partir de / vers un disque
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec6.6">6.6. Gros volumes
+</a><br>
+<a href="#sec7">7. Volumes logiques 
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec7.1">7.1. Affichage des LV
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec7.2">7.2. Ajout d'un LV
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec7.3">7.3. Modifications d'un LV
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec7.4">7.4. Suppression d'un LV
+</a><br>
+<a href="#sec8">8. Création d'un mirroir
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec8.1">8.1. Mirroir d'un disque entier
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec8.2">8.2. Mirroir du LV et création du système de fichiers
+</a><br>
+<a href="#sec9">9. Ajout d'un disque de secours (Hot Spare)
+</a><br>
+<a href="#sec10">10. Système de fichiers
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.1">10.1. Rappels
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.2">10.2. Affichage des FS
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.3">10.3. Création d'un FS
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.4">10.4. Modifications d'un FS
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.5">10.5. Supprimer un FS
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.6">10.6. Ménage dans les systèmes de fichiers
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.7">10.7. Défragmentation d'un FS
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.8">10.8. Création d'un ramdisk
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec10.9">10.9. Au secours !
+</a><br>
+<a href="#sec11">11. Quotas
+</a><br>
+<a href="#sec12">12. Resource Monitoring and Control (RMC)
+</a><br>
+<a href="#sec13">13. Espace de pagination (swap)
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec13.1">13.1. Affichage de l'espace de pagination
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec13.2">13.2. Ajout d'un espace de pagination
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec13.3">13.3. Modification d'un espace de pagination
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec13.4">13.4. Activation / désactivation d'un espace de pagination
+</a><br>
+<a href="#sec14">14. Gestion des périphériques
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec14.1">14.1. Affichage des périphériques
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec14.2">14.2. Configurer les unités
+</a><br>
+<a href="#sec15">15. Sauvegardes
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec15.1">15.1. Sauvegarde système
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec15.2">15.2. backup / restore
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec15.3">15.3. cpio
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec15.4">15.4. Gestion de la bande
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec15.5">15.5. Vérifications de la sauvegarde, de la bande
+</a><br>
+<a href="#sec16">16. Les packages
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec16.1">16.1. Listes des packages
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec16.2">16.2. Installation des packages et des patchs
+</a><br>
+<a href="#sec17">17. Sécurité et utilisateurs
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec17.1">17.1. Fichiers utilisés
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec17.2">17.2. Les utilisateurs
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec17.3">17.3. Les groupes
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec17.4">17.4. Au secours !
+</a><br>
+<a href="#sec18">18. Cron
+</a><br>
+<a href="#sec19">19. Réseau
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec19.1">19.1. Affichage des attributs réseau
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec19.2">19.2. Configurer une interface
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec19.3">19.3. Dé configurer une interface
+</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#subsec19.4">19.4. Modifications de l'interface réseau
+</a><br>
+<a href="#sec20">20. Autres commandes
+</a><br>
+<p></p>
+Particularité AIX : ODM (Object Data Manager), qui contient toute les
+informations système (unités, logiciels, configuration de la machine, menus,
+écrans et commandes utilisés par SMIT). En principe un administrateur n'a
+pas besoin de modifier directement la base ODM. Répertoires concernés :
+/etc/objrepos, /usr/lib/objrepos.
+<p></p>
+Outils de gestion AIX :
+
+<ul>
+    <li>smit /smitty : génère les fichiers $HOME/smit.log (menus 
+consultés, stdout, stderr, copie d'écran) et $HOME/smit.script 
+(commandes système passées par smit, directement utilisable comme script
+ shell). Le HOME de root est /, et ces fichiers ne sont jamais purgés. 
+Si / est saturé cela peut poser des problèmes, on peut donc appeler smit
+ avec les options -l &lt;fic logs&gt; et -s &lt;fic script&gt;. Tip : La
+ touche [F8] permet de visualiser le nom de raccourci d'un écran. smit 
+-x permet de naviguer dans smit sans exécuter aucune commande (les 
+fichiers de logs et système sont quand même remplis).</li>
+    <li>WebSM : wsm, http://hostname/wsm.html, wsm -host hostname</li>
+</ul>
+L'équivalent du BIOS sur les serveurs AIX est le SMS (System Management 
+Services). Il permet d'afficher la configuration de la machine, de 
+définir la liste d'amorçage. Pour cela, appuyer après l'icône clavier et
+ avant la dernière icône sur la touche F1 lors du démarrage ou 1 sur un 
+terminal ASCII. Accessible sur les pSeries, ce code est livré avec la 
+machine et ne fait pas partie d'AIX. Sinon le mode maintenance 
+(accessible par un CD d'installation ou une bande système) permet de 
+restaurer le mot de passe root, réparer une machine qui ne s'amorce pas,
+ installer ou migrer AIX, ...
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec1"></a></p><h2>1. Démarrage du système : init</h2>
+<p></p>
+inittab : 10 niveaux d'exécution (de 0 à 9). Par défaut : 2.
+<p></p>
+Commandes :
+
+<ul>
+    <li>shutdown -m : passe en mode mono-utilisateur, arrête TCP/IP</li>
+    <li>telinit 2 : repasse au niveau d'exécution 2</li>
+</ul>
+Pour éditer /etc/inittab et garantir qu'il n'y a aucune erreur de 
+syntaxe (pouvant entraîner le non redémarrage de la machine), utiliser 
+les commandes :
+
+<ul>
+    <li>mkitab</li>
+    <li>chitab, et</li>
+    <li>rmitab.</li>
+</ul>
+Pour que le système relise le fichier /etc/inittab, exécuter :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># telinit q
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Pour afficher le niveau d'exécution courant :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># who -r
+   .        run-level 2 30 déc 10:01       2    0    S
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec2"></a></p><h2>2. Démarrage des services : System Resource Controller </h2>
+<p></p>
+La gestion des services se fait avec SRC (System Resource Controller).
+<p></p>
+On distingue sous AIX deux notions :
+
+<ul>
+    <li>un sous-système, conçu pour exécuter une tâche bien définie (exemple : lpd)</li>
+    <li>un groupe de sous systèmes (exemple : spooler).</li>
+</ul>
+Les commandes :
+
+<ul>
+    <li>lssrc permet d'afficher l'état des SRC</li>
+    <li>startrsc permet de démarrer un groupe ou un sous-système</li>
+    <li>stopsrc permet d'arrêter un groupe ou un sous-système</li>
+    <li>refresh rafraîchir (relire le fichier de configuration) un 
+groupe ou un sous-système. Eh oui killall -HUP inetd ça ne marchera pas,
+ il faut faire un refresh -s inetd.</li>
+</ul>
+Les options -s et -g permettent de sélectionner un système ou un groupe.
+<p></p>
+Exemples :
+<p></p>
+Affichage de la relation entre les groupes et les sous-systèmes :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lssrc -a
+Sous-système      Groupe           PID     Etat
+ syslogd          ras              196814   actif
+ sendmail         mail             352396   actif
+ portmap          portmap          286850   actif
+ inetd            tcpip            262296   actif
+ snmpd            tcpip            254124   actif
+ dpid2            tcpip            303282   actif
+ hostmibd         tcpip            368812   actif
+ biod             nfs              295060   actif
+ rpc.statd        nfs              385132   actif
+ rpc.lockd        nfs              188488   actif
+ ctrmc            rsct             458896   actif
+ ctcas            rsct             319690   actif
+ IBM.ERRM         rsct_rm          622762   actif
+ IBM.ServiceRM    rsct_rm          98468   actif
+ IBM.AuditRM      rsct_rm          639134   actif
+ IBM.CSMAgentRM   rsct_rm          491768   actif
+ wsmrefserver                      450754   actif
+ IBM.HostRM       rsct_rm          475272   actif
+ IBM.FSRM         rsct_rm          499822   actif
+ qdaemon          spooler                  inopérant
+ writesrv         spooler                  inopérant
+ lpd              spooler                  inopérant
+ clvmd                                     inopérant
+ rwhod            tcpip                    inopérant
+ xntpd            tcpip                    inopérant
+ dhcpcd           tcpip                    inopérant
+ ndpd-host        tcpip                    inopérant
+ ndpd-router      tcpip                    inopérant
+ tftpd            tcpip                    inopérant
+ gated            tcpip                    inopérant
+ named            tcpip                    inopérant
+ routed           tcpip                    inopérant
+ iptrace          tcpip                    inopérant
+ timed            tcpip                    inopérant
+ dhcpsd           tcpip                    inopérant
+ dhcprd           tcpip                    inopérant
+ mrouted          tcpip                    inopérant
+ rsvpd            qos                      inopérant
+ policyd          qos                      inopérant
+ pxed             tcpip                    inopérant
+ binld            tcpip                    inopérant
+ dfpd             tcpip                    inopérant
+ nfsd             nfs                      inopérant
+ rpc.mountd       nfs                      inopérant
+ automountd       autofs                   inopérant
+ keyserv          keyserv                  inopérant
+ ypbind           yp                       inopérant
+ llbd             iforncs                  inopérant
+ glbd             iforncs                  inopérant
+ cpsd             ike                      inopérant
+ tmd              ike                      inopérant
+ isakmpd          ike                      inopérant
+ i4lmd            iforls                   inopérant
+ i4glbcd          iforncs                  inopérant
+ i4gdb            iforls                   inopérant
+ i4llmd           iforls                   inopérant
+ dtsrc                                     inopérant
+ ypserv           yp                       inopérant
+ ypupdated        yp                       inopérant
+ yppasswdd        yp                       inopérant
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de tous les sous-systèmes du groupe spooler :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lssrc -g spooler
+Sous-système      Groupe           PID     Etat
+ qdaemon          spooler                  inopérant
+ writesrv         spooler                  inopérant
+ lpd              spooler                  inopérant
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Démarrage du sous-système lpd :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># startsrc -s lpd
+0513-059 Le sous-système lpd a été lancé. PID du sous-système : 614622.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Rafraîchissement du sous-système lpd :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># refresh -s lpd
+0513-095 La demande de régénération du sous-système a abouti.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Arrêt du sous-système lpd :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># stopsrc -s lpd
+0513-044 L'arrêt du sous-système lpd a été demandé.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+L'exécutable permettant de gérer le SRC est /usr/sbin/srcmstr. Il est lancé au démarrage.
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec3"></a></p><h2>3. Arrêt du système</h2>
+<p></p>
+Arrêt dans 2 minutes (+2) en affichant un message :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># shutdown +2 Le système sera inaccessible de 01:30 à 03:00
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Arrêt rapide et immédiat :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># shutdown -F
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Redémarrage :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># shutdown -r
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Passage en mode mono utilisateurs, pareil que init S :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># shutdown -m
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+[AIX 5.1] Crée un fichier de logs /etc/shutdown.log :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># shutdown -l
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Arrêt factice (affiche les messages mais n'arrête pas le système) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># shutdown -k
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Le plus souvent pour rebooter il faut taper :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># shutdown -Fr
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Le fichier /etc/rc.shutdown est appelé en premier par shutdown (utile 
+pour fermer une base de données, par exemple). Si il retourne un code 
+non nul, le système ne sera pas arrêté.
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec4"></a></p><h2>4. Partitions, disques, groupes de volumes</h2>
+<p></p>
+Avant dans UNIX : un système de fichier = une partition d'un disque dur.
+Inconvénient : extension de la taille de la partition difficile (espace 
+contiguë sur le disque), limitation de la taille d'un fichier et d'un 
+système de fichier (sur une seule unité physique).
+Avec LVM : espaces non contigus, sur plusieurs disques, augmentation de 
+la taille aisée, possibilités de mettre en miroir, le tout 
+dynamiquement.
+<p></p>
+Les 5 concepts principaux sont :
+
+<ul>
+    <li>le volume physique (Physical Volume ou PV) qui désigne un disque
+ physique. Chaque disque a un nom, par exemple hdisk0, hdisk1, ...</li>
+    <li>le groupe de volumes (Volume Group ou VG) qui désigne un 
+ensemble de volumes physiques. C'est la plus grande quantité de mémoire 
+pouvant être affectée.</li>
+    <li>les partitions physiques (Physical Partitions ou PPs). Tous les 
+volumes physiques sont divisés en partitions physiques, et la taille 
+d'une partition physique est la même pour tous les volumes physiques 
+appartenant au même groupe de volumes</li>
+    <li>les partitions logiques (Logical Partitions ou LPs) 
+correspondent aux partitions physiques. A une partition logique 
+correspond au moins une partition physique (ou plus en cas de mirroring)
+ sur laquelle les données sont stockées. C'est la plus petite quantité 
+de mémoire pouvant être affectée.</li>
+    <li>les volumes logiques (Logical Volumes ou LVs) sont des groupes 
+de partitions logiques. Ils semblent contigues pour l'utilisateur alors 
+qu'elles peuvent être réparties sur plusieurs volumes physiques d'un 
+même groupe de volumes. Chaque groupe de volume a au moins un volume 
+logique.</li>
+</ul>
+Exemple :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>------------------------+
+                        |
+    VG ROOTVG           |
+                        |
+                        |
+          hdisk0        |
+        __________      |
+PPs -&gt; |__________|     |
+       |__________| &lt;--------+
+       |__________|     |    |
+            PV          |    |
+                        |    |
+                        |    |
+          hdisk1        |    |
+        __________      |    |        __________
+       |__________|     |    +------ |__________| &lt;- LPs
+       |__________| &lt;--------------- |__________|
+       |__________|     |    +------ |__________|
+       |__________|     |    |            LV
+       |__________|     |    |
+            PV          |    |
+                        |    |
+                        |    |
+          hdisk2        |    |
+        __________      |    |
+       |__________|     |    |
+       |__________|     |    |
+       |__________|     |    |
+       |__________|     |    |
+       |__________| &lt;--------+
+       |__________|     |
+       |__________|     |
+       |__________|     |
+            PV          |
+                        |
+                        |
+------------------------+
+</pre></td></tr></tbody></table>
+<p></p>
+Les 3 disques physiques hdisk0, hdisk1 et hdisk2 appartiennent au même 
+groupe de volume, rootvg (groupe de volume installé par défaut et 
+contenant le système AIX).
+<p></p>
+La taille d'une partition physique est une puissance de 2 et peut 
+atteindre 1024 Mo (par défaut : 1016 partitions de 4 Mo chacune). La 
+taille d'une partition physique ne peut être modifiée, mais leur nombre 
+si, par multiples de 1016 jusqu'à 130 048). Il peut y avoir au maximum 
+255 groupes de volumes (512 pour les gros volumes).
+<p></p>
+Lors de l'ajout d'un disque dur (ie. d'un PV), il faut soit créer un 
+nouveau VG soit l'ajouter à un VG déjà existant. Créer plusieurs VG 
+permet de bien séparer les données utilisateur / système, de restaurer 
+les données suite à un désastre, d'assurer la portabilité, l'intégrité 
+et la sécurité des données.
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec5"></a></p><h2>5. Physical Volume</h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec5.1"></a></p><h3>5.1. Affichage des PV</h3>
+<p></p>
+Affichage de tous les PV du système :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lspv
+hdisk0          0057498ad0b21879                    rootvg         
+hdisk1          0057498adffb3d3c                    rootvg         
+hdisk2          0057498a94d44bc9                    vgprod         
+hdisk3          0057498aca4aaabd                    vgprod         
+hdisk4          0057498aca4aaba7                    vgprod         
+hdisk5          0057498af9e9ba69                    vgprod         
+hdisk6          0057498af9eadade                    vgdump         
+hdisk7          0057498a91a04bc8                    vgdump         
+hdisk8          none                                None           
+hdisk9          0057498aca4aac86                    None           
+hdisk10         0057498aca4aad60                    None           
+hdisk11         0057498aca4aae40                    None           
+hdisk12         none                                None           
+hdisk13         none                                None           
+hdisk14         none                                None           
+hdisk15         none                                None           
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche de l'état de hdisk0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lspv hdisk0
+PHYSICAL VOLUME:    hdisk0                   VOLUME GROUP:     rootvg
+PV IDENTIFIER:      0057498ad0b21879 VG IDENTIFIER     0057498a00004c00000000fb8bb01139
+PV STATE:           active                                     
+STALE PARTITIONS:   0                        ALLOCATABLE:      yes
+PP SIZE:            32 megabyte(s)           LOGICAL VOLUMES:  11
+TOTAL PPs:          542 (17344 megabytes)    VG DESCRIPTORS:   2
+FREE PPs:           58 (1856 megabytes)      HOT SPARE:        no
+USED PPs:           484 (15488 megabytes)                      
+FREE DISTRIBUTION:  29..00..00..00..29                         
+USED DISTRIBUTION:  80..108..108..108..80                      
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de tous les LV d'un PV :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lspv -l hdisk0
+hdisk0:
+LV NAME               LPs   PPs   DISTRIBUTION          MOUNT POINT
+hd5                   1     1     01..00..00..00..00    N/A
+hd2                   32    32    07..10..15..00..00    /usr
+hd10opt               7     7     04..02..01..00..00    /opt
+lv00                  398   398   68..55..87..108..80   /mnt1
+lg_dumplv             32    32    00..32..00..00..00    N/A
+hd6                   9     9     00..09..00..00..00    N/A
+hd8                   1     1     00..00..01..00..00    N/A
+hd4                   1     1     00..00..01..00..00    /
+hd9var                1     1     00..00..01..00..00    /var
+hd3                   1     1     00..00..01..00..00    /tmp
+hd1                   1     1     00..00..01..00..00    /home
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de tous les LV d'un PV avec les PP associées aux LP :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lspv -p hdisk0
+hdisk0:
+PP RANGE  STATE   REGION        LV NAME             TYPE       MOUNT POINT
+  1-1     used    outer edge    hd5                 boot       N/A
+  2-30    free    outer edge                                   
+ 31-37    used    outer edge    hd2                 jfs        /usr
+ 38-41    used    outer edge    hd10opt             jfs        /opt
+ 42-109   used    outer edge    lv00                jfs        /mnt1
+110-141   used    outer middle  lg_dumplv           sysdump    N/A
+142-150   used    outer middle  hd6                 paging     N/A
+151-205   used    outer middle  lv00                jfs        /mnt1
+206-207   used    outer middle  hd10opt             jfs        /opt
+208-217   used    outer middle  hd2                 jfs        /usr
+218-218   used    center        hd8                 jfslog     N/A
+219-219   used    center        hd4                 jfs        /
+220-220   used    center        hd9var              jfs        /var
+221-221   used    center        hd3                 jfs        /tmp
+222-222   used    center        hd10opt             jfs        /opt
+223-237   used    center        hd2                 jfs        /usr
+238-238   used    center        hd1                 jfs        /home
+239-325   used    center        lv00                jfs        /mnt1
+326-433   used    inner middle  lv00                jfs        /mnt1
+434-513   used    inner edge    lv00                jfs        /mnt1
+514-542   free    inner edge                                   
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec5.2"></a></p><h3>5.2. Ajout d'un PV</h3>
+<p></p>
+
+<ul>
+    <li>cfgmgr (mise à jour de la base ODM pour tous les périphériques),</li>
+    <li>éventuellement conversion en multiple de 1016 PP (chvg -t x, 1 &lt;= x &lt;= 16 pour faire x * 1016 PP),</li>
+    <li>ajout du PV à un VG (extendvg -f &lt;VG&gt; &lt;PV&gt;).</li>
+</ul>
+<p><a href="#top">Top</a><a name="subsec5.3"></a></p><h3>5.3. Déplacement du contenu du PV</h3>
+<p></p>
+
+<ul>
+    <li>ajout du disque de destination dans le même VG que le disque source (extendvg),</li>
+    <li>migration (migratepv).</li>
+</ul>
+Exemple pour la migration de hdisk2 vers hdisk4 :
+<p></p>
+Affichage de tous les PV :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lspv
+hdisk0          005d8fbcb7929295                    rootvg
+hdisk1          005d8fbcef005c33                    rootvg
+hdisk2          005d8fbcefa42b32                    datavg
+hdisk3          005d8fbc0dd877c2                    datavg
+hdisk4          005d8fbc0dd922a0                    None
+hdisk5          005d8fbc371c0aca                    None
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Récupère le nom du VG auquel appartient hdisk2 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># From=`lspv | grep hdisk2 | awk '{ print $3 }'` ; echo $From
+datavg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Ajout du disque hdisk4 au même VG que hdisk2 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># extendvg -f $From hdisk4
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Migration de hdisk2 vers hdisk4 (transfère tous les PPs) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># migratepv hdisk2 hdisk4
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec5.4"></a></p><h3>5.4. Suppression d'un disque</h3>
+<p></p>
+Dans l'exemple qui suit, on suppose que le PV hdisk3 est à retirer (erreurs lues via la commande "errpt -a").
+<p></p>
+
+<ul>
+    <li>La commande suivante indique que le VG utilisé par hdisk3 est gicrvg :</li>
+</ul>
+gicrvg:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdisk3            active            542         167         00..00..00..58..109
+hdisk4            active            542         110         107..00..00..00..03
+hdisk5            active            542         167         31..00..00..27..109
+rootvg:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdisk0            active            542         438         108..84..29..108..109
+hdisk1            active            542         425         108..79..21..108..109
+#
+<p></p>
+
+<ul>
+    <li>Récupérer toute les informations du disque à communiquer au support IBM en vue d'un remplacement :</li>
+</ul>
+  UNITE             EMPLACEMENT       DESCRIPTION
+<p></p>
+  hdisk3            1n-08-00-4,0      Disque LVD SCSI 16 bits (36400 MB)
+<p></p>
+        Fabricant...................IBM
+        Type et modèle machine......ST336607LC
+        Numéro de FRU...............00P3068
+        Niveau et ID ROS............43353048
+        Numéro de série.............000A92AF
+        Niveau de modification......H12094
+        Référence...................00P2676
+        Spécifique unité.(Z0).....000003129F00013E
+        Spécifique unité.(Z1).....1217C511
+        Spécifique unité.(Z2).....0002
+        Spécifique unité.(Z3).....04133
+        Spécifique unité.(Z4).....0001
+        Spécifique unité.(Z5).....22
+        Spécifique unité.(Z6).....H12094
+<p></p>
+#
+<p></p>
+
+<ul>
+    <li>Trouver tous les systèmes de fichiers montés sur hdisk3 :</li>
+</ul>
+hdisk3:
+LV NAME               LPs   PPs   DISTRIBUTION          MOUNT POINT
+fslv06                324   324   109..66..108..41..00  /data_simul
+loglv01               1     1     00..01..00..00..00    N/A
+fslv07                41    41    00..41..00..00..00    /data_prod
+fslv19                5     5     00..00..00..05..00    /dembatch
+fslv20                4     4     00..00..00..04..00    /flt_edit_demo
+#
+<p></p>
+
+<ul>
+    <li>Pour chaque FS, le démonter :</li>
+</ul>
+démontage imposé de /data_simul
+#
+<p></p>
+
+<ul>
+    <li>Retirer hdisk3 de son VG :</li>
+</ul>
+#
+<p></p>
+
+<ul>
+    <li>Désactiver le VG (sinon risque de pertes de données) :</li>
+</ul>
+#
+<p></p>
+* Retirer le device du PV de la base ODM :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># rmdev -dl hdisk3
+hdisk3 supprimé
+#
+</pre></td></tr></tbody></table>
+<p></p>
+
+<ul>
+    <li>Vérifier alors qu'il n'appaît plus dans l'ODM :</li>
+</ul>
+rmt0   Disponible 1S-08-00-0,0  Unité de bande 4 mm SCSI différentielle
+hdisk0 Disponible 1S-08-00-4,0  Disque LVD SCSI 16 bits
+hdisk1 Disponible 1S-08-00-5,0  Disque LVD SCSI 16 bits
+hdisk2 Disponible 1S-08-00-8,0  Disque LVD SCSI 16 bits
+hdisk4 Disponible 1n-08-00-5,0  Disque LVD SCSI 16 bits
+hdisk5 Disponible 1n-08-00-8,0  Disque LVD SCSI 16 bits
+ses0   Disponible 1S-08-00-15,0 Unité SES (SCSI Enclosure Services)
+ses1   Disponible 1n-08-00-15,0 Unité SES (SCSI Enclosure Services)
+#
+<p></p>
+
+<ul>
+    <li>Retirer le quatrième disque en partant du haut, sans redémarrer le système.</li>
+</ul>
+<p></p><p><a href="#top">Top</a><a name="sec6"></a></p><h2>6. Volume Group</h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec6.1"></a></p><h3>6.1. Affichage des VG</h3>
+<p></p>
+Affiche tous les groupes de volumes du système :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg
+rootvg
+vgprod
+vgdump
+vgtest
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche tous les groupes de volumes actifs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -o
+vgdump
+vgprod
+rootvg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de l'état du groupe rootvg (affiche aussi le nombre max de PV pour ce VG) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg rootvg
+VOLUME GROUP:   rootvg                   VG IDENTIFIER:  0057498a00004c00000000fb8bb01139
+VG STATE:       active                   PP SIZE:        32 megabyte(s)
+VG PERMISSION:  read/write               TOTAL PPs:      1084 (34688 megabytes)
+MAX LVs:        256                      FREE PPs:       507 (16224 megabytes)
+LVs:            12                       USED PPs:       577 (18464 megabytes)
+OPEN LVs:       11                       QUORUM:         1
+TOTAL PVs:      2                        VG DESCRIPTORS: 3
+STALE PVs:      0                        STALE PPs:      0
+ACTIVE PVs:     2                        AUTO ON:        yes
+MAX PPs per PV: 1016                     MAX PVs:        32
+LTG size:       128 kilobyte(s)          AUTO SYNC:      no
+HOT SPARE:      no                                       
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des infos sur tous les LV de rootvg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -l rootvg
+rootvg:
+LV NAME             TYPE       LPs   PPs   PVs  LV STATE      MOUNT POINT
+hd5                 boot       1     2     2    closed/syncd  N/A
+hd6                 paging     9     18    2    open/syncd    N/A
+hd8                 jfslog     1     2     2    open/syncd    N/A
+hd4                 jfs        1     2     2    open/syncd    /
+hd2                 jfs        32    64    2    open/syncd    /usr
+hd9var              jfs        1     2     2    open/syncd    /var
+hd3                 jfs        1     2     2    open/syncd    /tmp
+hd1                 jfs        1     2     2    open/syncd    /home
+hd10opt             jfs        7     14    2    open/syncd    /opt
+lg_dumplv           sysdump    32    64    2    open/syncd    N/A
+lv00                jfs        398   398   1    open/syncd    /mnt1
+paging00            paging     7     7     1    open/syncd    N/A
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des infos sur tous les LV par groupes de VG actifs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -o | lsvg -i -l
+vgdump:
+LV NAME             TYPE       LPs   PPs   PVs  LV STATE      MOUNT POINT
+loglv00             jfslog     1     1     1    open/syncd    N/A
+lv01                jfs        100   100   2    open/syncd    /mnt1/dump
+vgprod:
+LV NAME             TYPE       LPs   PPs   PVs  LV STATE      MOUNT POINT
+prod_master         raw        1     1     1    open/syncd    N/A
+prod_temprocs       raw        2     2     1    open/syncd    N/A
+prod_sysdb          raw        2     2     1    open/syncd    N/A
+prod_tempdb         raw        4     4     1    open/syncd    N/A
+prod_data1          raw        190   190   3    open/syncd    N/A
+prod_log1           raw        67    67    1    open/syncd    N/A
+rootvg:
+LV NAME             TYPE       LPs   PPs   PVs  LV STATE      MOUNT POINT
+hd5                 boot       1     2     2    closed/syncd  N/A
+hd6                 paging     9     18    2    open/syncd    N/A
+hd8                 jfslog     1     2     2    open/syncd    N/A
+hd4                 jfs        1     2     2    open/syncd    /
+hd2                 jfs        32    64    2    open/syncd    /usr
+hd9var              jfs        1     2     2    open/syncd    /var
+hd3                 jfs        1     2     2    open/syncd    /tmp
+hd1                 jfs        1     2     2    open/syncd    /home
+hd10opt             jfs        7     14    2    open/syncd    /opt
+lg_dumplv           sysdump    32    64    2    open/syncd    N/A
+lv00                jfs        398   398   1    open/syncd    /mnt1
+paging00            paging     7     7     1    open/syncd    N/A
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche des infos sur tous les PV de rootvg (avec nb de PPs dans chaque 
+section du PV : bord extérieur, milieu extérieur, centre, milieu 
+intérieur, bord intérieur) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -p rootvg
+rootvg:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdisk0            active            542         58          29..00..00..00..29
+hdisk1            active            542         449         108..67..57..108..109
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec6.2"></a></p><h3>6.2. Ajout d'un VG</h3>
+<p></p>
+Ajoute le VG de nom datavg (-y datavg) sur le PV hdisk2 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkvg -y datavg hdisk2
+datavg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Ajoute le PV hdisk3 au VG datavg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># extendvg -f datavg hdisk3
+#
+</pre></td></tr></tbody></table>
+ 
+Ajoute le VG de nom logvg (-y logvg) sur le PV hdisk3 en forçant la création du VG et en allouant 64 Mo par PP :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkvg -f -y logvg -s 64 hdisk3
+logvg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Autorise 2 * 1016 PPs par PV :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkvg -t 2
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec6.3"></a></p><h3>6.3. Retrait d'un VG</h3>
+<p></p>
+Retire le PV hdisk2 du VG datavg. Le VG est supprimé lorsqu'il n'y a plus aucun PV dans le VG :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># reducevg datavg hdisk2
+#
+</pre></td></tr></tbody></table>
+ 
+Retire le PV hdisk5 du VG datavg ainsi que tous les VL de datavg (efface toute les données) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># reducevg -d datavg hdisk5
+0516-914 rmlv : Attention, toutes les données appartenant au volume
+         logique monlv du volume physique hdisk5 seront détruites.
+rmlv : voulez-vous continuer ? o(ui) n(on) ? o
+0516-914 rmlv : Attention, toutes les données appartenant au volume
+         logique loglv du volume physique hdisk5 seront détruites.
+rmlv : voulez-vous continuer ? o(ui) n(on) ? o
+rmlv : le volume logique loglv est supprimé.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec6.4"></a></p><h3>6.4. Activation / désactivation de VG</h3>
+ 
+Désactive le VG datavg (aucun LV de datavg ne doit être ouvert avant de lancer cette commande) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># varyoffvg datavg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Active le VG datavg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># varyonvg datavg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec6.5"></a></p><h3>6.5. Importation / exportation de VG à partir de / vers un disque</h3>
+<p></p>
+
+<ul>
+    <li>la commande exportvg export un VG qui doit être inactif (varyoffvg),</li>
+    <li>la commande importvg importe un VG :</li>
+</ul>
+[...]
+#
+<p></p>
+<p><a href="#top">Top</a><a name="subsec6.6"></a></p><h3>6.6. Gros volumes</h3>
+<p></p>
+VG normaux :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>Nb de PV   Nombre max de PPs/PV   Commande AIX
+  2          16256                 mkvg -t 5
+  4           8128                 mkvg -t 4
+  8           4064                 mkvg -t 3
+ 16           2032                 mkvg -t 2
+ 32           1016                 mkvg
+</pre></td></tr></tbody></table>
+<p></p>
+Gros VG :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>Nb de PV   Nombre max de PPs/PV   Commande AIX
+   2        65024                  mkvg -B -t 7
+   4        32512                  mkvg -B -t 6
+   8        16256                  mkvg -B -t 5
+  16         8128                  mkvg -B -t 4
+  32         4064                  mkvg -B -t 3
+  64         2032                  mkvg -B -t 2
+ 128         1016                  mkvg -B
+</pre></td></tr></tbody></table>
+<p></p>
+Convertit le VG datavg en gros volume :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chvg -f -B datavg
+0516-1164 chvg : Le groupe de volumes datavg a été modifié.  Les
+        caractéristiques en cours de datavg lui permettent de contenir jusqu'à
+        128 volumes physiques comportant 1016 partitions physiques chacun.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Créé de gros groupes de volumes (max 128 PV vs 32, 65024 PPs vs 16256) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkvg -B
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec7"></a></p><h2>7. Volumes logiques </h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec7.1"></a></p><h3>7.1. Affichage des LV</h3>
+<p></p>
+Affiche des infos sur l'état du LV hd6 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslv hd6
+LOGICAL VOLUME:     hd6                    VOLUME GROUP:   rootvg
+LV IDENTIFIER:      0057498a00004c00000000fb8bb01139.2 PERMISSION:     read/write
+VG STATE:           active/complete        LV STATE:       opened/syncd
+TYPE:               paging                 WRITE VERIFY:   off
+MAX LPs:            512                    PP SIZE:        32 megabyte(s)
+COPIES:             2                      SCHED POLICY:   parallel
+LPs:                9                      PPs:            18
+STALE PPs:          0                      BB POLICY:      non-relocatable
+INTER-POLICY:       minimum                RELOCATABLE:    yes
+INTRA-POLICY:       middle                 UPPER BOUND:    32
+MOUNT POINT:        N/A                    LABEL:          None
+MIRROR WRITE CONSISTENCY: off                                    
+EACH LP COPY ON A SEPARATE PV ?: yes                                    
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche sur quels VG sont les LV :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslv -l hd6
+hd6:N/A
+PV                COPIES        IN BAND       DISTRIBUTION  
+hdisk0            009:000:000   100%          000:009:000:000:000 
+hdisk1            009:000:000   100%          000:009:000:000:000 
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche la carte d'allocation sur le disque hdisk0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslv -p hdisk0
+hdisk0:::
+USED   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE       1-10
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE      11-20
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE      21-30
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      31-40
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      41-50
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      51-60
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      61-70
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      71-80
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      81-90
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      91-100
+USED   USED   USED   USED   USED   USED   USED   USED   USED            101-109
+<p></p>
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     110-119
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     120-129
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     130-139
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     140-149
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     150-159
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     160-169
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     170-179
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     180-189
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     190-199
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     200-209
+USED   USED   USED   USED   USED   USED   USED   USED                   210-217
+<p></p>
+[...]
+<p></p>
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     434-443
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     444-453
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     454-463
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     464-473
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     474-483
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     484-493
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     494-503
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     504-513
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE     514-523
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE     524-533
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE            534-542
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche la carte d'allocation du LV hd2 sur le disque hdisk0 (le nombre de LPs allouées au LV est affiché) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslv -p hdisk0 hd2
+hdisk0:hd2:/usr
+USED   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE       1-10
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE      11-20
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE      21-30
+0026   0027   0028   0029   0030   0031   0032   USED   USED   USED      31-40
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      41-50
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      51-60
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      61-70
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      71-80
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      81-90
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED      91-100
+USED   USED   USED   USED   USED   USED   USED   USED   USED            101-109
+<p></p>
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     110-119
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     120-129
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     130-139
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     140-149
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     150-159
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     160-169
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     170-179
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     180-189
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     190-199
+USED   USED   USED   USED   USED   USED   USED   USED   0016   0017     200-209
+0018   0019   0020   0021   0022   0023   0024   0025                   210-217
+<p></p>
+[...]
+<p></p>
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     434-443
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     444-453
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     454-463
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     464-473
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     474-483
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     484-493
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     494-503
+USED   USED   USED   USED   USED   USED   USED   USED   USED   USED     504-513
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE     514-523
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE     524-533
+FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE   FREE            534-542
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche les informations du LV hd2 sur le disque hdisk0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslv -n hdisk0 hd2
+LOGICAL VOLUME:     hd2                    VOLUME GROUP:   rootvg
+LV IDENTIFIER:      0057498a00004c00000000fb8bb01139.5 PERMISSION:     read/write
+VG STATE:           active/complete        LV STATE:       closed/syncd
+TYPE:               jfs                    WRITE VERIFY:   off
+MAX LPs:            32512                  PP SIZE:        32 megabyte(s)
+COPIES:             2                      SCHED POLICY:   parallel
+LPs:                32                     PPs:            64
+STALE PPs:          0                      BB POLICY:      relocatable
+INTER-POLICY:       minimum                RELOCATABLE:    yes
+INTRA-POLICY:       center                 UPPER BOUND:    32
+MOUNT POINT:        /usr                   LABEL:          /usr
+MIRROR WRITE CONSISTENCY: on/ACTIVE                              
+EACH LP COPY ON A SEPARATE PV ?: yes                                    
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche les information sur le LV hd2 par PV :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslv -l hd2
+hd2:/usr
+PV                COPIES        IN BAND       DISTRIBUTION  
+hdisk0            032:000:000   46%           007:010:015:000:000 
+hdisk1            032:000:000   100%          000:000:032:000:000 
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec7.2"></a></p><h3>7.2. Ajout d'un LV</h3>
+<p></p>
+Ajoute un LV nommé monlv dans datavg de taille 3 Go (unités possibles : b|B|k|K|m|M|g|G) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mklv -y monlv datavg 3G
+monlv
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Ajoute un LV dans datavg de taille 1 PP au bord du disque :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mklv -a e datavg 1
+lv00
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec7.3"></a></p><h3>7.3. Modifications d'un LV</h3>
+<p></p>
+Renomme le LV lv00 en logvg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chlv -n loglv lv00
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Agrandit le LV logvg d'une PP :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># extendlv loglv 1
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Met comme police de miroir des écritures séquentielles pour le LV loglv :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chlv -d s loglv
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec7.4"></a></p><h3>7.4. Suppression d'un LV</h3>
+<p></p>
+Supprime le volume logique loglv (ne supprime pas les entrées dans la base ODM ou /etc/filesystems) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># rmlv -f loglv
+rmlv : le volume logique loglv est supprimé.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec8"></a></p><h2>8. Création d'un mirroir</h2>
+<p></p>
+Un mirroir signifie que une LP est associée à plusieurs PP.
+<p></p>
+<p><a href="#top">Top</a><a name="subsec8.1"></a></p><h3>8.1. Mirroir d'un disque entier</h3>
+<p></p>
+Le groupe de volume datavg contient un volume logique (monlv) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -l datavg
+datavg:
+LV NAME             TYPE       LPs   PPs   PVs  LV STATE      MOUNT POINT
+monlv               jfs        48    48    1    closed/syncd  N/A
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Le groupe de volume datavg est sur le disque hdisk2 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -p datavg
+datavg:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdisk2            active            542         494         109..60..108..108..109
+#
+</pre></td></tr></tbody></table>
+ 
+Rajout du disque hdisk3 dans le groupe de volume datavg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># extendvg datavg hdisk3
+#
+</pre></td></tr></tbody></table>
+ 
+Vérification :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -p datavg
+datavg:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdisk2            active            542         494         109..60..108..108..109
+hdisk3            active            542         542         109..108..108..108..109
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Mise en place du miroir sur le disque hdisk3 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mirrorvg datavg hdisk3
+0516-1125 mirrorvg : Condition de quorum désactivée ; exécutez varyoff et varyon
+        sur le groupe de volumes pour pour que cette définition prenne effet.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Vérification (une LP est sur deux PPs) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg -l datavg
+datavg:
+LV NAME             TYPE       LPs   PPs   PVs  LV STATE      MOUNT POINT
+monlv               jfs        48    96    2    closed/syncd  N/A
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Création de l'image de boot sur le disque hdisk1 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># bosboot -ad /dev/hdisk1
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Création de la liste des périphériques de démarrage pour les modes normal et service (disques hdisk0 et hdisk1) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># bootlist -m normal hdisk0 hdisk1
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># bootlist -m service hdisk0 hdisk1
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Vérifications finale :
+<p></p>
+Le volume logique de démarrage hd5 se trouve bien sur les disques hdisk0 et hdisk1 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslv -m hd5
+hd5:N/A
+LP    PP1  PV1               PP2  PV2               PP3  PV3
+0001  0001 hdisk0            0001 hdisk1
+#
+</pre></td></tr></tbody></table>
+<p></p>
+La liste des périphériques de démarrage affiche les disques hdisk0 et hdisk1 pour les modes normal et service :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># bootlist -om both
+hdisk0
+hdisk1
+hdisk0
+hdisk1
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec8.2"></a></p><h3>8.2. Mirroir du LV et création du système de fichiers</h3>
+<p></p>
+
+<ul>
+    <li>Nom du Volume Groupe = datavg</li>
+    <li>Disque principal     = hdisk2</li>
+    <li>Disque mirroir       = hdisk3</li>
+    <li>Granule d'allocation = 16</li>
+    <li>Volume Logique LV    = hd32</li>
+    <li>Nombre de PP         = 80</li>
+    <li>Point de Montage     = /Data</li>
+</ul>
+Création du VG datavg sur le disque hdisk2 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkvg -y datavg hdisk2
+datavg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Rajout du disque hdisk3 dans le VG datavg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># extendvg datavg hdisk3
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Création du volume logique sur le disque principal :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mklv -y hd32 datavg 80 hdisk2
+hd32
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Création du mirroir sur le disque secondaire :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mklvcopy hd32 2 hdisk3
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Synchronisation du LV hd32 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># syncvg -l hd32
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Création du file système associé :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># crfs -v jfs -a bf=true -d hd32 -m /Data -A yes -p rw -t no -a nbpi=4096 -a ag= 16
+Selon les paramètres définis, la taille maximale du nouveau
+système de fichiers journalisé /Data est de 134217728 (blocs de 512 octets).
+<p></p>
+Taille du nouveau système de fichiers : 10485760
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Montage du Fichier système :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mount /Data
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec9"></a></p><h2>9. Ajout d'un disque de secours (Hot Spare)</h2>
+<p></p>
+Un disque de secours remplace un disque défaillant. Pour mettre en place
+ le disque de secours hdisk3 dans le VG datavg, il faut :
+<p></p>
+Ajouter un disque aux groupes de volumes qu'il doit protéger :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># extendvg -f datavg hdisk4
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Convertir les disques sélectionnés en unités de secours pour marquer le disque dur hdisk1 comme unité de secours :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chpv -hy hdisk4
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Définir une stratégie de migration automatique qui utilise la plus 
+petite unité de secours suffisamment grande pour remplacer le disque 
+défaillant (option -hy, voir aussi -hY dans le man) et synchronise 
+automatiquement les partitions périmées (option -sy) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chvg -hy -sy datavg
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec10"></a></p><h2>10. Système de fichiers</h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec10.1"></a></p><h3>10.1. Rappels</h3>
+<p></p>
+Un système de fichiers permet d'accéder aux fichiers qui sont stockés sur le disque (disque dur, disquette, cdrom, ...). 
+<p></p>
+Sous UNIX en général le système de fichiers est composé ainsi :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>+---+----+----+----+----+
+| S | I1 | I2 | I3 | .. |
++---+----+----+----+----+
+       |    |    |
+       |    |    |
+   +---+    |    +---+
+   |        |        |
+   v        v        v
++----+   +----+   +----+
+|    |   |    |   |    |
+|    |   |    |   |    |
+| B1 |   | B2 |   | B3 |
+|    |   |    |   |    |
+|    |   |    |   |    |
+|    |   |    |   |    |
++----+   +----+   +----+
+</pre></td></tr></tbody></table>
+<p></p>
+
+<ul>
+    <li>S : Super bloc, contient la taille et le type de système de 
+fichiers, la liste des espaces libres, la taille des fragments, nombre 
+de blocs par inode, ... Comme ce bloc est indispensable pour pouvoir 
+utiliser le système de fichiers (et donc accéder aux fichiers), une 
+copie de ce bloc est faite (au bloc 31 pour AIX).</li>
+    <li>I1 : Inode 1. Contient des infos sur un fichier (taille, droits 
+d'accès, dates de dernier accès, bref toute les infos accessibles par 
+les commandes ls ou find). Contient également un pointeur vers le bloc 
+de données (B1 pour l'inode 1).</li>
+    <li>B1 : bloc 1, contenant les données d'un fichier</li>
+</ul>
+Le système de fichiers étant créé sur un LV, il doit avoir comme taille 
+un multiple de la taille d'une LP du LV. Les blocs de données sont 
+formés de blocs logiques de 4 Ko. Si il y a beaucoup de fichiers de 
+taille inférieurs à 4 Ko (ou de répertoires et de liens), on peut 
+fragmenter un bloc logique en blocs de 0,5, 1, 2 ou 4 Ko (par défaut) 
+pour que un bloc logique soit utilisé par plusieurs fichiers. Cela 
+permet de gagner de la place sur le disque. La même taille de fragment 
+est appliquée pour tout le système de fichiers. Mais ça donne plus de 
+blocs à gérer d'où une surcharge système. A utiliser avec précaution, 
+donc.
+<p></p>
+<p><a href="#top">Top</a><a name="subsec10.2"></a></p><h3>10.2. Affichage des FS</h3>
+<p></p>
+Affichage de tous les systèmes de  fichiers créés (affichage du fichier 
+/etc/filesystems sous forme plus lisible, plus CDROM et NFS) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsfs
+Name            Nodename   Mount Pt               VFS   Size    Options    Auto Accounting
+/dev/hd4        --         /                      jfs   65536   --         yes  no 
+/dev/hd1        --         /home                  jfs   65536   --         yes  no 
+/dev/hd2        --         /usr                   jfs   2097152 --         yes  no 
+/dev/hd9var     --         /var                   jfs   65536   --         yes  no 
+/dev/hd3        --         /tmp                   jfs   65536   --         yes  no 
+/proc           --         /proc                  procfs --      --         yes  no 
+/dev/hd10opt    --         /opt                   jfs   458752  --         yes  no 
+/dev/lv00       --         /mnt1                  jfs   26083328 rw         yes  no 
+/dev/lv01       --         /mnt1/dump             jfs   26214400 rw         yes  no 
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de tous les systèmes de fichiers montés :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mount
+  node       mounted        mounted over    vfs       date        options      
+-------- ---------------  ---------------  ------ ------------ --------------- 
+         /dev/hd4         /                jfs    Mar 28 08:57 rw,log=/dev/hd8 
+         /dev/hd2         /usr             jfs    Mar 28 08:57 rw,log=/dev/hd8 
+         /dev/hd9var      /var             jfs    Mar 28 08:57 rw,log=/dev/hd8 
+         /dev/hd3         /tmp             jfs    Mar 28 08:57 rw,log=/dev/hd8 
+         /dev/hd1         /home            jfs    Mar 28 08:58 rw,log=/dev/hd8 
+         /proc            /proc            procfs Mar 28 08:58 rw              
+         /dev/hd10opt     /opt             jfs    Mar 28 08:58 rw,log=/dev/hd8 
+         /dev/lv00        /mnt1            jfs    Mar 28 08:58 rw,log=/dev/hd8 
+         /dev/lv01        /mnt1/dump       jfs    Mar 28 15:23 rw,log=/dev/loglv00
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de l'espace disque disponible :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># df
+Système de fichiers Blocs 512 octets     Libre %Util    Iutil %Iutil  Monté sur
+/dev/hd4                      131072    107464   19%     1533    12% /
+/dev/hd2                     1835008    595984   68%    21811    25% /usr
+/dev/hd9var                   131072    102400   22%      589     5% /var
+/dev/hd3                     1048576    320552   70%      249     1% /tmp
+/dev/hd1                     1048576    383160   64%      171     1% /home
+/proc                              -         -    -         -     -  /proc
+/dev/hd10opt                  131072     60288   55%     1303    16% /opt
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de l'espace disque disponible en ko :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># df -k
+Système de fichiers Blocs 1024 octets     Libre %Util    Iutil %Iutil  Monté sur
+/dev/hd4                        65536     53732   19%     1533    12% /
+/dev/hd2                       917504    297992   68%    21811    25% /usr
+/dev/hd9var                     65536     51200   22%      589     5% /var
+/dev/hd3                       524288    160276   70%      249     1% /tmp
+/dev/hd1                       524288    191580   64%      171     1% /home
+/proc                               -         -    -         -     -  /proc
+/dev/hd10opt                    65536     30144   55%     1303    16% /opt
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec10.3"></a></p><h3>10.3. Création d'un FS</h3>
+<p></p>
+
+<ul>
+    <li>Création d'un système de fichiers : mkfs</li>
+    <li>Création d'un système de fichiers + création éventuelle du LV 
+(mklv) + mise à jour de la base ODM et du fichier /etc/filesystems : 
+crfs</li>
+</ul>
+Création d'un système de fichiers sur le VG logvg (-g logvg) de taille 
+32768 blocs de 512 octets - 16M ou 3G sont également possibles ? - (-a 
+size=32768), monté dans le répertoire /Log (-m /Log), d'une taille de 
+fragmentation de 512 octets (-a frag=512) et avec 1024 octets par inode -
+ ce nombre est inversement proportionnel au nombre d'inodes sur le 
+système de fichiers (-a nbpi=1024) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># crfs -v jfs -g logvg -m /Log -a size=32768 -a frag=512 -a nbpi=1024
+Selon les paramètres définis, la taille maximale du nouveau
+système de fichiers journalisé /Log est de 33554432 (blocs de 512 octets).
+<p></p>
+Taille du nouveau système de fichiers : 131072
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Autres options :
+
+<ul>
+    <li>-d monlv : sur quel LV (doit exister)</li>
+    <li>-A yes : montage au démarrage du système</li>
+    <li>-p rw : met les permissions lecture / écriture</li>
+</ul>
+Pouur les répertoires utilisateurs (/home), ne pas oublier :
+
+<ul>
+    <li>chown</li>
+    <li>cp -r /usr/samples</li>
+</ul>
+<p><a href="#top">Top</a><a name="subsec10.4"></a></p><h3>10.4. Modifications d'un FS</h3>
+<p></p>
+Agrandir le système de fichiers monté dans /Log de 16 Mo (si pas de M la taille est d'une PP) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chfs -a size=+16M /Log
+La taille du système de fichiers a été portée à 262144
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Changer le point de montage de /Log en /LogTrace :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chfs -m /LogTrace /Log
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec10.5"></a></p><h3>10.5. Supprimer un FS</h3>
+<p></p>
+Supprimer un système de fichiers (+ effacement de la base ODM et du fichier /etc/filesystems) avec le point de montage (-r) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># fuser -k /Data
+/Data:
+# umount /Data
+# rmfs -r /Data
+rmlv : le volume logique hd32 est supprimé.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec10.6"></a></p><h3>10.6. Ménage dans les systèmes de fichiers</h3>
+<p></p>
+Il y a quelque fichiers dont la taille augmente tout le temps, et qu'il faut vider de temps en temps :
+<p></p>
+
+<ul>
+    <li>/var/adm/wtmp, /etc/security/failedlogin : who -a /var/adm/wtmp &gt; /SVG/wtmp.log ; cat /dev/null &gt; /var/adm/wtmp</li>
+    <li>/var/spool/*/* (cron, mail, impressions, ...) : stopsrc -s 
+qdaemon ; rm -f /var/spool/lpd/qdir/* ; rm -f /var/spool/lpd/stat/* ; rm
+ -f /var/spool/qdaemon/* ; startsrc -s qdaemon </li>
+    <li>/var/adm/sulog</li>
+    <li>$HOME/smit.log, $HOME/smit.script, $HOME/websm.log, $HOME/websm.script</li>
+    <li>/usr/HTTPServer/logs : logs Apache</li>
+    <li>/var/adm/sa : logs sar (rotation circulaire sur un mois), compression possible dans la crontab de root :</li>
+</ul>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>10 6 * * * find /var/adm/sa -type f ! -name "*.gz" -mtime +1 -exec gzip -f {} \\;
+</pre></td></tr></tbody></table>
+<p></p>
+Ménage dans le système de fichiers : /usr/sbin/skulker. Script shell à éditer pour personnaliser.
+<p></p>
+<p><a href="#top">Top</a><a name="subsec10.7"></a></p><h3>10.7. Défragmentation d'un FS</h3>
+<p></p>
+Défragmenter le système de fichiers monté dans /Log :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># defragfs /Log
+statistiques avant exécution de defragfs :
+nombre de fragments libres : 114502
+nombre de segments alloués : 16570
+nombre d'espaces libres inférieurs à un bloc : 0
+nombre de fragments libres dans de petits espaces libres : 0
+<p></p>
+statistiques après exécution de defragfs :
+nombre d'espaces libres inférieurs à un bloc : 0
+nombre de fragments libres dans de petits espaces libres : 0
+<p></p>
+autres statistiques :
+nombre de fragments déplacés : 0
+nombre de blocs logiques déplacés : 0
+nombre de tentatives d'attribution : 0
+nombre d'équivalences : 0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Afficher l'état en cours de la fragmentation du système de fichiers :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># defragfs -q /usr
+statistics before running defragfs:
+number of free fragments 57106
+number of allocated fragments 205038
+number of free spaces shorter than a block 0
+number of free fragments in short free spaces 0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Afficher un rapport sur la fragmentation du système de fichiers monté dans /Data :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># defragfs -r /usr
+statistics before running defragfs:
+number of free fragments 57106
+number of allocated fragments 205038
+number of free spaces shorter than a block 0
+number of free fragments in short free spaces 0
+<p></p>
+statistics after running defragfs:
+number of free spaces shorter than a block 0
+number of free fragments in short free spaces 0
+<p></p>
+other statistics:
+number of fragments moved 276
+number of logical blocks moved 276
+number of allocation attempts 182
+number of exact matches 137
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Vérification due tous les systèmes de fichiers dont l'entrée du fichiers /etc/filesystems contient l'option check=true :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># fsck
+<p></p>
+****************
+The current volume is: /dev/hd1
+File system is currently mounted.
+fsck: Performing read-only processing does not produce dependable results.
+**Phase 1 - Check Blocks, Files/Directories, and Directory Entries
+**Phase 2 - Count links
+**Phase 3 - Duplicate Block Rescan and Directory Connectedness
+Inodes not connected to the root directory
+         tree have been detected.
+**Phase 4 - Report Problems
+**Phase 7 - Verify File/Directory Allocation Maps
+Errors detected in the file system inode allocation
+         map control information.
+Errors detected in the file system inode allocation map.
+**Phase 8 - Verify Disk Allocation Maps
+Incorrect data detected in disk allocation structures.
+Incorrect data detected in disk allocation control structures.
+   524288 kilobytes total disk space.
+       46 kilobytes in 29 directories.
+   332186 kilobytes in 140 user files.
+191580 kilobytes are available for use.
+fsck: Performing read-only processing does not produce dependable results.
+File system is dirty.
+File system is dirty but is marked clean.  In its present state,
+         the results of accessing /dev/hd1 (except by this command) are undefined.
+<p></p>
+****************
+The current volume is: /dev/hd10opt
+File system is currently mounted.
+fsck: Performing read-only processing does not produce dependable results.
+**Phase 1 - Check Blocks, Files/Directories, and Directory Entries
+**Phase 2 - Count links
+**Phase 3 - Duplicate Block Rescan and Directory Connectedness
+**Phase 4 - Report Problems
+**Phase 7 - Verify File/Directory Allocation Maps
+**Phase 8 - Verify Disk Allocation Maps
+    65536 kilobytes total disk space.
+      236 kilobytes in 168 directories.
+    34678 kilobytes in 1100 user files.
+    30144 kilobytes are available for use.
+fsck: Performing read-only processing does not produce dependable results.
+File system is clean.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Vérification du système de fichiers /dev/hd3, avec des modifications mineures sans intervention de l'utilisateur (-p) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># fsck -p /dev/hd3
+<p></p>
+<p></p>
+<p></p>
+****************
+The current volume is: /dev/hd3
+File system is currently mounted.
+fsck: Performing read-only processing does not produce dependable results.
+**Phase 1 - Check Blocks, Files/Directories, and Directory Entries
+**Phase 2 - Count links
+**Phase 3 - Duplicate Block Rescan and Directory Connectedness
+**Phase 4 - Report Problems
+**Phase 7 - Verify File/Directory Allocation Maps
+Errors detected in the file system inode allocation
+         map control information.
+Errors detected in the file system inode allocation map.
+**Phase 8 - Verify Disk Allocation Maps
+Incorrect data detected in disk allocation structures.
+Incorrect data detected in disk allocation control structures.
+   524288 kilobytes total disk space.
+       27 kilobytes in 23 directories.
+   363385 kilobytes in 218 user files.
+   160352 kilobytes are available for use.
+fsck: Performing read-only processing does not produce dependable results.
+File system is dirty.
+File system is dirty but is marked clean.  In its present state,
+         the results of accessing /dev/hd3 (except by this command) are undefined.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec10.8"></a></p><h3>10.8. Création d'un ramdisk</h3>
+<p></p>
+Pour améliorer les performances, il peut être utile de mettre des 
+données temporaires dans la RAM (la tempdb d'une base de données, par 
+exemple). La procédure qui suit est à exécuter à chaque démarrage du 
+serveur.
+<p></p>
+Génération du ramdisk de 4000 blocs de 512 bytes :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkramdisk 4000
+/dev/rramdisk0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Recherche du device ramdisk créé :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># ls -l /dev | grep ramdisk
+brw-------   1 root     system       47,  0 01 sep 15:25 ramdisk0
+crw-------   1 root     system       47,  0 01 sep 15:25 rramdisk0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Création du système de fichiers sur ce ramdisk :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkfs -V jfs /dev/ramdisk0
+mkfs: destroy /dev/ramdisk0 (y)? y
+Device /dev/ramdisk0:
+  Standard empty file system
+  Size:           4000 512-byte (UBSIZE) blocks
+  Initial Inodes: 512
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Création du répertoire de montage :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkdir /ramdisk0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Montage du ramdisk :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mount -V jfs -o nointegrity /dev/ramdisk0 /ramdisk0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Pour mettre la tempdb (base de données temporaire) dans ce ramdisk, il suffit de faire :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># touch /ramdisk0/tempdbram.dat
+#
+</pre></td></tr></tbody></table>
+<p></p>
+puis de faire pointer la tempdb vers /ramdisk0/tempdbram.dat.
+<p></p>
+Pour supprimer le device de la tempdb (Sybase) :
+<p></p>
+
+<ul>
+    <li>enlever la segmentation sur chacun des segment</li>
+    <li>disable mirroring --&gt; 0 + reboot moteur</li>
+    <li>créer le miroir sur le ramdisk</li>
+    <li>reboot du moteur</li>
+    <li>suppression miroir primaire --&gt; suppression définitive</li>
+    <li>reboot moteur + suppression device + disk</li>
+</ul>
+<p><a href="#top">Top</a><a name="subsec10.9"></a></p><h3>10.9. Au secours !</h3>
+<p></p>
+Restauration de la copie du superbloc (bloc 31) du système de fichiers /dev/hd4 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># dd count=1 bs=4k skip=31 seek=1 if=/dev/hd4 of=/dev/hd4
+1+0 enregistrements en entrée.
+1+0 enregistrements en sortie.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec11"></a></p><h2>11. Quotas</h2>
+<p></p>
+Ajout des quotas sur le répertoire /home :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chfs -a quota=userquota,groupquota /home
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># edquota -u mdecore
+[A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># edquota -t
+[A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># quotaon /home
+[A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># quotacheck -a
+[A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># repquota -a
+[A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec12"></a></p><h2>12. Resource Monitoring and Control (RMC)</h2>
+<p></p>
+[AIX 5.1] Associe une condition (eg. file system full) à un événement 
+(eg. envoi d'un mail). Package rsct.core, exécutables dans 
+/usr/sbin/rsct. Au démarrage un startsrc -s ctrmc doit être fait. 
+Configuration avec wsm -&gt; Contrôle -&gt; Généralités sur le contrôle 
+-&gt; Contrôle des conditions
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec13"></a></p><h2>13. Espace de pagination (swap)</h2>
+<p></p>
+L'espace de pagination (hd6) sert à stocker temporairement sur disque 
+des pages non utilisées dans la RAM. Si il n'y a pas assez de RAM, il 
+faut augmenter la taille de la RAM et non de l'espace de pagination, car
+ ce dernier ne sert que au stockage des pages non utilisées.
+<p></p>
+En général il faut mettre deux fois plus d'espace de pagination que de 
+RAM (512 Mo si il y a plus de 256 Mo de RAM). Il ne peut y avoir moins 
+de 64 Mo sur hd6. Le mieux est d'avoir un seul espace de pagination par 
+disque, sur les disques les moins sollicités, de tailles similaires (les
+ espaces de pagination sont utilisés en accès "round robin", si les 
+tailles sont différentes les petites zones se remplissent plus vites que
+ les grandes), non partagées sur plusieurs disques (pour bien répartir 
+l'activité uniformément sur les disques), sur des contrôleurs différents
+ (pour améliorer les opérations de lecture / écriture).
+<p></p>
+<p><a href="#top">Top</a><a name="subsec13.1"></a></p><h3>13.1. Affichage de l'espace de pagination</h3>
+<p></p>
+Affichage des informations sur les espaces de pagination :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsps -a
+Page Space  Physical Volume   Volume Group    Size   %Used  Active  Auto  Type
+paging00    hdisk1            rootvg         224MB       1     yes   yes    lv
+hd6         hdisk0            rootvg         288MB       2     yes   yes    lv
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des caractéristiques de tous les espaces de pagination :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsps -s
+Total Paging Space   Percent Used
+      512MB               1%
+#
+</pre></td></tr></tbody></table>
+<p></p>
+RAM totale :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># bootinfo -r
+8388608
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Espace de pagination activé au démarrage :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># cat /etc/swapspaces
+* /etc/swapspaces
+*
+* This file lists all the paging spaces that are automatically put into
+* service on each system restart (the 'swapon -a' command executed from
+* /etc/rc swaps on every device listed here).
+*
+* WARNING: Only paging space devices should be listed here.
+*
+* This file is modified by the chps, mkps and rmps commands and referenced
+* by the lsps and swapon commands.
+<p></p>
+hd6:
+	dev = /dev/hd6
+<p></p>
+<p></p>
+<p></p>
+paging00:
+	dev = /dev/paging00
+<p></p>
+<p></p>
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec13.2"></a></p><h3>13.2. Ajout d'un espace de pagination</h3>
+<p></p>
+Ajout d'un espace de pagination de 4 LP (-s 4), avec activation immédiate (-n) et au démarrage (-a) sur le VG datavg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkps -s 4 -n -a datavg
+paging00
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Ajout d'un espace de pagination de 4 LP (-s 4), avec activation 
+immédiate (-n) et au démarrage (-a) sur le disque hdisk4 du VG logvg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkps -s 4 -n -a logvg hdisk4
+paging01
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec13.3"></a></p><h3>13.3. Modification d'un espace de pagination</h3>
+<p></p>
+Augmentation de la taille de l'espace de pagination paging00 de 4 LPs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsvg datavg | grep FREE
+MAX LVs:        256                      FREE PPs:       1075 (68800 megabytes)
+# chps -s 4 paging00
+#
+</pre></td></tr></tbody></table>
+<p></p>
+[AIX 5.1] Diminution de la taille d l'espace de pagination paging00 de 4 LPs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chps -d 4 paging00
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec13.4"></a></p><h3>13.4. Activation / désactivation d'un espace de pagination</h3>
+<p></p>
+Activation de l'espace de pagination /dev/paging00 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># swapon /dev/paging00
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Activation de tous les espaces de pagination définis dans le fichier /etc/swapspaces :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># swapon -a
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Désactivation de l'espace de pagination /dev/paging00 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># swapoff /dev/paging01
+# rmps paging01
+rmlv : le volume logique paging01 est supprimé.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec14"></a></p><h2>14. Gestion des périphériques</h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec14.1"></a></p><h3>14.1. Affichage des périphériques</h3>
+<p></p>
+Affichage de toute les unités prises en charge par le système (-P) avec les en-têtes de la sortie (-H) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsdev -P -H
+class          type           subclass   description
+<p></p>
+logical_volume vgtype         vgsubclass N/A
+logical_volume lvtype         lvsubclass N/A
+lvm            lvdd           lvm        LVM Device Driver
+aio            aio            node       Asynchronous I/O
+pty            pty            pty        Asynchronous Pseudo-Terminal
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de toute les unités pré définies (-P) pour la classe de l'unité tape (-c tape) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsdev -P -c tape
+tape 1200mb-c scsi 1.2 GB 1/4-Inch Tape Drive
+tape 150mb    scsi 150 MB 1/4-Inch Tape Drive
+tape 3490e    scsi 3490E Autoloading Tape Drive
+tape 4mm2gb   scsi 2.0 GB 4mm Tape Drive
+tape 4mm4gb   scsi 4.0 GB 4mm Tape Drive
+tape 525mb    scsi 525 MB 1/4-Inch Tape Drive
+tape 8mm      scsi 2.3 GB 8mm Tape Drive
+tape 8mm5gb   scsi 5.0 GB 8mm Tape Drive
+tape 8mm7gb   scsi 7.0 GB 8mm Tape Drive
+tape 9trk     scsi 1/2-inch 9-Track Tape Drive
+tape ost      scsi Other SCSI Tape Drive
+tape scsd     scsi SCSI Tape Drive
+tape 4mm2gb2  scsi 2.0 GB 4mm Tape Drive
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de toute les unités configurées (-C) avec les en-têtes de la sortie (-H) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsdev -C -H
+name          status    location      description
+<p></p>
+sys0          Available 00-00         System Object
+sysplanar0    Available 00-00         System Planar
+pci0          Available 00-fff7f09000 PCI Bus
+pci1          Available 00-fff7f0a000 PCI Bus
+isa0          Available 10-80         ISA Bus
+sa0           Available 01-S1         Standard I/O Serial Port
+sa1           Available 01-S2         Standard I/O Serial Port
+sa2           Available 01-S3         Standard I/O Serial Port
+sa3           Available 01-S4         Standard I/O Serial Port
+siokma0       Available 01-K1         Keyboard/Mouse Adapter
+fda0          Available 01-D1         Standard I/O Diskette Adapter
+pci2          Available 10-58         PCI Bus
+scsi0         Available 11-08         Wide/Ultra-2 SCSI I/O Controller
+scsi1         Available 11-09         Wide/Ultra-2 SCSI I/O Controller
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Les unités ont le statut disponible (prête et pouvant être utilisée), 
+définie (non disponible, mise hors tension ou n'existant plus dans le 
+système, bref non accessible) ou non définie (supportée mais non 
+configurée).
+<p></p>
+Affichage de toute les unités de la classe tape (-c tape) configurées (-C) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsdev -C -c tape
+rmt0 Disponible 1S-08-00-0,0 Unité de bande 4 mm SCSI différentielle
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de toute les unités pré définies (-C) ayant une connexion au système de type scsi (-s scsi) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsdev -C -s scsi
+rmt0    Available 11-08-00-0,0 SCSI 8mm Tape Drive
+cd0     Available 11-08-00-1,0 16 Bit SCSI Multimedia CD-ROM Drive
+hdisk0  Available 11-08-00-2,0 16 Bit LVD SCSI Disk Drive
+hdisk1  Available 11-08-00-4,0 16 Bit LVD SCSI Disk Drive
+hdisk2  Available 27-08-00-0,0 Other SCSI Disk Drive
+hdisk3  Available 27-08-00-1,0 Other SCSI Disk Drive
+hdisk4  Available 27-08-00-2,0 Other SCSI Disk Drive
+hdisk5  Available 27-08-00-3,0 Other SCSI Disk Drive
+hdisk6  Available 27-08-00-4,0 Other SCSI Disk Drive
+hdisk7  Available 27-08-00-5,0 Other SCSI Disk Drive
+hdisk8  Available 27-08-00-6,0 Other SCSI Disk Drive
+hdisk9  Available 3A-08-00-0,0 Other SCSI Disk Drive
+hdisk10 Available 3A-08-00-1,0 Other SCSI Disk Drive
+hdisk11 Available 3A-08-00-2,0 Other SCSI Disk Drive
+hdisk12 Available 3A-08-00-3,0 Other SCSI Disk Drive
+hdisk13 Available 3A-08-00-4,0 Other SCSI Disk Drive
+hdisk14 Available 3A-08-00-5,0 Other SCSI Disk Drive
+hdisk15 Available 3A-08-00-6,0 Other SCSI Disk Drive
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de toute les unités de la classe adapter (-c adapter) qui sont définies (-C) et disponibles (-S a) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsdev -C -c adapter -S a
+sa0       Disponible 01-S1    Port d'E-S série standard
+sa1       Disponible 01-S2    Port d'E-S série standard
+sa2       Disponible 01-S3    Port d'E-S série standard
+siokma0   Disponible 01-K1    Carte de clavier/souris
+fda0      Disponible 01-D1    Carte d'unité de disquette standard
+ide0      Disponible 1G-19    Contrôleur ATA/IDE
+sisscsia0 Disponible 1S-08    PCI-X Dual Channel Ultra320 SCSI Adapter
+lai0      Disponible 1a-00    Carte graphique GXT135P
+sisscsia1 Disponible 1n-08    PCI-X Dual Channel Ultra320 SCSI Adapter
+sioka0    Disponible 01-K1-00 Carte de clavier
+ppa0      Disponible 01-R1    Carte de port parallèle CHRP IEEE1284 (ECP)
+ent0      Disponible 1L-08    10/100 Mbps Ethernet PCI Adapter II (1410ff01)
+ent1      Disponible 1j-08    10/100/1000 Base-TX PCI-X Adapter (14106902)
+sioma0    Disponible 01-K1-01 Carte souris
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des caractéristiques par défaut (-D) de l'unité rmt0 (-l rmt0) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsattr -l rmt0 -D
+mode          yes Use DEVICE BUFFERS during writes     True
+block_size        BLOCK size (0=variable length)       True
+extfm         no  Use EXTENDED file marks              True
+ret           yes RETENSION on tape change or reset    True
+density_set_1     DENSITY setting #1                   True
+density_set_2     DENSITY setting #2                   True
+compress      yes Use data COMPRESSION                 True
+size_in_mb    0   Size in Megabytes                    False
+ret_error     no  RETURN error on tape change or reset True
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des caractéristiques courantes (-E) de l'unité rmt0 (-l rmt0) avec les en-têtes de la sortie (-H) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsattr -l rmt0 -E -H
+attribute     value description                          user_settable
+<p></p>
+mode          yes   Use DEVICE BUFFERS during writes     True
+block_size    1024  BLOCK size (0=variable length)       True
+extfm         no    Use EXTENDED file marks              True
+ret           no    RETENSION on tape change or reset    True
+density_set_1 39    DENSITY setting #1                   True
+density_set_2 39    DENSITY setting #2                   True
+compress      yes   Use data COMPRESSION                 True
+size_in_mb    20000 Size in Megabytes                    False
+ret_error     no    RETURN error on tape change or reset True
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des valeurs possibles (-R) pour l'attribut login (-a login) du périphérique tty0 (-l tty0) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsattr -l tty0 -a login -R
+enable
+disable
+share
+delay
+hold
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage effectif des attributs système :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsattr -E -l sys0
+keylock      normal        State of system keylock at boot time              False
+maxbuf       20            Maximum number of pages in block I/O BUFFER CACHE True
+maxmbuf      0             Maximum Kbytes of real memory allowed for MBUFS   True
+maxuproc     128           Maximum number of PROCESSES allowed per user      True
+autorestart  false         Automatically REBOOT system after a crash         True
+iostat       false         Continuously maintain DISK I/O history            True
+realmem      8388608       Amount of usable physical memory in Kbytes        False
+conslogin    enable        System Console Login                              False
+fwversion    IBM,M2P021208 Firmware version and revision levels              False
+maxpout      0             HIGH water mark for pending write I/Os per file   True
+minpout      0             LOW water mark for pending write I/Os per file    True
+fullcore     false         Enable full CORE dump                             True
+pre430core   false         Use pre-430 style CORE dump                       True
+ncargs       6             ARG/ENV list size in 4K byte blocks               True
+rtasversion  1             Open Firmware RTAS version                        False
+modelname    IBM,7025-6F1  Machine name                                      False
+systemid     IBM,01657498A Hardware system identifier                        False
+boottype     disk          N/A                                               False
+SW_dist_intr false         Enable SW distribution of interrupts              True
+cpuguard     disable       CPU Guard                                         True
+frequency    150400000     System Bus Frequency                              False
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage effectif des attributs de la mémoire :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsattr -E -l mem0
+size     8192 Total amount of physical memory in Mbytes  False
+goodsize 8192 Amount of usable physical memory in Mbytes False
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage effectif de l'attribut système realmem (-a realmem ) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsattr -E -l sys0 -a realmem
+realmem 8388608 Amount of usable physical memory in Kbytes False
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des attributs de toutes les unités :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsdev -C | while read dev foo ; do echo "*** $dev ***" ; lsattr -E -l $dev ; echo ; done
+*** sys0 ***
+keylock      normal        State of system keylock at boot time              False
+maxbuf       20            Maximum number of pages in block I/O BUFFER CACHE True
+maxmbuf      0             Maximum Kbytes of real memory allowed for MBUFS   True
+maxuproc     128           Maximum number of PROCESSES allowed per user      True
+autorestart  false         Automatically REBOOT system after a crash         True
+iostat       false         Continuously maintain DISK I/O history            True
+realmem      8388608       Amount of usable physical memory in Kbytes        False
+conslogin    enable        System Console Login                              False
+fwversion    IBM,M2P021208 Firmware version and revision levels              False
+maxpout      0             HIGH water mark for pending write I/Os per file   True
+minpout      0             LOW water mark for pending write I/Os per file    True
+fullcore     false         Enable full CORE dump                             True
+pre430core   false         Use pre-430 style CORE dump                       True
+ncargs       6             ARG/ENV list size in 4K byte blocks               True
+rtasversion  1             Open Firmware RTAS version                        False
+modelname    IBM,7025-6F1  Machine name                                      False
+systemid     IBM,01657498A Hardware system identifier                        False
+boottype     disk          N/A                                               False
+SW_dist_intr false         Enable SW distribution of interrupts              True
+cpuguard     disable       CPU Guard                                         True
+frequency    150400000     System Bus Frequency                              False
+<p></p>
+*** sysplanar0 ***
+<p></p>
+*** pci0 ***
+bus_id     0x900000c0 Bus Identifier False
+bus_number 0x0        PCI Bus Number False
+<p></p>
+*** pci1 ***
+bus_id     0x900000c1 Bus Identifier False
+bus_number 0x10       PCI Bus Number False
+<p></p>
+*** isa0 ***
+bus_id 0x90000100 Bus Identifier False
+<p></p>
+*** sa0 ***
+bus_io_addr   0x3f8 Bus I/O address     False
+bus_intr_lvl  4     Bus interrupt level False
+intr_priority 1     Interrupt priority  False
+<p></p>
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des informations relatives aux unités configurées :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lscfg
+INSTALLED RESOURCE LIST
+<p></p>
+The following resources are installed on the machine.
++/- = Added or deleted from Resource List.
+*   = Diagnostic support not available.
+	
+  Model Architecture: chrp
+  Model Implementation: Multiple Processor, PCI bus
+	
++ sys0              00-00             System Object
++ sysplanar0        00-00             System Planar
++ mem0              00-00             Memory
++ proc0             00-00             Processor
++ L2cache0          00-00             L2 Cache
+* pmc0              00-00             n/a
++ proc2             00-02             Processor
+* pci0              00-fff7f09000     PCI Bus
+* isa0              10-80             ISA Bus
++ fda0              01-D1             Standard I/O Diskette Adapter
++ fd0               01-D1-00-00       Diskette Drive
+* siokma0           01-K1             Keyboard/Mouse Adapter
++ sioka0            01-K1-00          Keyboard Adapter
++ sioma0            01-K1-01          Mouse Adapter
++ ppa0              01-R1             CHRP IEEE1284 (ECP) Parallel Port
+                                      Adapter
++ sa0               01-S1             Standard I/O Serial Port
++ tty0              01-S1-00-00       Asynchronous Terminal
++ sa1               01-S2             Standard I/O Serial Port
++ sa2               01-S3             Standard I/O Serial Port
++ sa3               01-S4             Standard I/O Serial Port
+* pci2              10-58             PCI Bus
++ scsi0             11-08             Wide/Ultra-2 SCSI I/O Controller
++ rmt0              11-08-00-0,0      SCSI 8mm Tape Drive (20000 MB)
++ cd0               11-08-00-1,0      16 Bit SCSI Multimedia CD-ROM Drive
+                                      (650 MB)
++ hdisk0            11-08-00-2,0      16 Bit LVD SCSI Disk Drive (18200
+                                      MB)
++ hdisk1            11-08-00-4,0      16 Bit LVD SCSI Disk Drive (18200
+                                      MB)
++ scsi1             11-09             Wide/Ultra-2 SCSI I/O Controller
+* pci3              10-5a             PCI Bus 
++ ent0              1A-08             IBM 10/100 Mbps Ethernet PCI Adapter
+                                      (23100020)
+* pci1              00-fff7f0a000     PCI Bus 
++ ent1              21-08             IBM 10/100 Mbps Ethernet PCI Adapter
+                                      (231000 
++ scsi2             27-08             Wide/Fast-20 SCSI I/O Controller
++ hdisk2            27-08-00-0,0      Other SCSI Disk Drive
++ hdisk3            27-08-00-1,0      Other S 
++ scsi3             3A-08             Wide/Fast-20 SCSI I/O Controller
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des informations relatives aux unités configurées avec en plus les VPD " vital product data " (-v) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lscfg -v
+INSTALLED RESOURCE LIST WITH VPD
+<p></p>
+The following resources are installed on your machine.
+	
+  Model Architecture: chrp
+  Model Implementation: Multiple Processor, PCI bus
+<p></p>
+  sys0              00-00             System Object
+  sysplanar0        00-00             System Planar
+  mem0              00-00             Memory
+  proc0             00-00             Processor
+<p></p>
+        Device Specific.(YL)........P1-C1
+<p></p>
+  L2cache0          00-00             L2 Cache
+  pmc0              00-00             n/a
+  proc2             00-02             Processor
+<p></p>
+        Device Specific.(YL)........P1-C1
+<p></p>
+  pci0              00-fff7f09000     PCI Bus
+<p></p>
+        Device Specific.(YL)........P1
+<p></p>
+  isa0              10-80             ISA Bus
+<p></p>
+        Device Specific.(YL)........P1
+<p></p>
+  fda0              01-D1             Standard I/O Diskette Adapter
+<p></p>
+        Device Specific.(YL)........P1/D1
+<p></p>
+  fd0               01-D1-00-00       Diskette Drive
+  siokma0           01-K1             Keyboard/Mouse Adapter
+<p></p>
+        Device Specific.(YL)........P1/K1
+<p></p>
+  sioka0            01-K1-00          Keyboard Adapter
+  sioma0            01-K1-01          Mouse Adapter
+  ppa0              01-R1             CHRP IEEE1284 (ECP) Parallel Port
+                                      Adapter
+<p></p>
+        Device Specific.(YL)........P1/R1
+<p></p>
+  sa0               01-S1             Standard I/O Serial Port
+<p></p>
+        Device Specific.(YL)........P1/S1
+<p></p>
+  tty0              01-S1-00-00       Asynchronous Terminal
+  sa1               01-S2             Standard I/O Serial Port
+<p></p>
+        Device Specific.(YL)........P1/S2
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des codes d'emplacement physique des unités :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lscfg -p
+INSTALLED RESOURCE LIST
+<p></p>
+The following resources are installed on the machine.
+	
+  Model Architecture: chrp
+  Model Implementation: Multiple Processor, PCI bus
+<p></p>
+  sys0              00-00             System Object
+  sysplanar0        00-00             System Planar
+  mem0              00-00             Memory
+  proc0             00-00             Processor
+  L2cache0          00-00             L2 Cache
+  pmc0              00-00             n/a
+  proc2             00-02             Processor
+  proc4             00-04             Processor
+  proc6             00-06             Processor
+  pci0              00-fff7f09000     PCI Bus
+  isa0              10-80             ISA Bus
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des informations relatives aux cartes réseau (-l ent\*)
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lscfg -v -l ent\*
+  DEVICE            LOCATION          DESCRIPTION
+	
+  ent0              1A-08             IBM 10/100 Mbps Ethernet PCI Adapter
+                                      (23100020)
+<p></p>
+        Serial Number...............16014311
+        FRU Number..................091H0397
+        Part Number.................091H0397
+        Network Address.............00025509E8EC
+        Displayable Message.........PCI Ethernet Adapter (23100020) 
+        Device Specific.(YL)........P1-I3/E1
+<p></p>
+  ent1              21-08             IBM 10/100 Mbps Ethernet PCI Adapter
+                                      (23100020)
+<p></p>
+        Network Address.............00062984859F
+        Displayable Message.........PCI Ethernet Adapter (23100020) 
+        Device Specific.(YL)........P1/E1
+<p></p>
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des informations sur le modèle, le type de processeur, la taille de la mémoire, le réseau, la pagination, ... :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># prtconf
+System Model: IBM,7025-6F1
+Machine Serial Number: 657498A
+Processor Type: PowerPC_RS64-IV
+Number Of Processors: 4
+Processor Clock Speed: 602 MHz
+CPU Type: 64-bit
+Kernel Type: 32-bit
+LPAR Info: -1 NULL
+Memory Size: 8192 MB
+Good Memory Size: 8192 MB
+Firmware Version: IBM,M2P021208
+Console Login: enable
+Auto Restart: false
+Full Core: false
+ 
+Network Information
+	Host Name: tarsier
+	IP Address: 10.41.11.15
+	Sub Netmask: 255.255.0.0
+	Gateway: 10.41.54.1
+	Name Server: 10.41.13.22
+	Domain Name: au.boulot
+ 
+Paging Space Information
+	Total Paging Space: 512MB
+	Percent Used: 1%
+ 
+Volume Groups Information
+============================================================================== 
+rootvg:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdisk0            active            542         58          29..00..00..00..29
+hdisk1            active            542         449         108..67..57..108..109
+============================================================================== 
+[...] 
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec14.2"></a></p><h3>14.2. Configurer les unités</h3>
+<p></p>
+Rendre toute les unités auto configurables (toutes les unités sauf 
+parallèle ou série, soit les imprimantes et les terminaux ASCII) 
+disponibles (ie. sous tension) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># cfgmgr
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Rendre une unité disponible reliée par SCSI (-l scsi0) avec un affichage verbeux (-v) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># cfgmgr -v -l scsi0
+----------------
+tentative de configuration de l'unité 'scsi0'
+Time: 0	LEDS: 0x2522
+appel de /usr/lib/methods/cfgsisscsib -l scsi0 
+Number of running methods: 1
+----------------
+Completed method for: scsi0, Elapsed time = 0
+code retour = 0
+************ sortie standard ********
+rmt0 ses0 
+*********** erreur standard *********
+Configuring device: scsi0
+Calling define_children()
+cfgsisscsib: entering define children routine
+update_vpd: parent devno = 0xe0000
+update_vpd: kmid = 0x706be00
+update_vpd: calling sysconfig with CFG_QVPD
+hexdump(): length=32
+90 0b 00 52 4d 08 30 32   30 41 30 30 34 39 79 1e        ...RM.02 0A0049y. 
+<p></p>
+00 00 00 00 00 00 00 00   00 00 00 00 00 00 00 00        ........ ........ 
+<p></p>
+       
+<p></p>
+update_vpd: CuVPD updated
+<p></p>
+----------------
+Time: 0	LEDS: 0x539
+Number of running methods: 0
+----------------
+tentative de configuration de l'unité 'rmt0'
+Time: 0	LEDS: 0x68c
+appel de /etc/methods/cfgsctape -l rmt0 
+Number of running methods: 1
+----------------
+Completed method for: rmt0, Elapsed time = 0
+code retour = 0
+********** pas de sortie standard *******
+********** pas d'erreur standard ********
+----------------
+Time: 0	LEDS: 0x539
+Number of running methods: 0
+----------------
+[...]
+appel de savebase
+code retour = 0
+********** pas de sortie standard *******
+********** pas d'erreur standard ********
+Configuration time: 1 seconds
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Rendre l'unité rmt0 disponible :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkdev -l rmt0
+rmt0 Disponible
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Rendre l'unité rmt0 définie :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># rmdev -l rmt0
+rmt0 Défini
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Rendre l'unité rmt0 non définie :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># rmdev -dl rmt0
+rmt0 supprimé
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Changement de l'attribut système (-l sys0) maxuproc (les seuls paramètre
+ qu'on peut modifier sont à Vrai dans la dernière colonne produite par 
+la commande lsattr -E -l sys0, en l'occurrence keylock, realmem et 
+conslogin pour sys0) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chdev -l sys0 -a maxuproc=150
+sys0 modifié
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec15"></a></p><h2>15. Sauvegardes</h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec15.1"></a></p><h3>15.1. Sauvegarde système</h3>
+<p></p>
+La sauvegarde du système (rootvg) se fait avec la commande mksysb. Cela sauvegarde :
+
+<ul>
+    <li>tous les systèmes de fichiers montés de rootvg</li>
+    <li>les définitions de l'espace de pagination</li>
+    <li>les définitions des LV</li>
+    <li>créé une bande amorçable.</li>
+</ul>
+Ca peut aussi servir à réduire un LV ou système de fichiers (option 
+reducevg), ou augmenter la taille des PPs. L'archive est au format 
+backup, et peut aussi être restaurée avec restore.
+<p></p>
+Le fichier /image.data généré par la commande mkszfile ou l'option -i de
+ mksysb contient les infos sur la sauvegarde système. En particulier, 
+BOSINST_FILE permet d'indiquer quel programme exécuter à la fin de la 
+restauration. Sinon le fichier /bosinst.data permet de définir les 
+conditions requises sur le système cible.
+<p></p>
+Pour restaurer redémarrer la machine, appuyer sur F1, puis choisir "Multiboot" puis "Install from".
+<p></p>
+Restauration à partir d'une bande mksysb, sans redémarrage :
+<p></p>
+Rembobinage de la bande :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl rewind
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Saute la partie amorcable de la bande :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl -f /dev/rmt0.1 fsf 3
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Restauration de l'archive
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore [...]
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Pour que la bande lise en bloc de taille variable :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chdev  -l 'rmt0' -a block_size='0'
+rmt0 changed
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Activer la compression matérielle (par défaut) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chdev  -l 'rmt0' -a compress='yes'
+rmt0 changed
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Pour sauvegarder les autres VG que rootvg, utiliser la commande savevg :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl -f /dev/rmt0.1 rewind
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># for vg in `lsvg -o | grep -v rootvg` ; do /usr/bin/savevg -f /dev/rmt0.1 -i -m -e -X $vg ; done
+Création du fichier d'informations pour le groupe de volumes gicrvg..
+<p></p>
+Création de la liste des fichiers à sauvegarder.
+Sauvegarde de 4897 fichiers..............................
+16 fichiers sur 4897 (0%)..............................
+16 fichiers sur 4897 (0%)..............................
+16 fichiers sur 4897 (0%)..............................
+17 fichiers sur 4897 (0%)..............................
+17 fichiers sur 4897 (0%)..............................
+17 fichiers sur 4897 (0%)..............................
+4895 fichiers sur 4897 (99%)..............................
+4895 fichiers sur 4897 (99%)..............................
+4895 fichiers sur 4897 (99%)..............................
+4896 fichiers sur 4897 (99%)..............................
+4896 fichiers sur 4897 (99%)..............................
+4896 fichiers sur 4897 (99%).............................
+4897 fichiers sur 4897 (100%)
+0512-038 savevg : La sauvegarde a abouti.
+<p></p>
+Création du fichier d'informations pour le groupe de volumes logvg.
+<p></p>
+Création de la liste des fichiers à sauvegarder.
+Sauvegarde de 108 fichiers..............................
+13 fichiers sur 108 (12%)..............................
+16 fichiers sur 108 (14%)..............................
+30 fichiers sur 108 (27%)..............................
+31 fichiers sur 108 (28%)..............................
+56 fichiers sur 108 (51%)..............................
+60 fichiers sur 108 (55%)..............................
+65 fichiers sur 108 (60%)..............................
+67 fichiers sur 108 (62%)..........
+108 fichiers sur 108 (100%)
+0512-038 savevg : La sauvegarde a abouti.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl -f /dev/rmt0.1 rewind
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Pour visualiser le backup (-s pour un backup d'un VG autre que rootvg) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># listvgbackup -s
+New volume on /dev/rmt0:
+ Cluster 51200 bytes (100 blocks).
+    Volume number 1
+    Date of backup: Sat Sep  4 01:13:07 2004
+    Files backed up by name
+    User root
+         374 ./tmp/vgdata/vgdata.files532504
+         374 ./tmp/vgdata/vgdata.files
+        2990 ./tmp/vgdata/gicrvg/filesystems
+           7 ./tmp/vgdata/gicrvg/tapeblksz
+        8167 ./tmp/vgdata/gicrvg/gicrvg.data
+          60 ./tmp/vgdata/gicrvg/fslv00.map
+          60 ./tmp/vgdata/gicrvg/fslv01.map
+         192 ./tmp/vgdata/gicrvg/fslv02.map
+         192 ./tmp/vgdata/gicrvg/fslv03.map
+         192 ./tmp/vgdata/gicrvg/fslv04.map
+         192 ./tmp/vgdata/gicrvg/fslv05.map
+        3888 ./tmp/vgdata/gicrvg/fslv06.map
+        3888 ./tmp/vgdata/gicrvg/fslv07.map
+          12 ./tmp/vgdata/gicrvg/loglv01.map
+           0 ./data_prod
+           0 ./data_prod/lost+found
+ 10485764096 ./data_prod/data_prod1.dat
+[...]
+0 ./alloc/log
+        4522 ./alloc/log/sat_stat.log
+          40 ./alloc/log/sat_stat.log.tmp
+        1212 ./alloc/sybinit.err
+           0 ./alloc/toto.txt
+           0 ./data_simul
+           0 ./data_simul/lost+found
+ 10485764096 ./data_simul/data_simul2.dat
+ 10485764096 ./data_simul/data_simul1.dat
+    total size: 42481872194
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec15.2"></a></p><h3>15.2. backup / restore</h3>
+<p></p>
+backup : lit la liste de fichiers à sauvegarder sur stdin. Commande AIX,
+ la seule à pouvoir gérer les ACL ou la base informatique sécurisée TCB.
+<p></p>
+Sauvegarde du répertoire /home (find /home) par nom de fichiers (-i) - 
+sinon sauvegarde par inode, sur un système de fichiers qui n'a pas 
+besoin d'être monté, sur le périphérique /dev/rmt0, sans demande 
+d'appuyer sur un touche avant de lancer la sauvegarde (-q) - question 
+posée pour être sûr qu'il y a bien une bande prête, avec compression 
+(-p) - ne pas utiliser la compression sur un système de fichiers actifs,
+ le fichier pouvant être modifié lors de la compression, avec affichage 
+de la liste des fichiers sauvegardés (-v) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># find /home | backup -ivqf /dev/rmt0
+Backing up to /dev/rmt0
+Cluster 51200 bytes (100 blocks).
+Volume 1 on /dev/null
+a            0 /home
+[...]
+a            0 /home/TT_DB
+a         3072 /home/TT_DB/file_table.rec
+a         2048 /home/TT_DB/file_table.ind
+a            0 /home/TT_DB/file_table.var
+a         2048 /home/TT_DB/file_object_map.rec
+a         2048 /home/TT_DB/file_object_map.ind
+a         3072 /home/TT_DB/property_table.rec
+a         1024 /home/TT_DB/property_table.ind
+a         1024 /home/TT_DB/property_table.var
+a         3072 /home/TT_DB/access_table.rec
+a         1024 /home/TT_DB/access_table.ind
+    total size: 339954942
+Done at Fri Jun 25 14:48:28 2004; 664100 blocks on 1 volume(s)
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Sauvegarde avec mise à jour du fichier /etc/dumpdates - historique des 
+sauvegardes (-u), depuis le niveau inférieur à 1 (-1) - n-1, 0 pour une 
+sauvegarde complète ; si la sauvegarde n-1 n'existe pas, essaie n-2 ; si
+ n-2 n'existe pas, essaie n-3 et ainsi de suite jusqu'à 0 ; -9 par 
+défaut :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># backup -u -1 -f /dev/rmt0 /home
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Voir le contenu de l'archive (-T) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore -Tvf /dev/rmt0
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Restaurer (-x) le fichier /home/mdecore :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore -xvf /dev/rmt0 /home/mdecore
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Restaurer toute les sauvegarder incrémentales (-r) - 0 puis 1 puis 2 etc. :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore -rqvf /dev/rmt0
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Le fichier restoresymtable est créé à la racine du système de fichiers 
+restauré pour s'assurer que la séquence de restauration soit correcte. 
+Une fois la restauration terminée, il faut le supprimer.
+<p></p>
+Restauration du fichier /etc/passwd de la 4ème sauvegarde (-s 4) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore -s 4 -xvf /dev/rmt0.1 /etc/passwd
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+[AIX 5.2] Restauration des attributs du fichier /etc/passwd sans le créer (-Pa) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore -Pa -vf /dev/rmt0 /etc/passwd
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+[AIX 5.2] Visualisation des attributs du fichier /etc/passwd (-Ta) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore -Ta -vf /dev/rmt0 /etc/passwd
+[ A COMPLETER...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec15.3"></a></p><h3>15.3. cpio</h3>
+<p></p>
+La commande cpio se trouve sur différents systèmes, est POSIX…
+<p></p>
+Copier le répertoire /mnt1 vers /mnt2 en lisant les noms des fichiers 
+sur l’entrée standard (-p), en créant les répertoires si nécessaires 
+(-d) et en créant des liens au lieu de les copier (–l) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># cd /mnt1 &amp;&amp; find . -xdev | cpio –pdl /mnt2
+[…]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+[FIXME] voir quelle commande passe smit restfilesys
+<p></p>
+<p><a href="#top">Top</a><a name="subsec15.4"></a></p><h3>15.4. Gestion de la bande</h3>
+<p></p>
+Rembobinage de la bande située dans /dev/rmt0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl -f /dev/rmt0 rewind
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Rembobinage et éjection de la bande située dans /dev/rmt0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl -f /dev/rmt0 rewoffl
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Ejection de la bande située dans /dev/rmt0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl -f /dev/rmt0 offline
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Positionnement au début du 4ème fichier de la bande située dans /dev/rmt0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tctl -f /dev/rmt0.1 fsf 3
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage d'un rapport indiquant le nombre de fichiers et les tailles de blocs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tcopy /dev/rmt0
+tcopy : Fichier bande : 1 ; enregistrements : 1 à 15354 ; taille : 512.
+tcopy : Fichier bande : 1 ; fin de fichier après 15354 enregistrements, 7861248 octets.
+tcopy : Fichier bande : 2 ; enregistrements : 1 à 5800 ; taille : 512.
+tcopy : Fichier bande : 2 ; fin de fichier après 5800 enregistrements, 2969600 octets.
+tcopy : Fichier bande : 3 ; enregistrement : 1 ; taille : 512.
+tcopy : Fichier bande : 3 ; fin de fichier après 1 enregistrements, 512 octets.
+tcopy : Fichier bande : 4 ; enregistrements : 1 à 453050 ; taille : 1024.
+tcopy : Fichier bande : 4 ; fin de fichier après 453050 enregistrements, 463923200 octets.
+tcopy : La fin de la bande est atteinte.
+tcopy : Longueur totale de la bande : 474754560 octets.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Copie de la bande située dans /dev/rmt0 dans la bande située dans /dev/rmt1 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tcopy /dev/rmt0 /dev/rmt1
+tcopy : Fichier bande : 1 ; enregistrements : 1 à 15354 ; taille : 512.
+tcopy : Fichier bande : 1 ; fin de fichier après 15354 enregistrements, 7861248 octets.
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec15.5"></a></p><h3>15.5. Vérifications de la sauvegarde, de la bande</h3>
+<p></p>
+Vérifier l'archive au format backup :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># restore -T
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Vérifier l'archive au format tar :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tar t
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Vérifie les dysfonctionnements matériels en indiquant de lire 2 fichiers sur la bande :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># tapechk 2
+118-008 The tapechk command is rewinding the tape. Please wait.
+118-015 The tapechk command is checking the next 2 file(s).
+        Please wait.
+118-016 The files you requested on tape "/dev/rmt0" appear
+        to be OK.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec16"></a></p><h2>16. Les packages</h2>
+<p></p>
+Les packages sont appellés des filesets (ensembles de fichiers, plus 
+petite unité). Ces filesets sont regroupés en packages, eux même 
+regroupés en LPP (Licensed Program Product, ensemble de packages donnant
+ un produit complet). Par exemple, bos (Base Operating System) est un 
+LPP, bos.Ined et bos.adt sont des packages et bos.adt.lib et 
+bos.adt.prof sont des filesets.
+<p></p>
+Déterminer la version d'AIX :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># oslevel
+5.1.0.0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Déterminer la version minimum recommandée :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># oslevel -r
+5100-04
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec16.1"></a></p><h3>16.1. Listes des packages</h3>
+<p></p>
+Liste de tous les packages installés :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslpp -L all
+  Fileset                      Level  State  Type  Description (Uninstaller)
+  ----------------------------------------------------------------------------
+  IMNSearch.rte.httpdlite   2.0.0.15    C     F    Lite NetQuestion Local Web
+                                                   Server 
+  Java130.rte.bin           1.3.0.16    C     F    Java Runtime Environment
+                                                   Executables 
+  Java130.rte.lib           1.3.0.16    C     F    Java Runtime Environment
+                                                   Libraries 
+  Tivoli_Management_Agent.client.rte
+                             3.7.1.0    C     F    Management Framework Endpoint
+                                                   Runtime"
+  X11.Dt.ToolTalk           5.1.0.50    C     F    AIX CDE ToolTalk Support 
+  X11.Dt.bitmaps             5.1.0.0    C     F    AIX CDE Bitmaps 
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de l'historique des installations et mises à jour d'un logiciel :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslpp -ha bos.net.*
+  Fileset         Level     Action       Status       Date         Time        
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.net.ipsec.keymgt
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:00    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:00    
+<p></p>
+  bos.net.ipsec.rte
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:00    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:00    
+                 5.1.0.51   COMMIT       COMPLETE     03/27/04     18:25:43    
+                 5.1.0.51   APPLY        COMPLETE     03/27/04     18:25:42    
+<p></p>
+  bos.net.ncs
+                 5.1.0.25   COMMIT       COMPLETE     03/27/04     10:47:00    
+                 5.1.0.25   APPLY        COMPLETE     03/27/04     10:47:00    
+<p></p>
+  bos.net.nfs.adt
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:00    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:00    
+<p></p>
+  bos.net.nfs.cachefs
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:00    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:00    
+<p></p>
+  bos.net.nfs.client
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:00    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:00    
+                 5.1.0.51   COMMIT       COMPLETE     03/27/04     18:25:43    
+                 5.1.0.51   APPLY        COMPLETE     03/27/04     18:25:28    
+<p></p>
+  bos.net.nfs.server
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:00    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:00    
+[...]
+<p></p>
+Path: /etc/objrepos
+  bos.net.ipsec.keymgt
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:25    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:25    
+<p></p>
+  bos.net.ipsec.rte
+                 5.1.0.50   COMMIT       COMPLETE     03/27/04     10:47:25    
+                 5.1.0.50   APPLY        COMPLETE     03/27/04     10:47:25    
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche des caractéristiques sur le fileset bos.net :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslpp -L bos.net.*
+  Fileset                      Level  State  Type  Description (Uninstaller)
+  ----------------------------------------------------------------------------
+  bos.net.ipsec.keymgt      5.1.0.50    C     F    IP Security Key Management 
+  bos.net.ipsec.rte         5.1.0.51    C     F    IP Security
+  bos.net.ncs               5.1.0.25    C     F    Network Computing System 1.5.1
+  bos.net.nfs.adt           5.1.0.50    C     F    Network File System
+                                                   Development Toolkit 
+  bos.net.nfs.cachefs       5.1.0.50    C     F    CacheFS File System 
+  bos.net.nfs.client        5.1.0.51    C     F    Network File System Client
+  bos.net.nfs.server        5.1.0.50    C     F    Network File System Server 
+  bos.net.nis.client        5.1.0.50    C     F    Network Information Service
+                                                   Client 
+  bos.net.nis.server        5.1.0.50    C     F    Network Information Service
+                                                   Server 
+  bos.net.snapp              5.1.0.0    C     F    System Networking Analysis and
+                                                   Performance Pilot 
+  bos.net.tcp.adt           5.1.0.35    C     F    TCP/IP Application Toolkit 
+  bos.net.tcp.client        5.1.0.52    C     F    TCP/IP Client Support
+  bos.net.tcp.server        5.1.0.50    C     F    TCP/IP Server 
+  bos.net.tcp.smit          5.1.0.50    C     F    TCP/IP SMIT Support 
+  bos.net.uucp              5.1.0.35    C     F    Unix to Unix Copy Program 
+<p></p>
+<p></p>
+State codes: 
+ A -- Applied. 
+ B -- Broken. 
+ C -- Committed. 
+ E -- EFIX Locked. 
+ O -- Obsolete.  (partially migrated to newer version) 
+ ? -- Inconsistent State...Run lppchk -v. 
+<p></p>
+Type codes: 
+ F -- Installp Fileset 
+ P -- Product 
+ C -- Component 
+ T -- Feature 
+ R -- RPM Package 
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche des caractéristiques sur le fileset bos.net, affiché sous forme 
+de colonnes (affichage modifié pour que ça tienne sur une ligne) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslpp -Lc
+#Package Name:Fileset:Level:State:PTF Id:Fix State:Type:Description:\
+Destination Dir.:Uninstaller:Message Catalog:Message Set:\
+Message Number:Parent:EFIX Locked
+IMNSearch.rte.httpdlite:IMNSearch.rte.httpdlite:2.0.0.15: : :C: :\
+Lite NetQuestion Local Web Server : : : : : : :0:
+Java130.rte:Java130.rte.bin:1.3.0.16: : :C: :\
+Java Runtime Environment Executables : : : : : : :0:
+Java130.rte:Java130.rte.lib:1.3.0.16: : :C: :\
+Java Runtime Environment Libraries : : : : : : :0:
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche des caractéristiques plus succintes sur le fileset bos.net :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lslpp -l bos.net.*
+  Fileset                      Level  State      Description         
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.net.ipsec.keymgt      5.1.0.50  COMMITTED  IP Security Key Management 
+  bos.net.ipsec.rte         5.1.0.51  COMMITTED  IP Security
+  bos.net.ncs               5.1.0.25  COMMITTED  Network Computing System 1.5.1
+  bos.net.nfs.adt           5.1.0.50  COMMITTED  Network File System
+                                                 Development Toolkit 
+  bos.net.nfs.cachefs       5.1.0.50  COMMITTED  CacheFS File System 
+  bos.net.nfs.client        5.1.0.51  COMMITTED  Network File System Client
+  bos.net.nfs.server        5.1.0.50  COMMITTED  Network File System Server 
+  bos.net.nis.client        5.1.0.50  COMMITTED  Network Information Service
+                                                 Client 
+  bos.net.nis.server        5.1.0.50  COMMITTED  Network Information Service
+                                                 Server 
+  bos.net.snapp              5.1.0.0  COMMITTED  System Networking Analysis and
+                                                 Performance Pilot 
+  bos.net.tcp.adt           5.1.0.35  COMMITTED  TCP/IP Application Toolkit 
+  bos.net.tcp.client        5.1.0.52  COMMITTED  TCP/IP Client Support
+  bos.net.tcp.server        5.1.0.50  COMMITTED  TCP/IP Server 
+  bos.net.tcp.smit          5.1.0.50  COMMITTED  TCP/IP SMIT Support 
+  bos.net.uucp              5.1.0.35  COMMITTED  Unix to Unix Copy Program 
+<p></p>
+Path: /etc/objrepos
+  bos.net.ipsec.keymgt      5.1.0.50  COMMITTED  IP Security Key Management 
+  bos.net.ipsec.rte         5.1.0.50  COMMITTED  IP Security 
+  bos.net.ncs               5.1.0.25  COMMITTED  Network Computing System 1.5.1
+  bos.net.nfs.cachefs       5.1.0.50  COMMITTED  CacheFS File System 
+  bos.net.nfs.client        5.1.0.51  COMMITTED  Network File System Client
+  bos.net.nis.client        5.1.0.50  COMMITTED  Network Information Service
+                                                 Client 
+  bos.net.nis.server        5.1.0.50  COMMITTED  Network Information Service
+                                                 Server 
+  bos.net.snapp              5.1.0.0  COMMITTED  System Networking Analysis and
+                                                 Performance Pilot 
+  bos.net.tcp.client        5.1.0.52  COMMITTED  TCP/IP Client Support
+  bos.net.tcp.server        5.1.0.50  COMMITTED  TCP/IP Server 
+  bos.net.uucp              5.1.0.35  COMMITTED  Unix to Unix Copy Program
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage des patchs installés :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># instfix -i
+    All filesets for 5.1.0.0_AIX_ML were found.
+    All filesets for 5100-01_AIX_ML were found.
+    All filesets for IY22854 were found.
+    All filesets for 5100-02_AIX_ML were found.
+    All filesets for 5100-03_AIX_ML were found.
+    All filesets for 5100-04_AIX_ML were found.
+    All filesets for IY43209 were found.
+    Not all filesets for IY43094 were found.
+    All filesets for IY41829 were found.
+    All filesets for IY42879 were found.
+[...]
+    All filesets for IY51039 were found.
+    All filesets for IY51524 were found.
+    All filesets for IY51955 were found.
+    All filesets for IY52442 were found.
+    All filesets for IY44787 were found.
+    All filesets for IY44242 were found.
+    All filesets for IY32114 were found.
+    All filesets for IY49924 were found.
+    All filesets for IY45541 were found.
+    All filesets for IY46663 were found.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Vérification des fichiers des packages :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lppchk -v
+lppchk:  The following filesets need to be installed or corrected to bring
+         the system to a consistent state:
+<p></p>
+  Mozilla.msg.FR_FR.base.rte 1.4.1.0      (not installed; requisite fileset)
+<p></p>
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec16.2"></a></p><h3>16.2. Installation des packages et des patchs</h3>
+<p></p>
+Installation de logiciels : smit install
+<p></p>
+Méthode d'installation :
+
+<ul>
+    <li>Mise en place du CD 1 d'AIX (qui contient la liste des packages 
+par CD et est donc capable de demander le bon CD pour installer le 
+package désiré)</li>
+    <li>Commande : smitty install_latest</li>
+    <li>Média : /cdrom</li>
+    <li>Sélection des packages à installer</li>
+    <li>Accepter les nouveaux contrats de licence ? Oui</li>
+    <li>Installation...</li>
+    <li>Mise à jour : insertion du CD de mise à jour, puis lancer la commande smitty update_all</li>
+</ul>
+Vérification des patchs installés :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># instfix -i | grep ML
+    Tous les ensembles de fichiers de 5.1.0.0_AIX_ML ont été trouvés.
+    Tous les ensembles de fichiers de 5100-01_AIX_ML ont été trouvés.
+    Tous les ensembles de fichiers de 5100-02_AIX_ML ont été trouvés.
+    Tous les ensembles de fichiers de 5100-03_AIX_ML ont été trouvés.
+    Tous les ensembles de fichiers de 5100-04_AIX_ML ont été trouvés.
+    Tous les ensembles de fichiers de 5100-05_AIX_ML ont été trouvés.
+    Tous les ensembles de fichiers de 5100-06_AIX_ML ont été trouvés.
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Installer un patch chargé sur le site d’IBM&nbsp;(fichiers .bff) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># inutoc /tmp
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># smit install_latest
+[ Sélectionner comme répertoire /tmp, puis installation normale ]
+[…]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Installer un patch chargé sur le site de Bull (fichiers .exe)&nbsp;:
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chmod +x fic.exe
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># ./fic.exe
+UnZipSFX 5.32 of 3 November 1997, by Info-ZIP (Zip-Bugs@lists.wku.edu).
+  inflating: fic-version.bff
+  inflating: fic-version.bff.asc
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Puis suivre la procédure classique d’installation via smit.
+<p></p>
+Le répertoire des patchs peut être monté par NFS (remplacer xxx par 433 
+ou 51, en cas de doute taper showmount -e post.doit.wisc.edu) :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mount post.doit.wisc.edu:/aix/xxx/fix /mnt
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Puis avec smitty update_all préciser comme répertoire /mnt/5100-03 (version AIX 5100-03) ou /mnt/postML3 (maintenance level 3).
+<p></p>
+Enfin, démonter le répertoire NFS :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># umount /mnt
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec17"></a></p><h2>17. Sécurité et utilisateurs</h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec17.1"></a></p><h3>17.1. Fichiers utilisés</h3>
+<p></p>
+
+<ul>
+    <li>Fichier de logs de la commande su : /var/adm/sulog</li>
+    <li>Mots de passes stockés : /etc/security/passwd</li>
+    <li>Journal des connexions ayant abouti : /var/adm/wtmp (who /var/adm/wtmp)</li>
+    <li>Liste des utilisateurs connectés : /etc/utmp (who /etc/utmp)</li>
+    <li>Journal des connexions ayant échoué : /etc/security/failedlogin (who /etc/security/failedlogin)</li>
+    <li>umask par défaut : /etc/security/user</li>
+    <li>mot de passe chiffré : /etc/security/passwd</li>
+    <li>configuration de l'environnement : /etc/environment, 
+/etc/security/environ, /etc/security/limits, /etc/security/user, 
+/etc/profile, $HOME/.profile</li>
+</ul>
+$HOME/.dtprofile remplace $HOME/.profile pour CDE. Pour utiliser les 
+deux, dé commenter la ligne DTSOURCEPROFILE dans $HOME/.dtprofile.
+<p></p>
+<p><a href="#top">Top</a><a name="subsec17.2"></a></p><h3>17.2. Les utilisateurs</h3>
+<p></p>
+Affichage de tous les attributs de tous les utilisateurs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsuser ALL
+root id=0 pgrp=system groups=system,bin,sys,security,cron,audit,lp home=/ shell=/usr/bin/ksh 
+daemon id=1 pgrp=staff groups=staff home=/etc 
+bin id=2 pgrp=bin groups=bin,sys,adm home=/bin 
+sys id=3 pgrp=sys groups=sys home=/usr/sys 
+adm id=4 pgrp=adm groups=adm home=/var/adm 
+uucp id=5 pgrp=uucp groups=uucp home=/usr/lib/uucp 
+guest id=100 pgrp=usr groups=usr home=/home/guest 
+nobody id=-2 pgrp=nobody groups=nobody home=/ 
+lpd id=9 pgrp=nobody groups=nobody home=/ 
+lp id=11 pgrp=lp groups=lp,printq home=/var/spool/lp shell=/bin/false 
+invscout id=200 pgrp=staff groups=staff home=/var/adm/invscout shell=/usr/bin/ksh 
+ipsec id=201 pgrp=staff groups=staff home=/etc/ipsec shell=/usr/bin/ksh 
+nuucp id=6 pgrp=uucp groups=uucp home=/var/spool/uucppublic shell=/usr/sbin/uucp/uucico gecos=uucp login user 
+snapp id=177 pgrp=staff groups=staff home=/usr/sbin/snapp shell=/usr/sbin/snappd gecos=snapp login user 
+imnadm id=188 pgrp=imnadm groups=imnadm home=/home/imnadm shell=/usr/bin/ksh 
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Gestion des utilisateurs : mkuser, chuser, rmuser, passwd, pwdadm 
+(changement du mot de passe de n'importe quel utilisateur, commande 
+réservée à root et aux membres du groupe security).
+<p></p>
+Effacement d'un utilisateur avec effacement des entrées dans /etc/security/* (-p) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># rmuser -p mdecore &amp;&amp; rm -rf /home/mdecore
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Mise à jour de la limite de la taille maximum de création d'un fichier 
+(minimum 8192, -1 ou unlimited pour des fichier de taille plus grande 
+que 2 Go) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chuser fsize='20971520' mdecore
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Ces données, ainsi que les données par défaut, sont stockées dans le 
+fichier /etc/security/limits et peuvent être visualisées / modifiées par
+ la commande ulimit.
+<p></p>
+Bloquer un compte (sans le supprimer) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chuser account_locked=yes piou
+#
+</pre></td></tr></tbody></table>
+ 
+<p><a href="#top">Top</a><a name="subsec17.3"></a></p><h3>17.3. Les groupes</h3>
+<p></p>
+Affichage de tous les attributs de tous les groupes :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># lsgroup ALL
+system id=0 admin=true users=root,syb12 registry=files 
+staff id=1 admin=false users=invscout,ipsec,snapp,sshd,daemon registry=files 
+bin id=2 admin=true users=root,bin registry=files 
+sys id=3 admin=true users=root,bin,sys registry=files 
+adm id=4 admin=true users=bin,adm registry=files 
+uucp id=5 admin=true users=nuucp,uucp registry=files 
+mail id=6 admin=true users= registry=files 
+security id=7 admin=true users=root registry=files 
+cron id=8 admin=true users=root registry=files 
+printq id=9 admin=true users=lp registry=files 
+audit id=10 admin=true users=root registry=files 
+ecs id=28 admin=true users= registry=files 
+nobody id=-2 admin=false users=nobody,lpd registry=files 
+usr id=100 admin=false users=guest registry=files 
+perf id=20 admin=false users= registry=files 
+shutdown id=21 admin=true users= registry=files 
+lp id=11 admin=true users=root,lp,printq registry=files 
+ipsec id=200 admin=false users= registry=files 
+imnadm id=188 admin=false users=imnadm registry=files 
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec17.4"></a></p><h3>17.4. Au secours !</h3>
+<p></p>
+Pour récupérer le mot de passe root, il faut redémarrer avec un CD 
+d'installation ou une bande amorcable, sélectionner l'option 3 
+'Activation du mode maintenance pour la reprise' dans le menu 
+d'installation et de maintenance, activer le rootvg et accéder au shell,
+ changer le mot de passe et redémarrer. Pour éviter cette faille de 
+sécurité, il faut mettre un mot de passe sur le menu SMS (Utilitaires 
+--&gt; Définition du mot de passe).
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec18"></a></p><h2>18. Cron</h2>
+<p></p>
+Le fichier /var/adm/cron/queuedefs permet de paramétrer cron :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>c.200j10n120w
+</pre></td></tr></tbody></table>
+<p></p>
+
+<ul>
+    <li>c : cron</li>
+    <li>200j : 200 jobs</li>
+    <li>10n : nice de 10 unités en moins</li>
+    <li>120w : 120 secondes d'attente (wait) entre deux vérifications des fichiers</li>
+</ul>
+Fichier de la crontab dans /var/spool/cron/crontabs/$USER. Fichiers 
+d'autorisation / interdiction : /var/spool/cron/cron.deny / 
+/var/spool/cron/cron.allow
+<p></p>
+
+<ul>
+    <li>Par défaut, cron.deny est vide (tout le monde peut utiliser cron). Pour utiliser cron.allow, il faut supprimmer cron.deny.</li>
+    <li>Si cron.allow est vide, personne ne peut utiliser cron.</li>
+    <li>Si cron.allow et cron.deny existent, cron.allow est utilisé.</li>
+    <li>Si aucun des deux fichier n'existent, seul root peut utiliser cron.</li>
+</ul>
+Pour at, même principe avec les fichiers /var/spool/cron/at.deny et /var/spool/cron/at.allow.
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec19"></a></p><h2>19. Réseau</h2>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec19.1"></a></p><h3>19.1. Affichage des attributs réseau</h3>
+<p></p>
+Affichage des routes (-r) sans résolution des adresses IP en noms (-n) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># netstat -nr
+Routing tables
+Destination      Gateway           Flags   Refs     Use  If   PMTU Exp Groups
+<p></p>
+Route tree for Protocol Family 2 (Internet):
+default          10.41.54.1        UGc       0        0  en0     -   -
+10.41/16         10.41.11.15       U         5   221056  en0     -   -
+10.41.11.15      127.0.0.1         UGHS      3     1283  lo0     -   -
+10.42.23.206     10.41.54.1        UGHW      4    92542  en0  1500   -
+127/8            127.0.0.1         U        37     1653  lo0     -   -
+<p></p>
+Route tree for Protocol Family 24 (Internet v6):
+::1              ::1               UH        0        0  lo0 16896   -
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de la configuration des interfaces configurées :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># netstat -i
+Name  Mtu   Network     Address              Ipkts Ierrs    Opkts Oerrs  Coll
+en0   1500  link#2      0.9.6b.3e.34.4d   10999574     0  2339358     0     0
+en0   1500  10.41       rsallyy01.intrane 10999574     0  2339358     0     0
+lo0   16896 link#1                            3998     0     4317     0     0
+lo0   16896 127         localhost             3998     0     4317     0     0
+lo0   16896 ::1                               3998     0     4317     0     0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Statistiques de l'interface en0 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># entstat en0
+-------------------------------------------------------------
+ETHERNET STATISTICS (en0) :
+Device Type: 10/100 Mbps Ethernet PCI Adapter II (1410ff01)
+Hardware Address: 00:09:6b:3e:34:4d
+Elapsed Time: 17 days 22 hours 22 minutes 47 seconds
+<p></p>
+Transmit Statistics:                          Receive Statistics:
+--------------------                          -------------------
+Packets: 2341664                              Packets: 12106165
+Bytes: 2505847939                             Bytes: 2050086563
+Interrupts: 3                                 Interrupts: 12024601
+Transmit Errors: 0                            Receive Errors: 54
+Packets Dropped: 0                            Packets Dropped: 0
+                                              Bad Packets: 54
+Max Packets on S/W Transmit Queue: 11
+S/W Transmit Queue Overflow: 0
+Current S/W+H/W Transmit Queue Length: 1
+<p></p>
+Transmit Statistics:                          Receive Statistics:
+--------------------                          -------------------
+Packets: 2341664                              Packets: 12106165
+Bytes: 2505847939                             Bytes: 2050086563
+Interrupts: 3                                 Interrupts: 12024601
+Transmit Errors: 0                            Receive Errors: 54
+Packets Dropped: 0                            Packets Dropped: 0
+                                              Bad Packets: 54
+Max Packets on S/W Transmit Queue: 11
+S/W Transmit Queue Overflow: 0
+Current S/W+H/W Transmit Queue Length: 1
+<p></p>
+Broadcast Packets: 316                        Broadcast Packets: 9884483
+Multicast Packets: 0                          Multicast Packets: 0
+No Carrier Sense: 0                           CRC Errors: 0
+DMA Underrun: 0                               DMA Overrun: 54
+Lost CTS Errors: 0                            Alignment Errors: 0
+Max Collision Errors: 0                       No Resource Errors: 0
+Late Collision Errors: 0                      Receive Collision Errors: 0
+Deferred: 0                                   Packet Too Short Errors: 0
+SQE Test: 0                                   Packet Too Long Errors: 0
+Timeout Errors: 0                             Packets Discarded by Adapter: 0
+Single Collision Count: 0                     Receiver Start Count: 0
+Multiple Collision Count: 0
+Current HW Transmit Queue Length: 1
+<p></p>
+General Statistics:
+-------------------
+No mbuf Errors: 0
+Adapter Reset Count: 0
+Adapter Data Rate: 200
+Driver Flags: Up Broadcast Running
+        Simplex AlternateAddress 64BitSupport
+        ChecksumTCP ChecksumOffload PrivateSegment
+        DataRateSet
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affiche tous les attributs réseau configurables avec leurs valeurs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># no -a
+         extendednetstats = 0
+                  thewall = 1048576
+               sockthresh = 85
+                   sb_max = 1048576
+                somaxconn = 1024
+      clean_partial_conns = 0
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec19.2"></a></p><h3>19.2. Configurer une interface</h3>
+<p></p>
+mktcpip ou smit mktcpip :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># /usr/sbin/mktcpip -h'tarsier' -a'10.41.11.15' -m'255.255.0.0' \
+-i'en0' -n'10.41.13.22' -d'au.boulot' -g'10.41.54.1' \
+-A'no' -t'N/A' # ou smitty tcpip
+en0
+tarsier
+inet0 modifié
+en0 modifié
+inet0 modifié
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec19.3"></a></p><h3>19.3. Dé configurer une interface</h3>
+<p></p>
+Désactive l'interface en1 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># ifconfig en1 down
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Supprime l'interface en1 de la liste des interfaces disponibles :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># ifconfig en1 detach
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Supprime la configuration de l'interface en1 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># rmdev -l en1 -d
+en1 supprimé
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Supprime la configuration de l'interface en1 :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># rmdev -l ent1 -d
+ent1 supprimé
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p><a href="#top">Top</a><a name="subsec19.4"></a></p><h3>19.4. Modifications de l'interface réseau</h3>
+<p></p>
+Passer la vitesse de l'interface en0 de Auto_Negotiation en 100_Full_Duplex (chdev ou smitty commodev) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># ifconfig en0 detach &amp;&amp; \
+chdev -l ent0 -a media_speed='100_Full_Duplex' &amp;&amp; \
+ifconfig en0 up
+ent0 modifié
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Si nécessaire, reconfiguration classique :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># /usr/sbin/mktcpip -h'tarsier' -a'10.41.11.15' -m'255.255.0.0' \
+-i'en0' -n'10.41.13.22' -d'au.boulot' -g'10.41.54.1' \
+-A'no' -t'N/A' # ou smitty tcpip
+en0
+tarsier
+inet0 modifié
+en0 modifié
+inet0 modifié
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p><p><a href="#top">Top</a><a name="sec20"></a></p><h2>20. Autres commandes</h2>
+<p></p>
+Utilisation de sar (informations sur l'activité système)
+<p></p>
+Sans crontab de root :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>0 * * * *  /usr/lib/sa/sa1 300 12 &amp;
+</pre></td></tr></tbody></table>
+<p></p>
+pour avoir toute les 300 secondes (5 minutes) une collecte 
+d'information, 12 fois de suite. Au total cela donne 300 s * 12 = 3600 s
+ = 60 mn, donc la commande lancée une fois par heure collectera les 
+informations en permanance toute les 5 mn.
+<p></p>
+Puis :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># sar | tail
+14:20:00       0       0       0     100
+14:25:00       0       0       0     100
+14:30:00       0       0       0     100
+14:35:00       0       0       0     100
+14:40:00       0       0       0     100
+14:45:00       0       0       0     100
+14:50:00       0       0       0     100
+14:55:00       0       0       1      99
+<p></p>
+Average        0       0       1      99
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Attention : le répertoire /var/adm/sa peut vite grossir, à surveiller ! 
+On peut mettre dans la crontab de root une commande du style :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>10 6 * * * find /var/adm/sa -type f ! -name "*.gz" -mtime +1 -exec gzip {} \\;
+</pre></td></tr></tbody></table>
+<p></p>
+
+<ul>
+    <li>filemon - Monitors the performance of thefile system, and 
+reports the I/O activity on behalf of logical files, virtualmemory 
+segments, logical volumes, and physical volumes. </li>
+    <li>trcstop - Stops the trace function.</li>
+</ul>
+Capture et analyse d'une image de la mémoire virtuelle :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># svmon
+               size      inuse       free        pin    virtual
+memory      2097136     425396    1671740     155425     203762
+pg space     131072        874
+<p></p>
+               work       pers       clnt      lpage
+pin          155425          0          0          0
+in use       203776          0     221620          0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de statistiques sur les E/S des disques :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># iostat
+<p></p>
+tty :      tentr.      tsort.   CPU-moy :  % util    % sys     % inact.  % att.E-S
+          0,1          2,4               0,2      0,1       99,6       0,0
+<p></p>
+Disques :        % tm_act     ko/s      t/s    ko_lus  ko_écrits
+hdisk3           0,0       0,0       0,0         72     10498
+hdisk1           0,1       1,7       0,2       2526   2656109
+hdisk2           0,0       0,1       0,0     151584     10518
+hdisk5           0,0       0,0       0,0         46      8417
+hdisk0           0,1       2,3       0,2     954477   2656181
+hdisk4           0,0       0,1       0,0      83193     14732
+cd0              0,0       0,0       0,0      11082         0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Gestion des segments de mémoire partagée :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># ipcs -m
+Etat IPC extrait de /dev/mem le jeu  8 jul 11:31:08 DFT 2004
+T        ID     CLE        MODE    PROPRIETE  GROUPE
+Mémoire partagée :
+m    131072 0x58001345 --rw-rw-rw-     root   system
+m         1 0xe4663d62 --rw-rw-rw-   imnadm   imnadm
+m         2 0x9308e451 --rw-rw-rw-   imnadm   imnadm
+m         3 0x52e74b4f --rw-rw-rw-   imnadm   imnadm
+m         4 0xc76283cc --rw-rw-rw-   imnadm   imnadm
+m         5 0x298ee665 --rw-rw-rw-   imnadm   imnadm
+m         6 0xffffffff --rw-rw----     root   system
+m         7 0xffffffff --rw-rw----     root   system
+m         8 0xffffffff --rw-rw----     root   system
+m         9 0x0d001276 --rw-rw-rw-     root   system
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Suppression d'un segment de mémoire partagée :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># ipcrm -M &lt;@ memoire&gt; # eg. 0x9308e451
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Affichage de nouvelles :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># echo "Salut !!!" &gt; /var/news/toto &amp;&amp; news
+<p></p>
+toto (root) Tue Jun 22 14:55:11 2004
+   Salut !!!
+<p></p>
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Envoyer un message à tout le monde à partir du cron :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>0 00,12 * * * wall%rc.powerfail : 2 :: ATTENTION !! L'alimentation ne fonctionne pas correctement.
+</pre></td></tr></tbody></table>
+<p></p>
+Suivant la langue employée, il faut spécifier parfois oui ou yes. Pour être certain de ne pas se tromper, il faut préciser :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre>`locale nostr | awk -F: '{print $1}'`
+</pre></td></tr></tbody></table>
+<p></p>
+En effet :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># locale nostr
+non:n:N:no
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Exemple pour la création d'un point de montage pour le cd-rom :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># crfs -v cdrfs -p ro -d'cd0' -m'/cdrom' \
+-A''`locale nostr | awk -F: '{print $1}'`''
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Changer la langue :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># smit mlang # ou directement : smit chlang
+#
+</pre></td></tr></tbody></table>
+<p></p>
+ou :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chlang fr_FR
+[ A COMPLETER ...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+ou :
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># chlang C # (POSIX).
+[ A COMPLETER ...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Ces commandes modifient dans le fichier /etc/environment la variable d'environnement LANG.
+<p></p>
+Visualiser les types de plate-forme et d'architecture :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># bootinfo -p ; bootinfo -y
+chrp
+64
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Afficher le journal de l'amorçage :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># alog -o -t boot
+----------------
+Completed method for: hdisk5, Elapsed time = 0
+code retour = 0
+********** pas de sortie standard *******
+********** pas d'erreur standard ********
+----------------
+Time: 13	LEDS: 0x539
+Number of running methods: 0
+----------------
+tentative de configuration de l'unité 'rmt0'
+Time: 13	LEDS: 0x68c
+appel de /etc/methods/cfgsctape -2 -l rmt0 
+Number of running methods: 1
+----------------
+Completed method for: rmt0, Elapsed time = 0
+code retour = 0
+********** pas de sortie standard *******
+********** pas d'erreur standard ********
+----------------
+Time: 13	LEDS: 0x539
+Number of running methods: 0
+----------------
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+ou via le mode maintenance. alog permet de stocker dans des journaux circulaires situés dans /var/adm/ras/*.
+<p></p>
+Créer un point de montage pour le lecteur cd-rom :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># mkdir /cdrom &amp;&amp; smitty cdrfs
+#
+</pre></td></tr></tbody></table>
+<p></p>
+invscout - Surveys the host system for currently installed microcode or Vital Product Data (VPD).
+<p></p>
+diag - détecte  les problèmes matériels
+<p></p>
+Afficher les erreurs système :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># errpt -a
+---------------------------------------------------------------------------
+LABEL:          SRC_SVKO
+IDENTIFIER:     BC3BE5A3
+<p></p>
+Date/Time:       Tue Jun 22 10:34:31 2004
+Sequence Number: 57
+Machine Id:      005D8FBC4C00
+Node Id:         RsALLYY01
+Class:           S
+Type:            PERM
+Resource Name:   SRC
+<p></p>
+Description
+SOFTWARE PROGRAM ERROR
+<p></p>
+Probable Causes
+APPLICATION PROGRAM
+<p></p>
+Failure Causes
+SOFTWARE PROGRAM
+<p></p>
+        Recommended Actions
+        MANUALLY RESTART SUBSYSTEM IF NEEDED
+<p></p>
+Detail Data
+SYMPTOM CODE
+       16384
+SOFTWARE ERROR CODE
+       -9017
+ERROR CODE
+           0
+DETECTING MODULE
+'srchevn.c'@line:'334'
+FAILING MODULE
+sendmail
+---------------------------------------------------------------------------
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Effacer tous les messages d'erreurs :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># errclear 0
+#
+</pre></td></tr></tbody></table>
+<p></p>
+Effacer tous les messages d'erreur de type software vieux de plus de 30 
+jours (-S 30) et tous les messages d'erreur de type hardware vieux de 
+plus de 90 jours (-H 90) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># errclear -d S 30 ; errclear -d H 90
+#
+</pre></td></tr></tbody></table>
+<p></p>
+nmon - free tool to analyze AIX performance
+<p></p>
+Configuration du compilateur C (LUM) :
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># /usr/opt/ifor/bin/i4cfg -a n -S a
+i4cfg Version 4.6.5 AIX -- LUM Configuration Tool
+(c) Copyright 1995-2002, IBM Corporation, All Rights Reserved
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+<p></p>
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># /usr/opt/ifor/bin/i4cfg -start
+i4cfg Version 4.6.5 AIX -- LUM Configuration Tool
+(c) Copyright 1995-2002, IBM Corporation, All Rights Reserved
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+<p></p>
+0513-059 The i4llmd Subsystem has been started. Subsystem PID is 843940.
+<p></p>
+'Start Services' has completed successfully
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># /usr/opt/ifor/bin/i4blt -a \
+-v "'IBM Software Solutions Toronto' \
+5da54a553b4c.02.09.15.31.05.00.00.00 p9gb3ycs6ydpw" \
+-p "'C for AIX' '6.0.cn' \
+t26663vp4mrffwhqdac39gzj4qpi22pe22 " -T 10 -R "root"
+[...]
+#
+</pre></td></tr></tbody></table>
+<p></p>
+truss(1)        - Traces a process's system calls, recieved signals and incurred machinefaults.
+<p></p>
+Espace pagination libre :
+expr `bootinfo -r` - `vmstat 1 2 | tail -n 1 | awk '{ print $3/4 }'`
+<p></p>
+Mémoire utilisée par processus :
+svmon -P
+<p></p>
+Mémoire utilisée par segment :
+svmon -S
+<p></p>
+<p></p>
+<table bgcolor="#E0E0E0" border="0" width="100%"><tbody><tr><td><pre># /usr/samples/kernel/vmtune
+vmtune:  current values:
+  -p       -P        -r          -R         -f       -F       -N        -W
+minperm  maxperm  minpgahead maxpgahead  minfree  maxfree  pd_npages maxrandwrt
+ 394821  1579284       2          8        120      128      65536        0
+<p></p>
+  -M      -w      -k      -c        -b         -B           -u        -l    -d
+maxpin npswarn npskill numclust numfsbufs hd_pbuf_cnt lvm_bufcnt lrubucket defps
+1677709    8192    2048       1     196        320          9      131072     1
+<p></p>
+        -s              -n         -S         -L          -g           -h
+sync_release_ilock  nokilluid  v_pinshm  lgpg_regions  lgpg_size  strict_maxperm
+        0               0           0           0            0        0
+<p></p>
+    -t           -j              -J               -z
+maxclient  j2_nPagesPer j2_maxRandomWrite  j2_nRandomCluster
+1579284           32            0                  0         1681493504
+<p></p>
+    -Z                  -q                    -Q                -y
+j2_nBufferPer  j2_minPageReadAhead  j2_maxPageReadAhead   memory_affinity
+      512              2                    8                 0
+<p></p>
+    -V                  -i               -e                  -E
+num_spec_dataseg  spec_dataseg_int jfs_clread_enabled  jfs_use_read_lock
+      0                512                0                   1
+<p></p>
+PTA balance threshold percentage = 50.000000%
+<p></p>
+number of valid memory pages = 2097136  maxperm=80.0% of real memory
+maximum pinable=80.0% of real memory    minperm=20.0% of real memory
+number of file memory pages = 1165532   numperm=59.0% of real memory
+number of compressed memory pages = 0   compressed=0.0% of real memory
+number of client memory pages = 1143842 numclient=57.9% of real memory
+# of remote pgs sched-pageout = 0       maxclient=80.0% of real memory
+<p></p>
+#
+</pre></td></tr></tbody></table>
+<p></p>
+<p></p>
+/usr/samples/kernel/vmtune 
+svmon -G 
+<p></p>
+maxfree should always = minfree + maxpgahead. 
+/usr/samples/kernel/vmtune -P 40 : maxperm = 40 % (évite de trop soliciter le paging space, beaucoup plus lent que la RAM)
+<p></p>
+/usr/lib/errdemon : démon loguant les erreurs (dans /var/adm/ras/errlog,
+ accessible via la commande smitty error. La commande errclear permet de
+ définir la taille du fichier de d'erreurs, avec rotation circulaire.
+<p></p>
+no -o extendednetstats=1 # pour pouvoir afficher les stats "By type" de netstat -m
+netstat -m =&gt; By type           inuse   calls failed delayed  memuse  memmax  mapb
+<p></p>
+
+
+
+
+</body></html>

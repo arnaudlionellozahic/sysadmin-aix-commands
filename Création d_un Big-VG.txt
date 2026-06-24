@@ -1,0 +1,91 @@
+
+Passer par smitty:
+
+
+Move cursor to desired item and press Enter.
+
+  Software Installation and Maintenance
+  Software License Management
+  Devices
+  System Storage Management (Physical & Logical Storage)  <-----------------
+  Security & Users
+  Communications Applications and Services
+  Print Spooling
+  Advanced Accounting
+  Problem Determination
+  Performance & Resource Scheduling
+  System Environments
+  Processes & Subsystems
+  Applications
+  Installation Assistant
+  Cluster Systems Management
+  Using SMIT (information only)
+
+
+
+
+Move cursor to desired item and press Enter.
+
+  Logical Volume Manager  <-----------------------
+  File Systems
+  Files & Directories
+  Removable Disk Management
+  System Backup Manager
+
+
+Move cursor to desired item and press Enter.
+
+  Volume Groups   <-------------------------------
+  Logical Volumes
+  Physical Volumes
+  Paging Space
+
+
+Move cursor to desired item and press Enter.
+
+  List All Volume Groups
+  Add a Volume Group with PowerPath Devices
+  Add a Volume Group    <---------------------------
+  Set Characteristics of a Volume Group
+  List Contents of a Volume Group
+  Remove a Volume Group
+  Activate a Volume Group
+  Deactivate a Volume Group
+  Import a Volume Group
+  Export a Volume Group
+  Mirror a Volume Group
+  Unmirror a Volume Group
+  Synchronize LVM Mirrors
+  Back Up a Volume Group
+  Remake a Volume Group
+  Preview Information about a Backup
+  Verify the Readability of a Backup (Tape only)
+  View the Backup Log
+  List Files in a Volume Group Backup
+  Restore Files in a Volume Group Backup
+      
+
+Move cursor to desired item and press Enter.
+
+  Add an Original Volume Group
+  Add a Big Volume Group   <-----------------------------
+  Add a Scalable Volume Group
+
+
+
+                                                                           Add a Big Volume Group
+
+Type or select values in entry fields.
+Press Enter AFTER making all desired changes.
+
+                                                        [Entry Fields]
+  VOLUME GROUP name                                  [VG_ne_pas_toucher]
+  Physical partition SIZE in megabytes                1024                                                                                                                                 +
+* PHYSICAL VOLUME names                              [hdiskpower134]                                                                                                                                    +
+  Force the creation of a volume group?               yes                                                                                                                                  +
+  Activate volume group AUTOMATICALLY                 yes                                                                                                                                  +
+    at system restart?
+  Volume Group MAJOR NUMBER                          []                                                                                                                                    +#
+  Create VG Concurrent Capable?                       no  
+
+ 

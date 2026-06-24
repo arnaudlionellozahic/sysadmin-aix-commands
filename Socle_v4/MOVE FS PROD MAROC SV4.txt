@@ -1,0 +1,64 @@
+mklv -y lv_orabck -t jfs2 -e x vg_apps 400G
+crfs -v jfs2 -d lv_orabck -m /apps/oradbf/backup -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/oradbf/backup 
+
+mklv -y lv_atsec -t jfs2 -e x vg_apps 2500M
+crfs -v jfs2 -d lv_atsec -m /apps/oradbf/atsec -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/oradbf/atsec
+
+
+mklv -y lv_archatpr01 -t jfs2 -e x vg_datasv4 50G
+crfs -v jfs2 -d lv_archatpr01 -m /apps/arch/atpr01 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/arch/atpr01
+
+mklv -y lv_archatrefl01 -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_archatrefl01 -m /apps/arch/atrefl01 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/arch/atrefl01 
+
+mklv -y lv_meoatlas2 -t jfs2 -e x vg_apps 2G
+crfs -v jfs2 -d lv_meoatlas2 -m /apps/meoatlas2 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/meoatlas2
+
+mklv -y lv_amelia -t jfs2 -e x vg_apps 7G
+crfs -v jfs2 -d lv_amelia -m /apps/amelia -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/amelia
+
+mklv -y lv_ptfbase -t jfs2 -e x vg_apps 20G
+crfs -v jfs2 -d lv_ptfbase -m /apps/oradbf/bkof_ptfprod -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/oradbf/bkof_ptfprod
+
+mklv -y lv_argos -t jfs2 -e x vg_datasv4 500M
+crfs -v jfs2 -d lv_argos -m /apps/argos -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/argos
+
+mklv -y lv_evatl -t jfs2 -e x vg_datasv4 2G
+crfs -v jfs2 -d lv_evatl -m /apps/evatl -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/evatl
+
+mklv -y lv_evtec -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_evtec -m /apps/evtec -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/evtec
+
+mklv -y lv_inter -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_inter -m /apps/inter -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/inter
+
+mklv -y lv_nyrsk -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_nyrsk -m /apps/nyrsk -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/nyrsk
+
+mklv -y lv_sonar -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_sonar -m /apps/sonar -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/sonar
+
+mklv -y lv_uf1orion -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_uf1orion -m /apps/orion/031/uf1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/orion/031/uf1
+
+mklv -y lv_uf1ptcom -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_uf1ptcom -m /apps/ptcom/041/uf1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/ptcom/041/uf1
+
+mklv -y lv_uf1rfper -t jfs2 -e x vg_datasv4 1G
+crfs -v jfs2 -d lv_uf1rfper -m /apps/rfper/030/uf1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/rfper/030/uf1

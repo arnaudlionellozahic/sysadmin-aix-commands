@@ -1,0 +1,270 @@
+========
+AUTRES :
+
+DEBUG pb PATH : strace cmd
+Eclipse : /usr/lib/eclipse/
+
+========
+DATE :  hwclock --set --date="9/07/08 22:03:00"
+ntpdate -u ntp1.tuxfamily.net
+crontab -e :   0 3 * * *       /bin/nice -n 19 /usr/sbin/ntpdate -u ntp1.tuxfamily.net
+
+========
+DISPLAY : xhost +  ;	export DISPLAY=192.168.42.1:0.0	; win: lancer servX (cygwin) xclock ou xlogo	
+grep -i x11forw /etc/ssh/sshd_config
+Vérifier serverX du server : yum list xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps xorg-x11-xfs  
+xorg-x11-fonts-base xorg-x11-font-utils xorg-x11-fonts-Type1 xorg-x11-fonts-truetype xorg-x11-fonts-75dpi
+Carte graph + driver : lspci |grep -i vga  => driver : yum list xorg-x11-drv*
+ssh -X fc11vm ; xclock  (pas besoin de export DISP)
+http://ensl.free.fr/softrez/faq/faq-14.html (config putty)
+http://www.straightrunning.com/XmingNotes/  (xming)
+cygwin : 	X -query fedorac8 (ouvrir un sesion)
+alias rxvt='rxvt -fn "-*-Courier-medium-r-*-13-*" -geometry 110x43+0+0  -sr -bg "white" -fg "black" -sl 2000 -termName vt100  -e /usr/bin/bash &'
+cygcheck -s -v -r > cygcheck.out
+xauth list (:num) 
+http://linuxfr.org/forums/12/10373.html
+user oracle : ssh -X oracle@fc11vm (ne pas faire su - oracle)
+
+========
+GRUB : http://doc.fedora-fr.org/wiki/GRUB_:_Les_bases_pour_Fedora#Utiliser_root_et_setup_pour_certaines_installations
+mode rescue : chroot /mnt/sysimage ; fdisk -l ; grub-install /dev/sda1 (--no-floppy)
+grub> root (hd0,0) ; cat /boot/grub/grub.conf ; kernel /boot/vmlinuz-vers ro ....
+grub> root (hd0,0) ; setup (hd0,0) ; find /boot/grub/stage1  |  grub> rootnoverify (hd0,0) ; chainloader +1 ; boot
+Sauvegarder MBR dans fichier :     dd if=/dev/hda of=secteur_boot_de_hda bs=512 count=1
+restaurer le MBR : dd if=secteur_boot_de_hda of=/dev/hda bs=512 count=1
+========
+HTTP : 
+autoriser lecture home/autre :
+mkdir ~/public_html ; ls -Z -d public_html/ ; chcon -R -t httpd_user_content_t public_html/
+sealert -l b23b6b7f-74e7-47cf-bb23-8ce2ac103d33 ; 
+setsebool -P httpd_enable_homedirs=1   ||  
+setenforce 0  (arret SE )
+chcon -R -h -t httpd_sys_content_t /path/to/directory (DocumentRoot must be a directory)
+mount --bind /home/alex/database /var/www/html/home/alex/database
+telnet localhost 8080 ; GET http://192.168.42.140:8080 HTTP/1.0 ; Accept : text/html =>HTTP/1.1 200 OK
+semanage fcontext -a -t httpd_sys_content_t '/srv/web(/.*)?' (chcon permanent ) && restorecon -R -v /srv/web
+========
+IPTABLES :
+http://www.linux4m.com/forum/comments.php?DiscussionID=2
+iptables -L -vn (liste)
+fichier de conf:  /etc/sysconfig/iptables   
+iptables -t nat -A PREROUTING -p tcp --dport 21 -j REDIRECT --to-ports 50000
+Autoriser entré : (ne pas utiliser la chain INPUT mais RH-Firewall-1-INPUT)
+iptables -L --line-numbers && iptables -D "chain" " N°"
+iptables -I RH-Firewall-1-INPUT 15 -m state --state NEW -m tcp -p tcp -s 192.168.42.1 --dport 9005 -j ACCEPT 
+
+========
+JAVA :	
+java -jar toto.jar
+JAR : http://sardes.inrialpes.fr/~bouchena/teaching/POO/Tda9_Jar/index.htm
+
+
+========
+LVM : http://books.google.fr/books?id=gWQBxwfXeYkC&pg=PT206&lpg=PT206&dq=ajout+disque+sur+vg+fedora&source=web&ots=kSoa5FaEuW&sig=_67Wc48oH5Zd9eX-wO9mh2FXFA8&hl=fr&sa=X&oi=book_result&resnum=5&ct=result#PPT208,M1
+Creation PV : pvcreate /dev/sda4
+Creation VG : vgcreate Vg_00 /dev/sda4 && vgchange -a y Vg_00 (activer)
+
+Verification LV : lvdisplay /dev/Vg_00/lv_usr
+Creation LV : lvcreate -L3G -nlv_usr Vg_00 && mke2fs -j /dev/Vg_00/lv_usr &&  mount -t ext3 /dev/Vg_00/lv_usr /FS (mettre dans /etc/fstab)
+(-j => ext3 ; sinon : mke2fs /dev/Vg_00/lv_usr => reconversion ext3 : tune2fs -j /dev/Vg_00/lv_usr ) 
+Augmenter FS : lvextend -L+1000M /dev/mapper/vg_apps-lv_KSP1AEParch && resize2fs -p /dev/mapper/vg_apps-lv_KSP1AEParch
+Diminuer FS : resize2fs -p /dev/Vg_00/lv_usr 10G && lvreduce -L 10G /dev/Vg_00/lv_usr
+Supprimer LV : lvremove /dev/rootvg/LogVol01 
+
+SWAP :  lvcreate -L 1560M -n swap_1 vg  &&  mkswap /dev/vg/swap_1
+	  lvextend /dev/vg/lvswap -L+10M &&  mkswap -f /dev/vg/lvswap
+
+========
+NMAP :	nmap -sP 192.168.42.0/24   -sS -O
+netstat -vatn  (port ouvert tcp, -vaun udp )
+
+changer nom ethX : /etc/modprobe.conf ; ./udev/rules.d/70-persistent-net.rules => recht module : rmmod/modprobe pcnet32 ; 
+IP VIRTUELLE :	http://www.erasme.org/Linux-Virtual-Server
+	/etc/sysconfig/network-scripts : cp ifcfg-eth0 ifcfg-eth0:0 => DEVICE=eth0:0 IPADDR=192.168.0.110 NETMASK=255.255.255.0 NETWORK=192.168.0.0 BROADCAST=192.168.0.255 ONBOOT=yes
+	
+
+
+========
+RESEAUX :	http://linuxtips.castres-wireless.org/article.php3?id_article=12
+dhclient eth0
+ifconfig eth0 down
+ifconfig eth0 192.168.0.60 netmask 255.255.255.0 up
+
+route add default gw 192.168.42.135 eth0
+route del default
+route add -net 10.2.1.0/16 gw 10.1.1.253 eth1
+route del -net 10.4.1.0/8
+route -n
+
+/etc/sysctl.conf : net.ipv4.ip_forward = 1
+
+activer : 	sysctl -p
+
+[root@localhost ~]# cat /proc/sys/net/ipv4/ip_forward
+1
+
+lister sysctl -a 
+blackhole : net.ipv4.tcp.blackhole
+squid : export http_proxy=http://fc13:3128    http://www.radio2vie.org/images/logo.png
+
+---
+Debit ADSL : http://www.speedguide.net/articles/linux-tweaking-121
+/etc/sysctl.conf (adjust RWIN values as needed):
+net.core.rmem_default = 256960
+net.core.rmem_max = 256960 
+net.core.wmem_default = 256960
+net.core.wmem_max = 256960 
+net.ipv4.tcp_timestamps = 0 
+net.ipv4.tcp_sack = 1 
+net.ipv4.tcp_window_scaling = 1
+
+
+
+========
+SSH : 	service sshd reload (echoue : /usr/sbin/sshd )
+cat /var/log/secure |grep sshd
+#UseDNS yes   (sshd_config , lenteur login )
+mise à jour : http://forum.ovh.com/showthread.php?t=49053
+
+
+SElibux :	/etc/sysconfig/selinux
+http://docs.fedoraproject.org/selinux-faq-fc3/index.html#using-s-c-securitylevel
+sestatus (-v) ; setenforce 0 ( turn off enforcing mode in real time ) 
+au démarrage (SELINUX=disabled dans /etc/selinux/config)
+setenforce 1  ( turn enforcing back on )
+fixfiles relabel /FS ( relabel un fS ) 		touch /.autorelabel;reboot
+
+SERVICE : 
+cd /etc/rc.d/rc5.d ; ls S55sshd  = > service sshd status 
+service iptables status 
+
+========
+SAMBA : http://www.commentcamarche.net/contents/reslinux/reslsamba.php3
+http://www.trustonme.net/didactels/103.html
+yum install samba samba-common samba-client samba-swat; 
+groupadd smbusers ; useradd -g smbusers -s /bin/false administrateur; groupadd smbguests ; useradd -g smbguests -s /bin/false smbguest
+smbpasswd -a "user"
+testparm ; smbclient -L localhost
+config : http://www.reallylinux.com/docs/smb.conf
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters]
+"requiresignorseal"=dword:00000000
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]			clic droit, nouvelle clé 
+"CompatibleRUPSecurity"=dword:00000001	
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]	clic droit, nouvelle clé 
+"CompatibleRUPSecurity"=dword:00000001 
+http://www.commentcamarche.net/forum/affich-1083678-samba-xp-demande-incessante-de-motdepasse
+mount -t cifs //fc11vm/ficsav /mnt/smbfc11vm/ficsav -o user=root,file_mode=0777,dir_mode=0777
+mount -t cifs //fc11vm/appliweb /mnt/smbfc11vm/web -o user=was5
+========
+UTILITAIRE :	
+yum install gedit-plugins
+
+========
+VFSTP :	
+http://nicoleau.fabien.free.fr/weblog/index.php?post/2007/10/25/vsftpd-sur-fedora-/-centos
+yum groupinstall "FTP Server" && chkconfig vsftpd on
+chkconfig vsftpd on (demarrage auto)
+# Chagement de port :  listen_port=5905    ; pasv_promiscuous=1  ( probleme mode passif eth0 )
+
+========
+WEB :	Site URL : http://www.venez.fr/nom-de-domaine-gratuit.fr.html?name=mjad971&domain=0rg.fr&send=1
+
+========
+YUM :	verif package : rpm -q binutils compat-libstdc++-33  elfutils-libelf  elfutils-libelf-devel 	; 	
+YUM : ajout livna : rpm -Uvh http://rpm.livna.org/livna-release-8.rpm   ( yum repolist	 )
+Ajout RMP Fusion : rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm 
+rpm -ivh toto.rpm  / 	yum localinstall --nogpgcheck *.rmp (évite les dépendances)
+yum whatprovides (bin)
+p
+
+===================================================================================================
+
+
+iptables -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp --dport 50000 -j REDIRECT --to-ports 21
+iptables -I RH-Firewall-1-INPUT 15 -m state --state NEW -m tcp -p tcp -s 192.168.42.1 --dport 1521 -j ACCEPT
+iptables -A FORWARD -t filter -o lo -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -t filter -i lo -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+
+iptables -t nat -A PREROUTING -p tcp -i eth0 -d 192.168.0.60 --dport 50000 --j DNAT --to 192.168.42.140:21
+iptables -A FORWARD -p tcp -i eth0 -o eth1 -d 192.168.42.140 --dport 21 -m state --state NEW -j ACCEPT
+iptables -A FORWARD -t filter -o eth0 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -t filter -i eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+
+iptables -A INPUT   -j ACCEPT -p all -s 192.168.42.0/24 -i eth1
+iptables -A OUTPUT  -j ACCEPT -p all -d 192.168.42.0/24 -o eth1
+
+IPTABLES -A OUTPUT -p tcp -d 213.186.41.160 --dport 8080 -o eth0 -m state --state NEW,ESTABLISHED -j ACCEPT
+IPTABLES -A INPUT -p tcp -s 213.186.41.160 --sport 8080 -i eth0 -m state --state ESTABLISHED -j ACCEPT
+
+iptables -L --line-numbers && iptables -D "chain" " N°"
+iptables -I RH-Firewall-1-INPUT 15 -m state --state NEW -m tcp -p tcp -s 192.168.42.0/24 --dport 12000 -j ACCEPT 
+
+iptables -I INPUT -m state --state NEW -m tcp -p tcp -s 192.168.215.1 -j ACCEPT 
+iptables -A INPUT   -j ACCEPT -p tcp -i eth0 --dport 50000
+iptables -A OUTPUT   -j ACCEPT -p tcp -s 192.168.42.1 -O eth1 --dport 5561
+
+
+ERROR :
+
+
+
+PAM [error: libcrack.so.2: cannot open shared object file: No such file or directory]
+lsof | awk  '{printf("%s\n",$1)}' | sort | uniq -c | sort -n  
+=> Look at the hightest count process, then restart that process. For me its usually saslauthd, httpd, or ocwhttpd (webppliance)
+
+relabelling SElinux : ( touch /.autorelabel and then reboot )  relabel  
+
+
+Pb java : pb libX.so	xorg.x11-deprecated puis xcb 
+yum --enablerepo=development install libxcb xcb-proto libxcb-devel
+yum --enablerepo=development update libX11
+yum install -y libXp.i386 libXp-devel.i386
+rpm -ivh ibm-java-i386-sdk-6.0-5.0.i386.rpm	erreur: Dépendances requises:libstdc++.so.5 est nécessaire pour ibm-java-i386-sdk-6.0-5.0.i386
+	=> installer compat-libstdc++-33
+X11 :   oracle can't not connect to x11
+xhost + (avec le user de conection)
+
+
+POSGRESQL : 
+-----------
+2009-12-09 20:18:51 CETFATAL:  could not create shared memory segment: Argument invalide
+2009-12-09 20:18:51 CETDETAIL:  Failed system call was shmget(key=5432001, size=36880384, 03600).
+2009-12-09 20:18:51 CETHINT:  This error usually means that PostgreSQL's request for a shared memory segment exceeded your kernel's SHMMAX parameter.  You can either reduce the request size or reconfigure the kernel with larger SHMMAX.  To reduce the request size (currently 36880384 bytes), reduce PostgreSQL's shared_buffers parameter (currently 4096) and/or its max_connections parameter (currently 103).
+If the request size is already small, it's possible that it is less than your kernel's SHMMIN parameter, in which case raising the request size or reconfiguring SHMMIN is called for.
+
+http://docs.postgresql.fr/8.3/kernel-resources.html
+
+[root@fedora11 /donn/unix/java/PostgreSQL/8.4/data] :
+postgresql.conf:max_connections = 100	=> 50
+ 
+
+
+YUM :
+-----
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 133: ordinal not in range(128)
+=> http://forums.fedora-fr.org/viewtopic.php?pid=394217   
+=> export LANG=C => Could not retrieve mirrorlist http://rpm.livna.org/mirrorlist error was[Errno 4] IOError: <urlopen error [Errno 111] Connection refused>
+ yum --disablerepo=livna* update  ou mv /etc/yum.repos.d/livna.repo livna.repo.bak
+OU	http://forums.fedoraforum.org/archive/index.php/t-742.html
+Impossible d'upgrade adobflash-plugin : yum remove flash-plugin, puis yum install flash-plugin (v10 => v11) 
+
+
+INSTALL :
+---------
+Music Totem : MPEG1 ...
+yum install --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm
+yum install --nogpgcheck http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
+yum update totem ; yum install gstreamer-ffmpeg.i686 gstreamer-plugins-ugly.i686
+Adobe Flash Player : yum install flash-plugin
+aplay -l : 
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+#####ITS-Group end of section MEO ATLAS #####
+PS1=`echo \$(hostname|tr 'a-z' 'A-Z')" = \033[1mBACKUP MULTI-EAR-RBIS BUSINESS \033[0m ("'$LOGIN'") "'$PWD'" :\n->"`
+
+#####ITS-Group end of section MEO ATLAS #####
+PS1=`echo \$(hostname|tr 'a-z' 'A-Z')" = \033[1mBACKUP MULTI-EAR-RBIS PRESENTATION \033[0m ("'$LOGIN'") "'$PWD'" :\n->"`
+
+business:
+
+mklv -y lv_atlsenwas -t jfs2 -x 1024 vg_data 1G && 
+crfs -v jfs2 -d lv_atlsenwas -m /apps/was61app/srv-1-atl-sen-bck-biz/was  -A yes -p rw -t no &&
+mount /apps/was61app/srv-1-atl-sen-bck-biz/was  && chown -R was61:web /apps/was61app/srv-1-atl-sen-bck-biz/was  && chmod 775 /apps/was61app/srv-1-atl-sen-bck-biz/was 
+
+
+mklv -y lv_atlsenlog -t jfs2 -x 1024 vg_data 128M && 
+crfs -v jfs2 -d lv_atlsenlog -m /apps/was61app/srv-1-atl-sen-bck-biz/logs -A yes -p rw -t no &&
+mount /apps/was61app/srv-1-atl-sen-bck-biz/logs && chown -R was61:web /apps/was61app/srv-1-atl-sen-bck-biz/logs && chmod 775 /apps/was61app/srv-1-atl-sen-bck-biz/logs 
+
+
+
+mklv -y lv_meo -t jfs2 -x 1024 vg_data 128M && 
+crfs -v jfs2 -d lv_meo -m /apps/meoatlas2 -A yes -p rw -t no && mount /apps/meoatlas2 && chmod -R 777 /apps/meoatlas2

@@ -1,0 +1,53 @@
+Faire un tar des répertoires cashdb et caiunidb dans $CAIGLBL0000/bases
+
+Sauvegarder le fichier $CAIGLBL0000/cadb/manager/calnm/cadb
+
+Sauvegarder les fichiers :
+
+- $CAIGLBL0000/opr/scripts/envsetlocal
+- $CAIGLBL0000/sche/scripts/envsetlocal
+- $CAIGLBL0000/cci/config/${HOST}/caiccid.prf
+- $CAIGLBL0000/cci/config/${HOST}/ccirmtd.prf
+
+
+Sauvegarde des stations/stationgroup :
+
+sql
+connect to caiunidb;
+unload external station table cadb.station;
+Y
+release;
+quit;
+
+sql
+connect to caiunidb;
+unload external groupid table cadb.groupid;
+Y
+release;
+quit;
+
+sql
+connect to caiunidb;
+unload external group table cadb.group;
+Y
+release;
+quit;
+
+
+Sauvegardes calendriers
+
+cd $CAIGLBL0000/cal
+listcal=$(ls -al |grep -v inst_log |grep '^-'|awk '{print $9}')
+tar cvf - $listcal | compress > /tmp/cal.tar.Z
+
+sql
+connect to caiunidb;
+unload external cal table cadb.cal;
+Y
+release;
+quit;
+
+
+Sauvegarde des MRA
+oprdb script db > /tmp/msgact.txt
+===================================

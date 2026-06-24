@@ -1,0 +1,485 @@
+/dev/lv_tipssb1            3.00       2.41   20%       31     1% /apps/oradbf/tipssb1
+/dev/lv_tfpssb1           26.00       3.38   88%       36     1% /apps/oradbf/tfpssb1
+
+/dev/lv_atpsb1           257.00      46.74   82%       99     1% /apps/oradbf/atpsb1
+/dev/lv_atlv0sb1           3.38       1.05   69%    88422    40% /apps/atlas/atlas2v0/sb1
+/dev/lv_sb1data1           1.25       0.09   93%    12188    15% /apps/atlas/atlas2v0/sb1/data1
+/dev/lv_sb1data1imp        5.00       3.51   30%     4705     2% /apps/atlas/atlas2v0/sb1/data1/imp
+/dev/lv_sb1data1fic      170.00       9.37   95%    27264     2% /apps/atlas/atlas2v0/sb1/data1/fic
+
+
+mklv -y lv_tipssb1 -t jfs2 -e x vg_data 3G
+mklv -y lv_tfpssb1 -t jfs2 -e x vg_data 30G
+mklv -y lv_atpsb1 -t jfs2 -e x vg_data 260G
+mklv -y lv_atlv0sb1 -t jfs2 -e x vg_data 3G
+mklv -y lv_sb1data1 -t jfs2 -e x vg_data 2G
+mklv -y lv_sb1data1imp -t jfs2 -e x vg_data 5G
+mklv -y lv_sb1data1fic -t jfs2 -e x vg_data 180G
+
+crfs -v jfs2 -d lv_tipssb1 -m /apps/oradbf/tipssb1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_tfpssb1 -m /apps/oradbf/tfpssb1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atpsb1 -m /apps/oradbf/atpsb1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atlv0sb1 -m /apps/atlas/atlas2v0/sb1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sb1data1 -m /apps/atlas/atlas2v0/sb1/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sb1data1imp -m /apps/atlas/atlas2v0/sb1/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sb1data1fic -m /apps/atlas/atlas2v0/sb1/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+mount /apps/oradbf/atpsb1
+mount /apps/atlas/atlas2v0/sb1
+mount /apps/atlas/atlas2v0/sb1/data1
+mount /apps/atlas/atlas2v0/sb1/data1/imp
+mount /apps/atlas/atlas2v0/sb1/data1/fic
+
+root@s00va9925035:/apps/exploit/profiles # df -g |grep sb1
+/dev/lv_atpsb1           260,00     259,46    1%        4     1% /apps/oradbf/atpsb1
+/dev/lv_atlv0sb1           3,00       2,99    1%        7     1% /apps/atlas/atlas2v0/sb1
+/dev/lv_sb1data1           2,00       1,99    1%        6     1% /apps/atlas/atlas2v0/sb1/data1
+/dev/lv_sb1data1imp        5,00       4,98    1%        4     1% /apps/atlas/atlas2v0/sb1/data1/imp
+/dev/lv_sb1data1fic      180,00     179,47    1%        4     1% /apps/atlas/atlas2v0/sb1/data1/fic
+
+===================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /home/atlas :
+df -g |grep sa14
+/dev/lv_atpsa14          360.00     148.39   59%      100     1% /apps/oradbf/atpsa14
+/dev/lv_atl2v0sa14        10.00       6.80   32%    95415     6% /apps/atlas/atlas2v0/sa14
+/dev/lv_sa14data1          3.00       0.89   71%     1705     1% /apps/atlas/atlas2v0/sa14/data1
+/dev/lv_sa14data1imp      12.00       4.30   65%    18403     2% /apps/atlas/atlas2v0/sa14/data1/imp
+/dev/lv_sa14data1fic     188.00      25.65   87%    24780     1% /apps/atlas/atlas2v0/sa14/data1/fic
+
+
+
+mklv -y lv_atpsa14 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa14 -t jfs2 -e x vg_data 4G
+mklv -y lv_sa14data1 -t jfs2 -e x vg_data 3G
+mklv -y lv_sa14data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa14data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atpsa14 -m /apps/oradbf/atpsa14 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa14 -m /apps/atlas/atlas2v0/sa14 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa14data1 -m /apps/atlas/atlas2v0/sa14/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa14data1imp -m /apps/atlas/atlas2v0/sa14/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa14data1fic -m /apps/atlas/atlas2v0/sa14/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+mount /apps/oradbf/atpsa14
+mount /apps/atlas/atlas2v0/sa14
+mount /apps/atlas/atlas2v0/sa14/data1
+mount /apps/atlas/atlas2v0/sa14/data1/imp
+mount /apps/atlas/atlas2v0/sa14/data1/fic
+
+root@s00va9925035:/apps/atlas/atlas2v0/sa14/data1 # df -g |grep sa14
+/dev/lv_atpsa14          260,00     259,46    1%        4     1% /apps/oradbf/atpsa14
+/dev/lv_atl2v0sa14         4,00       3,98    1%        7     1% /apps/atlas/atlas2v0/sa14
+/dev/lv_sa14data1          3,00       2,99    1%        6     1% /apps/atlas/atlas2v0/sa14/data1
+/dev/lv_sa14data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa14/data1/imp
+/dev/lv_sa14data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa14/data1/fic
+
+============================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /home/atlas :
+df -g |grep sa20
+/dev/lv_atpsa20          380.00     164.37   57%       99     1% /apps/oradbf/atpsa20
+/dev/lv_atdsa20          380.00     168.36   56%       96     1% /apps/oradbf/atdsa20
+/dev/lv_sa20              15.00      11.76   22%    95797     4% /apps/atlas/atlas2v0/sa20
+/dev/lv_sa20data1        120.00     119.14    1%    12384     1% /apps/atlas/atlas2v0/sa20/data1
+/dev/lv_sa20data1imp      10.00       7.27   28%    20157     2% /apps/atlas/atlas2v0/sa20/data1/imp
+/dev/lv_sa20data1fic     160.00     156.46    3%      696     1% /apps/atlas/atlas2v0/sa20/data1/fic
+
+
+mklv -y lv_atpsa20 -t jfs2 -e x vg_data 260G
+mklv -y lv_atdsa20 -t jfs2 -e x vg_data 260G
+mklv -y lv_sa20 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa20data1 -t jfs2 -e x vg_data 10G
+mklv -y lv_sa20data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa20data1fic -t jfs2 -e x vg_data 180G
+
+
+crfs -v jfs2 -d lv_atpsa20 -m /apps/oradbf/atpsa20 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atdsa20 -m /apps/oradbf/atdsa20 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa20 -m /apps/atlas/atlas2v0/sa20 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa20data1 -m /apps/atlas/atlas2v0/sa20/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa20data1imp -m /apps/atlas/atlas2v0/sa20/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa20data1fic -m /apps/atlas/atlas2v0/sa20/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+mount /apps/oradbf/atpsa20
+mount /apps/oradbf/atdsa20
+mount /apps/atlas/atlas2v0/sa20
+mount /apps/atlas/atlas2v0/sa20/data1
+mount /apps/atlas/atlas2v0/sa20/data1/imp
+mount /apps/atlas/atlas2v0/sa20/data1/fic
+
+root@s00va9925035:/apps/exploit/profiles/initenv # df -g |grep sa20
+/dev/lv_atpsa20          260,00     259,46    1%        4     1% /apps/oradbf/atpsa20
+/dev/lv_atdsa20          260,00     259,46    1%        4     1% /apps/oradbf/atdsa20
+/dev/lv_sa20               5,00       4,98    1%        5     1% /apps/atlas/atlas2v0/sa20
+/dev/lv_sa20data1         10,00       9,96    1%        6     1% /apps/atlas/atlas2v0/sa20/data1
+/dev/lv_sa20data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa20/data1/imp
+/dev/lv_sa20data1fic     180,00     179,47    1%        4     1% /apps/atlas/atlas2v0/sa20/data1/fic
+
+========================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/oradbf/atpsa20 :
+df -g |grep sa12
+/dev/lv_tipssa12           0.88       0.22   75%       43     1% /apps/oradbf/tipssa12
+/dev/lv_atpsa12          245.00      30.80   88%       99     1% /apps/oradbf/atpsa12
+/dev/lv_atdsa12          230.00      45.49   81%       87     1% /apps/oradbf/atdsa12
+/dev/lv_atl2v0sa12         5.75       1.80   69%    95460     7% /apps/atlas/atlas2v0/sa12
+/dev/lv_sa12data1         17.36       8.06   54%    11037     2% /apps/atlas/atlas2v0/sa12/data1
+/dev/lv_sa12data1imp       7.25       5.76   21%     5280     3% /apps/atlas/atlas2v0/sa12/data1/imp
+/dev/lv_sa12fic          195.00      29.40   85%    25879     1% /apps/atlas/atlas2v0/sa12/data1/fic
+
+
+mklv -y lv_tipssa12 -t jfs2 -e x vg_data 1G
+mklv -y lv_atpsa12 -t jfs2 -e x vg_data 260G
+mklv -y lv_atdsa12 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa12 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa12data1 -t jfs2 -e x vg_data 10G
+mklv -y lv_sa12data1imp -t jfs2 -e x vg_data 5G
+mklv -y lv_sa12fic -t jfs2 -e x vg_data 180G
+
+
+crfs -v jfs2 -d lv_tipssa12 -m /apps/oradbf/tipssa12 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atpsa12 -m /apps/oradbf/atpsa12 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atdsa12 -m /apps/oradbf/atdsa12 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa12 -m /apps/atlas/atlas2v0/sa12 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa12data1 -m /apps/atlas/atlas2v0/sa12/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa12data1imp -m /apps/atlas/atlas2v0/sa12/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa12fic -m /apps/atlas/atlas2v0/sa12/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/oradbf/tipssa12
+mount /apps/oradbf/atpsa12
+mount /apps/oradbf/atdsa12
+mount /apps/atlas/atlas2v0/sa12
+mount /apps/atlas/atlas2v0/sa12/data1
+mount /apps/atlas/atlas2v0/sa12/data1/imp
+mount /apps/atlas/atlas2v0/sa12/data1/fic
+
+root@s00va9925035:/apps/exploit/profiles # df -g |grep sa12
+/dev/lv_tipssa12           1,00       0,99    1%        4     1% /apps/oradbf/tipssa12
+/dev/lv_atpsa12          260,00     259,46    1%        4     1% /apps/oradbf/atpsa12
+/dev/lv_atdsa12          260,00     259,46    1%        4     1% /apps/oradbf/atdsa12
+/dev/lv_atl2v0sa12         5,00       4,98    1%        5     1% /apps/atlas/atlas2v0/sa12
+/dev/lv_sa12data1         10,00       9,96    1%        6     1% /apps/atlas/atlas2v0/sa12/data1
+/dev/lv_sa12data1imp       5,00       4,98    1%        4     1% /apps/atlas/atlas2v0/sa12/data1/imp
+/dev/lv_sa12fic          180,00     179,47    1%        4     1% /apps/atlas/atlas2v0/sa12/data1/fic
+
+===================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) / :
+df -g |grep sa13
+/dev/lv_sa13ptcom          1.00       0.81   20%      391     1% /apps/ptcom/040/sa13
+/dev/lv_atpsa13          345.00     124.87   64%       99     1% /apps/oradbf/atpsa13
+/dev/lv_atl2v0sa13        10.00       5.93   41%    97588     7% /apps/atlas/atlas2v0/sa13
+/dev/lv_sa13data1         24.00      20.40   15%    21250     1% /apps/atlas/atlas2v0/sa13/data1
+/dev/lv_sa13data1imp      10.00       9.96    1%       99     1% /apps/atlas/atlas2v0/sa13/data1/imp
+/dev/lv_sa13data1fic     222.00       9.86   96%    34721     2% /apps/atlas/atlas2v0/sa13/data1/fic
+/dev/lv_atdsa13          250.00      56.11   78%       95     1% /apps/oradbf/atdsa13
+
+
+mklv -y lv_sa13ptcom -t jfs2 -e x vg_data 1G
+mklv -y lv_atpsa13 -t jfs2 -e x vg_data 260G
+mklv -y lv_atdsa13 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa13 -t jfs2 -e x vg_data 10G
+mklv -y lv_sa13data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa13data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa13data1fic -t jfs2 -e x vg_data 190G
+
+
+
+crfs -v jfs2 -d lv_sa13ptcom -m /apps/ptcom/040/sa13 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atpsa13 -m /apps/oradbf/atpsa13 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atdsa13 -m /apps/oradbf/atdsa13 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa13 -m /apps/atlas/atlas2v0/sa13 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa13data1 -m /apps/atlas/atlas2v0/sa13/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa13data1imp -m /apps/atlas/atlas2v0/sa13/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa13data1fic -m /apps/atlas/atlas2v0/sa13/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/ptcom/040/sa13
+mount /apps/oradbf/atpsa13 
+mount /apps/oradbf/atdsa13 
+mount /apps/atlas/atlas2v0/sa13
+mount /apps/atlas/atlas2v0/sa13/data1
+mount /apps/atlas/atlas2v0/sa13/data1/imp
+mount /apps/atlas/atlas2v0/sa13/data1/fic
+
+root@s00va9925035:/apps/exploit/profiles # df -g |grep sa13
+/dev/lv_sa13ptcom          1,00       0,99    1%        4     1% /apps/ptcom/040/sa13
+/dev/lv_atpsa13          260,00     259,46    1%        4     1% /apps/oradbf/atpsa13
+/dev/lv_atdsa13          260,00     259,46    1%        4     1% /apps/oradbf/atdsa13
+/dev/lv_atl2v0sa13        10,00       9,96    1%        5     1% /apps/atlas/atlas2v0/sa13
+/dev/lv_sa13data1          5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/sa13/data1
+/dev/lv_sa13data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa13/data1/imp
+/dev/lv_sa13data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa13/data1/fic
+
+=============================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/oradbf/atpsa13 :
+df -g |grep sa15
+/dev/lv_atpsa15          235.00      13.90   95%      100     1% /apps/oradbf/atpsa15
+/dev/lv_atdsa15          246.00      24.67   90%      100     1% /apps/oradbf/atdsa15
+/dev/lv_sa15              15.00       3.49   77%   100099    21% /apps/atlas/atlas2v0/sa15
+/dev/lv_data1_sa15         3.00       0.01  100%    24695    26% /apps/atlas/atlas2v0/sa15/data1
+/dev/lv_imp_sa15           5.50       2.06   63%    28770    16% /apps/atlas/atlas2v0/sa15/data1/imp
+/dev/lv_fic_sa15         200.00      39.37   81%    23844     1% /apps/atlas/atlas2v0/sa15/data1/fic
+
+
+mklv -y lv_atpsa15 -t jfs2 -e x vg_data 260G
+mklv -y lv_atdsa15 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa15 -t jfs2 -e x vg_data 12G
+mklv -y lv_sa15data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa15data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa15data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atpsa15 -m /apps/oradbf/atpsa15 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atdsa15 -m /apps/oradbf/atdsa15 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa15 -m /apps/atlas/atlas2v0/sa15 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa15data1 -m /apps/atlas/atlas2v0/sa15/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa15data1imp -m /apps/atlas/atlas2v0/sa15/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa15data1fic -m /apps/atlas/atlas2v0/sa15/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/oradbf/atpsa15 
+mount /apps/oradbf/atdsa15 
+mount /apps/atlas/atlas2v0/sa15
+mount /apps/atlas/atlas2v0/sa15/data1
+mount /apps/atlas/atlas2v0/sa15/data1/imp
+mount /apps/atlas/atlas2v0/sa15/data1/fic
+
+
+root@s00va9925035:/apps/unikix/t11.3.4/lib # df -g |grep sa15
+/dev/lv_atpsa15          260,00     259,46    1%        4     1% /apps/oradbf/atpsa15
+/dev/lv_atdsa15          260,00     259,46    1%        4     1% /apps/oradbf/atdsa15
+/dev/lv_atl2v0sa15        12,00      11,95    1%        5     1% /apps/atlas/atlas2v0/sa15
+/dev/lv_sa15data1          5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/sa15/data1
+/dev/lv_sa15data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa15/data1/imp
+/dev/lv_sa15data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa15/data1/fic
+
+=================================================================
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/oradbf/atpsa13 :
+df -g |grep sa11
+/dev/lv_atpsa11          231.00      23.62   90%       99     1% /apps/oradbf/atpsa11
+/dev/lv_atl2v0sa11        11.00       7.13   36%    97553     6% /apps/atlas/atlas2v0/sa11
+/dev/lv_sa11data1          8.00       4.35   46%    31280     3% /apps/atlas/atlas2v0/sa11/data1
+/dev/lv_sa11data1imp       7.00       4.29   39%     8071     1% /apps/atlas/atlas2v0/sa11/data1/imp
+/dev/lv_sa11data1fic     177.00      15.25   92%     9408     1% /apps/atlas/atlas2v0/sa11/data1/fic
+
+
+mklv -y lv_atpsa11 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa11 -t jfs2 -e x vg_data 12G
+mklv -y lv_sa11data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa11data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa11data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atpsa11 -m /apps/oradbf/atpsa11 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa11 -m /apps/atlas/atlas2v0/sa11 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa11data1 -m /apps/atlas/atlas2v0/sa11/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa11data1imp -m /apps/atlas/atlas2v0/sa11/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa11data1fic -m /apps/atlas/atlas2v0/sa11/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/oradbf/atpsa11 
+mount /apps/atlas/atlas2v0/sa11
+mount /apps/atlas/atlas2v0/sa11/data1
+mount /apps/atlas/atlas2v0/sa11/data1/imp
+mount /apps/atlas/atlas2v0/sa11/data1/fic
+
+root@s00va9925035:/apps/exploit/profiles/initenv # df -g |grep sa11
+/dev/lv_atpsa11          260,00     259,46    1%        4     1% /apps/oradbf/atpsa11
+/dev/lv_atl2v0sa11        12,00      11,95    1%        5     1% /apps/atlas/atlas2v0/sa11
+/dev/lv_sa11data1          5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/sa11/data1
+/dev/lv_sa11data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa11/data1/imp
+/dev/lv_sa11data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa11/data1/fic
+
+========================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/oradbf/atpsa13 :
+df -g |grep sa16
+/dev/lv_atpsa16          226.00       6.80   97%      113     1% /apps/oradbf/atpsa16
+/dev/lv_env_sa16          13.00       7.51   43%    98975    93% /apps/atlas/atlas2v0/sa16
+/dev/lv_data1_sa16         3.00       2.50   17%    15954    65% /apps/atlas/atlas2v0/sa16/data1
+/dev/lv_imp_sa16           5.50       1.57   72%     8399    19% /apps/atlas/atlas2v0/sa16/data1/imp
+/dev/lv_fic_sa16         250.00      40.74   84%    27172     2% /apps/atlas/atlas2v0/sa16/data1/fic
+
+
+mklv -y lv_atpsa16 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa16 -t jfs2 -e x vg_data 10G
+mklv -y lv_sa16data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa16data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa16data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atpsa16 -m /apps/oradbf/atpsa16 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa16 -m /apps/atlas/atlas2v0/sa16 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa16data1 -m /apps/atlas/atlas2v0/sa16/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa16data1imp -m /apps/atlas/atlas2v0/sa16/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa16data1fic -m /apps/atlas/atlas2v0/sa16/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/oradbf/atpsa16 
+mount /apps/atlas/atlas2v0/sa16
+mount /apps/atlas/atlas2v0/sa16/data1
+mount /apps/atlas/atlas2v0/sa16/data1/imp
+mount /apps/atlas/atlas2v0/sa16/data1/fic
+
+
+root@s00va9925035:/apps/exploit/profiles/initenv # df -g |grep sa16
+/dev/lv_atpsa16          260,00     259,46    1%        4     1% /apps/oradbf/atpsa16
+/dev/lv_atl2v0sa16        10,00       9,96    1%        5     1% /apps/atlas/atlas2v0/sa16
+/dev/lv_sa16data1          5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/sa16/data1
+/dev/lv_sa16data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa16/data1/imp
+/dev/lv_sa16data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa16/data1/fic
+
+=====================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/oradbf/atpsa13 :
+df -g |grep rf1
+/dev/lv_atl2v0rf1         27.25       6.13   78%   101828     7% /apps/atlas/atlas2v0/rf1
+/dev/lv_rf1data1           7.50       6.56   13%      479     1% /apps/atlas/atlas2v0/rf1/data1
+/dev/lv_rf1data1imp       14.00      11.30   20%     7053     1% /apps/atlas/atlas2v0/rf1/data1/imp
+/dev/lv_rf1data1fic      305.00      84.50   73%    35214     1% /apps/atlas/atlas2v0/rf1/data1/fic
+
+mklv -y lv_atl2v0rf1 -t jfs2 -e x vg_data 10G
+mklv -y lv_rf1data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_rf1data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_rf1data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atl2v0rf1 -m /apps/atlas/atlas2v0/rf1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_rf1data1 -m /apps/atlas/atlas2v0/rf1/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_rf1data1imp -m /apps/atlas/atlas2v0/rf1/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_rf1data1fic -m /apps/atlas/atlas2v0/rf1/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/atlas/atlas2v0/rf1
+mount /apps/atlas/atlas2v0/rf1/data1
+mount /apps/atlas/atlas2v0/rf1/data1/imp
+mount /apps/atlas/atlas2v0/rf1/data1/fic
+
+
+root@s00va9925035:/apps/exploit/profiles # df -g |grep rf1
+/dev/lv_atl2v0rf1         10,00       9,96    1%        5     1% /apps/atlas/atlas2v0/rf1
+/dev/lv_rf1data1           5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/rf1/data1
+/dev/lv_rf1data1imp       10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/rf1/data1/imp
+/dev/lv_rf1data1fic      190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/rf1/data1/fic
+
+========================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/exploit/profiles/initenv :
+df -g |grep sa17
+/dev/lv_env_sa17          11.00      10.99    1%       24     1% /apps/atlas/atlas2v0/sa17
+/dev/lv_data1_sa17         3.00       2.72   10%       58     1% /apps/atlas/atlas2v0/sa17/data1
+/dev/lv_imp_sa17           5.50       5.49    1%       32     1% /apps/atlas/atlas2v0/sa17/data1/imp
+/dev/lv_fic_sa17         105.00      29.19   73%      107     1% /apps/atlas/atlas2v0/sa17/data1/fic
+
+mklv -y lv_atpsa17 -t jfs2 -e x vg_data 260G
+mklv -y lv_atdsa17 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa17 -t jfs2 -e x vg_data 10G
+mklv -y lv_sa17data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa17data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa17data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atpsa17 -m /apps/oradbf/atpsa17 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atdsa17 -m /apps/oradbf/atdsa17 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa17 -m /apps/atlas/atlas2v0/sa17 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa17data1 -m /apps/atlas/atlas2v0/sa17/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa17data1imp -m /apps/atlas/atlas2v0/sa17/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa17data1fic -m /apps/atlas/atlas2v0/sa17/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/oradbf/atpsa17 
+mount /apps/atlas/atlas2v0/sa17
+mount /apps/atlas/atlas2v0/sa17/data1
+mount /apps/atlas/atlas2v0/sa17/data1/imp
+mount /apps/atlas/atlas2v0/sa17/data1/fic
+
+root@s00va9925035: /apps/oradbf/tfpssb1 # df -g |grep sa17
+/dev/lv_atpsa17          260,00     259,46    1%        4     1% /apps/oradbf/atpsa17
+/dev/lv_atl2v0sa17        10,00       9,96    1%        5     1% /apps/atlas/atlas2v0/sa17
+/dev/lv_sa17data1          5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/sa17/data1
+/dev/lv_sa17data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa17/data1/imp
+/dev/lv_sa17data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa17/data1/fic
+/dev/lv_atdsa17          260,00     259,46    1%        4     1% /apps/oradbf/atdsa17
+
+
+=============================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/exploit/profiles/initenv :
+df -g |grep sa18
+/dev/lv_atpsa18          300.00      79.78   74%      100     1% /apps/oradbf/atpsa18
+/dev/lv_env_sa18           9.00       3.27   64%    96186    10% /apps/atlas/atlas2v0/sa18
+/dev/lv_data1_sa18         3.00       2.05   32%    21564     5% /apps/atlas/atlas2v0/sa18/data1
+/dev/lv_imp_sa18           6.00       5.76    5%     1791     1% /apps/atlas/atlas2v0/sa18/data1/imp
+/dev/lv_fic_sa18         284.00      96.94   66%    33208     1% /apps/atlas/atlas2v0/sa18/data1/fic
+
+mklv -y lv_atpsa18 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa18 -t jfs2 -e x vg_data 10G
+mklv -y lv_sa18data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa18data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa18data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atpsa18 -m /apps/oradbf/atpsa18 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa18 -m /apps/atlas/atlas2v0/sa18 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa18data1 -m /apps/atlas/atlas2v0/sa18/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa18data1imp -m /apps/atlas/atlas2v0/sa18/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa18data1fic -m /apps/atlas/atlas2v0/sa18/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/oradbf/atpsa18 
+mount /apps/atlas/atlas2v0/sa18
+mount /apps/atlas/atlas2v0/sa18/data1
+mount /apps/atlas/atlas2v0/sa18/data1/imp
+mount /apps/atlas/atlas2v0/sa18/data1/fic
+
+root@s00va9925035:/apps/exploit/profiles # df -g |grep sa18
+/dev/lv_atpsa18          260,00     259,46    1%        4     1% /apps/oradbf/atpsa18
+/dev/lv_atl2v0sa18        10,00       9,96    1%        5     1% /apps/atlas/atlas2v0/sa18
+/dev/lv_sa18data1          5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/sa18/data1
+/dev/lv_sa18data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa18/data1/imp
+/dev/lv_sa18data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa18/data1/fic
+
+=================================================================
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/exploit/profiles/initenv :
+df -g |grep sa19
+/dev/lv_atpsa19          240.00       6.70   98%      506     1% /apps/oradbf/atpsa19
+/dev/lv_env_sa19          12.00       9.71   20%    88358     4% /apps/atlas/atlas2v0/sa19
+/dev/lv_data1_sa19        10.00       9.21    8%    11965     1% /apps/atlas/atlas2v0/sa19/data1
+/dev/lv_imp_sa19           6.00       5.84    3%      350     1% /apps/atlas/atlas2v0/sa19/data1/imp
+/dev/lv_fic_sa19         148.00      10.85   93%    37717     2% /apps/atlas/atlas2v0/sa19/data1/fic
+
+mklv -y lv_atpsa19 -t jfs2 -e x vg_data 260G
+mklv -y lv_atl2v0sa19 -t jfs2 -e x vg_data 10G
+mklv -y lv_sa19data1 -t jfs2 -e x vg_data 5G
+mklv -y lv_sa19data1imp -t jfs2 -e x vg_data 10G
+mklv -y lv_sa19data1fic -t jfs2 -e x vg_data 190G
+
+
+crfs -v jfs2 -d lv_atpsa19 -m /apps/oradbf/atpsa19 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_atl2v0sa19 -m /apps/atlas/atlas2v0/sa19 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa19data1 -m /apps/atlas/atlas2v0/sa19/data1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa19data1imp -m /apps/atlas/atlas2v0/sa19/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_sa19data1fic -m /apps/atlas/atlas2v0/sa19/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+
+mount /apps/oradbf/atpsa19 
+mount /apps/atlas/atlas2v0/sa19
+mount /apps/atlas/atlas2v0/sa19/data1
+mount /apps/atlas/atlas2v0/sa19/data1/imp
+mount /apps/atlas/atlas2v0/sa19/data1/fic
+
+
+root@s00va9925035:/apps/exploit/profiles # df -g |grep sa19
+/dev/lv_atpsa19          260,00     259,46    1%        4     1% /apps/oradbf/atpsa19
+/dev/lv_atl2v0sa19        10,00       9,96    1%        5     1% /apps/atlas/atlas2v0/sa19
+/dev/lv_sa19data1          5,00       4,98    1%        6     1% /apps/atlas/atlas2v0/sa19/data1
+/dev/lv_sa19data1imp      10,00       9,96    1%        4     1% /apps/atlas/atlas2v0/sa19/data1/imp
+/dev/lv_sa19data1fic     190,00     189,47    1%        4     1% /apps/atlas/atlas2v0/sa19/data1/fic
+
+====================================================================

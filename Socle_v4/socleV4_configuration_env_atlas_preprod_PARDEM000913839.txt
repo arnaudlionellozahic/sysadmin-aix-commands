@@ -1,0 +1,612 @@
+-----------------------check des pré-requis-----------------
+
+root@parva4022576: / # lslpp -l bos.adt.bas
+lslpp: Fileset bos.adt.bas not installed.
+root@parva4022576: / #
+---------------------
+
+root@parva4022576: / # lsattr -E -l sys0 -a maxuproc
+maxuproc 6144 Maximum number of PROCESSES allowed per user True
+root@parva4022576: / #
+
+
+
+maxuproc 6144 Maximum number of PROCESSES allowed per user True
+root@parva4022576: / # chdev -l sys0 -a maxuproc='16384'
+sys0 changed
+root@parva4022576: / # lsattr -E -l sys0 -a maxuproc
+maxuproc 16384 Maximum number of PROCESSES allowed per user True
+root@parva4022576: / #
+
+---------------------
+root> lslpp –l bos.perf.perfstat
+root> lslpp –l bos.perf.proctools
+root> lslpp –l bos.rte (au moins en version 6.1)
+root> lslpp –l xlC.aix61.rte (au moins en version 10.1)
+
+
+---------------------création des users----------------
+uid=300(oracle) gid=300(dba) groups=1(staff)
+ mkuser id=503 atlas
+ mkuser id=502 conv
+mkgroup -A users='atlas' id=503 atlas
+mkgroup -A users='atlas,conv' id=262 a2instal
+
+mkgroup -A users='atlas,conv' id=503 atlas
+----------------------- Transfert des fichiers-------------------------
+
+
+
+[parva4022576:root:/ficsav/EQUIPE_MEO/socleV4:] ls -ltr
+total 3589624
+drwxrwxrwx    2 root     system          256 Aug 19 11:28 lost+found
+-rwxrwxrwx    1 l802945  system     70514846 Aug 19 11:36 unikix.tgz
+-rwxrwxrwx    1 l802945  system    150908107 Aug 19 11:39 cobsx51.tar.Z
+-rwxrwxrwx    1 l802945  system    143349760 Aug 19 11:40 dmexpress_6911_aix61_32bit.tar
+-rwxrwxrwx    1 l802945  system      1546240 Aug 19 11:42 amelia_1.5.6.tar
+-rwxrwxrwx    1 l802945  system    418914320 Aug 19 11:46 ljdk.tar.Z
+-rw-r-----    1 l802945  system   1052637936 Oct  9 14:45 oracle_11.2.0.2_client.tar.gz
+[parva4022576:root:/ficsav/EQUIPE_MEO/socleV4:]
+
+
+---------------------- FS créer ---------------------------
+
+
+
+mklv -y lv_oracle -t jfs2 -x 1024 vg_apps 7G
+
+crfs -v jfs2 -d lv_oracle   -m /apps/oracle -A yes -p rw -t no && mount  /apps/oracle
+
+
+
+
+mklv -y lv_oracle11 -t jfs2 -x 1024 vg_apps 15G
+
+crfs -v jfs2 -d lv_oracle11   -m /apps/oracle/product/1120 -A yes -p rw -t no && mount /apps/oracle/product/1120
+
+
+mklv -y lv_oraclework -t jfs2 -x 1024 vg_apps 13G
+
+crfs -v jfs2 -d lv_oraclework   -m /apps/work/ora_1120  -A yes -p rw -t no && mount /apps/work/ora_1120 
+
+
+mklv -y lv_meo -t jfs2 -x 1024 vg_data 15G
+
+
+crfs -v jfs2 -d lv_meo   -m /ficsav/EQUIPE_MEO  -A yes -p rw -t no && mount /ficsav/EQUIPE_MEO
+
+
+mklv -y lv_amelia -t jfs2 -x 1024 vg_apps 6G
+
+crfs -v jfs2 -d lv_amelia  -m /apps/amelia -A yes -p rw -t no
+
+
+mklv -y lv_carto -t jfs2 -x 1024 vg_apps 1G
+
+crfs -v jfs2 -d lv_carto  -m /apps/carto_data -A yes -p rw -t no && mount /apps/carto_data
+
+
+
+
+mklv -y lv_ameliap -t jfs2 -x 1024 vg_apps 5G
+
+crfs -v jfs2 -d lv_ameliap  -m /apps/matl/packages -A yes -p rw -t no && mount /apps/matl/packages
+
+
+
+mklv -y lv_express -t jfs2 -x 1024 vg_apps 1G
+
+crfs -v jfs2 -d lv_express -m /apps/dmexpress -A yes -p rw -t no && mount /apps/dmexpress
+
+
+mklv -y lv_cobol -t jfs2 -x 1024 vg_apps 1G
+
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -t no && mount /apps/cobol
+
+mklv -y lv_oraclient -t jfs2 -x 1024 vg_data 15G
+
+crfs -v jfs2 -d lv_oraclient -m /apps/oracle/product/1120cli32 -A yes -p rw -t no && mount /apps/oracle/product/1120cli32
+
+
+mklv -y lv_oradbfbck -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_oradbfbck  -m /apps/oradbf/backup -A yes -p rw -t no && mount /apps/oradbf/backup
+
+
+mklv -y lv_exploit -t jfs2 -x 1024 vg_apps 2G
+
+crfs -v jfs2 -d lv_exploit  -m /apps/exploit -A yes -p rw -t no && mount /apps/exploit
+
+
+
+mklv -y lv_unikix -t jfs2 -x 1024 vg_apps 2G
+
+crfs -v jfs2 -d lv_unikix  -m /apps/unikix -A yes -p rw -t no && mount /apps/unikix
+
+
+
+mklv -y lv_work -t jfs2 -x 1024 vg_data 70G
+
+crfs -v jfs2 -d lv_work  -m /apps/exploit/work -A yes -p rw -t no && mount /apps/exploit/work 
+
+
+
+mklv -y lv_uf1_data1 -t jfs2 -x 1024 vg_data 7G
+
+crfs -v jfs2 -d lv_uf1_data1  -m /apps/atlas/atlas2v0/uf1/data1 -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1
+
+
+mklv -y lv_atlas2v0 -t jfs2 -x 1024 vg_data 3G
+
+crfs -v jfs2 -d lv_atlas2v0  -m /apps/atlas/atlas2v0 -A yes -p rw -t no && mount /apps/atlas/atlas2v0
+
+
+
+mklv -y lv_orabak -t jfs2 -x 1024 vg_data 3G
+
+crfs -v jfs2 -d lv_orabak -m /apps/oracle/backup/ETL1FRX0 -A yes -p rw -t no && mount /apps/oracle/backup/ETL1FRX0
+
+
+lv_orabak
+
+/apps/oracle/backup/ETL1FRX0
+
+
+
+
+lv_atlas2v0
+
+/apps/atlas/atlas2v0
+
+
+
+-----------------------------------------------------
+
+Installation composant java
+--------------------------------
+
+copie du gtar et decompression
+
+root@parva4022576: /usr/bin # tar xvf /ficsav/EQUIPE_MEO/binar.tar
+x gtar, 629203 bytes, 1229 tape blocks
+
+
+
+pas fait 
+----------------------------- java------------
+ cd /usr
+
+gtar cvzf /ficsav/EQUIPE_MEO/socleV4/ancien_java.tar.Z java*
+
+
+[parva4022576:root:/usr:] gtar xvzf /ficsav/EQUIPE_MEO/socleV4/ljdk.tar.Z
+=============================================================================================================================================
+-----------------------------------Installation amelia-----------------------------------------------------------------------
+
+variable ajouter dans le fichier /etc/environnement
+
+A2_BNP=/apps
+A2_PRODUITS=/apps
+A2_UNIX=/apps/exploit
+A2I_REP=/app/amelia
+A2I_REP_SESSIONS=/apps/sessions
+
+
+
+mkgroup –A users=’atlas,conv’ a2instal
+
+cd /apps/exploit
+
+mkdir schemabase
+
+
+----------------------------Installation cobol--------------------------
+
+cd cd /apps/cobol/sx5.1
+
+ vi DEVASSHARE
+
+/apps/cobol/sx5.1
+
+ chmod 777 DEVASSHARE
+
+
+[parva4022576:root:/apps/cobol/sx5.1:] export COBDIR=$A2_PRODUITS/cobol/sx5.1
+[parva4022576:root:/apps/cobol/sx5.1:] export LIBPATH=$COBDIR/lib:$LIBPATH
+[parva4022576:root:/apps/cobol/sx5.1:] export COBCONFIG=$COBDIR/lib/ATKXCOBCONFIG
+[parva4022576:root:/apps/cobol/sx5.1:] export COBTERMINFO=$COBDIR/terminfo
+[parva4022576:root:/apps/cobol/sx5.1:] export PATH=$COBDIR/bin:$PATH
+
+
+
+cd /apps/cobol/sx5.1/bin
+rm rtsora
+ln –fs rtsstd rtsora
+
+
+[parva4022576:root:/apps/cobol/sx5.1/lmf:] ./lmfinstall
+
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/usr/lib/mflmf
+/usr/lib/mflmf does not exist
+do you wish to create it ? (y/n)
+y
+Empty database created ok
+Do you want only superuser to be able to access the License Admin System? (y/n)
+y
+It is recommended that you let license manager autostart at boot time
+Do you want license manager to be automatically started at boot time? (y/n)
+y
+LMF installation complete
+
+
+cd $COBDIR/aslmf
+./apptrack
+
+
+
+
+Server License Administration System - AppTrack
+-----------------------------------------------------------
+1.   License List
+2.   License Summary
+3.   License Install
+4.   License Uninstall
+5.   Change/Set Password
+6.   Reinitialize Licensing
+7.   Current Users
+9.   Quit
+Enter the Menu Selection
+
+Ready to install license
+Enter the Serial Number part of the License Key:
+600000366992AI+
+Enter the License Number part of the License Key:
+03060 A003F FF9A2 CCE07 5631
+License installed ok
+
+
+013/10/09 15:22:50  Summary of AS Licenses Installed, In System  and In Use:
+-----------------------------------------------------------------------------
+   Installed   Sys   In Use
+   ---------   ---   ------
+/apps/cobol/sx5.1
+    Unlim        0       0             Server Express 64-bit    (Model 2)
+
+Continue...
+
+
+*********************************installation licence developper******************
+
+
+Les licences de développement sont installées en tant que root sous /usr/lib/mflmf via l’utilitaire
+./mflmcmd
+
+
+
+
+---------------------DMexpress--------------------
+
+ mkdir /apps/dmexpress/6.9
+
+cd $A2_PRODUITS/dmexpress
+tar -xvpf /xxx/dmexpress_6911_aix61_32bit.tar
+
+cd /apps/dmexpress/6.9
+
+
+
+
+License key file location : /apps/dmexpress/6.9/
+./applykey
+
+Install: (KEYEXP) the license key (37184) is not valid
+
+
+     Please  enter  another  location  for  the  license key  file
+     DMExpressLicense.txt.
+
+License key file location :
+
+
+********** Attente nouvelle licence tempo *****************************
+
+
+
+
+        Micro Focus Enterprise Server Integration
+
+                        Press ENTER to continue...
+
+     The new license key has been successfully applied.
+
+
+
+--------------------------------client oracle------------------
+
+creation du user oracle et du group dba :
+
+[parva4022576:root:/ficsav/EQUIPE_MEO/socleV4:] id oracle
+uid=300(oracle) gid=300(dba) groups=501(atlas),502(conv)
+[parva4022576:root:/ficsav/EQUIPE_MEO/socleV4:]
+
+
+
+[parva4022576:root:/ficsav/EQUIPE_MEO/socleV4:] df -g /tmp
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/hd3           1.00      0.30   70%      802     2% /tmp
+
+
+
+[parva4022576:root:/ficsav/EQUIPE_MEO/socleV4:] df -g | grep ora
+/dev/lv_oracle      7.00      7.00    1%        8     1% /apps/oracle
+/dev/lv_oracle11     15.00     15.00    1%        4     1% /apps/oracle/product/1120
+/dev/lv_oraclework     13.00     13.00    1%        4     1% /apps/work/ora_1120
+/dev/lv_oraclient     15.00     15.00    1%        4     1% /apps/oracle/product/1120cli32
+/dev/lv_oradbfbck         -         -    -         -     -  /apps/oradbf/backup
+/dev/lv_oradbf      5.00      5.00    1%        4     1% /apps/oradbf
+[parva4022576:root:/ficsav/EQUIPE_MEO/socleV4:]
+
+
+
+
+chown oracle:dba /apps/oracle /apps/oracle/product/1120cli32 /apps/oracle/product/1120
+chmod 755 /apps/oracle /apps/oracle/product/1120cli32 /apps/oracle/product/1120
+
+[parva4022576:root:/apps/dmexpress/6.9:] chown oracle:dba /apps/oradbf &&  chmod 755 /apps/oradbf
+[parva4022576:root:/apps/dmexpress/6.9:]
+
+cd /apps/work/ora_1120
+gtar xvzf  /ficsav/EQ*/s*/oracle_11.2.0.2_client.tar.gz
+
+[parva4022576:root:/apps/work/ora_1120:] ls -ltr
+total 9505184
+-rw-r--r--    1 oracle   dba       802416640 Apr 26 2012  stage.tar
+-rw-r--r--    1 oracle   dba      4064225280 Apr 27 2012  master1120client32.tar
+
+
+
+3	INSTALLATION D’ORACLE 11.2.0.2
+
+
+Se logger root
+
+tar xf stage.tar
+
+root> tar xf stage.tar
+root> cd stage
+
+[parva4022576:root:/apps/work/ora_1120/stage:] ./rootpre.sh
+./rootpre.sh output will be logged in /tmp/rootpre.out_13-10-10.10:07:06
+
+Checking if group services should be configured....
+Nothing to configure.
+
+
+creation fichier
+
+ vi /etc/oraInst.loc
+
+
+inventory_loc=/apps/oracle/oraInventory
+inst_group=dba
+
+------------
+mkdir -p /apps/oracle/oraInventory
+chown oracle:dba /apps/oracle/oraInventory
+chown oracle:dba  /etc/oraInst.loc
+
+
+cd /apps/oracle/product/1120cli32
+
+
+tar xvf /apps/work/ora_1120/master1120client32.tar
+
+
+[parva4022576:root:/apps/work/ora_1120/stage:] su - oracle
+1) Sortie
+2) Oracle 11.2.0.2
+3) Oracle 11.2.0.2 cli32
+Choisir l'environnement souhaite...3
+
+cd /apps/oracle/product/1120cli32/clone/bin
+
+perl clone.pl ORACLE_HOME="/apps/oracle/product/1120cli32" ORACLE_HOME_NAME="Ora11gR2cli32" ORACLE_BASE="/apps/oracle" OSDBA_GROUP=dba OSOPER_GROUP=dba
+
+
+en root :
+
+ /apps/oracle/product/1120cli32/root.sh
+
+
+
+Running Oracle 11g root script...
+
+The following environment variables are set as:
+    ORACLE_OWNER= oracle
+    ORACLE_HOME=  /apps/oracle/product/1120cli32
+Creating /usr/local/bin directory...
+
+Creating /etc/oratab file...
+Entries will be added to the /etc/oratab file as needed by
+Database Configuration Assistant when a database is created
+Finished running generic part of root script.
+Now product-specific root actions will be performed.
+[parva4022576:root:/home/root:]
+
+
+ ls -ltr /apps/oracle/product/1120cli32/lib/libociei.so
+
+rm -rf /apps/oracle/product/1120cli32/lib/libociei.so
+
+
+
+--------------------------------serveur oracle------------------
+
+logger en root :
+
+
+
+cd /apps/work/ora_1120
+
+rm -rf master1120client32.tar stage.tar stage
+
+
+ gtar xvzf /ficsav/EQ*/s*/oracle_11202.tar.Z
+
+
+[parva4022576:root:/apps/work/ora_1120/stage:] ./rootpre.sh
+./rootpre.sh output will be logged in /tmp/rootpre.out_13-10-10.14:40:22
+
+Checking if group services should be configured....
+Nothing to configure.
+
+
+
+logger en oracle
+
+[oracle@parva4022576.fr.net.intra|]/apps/oracle> umask
+022
+
+
+cd /apps/work/ora_1120/stage
+
+ ./runInstaller -executePrereqs -silent –waitforcompletion -responseFile $PWD/response/db_install.rsp
+
+
+cd /apps/oracle/product/1120
+
+
+ tar xvf /apps/work/ora_1120/master1120serveur64.tar
+
+
+se logger en oracle :
+
+
+cd /apps/oracle/product/1120/clone/bin
+perl clone.pl ORACLE_HOME="/apps/oracle/product/1120" ORACLE_HOME_NAME="Ora11gR2db" ORACLE_BASE="/apps/oracle" OSDBA_GROUP=dba OSOPER_GROUP=dba
+
+
+
+Linking in progress (Thursday, October 10, 2013 3:07:26 PM CEST)
+Link successful
+
+Setup in progress (Thursday, October 10, 2013 3:09:59 PM CEST)
+Setup successful
+
+End of install phases.(Thursday, October 10, 2013 3:10:07 PM CEST)
+WARNING:
+The following configuration scripts need to be executed as the "root" user.
+/apps/oracle/product/1120/root.sh
+To execute the configuration scripts:
+    1. Open a terminal window
+    2. Log in as "root"
+    3. Run the scripts
+
+The cloning of Ora11gR2db was successful.
+Please check '/apps/oracle/oraInventory/logs/cloneActions2013-10-10_03-06-56PM.log' for more details.
+
+
+/apps/oracle/product/1120/root.sh
+
+Running Oracle 11g root script...
+
+The following environment variables are set as:
+    ORACLE_OWNER= oracle
+    ORACLE_HOME=  /apps/oracle/product/1120
+Entries will be added to the /etc/oratab file as needed by
+Database Configuration Assistant when a database is created
+Finished running generic part of root script.
+Now product-specific root actions will be performed.
+Finished product-specific root actions.
+
+****************************************************Installation du kix *******************
+
+[parva4022576:root:/home/l802945:] echo $A2_PRODUITS
+/apps
+
+cd $A2_PRODUITS/unikix
+
+mkdir t11.3.2
+
+[parva4022576:root:/apps/unikix/t11.3.3:] gtar xvzf /ficsav/EQUIPE_MEO/socleV4/unikix.tgz
+
+cd /apps/unikix/t11.3.3
+*************************************************config en uf1 ***************************
+
+apps/atlas/atlas2v0/uf1/ficsav 
+
+mklv -y lv_uf1 -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_uf1   -m /apps/atlas/atlas2v0/uf1  -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1
+
+mklv -y lv_uf1infocdr -t jfs2 -x 1024 vg_data 10G
+
+crfs -v jfs2 -d lv_uf1infocdr   -m /apps/atlas/atlas2v0/uf1/data1/infocdr  -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/infocdr
+
+
+mklv -y lv_uf1infoc -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_uf1infoc   -m /apps/atlas/atlas2v0/uf1/data1/infoc  -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/infoc
+
+
+mklv -y lv_uf1imp -t jfs2 -x 1024 vg_data 6G
+
+crfs -v jfs2 -d lv_uf1imp   -m /apps/atlas/atlas2v0/uf1/data1/imp -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/imp
+
+
+mklv -y lv_uf1fic -t jfs2 -x 4096 vg_data 10G
+
+crfs -v jfs2 -d lv_uf1fic   -m /apps/atlas/atlas2v0/uf1/data1/fic -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/fic
+
+
+
+-------------------------------------------config  sa1 ---------------------------------------------
+****************************************************************************************************************
+
+mklv -y lv_unlinfoc -t jfs2 -x 4096 vg_data 99G
+
+crfs -v jfs2 -d lv_unlinfoc   -m /apps/unl_infoc  -A yes -p rw -t no && mount /apps/unl_infoc
+
+
+mklv -y lv_savebase -t jfs2 -x 4096 vg_data 450G
+
+crfs -v jfs2 -d lv_savebase   -m /apps/savebase  -A yes -p rw -t no && mount /apps/savebase
+
+
+mklv -y lv_atpsa1 -t jfs2 -x 4096 vg_data 290G
+
+crfs -v jfs2 -d lv_atpsa1   -m /apps/oradbf/atpsa1  -A yes -p rw -t no && mount /apps/oradbf/atpsa1
+
+mklv -y lv_atdsa1 -t jfs2 -x 4096 vg_data 290G
+
+crfs -v jfs2 -d lv_atdsa1   -m /apps/oradbf/atdsa1  -A yes -p rw -t no && mount /apps/oradbf/atdsa1
+
+
+mklv -y lv_ead -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_ead   -m /apps/ead  -A yes -p rw -t no && mount /apps/ead
+
+
+mklv -y lv_ptcom -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_ptcom   -m /apps/ptcom  -A yes -p rw -t no && mount /apps/ptcom
+
+mklv -y lv_orion -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_orion   -m /apps/orion  -A yes -p rw -t no && mount /apps/orion
+
+mklv -y lv_convert -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_convert   -m /apps/convert  -A yes -p rw -t no && mount /apps/convert
+
+mklv -y lv_ficsav -t jfs2 -x 1024 vg_data 30G
+
+crfs -v jfs2 -d lv_ficsav   -m /ficsav -A yes -p rw -t no && mount /ficsav
+
+
+
+mklv -y lv_atlbck -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_atlbck   -m /apps/atlas/backup  -A yes -p rw -t no && mount /apps/atlas/backup

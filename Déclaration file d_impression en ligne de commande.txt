@@ -1,0 +1,143 @@
+
+
+
+1. Lancer les commandes sous /etc en root
+
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ10' -h 'ABJW00831001' -r 'CP00IQ10' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ11' -h 'ABJW00831002' -r 'CP00IQ11' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ12' -h 'ABJW00831010' -r 'CP00IQ12' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ13' -h 'ABJW00831020' -r 'CP00IQ13' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ14' -h 'ABJW00831021' -r 'CP00IQ14' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ15' -h 'ABJW00831030' -r 'CP00IQ15' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ16' -h 'ABJW00831050' -r 'CP00IQ16' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ17' -h 'ABJS00831000' -r 'CP00IQ17' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ01' -h 'ABJW00089001' -r 'CP00IQ01' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ02' -h 'ABJW00089002' -r 'CP00IQ02' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ03' -h 'ABJW00089010' -r 'CP00IQ03' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ04' -h 'ABJW00089020' -r 'CP00IQ04' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ05' -h 'ABJW00089021' -r 'CP00IQ05' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ06' -h 'ABJW00089030' -r 'CP00IQ06' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ07' -h 'ABJW00089050' -r 'CP00IQ07' -t 'bsd' -4 'yes' -C 'FALSE'  
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4+' -D pcl -q 'CP00IQ08' -h 'ABJS00089000' -r 'CP00IQ08' -t 'bsd' -4 'yes' -C 'FALSE'  
+
+
+
+
+2. Mettre la modification ci-après sous kixprint après la sauvegarde:  
+
+
+faire un type du kixprint pour savoir ou il est en général "/apps/unikix/t8.0.1/bin/kixprint"
+
+
+
+      CP00IQ10)
+         SPOOL1=laser_guichet
+         SPOOLER=qprt
+        ;;
+      CP00IQ11)
+         SPOOL1=laser_guichet
+         SPOOLER=qprt
+        ;;
+      CP00IQ12)
+         SPOOL1=laser_guichet
+         SPOOLER=qprt
+        ;;
+      CP00IQ13)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+      CP00IQ14)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+      CP00IQ15)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+      CP00IQ16)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+      CP00IQ17)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+      CP00IQ01)
+         SPOOL1=laser_guichet
+         SPOOLER=qprt
+        ;;
+     CP00IQ02)
+         SPOOL1=laser_guichet
+         SPOOLER=qprt
+        ;;
+     CP00IQ03)
+         SPOOL1=laser_guichet
+         SPOOLER=qprt
+        ;;
+     CP00IQ04)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+     CP00IQ05)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+     CP00IQ06)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+         CP00IQ07)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+     CP00IQ08)
+         SPOOL1=laser_ci_rv
+         SPOOLER=qprt
+        ;;
+
+
+3. Mettre la modification ci-après sur le fichier dct.site:
+
+sous su - atlas : cdxk
+
+ED,IQ10,,,,PRINT         ,133,Y,O
+ED,IQ11,,,,PRINT         ,133,Y,O
+ED,IQ12,,,,PRINT         ,133,Y,O
+ED,IQ13,,,,PRINT         ,133,Y,O
+ED,IQ14,,,,PRINT         ,133,Y,O
+ED,IQ15,,,,PRINT         ,133,Y,O
+ED,IQ16,,,,PRINT         ,133,Y,O
+ED,IQ17,,,,PRINT         ,133,Y,O
+ED,IQ01,,,,PRINT         ,133,Y,O
+ED,IQ02,,,,PRINT         ,133,Y,O
+ED,IQ03,,,,PRINT         ,133,Y,O
+ED,IQ04,,,,PRINT         ,133,Y,O
+ED,IQ05,,,,PRINT         ,133,Y,O
+ED,IQ06,,,,PRINT         ,133,Y,O
+ED,IQ07,,,,PRINT         ,133,Y,O
+ED,IQ08,,,,PRINT         ,133,Y,O
+
+
+
+
+4. Mettre la modification ci-après sur le fichier tct.site:
+
+sous su - atlas : cdxk
+
+
+UXP,IQ10,,0,CP00IQ10      ,
+UXP,IQ11,,0,CP00IQ11      ,
+UXP,IQ12,,0,CP00IQ12      ,
+UXP,IQ13,,0,CP00IQ13      ,
+UXP,IQ14,,0,CP00IQ14      ,
+UXP,IQ15,,0,CP00IQ15      ,
+UXP,IQ16,,0,CP00IQ16      ,
+UXP,IQ17,,0,CP00IQ17      ,
+UXP,IQ01,,0,CP00IQ01      ,
+UXP,IQ02,,0,CP00IQ02      ,
+UXP,IQ03,,0,CP00IQ03      ,
+UXP,IQ04,,0,CP00IQ04      ,
+UXP,IQ05,,0,CP00IQ05      ,
+UXP,IQ06,,0,CP00IQ06      ,
+UXP,IQ07,,0,CP00IQ07      ,
+UXP,IQ08,,0,CP00IQ08      ,

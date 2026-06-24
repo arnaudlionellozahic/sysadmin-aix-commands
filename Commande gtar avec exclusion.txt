@@ -1,0 +1,49 @@
+			
+
+
+
+
+                               gtar -xvzf /apps/restauration/ANIS/rep_infocdrreun_07082012.tgz --exclude="base_dr/*.load"
+
+
+
+				tar -xvzf test.tar --exclude=mon/dossier/a/exclure/* mon/dossier/
+
+
+
+
+
+
+
+Tout simple. Il suffit d'utiliser l'option --exclude suivi du nom du répertoire (ou du fichier) que vous ne voulez pas 
+
+(ici, on fera --exclude /home/toto/Mes_documents). 
+
+Attention : NE METTEZ PAS LE / à la fin du chemin, sinon ça ne marchera pas. 
+
+
+Exemple : il faut mettre /home/toto/Mes_documents et PAS /home/toto/Mes_documents/)
+
+
+tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto --exclude /home/toto/Mes_documents 
+
+
+Et si vous voulez exclure plusieurs répertoires, il faut mettre à chaque fois l'option --exclude devant chacun des répertoires à exclure. 
+
+
+Exemple : pour exclure les répertoires /home/toto/Mes_documents et /home/toto/Mes_images, 
+
+
+il suffit de faire :
+
+
+tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto --exclude /home/toto/Mes_documents --exclude /home/toto/Mes_images
+
+
+
+
+
+
+
+
+

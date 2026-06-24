@@ -1,0 +1,25 @@
+  srv-1-atl-nou-prd-biz_app_a_a_atlasportal_bus-ear-3.0.45   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_a_a_bandeauclient_bus-ear-2.4.6   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_a_a_crysalid_bus-ear-3.1.21   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_a_a_identificationclient_bus-ear-2.4.5   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_a_a_middlewarehttp_bus-ear-2.1.3   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_a_t_mifid_bus-ear-2.17.16   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_i_p_contrat_bus-ear-2.4.12   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_i_p_synthese_bus-ear-2.4.13   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_i_p_vente_bus-ear-2.4.9   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_i_t_gestok_bus-ear-2.16.4   Cliquez ici pour obtenir l'état  
+  srv-1-atl-nou-prd-biz_app_q_v_vueuniqueclient_bus-ear-1.0.4   Cliquez ici pour obtenir l'état  
+
+
+
+OK srv-1-atl-nou-prd-web_app_a_a_atlasportal_web-ear-3.0.45   Cliquez ici pour obtenir l'état  
+OK srv-1-atl-nou-prd-web_app_a_a_bandeauclient_web-ear-2.4.6   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_a_a_crysalid_web-ear-3.1.21   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_a_a_identificationclient_web-ear-2.4.5   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_a_a_middlewarehttp_web-ear-2.1.3   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_a_t_mifid_web-ear-2.17.16   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_i_p_contrat_web-ear-2.4.12   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_i_p_synthese_web-ear-2.4.13   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_i_p_vente_web-ear-2.4.9   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_i_t_gestok_web-ear-2.16.4   Cliquez ici pour obtenir l'état  
+OK  srv-1-atl-nou-prd-web_app_q_v_vueuniqueclient_web-ear-1.0.4   

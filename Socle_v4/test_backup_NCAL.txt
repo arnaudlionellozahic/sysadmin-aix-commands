@@ -1,0 +1,757 @@
+2.1.2.	Contact BP2I pour disponibilité jour J
+Etant donné que le serveur de production Atlas sera arrêté, il est important d’avoir une ressource côté système 
+qui effectuera le démarrage du serveur de production Atlas une fois l’opération terminée.
+
+Pour cela, il faut impérativement créer une delphe aux équipes Système avec la date de l’exercice, le besoin et une demande de disponibilité. 
+La CRO à utiliser est « Demande d’expertise ». 
+Cette demande est à faire au plus tard une semaine avant l’opération pour convenir de la ressource qui sera présente ce jour. 
+
+	Des exemples de delphe sont disponibles dans le répertoire des anciens exercices.
+2.1.3.	ITSM
+
+Faire un Change ITSM une semaine avant l’opération.  Si ce dernier n’est pas accepté, le test de backup ne pourra pas être effectué.
+2.1.4.	Reboot du backup
+Afin de détecter les problèmes en amont, faire rebooter le serveur de backup dans la semaine précédent le backup. 
+# cd /usr/local/MeoBackup/jclscript/site
+# ./ Atlas2Stop
+# shutdown –Fr 
+
+Vérifier l’arrêt et le démarrage du serveur
+
+###########################################################################################
+
+SUR LE BACKUP
+mkdir parva4022575
+[s00va9923997:root:/storecfg:] ls -ltr
+drwxr-xr-x    2 root     system          256 Feb 15 16:58 parva4022575
+[s00va9923997:root:/storecfg:] chmod 777 parva4022575
+
+###########################################################################################
+
+SUR LE SERVEUR DE PROD
+/!\ Ne pas charger les variables cft du .profile root et atlas /!\
+
+###########################################################################################
+
+CORRECTION DU SCRIPT hsaveconfig pour prise en compte ssh
+
+==> /apps/atlas/atlas2v0/uf1/jclsite/hsaveconfigssh
+
+Créé les fichiers sur le serveur de prod parva4022575
+ls -ltr /usr/local/MeoBackup/conf
+-rw-rw-r--    1 root     system        15944 Feb 15 13:13 filesystems
+-rw-r--r--    1 root     sys           64247 Feb 18 05:28 infodisks
+
+et sur le serveur de backup s00va9923997
+ls -ltr /storecfg/parva4022575
+-rwxrwxrwx    1 root     system        15944 Feb 15 18:13 filesystems
+-rwxrwxrwx    1 root     system        64247 Feb 18 10:28 infodisks
+
+###########################################################################################
+
+CORRECTION DU SCRIPT hchkbckp pour prise en compte ssh
+
+==> /apps/atlas/atlas2v0/uf1/jclsite/hchkbckpssh
+
+Créé les fichiers sur le serveur de prod parva4022575
+ls -ltr /usr/local/MeoBackup/conf
+-rw-rw-r--    1 root     system         1269 Feb 18 05:42 netcfg_parva4022575.txt
+-rw-rw-r--    1 root     system         4703 Feb 18 05:43 listdisk_parva4022575.txt
+-rw-rw-r--    1 atlas    atlas         13773 Feb 18 05:43 Prerequis.txt
+
+et sur le serveur de backup s00va9923997
+ls -ltr /storecfg/parva4022575
+-rwxrwxrwx    1 root     system         1269 Feb 18 10:42 netcfg_parva4022575.txt
+-rwxrwxrwx    1 root     system         4703 Feb 18 10:43 listdisk_parva4022575.txt
+-rwxrwxrwx    1 root     system        13773 Feb 18 10:43 Prerequis.txt
+
+CES FICHIERS VONT SERVIR POUR LE TEST DE BACKUP
+
+###########################################################################################
+
+PREMIER listdisk_parva4022575.txt
+
+Alexis,
+
+Voici la liste des disques non visibles sur le serveur de backup.
+
+#**********************************************************************
+#           PRODUCTION & BACKUP DISKS                                 *
+#**********************************************************************
+
+SYMMETRIXID     DEVID   PVID                VG             NlPRD          USE     NlBCK
+000295700039    3C74    none                None           hdiskpower15   PROD    PROBLEME
+000295700039    3C75    none                None           hdiskpower16   PROD    PROBLEME
+000295700039    3C76    none                None           hdiskpower17   PROD    PROBLEME
+000295700039    3C77    none                None           hdiskpower18   PROD    PROBLEME
+000295700039    3C78    none                None           hdiskpower19   PROD    PROBLEME
+000295700039    3C79    none                None           hdiskpower20   PROD    PROBLEME
+000295700039    3C7A    none                None           hdiskpower21   PROD    PROBLEME
+000295700039    3C7B    none                None           hdiskpower22   PROD    PROBLEME
+000295700039    3C7C    none                None           hdiskpower23   PROD    PROBLEME
+000295700039    3C7D    none                None           hdiskpower24   PROD    PROBLEME
+000295700039    3C7E    none                None           hdiskpower25   PROD    PROBLEME
+000295700039    3C7F    none                None           hdiskpower26   PROD    PROBLEME
+000295700039    3C80    none                None           hdiskpower27   PROD    PROBLEME
+000295700039    3C81    none                None           hdiskpower28   PROD    PROBLEME
+000295700039    3C82    none                None           hdiskpower29   PROD    PROBLEME
+000295700039    3C73    00cc0afcca0fd1b1    None           hdiskpower14   PROD    PROBLEME
+000295700039    1F71    00cc0afc13ca36cd    extvgBCV       hdiskpower0    PROD    PROBLEME
+000295700039    1F72    00cc0afc13c3b03b    extvgBCV       hdiskpower1    PROD    PROBLEME
+000295700039    1F73    00cc0afc13c158ea    extvgBCV       hdiskpower2    PROD    PROBLEME
+000295700039    1F74    00cc0afc13bf5288    extvgBCV       hdiskpower3    PROD    PROBLEME
+000295700039    31BF    00cc0afc13cdaceb    extvgBCV       hdiskpower4    PROD    PROBLEME
+000295700039    31C0    00cc0afc13cc79ab    extvgBCV       hdiskpower5    PROD    PROBLEME
+000295700039    331B    00cc0afc13c48b33    extvgBCV1      hdiskpower10   PROD    PROBLEME
+000295700039    3322    00cc0afc13c367b4    extvgBCV1      hdiskpower11   PROD    PROBLEME
+000295700039    3323    00cc0afc13c16a68    extvgBCV1      hdiskpower12   PROD    PROBLEME
+000295700039    3648    00cc0afc13cee2ee    extvgBCV1      hdiskpower13   PROD    PROBLEME
+000295700039    31C1    00cc0afc13c89c63    extvgBCV1      hdiskpower6    PROD    PROBLEME
+000295700039    3218    00cc0afc13caccd0    extvgBCV1      hdiskpower7    PROD    PROBLEME
+000295700039    321C    00cc0afc13c885d8    extvgBCV1      hdiskpower8    PROD    PROBLEME
+000295700039    331A    00cc0afc13c69a3b    extvgBCV1      hdiskpower9    PROD    PROBLEME
+
+###########################################################################################
+
+NB : Le fichier listdisk* est indispendable pour le bon déroulement de l’opération. 
+En effet, certains des scripts travaillant sur les disques se basent sur ce fichier pour l’identification et les actions des disques. 
+Il faut impérativement en avoir une version valide avant le jour de l’opération.
+
+Pour que ce fichier soit valide pour l’opération, il faut que tous les disques appartenant 
+à un VG (colonne VG différente de None) aient un disque en PROD et en BCKP. 
+Dans le cas contraire, contacter les équipes systèmes pour la visibilité des disques entre serveur de production et serveur de backup.
+
+
+###########################################################################################
+
+VERIF MANUELLE PROD
+
+powermt display dev=all | egrep "^Pseudo name|^Symmetrix ID|^Logical device" | awk '
+        /Pseudo name/ { FS="=" ; p=$NF }
+        /Symmetrix ID/ { FS="=" ; S=$NF }
+        /Logical device/ { FS="=" ; id=$NF; print S"  "id"  "p }'
+
+/usr/local/MeoBackup/tmp$powermt display dev=all | egrep "^Pseudo name|^Symmetrix ID|^Logical device" | awk '
+>         /Pseudo name/ { FS="=" ; p=$NF }
+>         /Symmetrix ID/ { FS="=" ; S=$NF }
+>         /Logical device/ { FS="=" ; id=$NF; print S"  "id"  "p }'
+000295700039  1F71  hdiskpower0
+000295700039  1F72  hdiskpower1
+000295700039  1F73  hdiskpower2
+000295700039  1F74  hdiskpower3
+000295700039  31BF  hdiskpower4
+000295700039  31C0  hdiskpower5
+000295700039  31C1  hdiskpower6
+000295700039  3218  hdiskpower7
+000295700039  321C  hdiskpower8
+000295700039  331A  hdiskpower9
+000295700039  331B  hdiskpower10
+000295700039  3322  hdiskpower11
+000295700039  3323  hdiskpower12
+000295700039  3648  hdiskpower13
+000295700039  3C73  hdiskpower14
+000295700039  3C74  hdiskpower15
+000295700039  3C75  hdiskpower16
+000295700039  3C76  hdiskpower17
+000295700039  3C77  hdiskpower18
+000295700039  3C78  hdiskpower19
+000295700039  3C79  hdiskpower20
+000295700039  3C7A  hdiskpower21
+000295700039  3C7B  hdiskpower22
+000295700039  3C7C  hdiskpower23
+000295700039  3C7D  hdiskpower24
+000295700039  3C7E  hdiskpower25
+000295700039  3C7F  hdiskpower26
+000295700039  3C80  hdiskpower27
+000295700039  3C81  hdiskpower28
+000295700039  3C82  hdiskpower29
+
+###########################################################################################
+
+VERIF MANUELLE BACKUP
+
+powermt display dev=all | egrep "^Pseudo name|^Symmetrix ID|^Logical device" | awk '
+        /Pseudo name/ { FS="=" ; p=$NF }
+        /Symmetrix ID/ { FS="=" ; S=$NF }
+        /Logical device/ { FS="=" ; id=$NF; print S"  "id"  "p }' | grep 000295700039
+		
+###########################################################################################
+
+Bonjour, 
+Les disques de production (PARVA4022575), sont rendu visibles sur le serveur de backup (s00va9923997). 
+Le jour de la bascule il faut exporter les vg du serveur de production et les importer sur le serveur de backup. 
+VISIBILITE SUR LE SERVEUR DE BACKUP ******************************************************** [
+s00va9923997:root:/home/l662128:] diff inq.new inq.old 
+< /dev/rhdiskpower348 :EMC :SYMMETRIX :5876 :3901f71008 : 1F71: ----- :000295700039 
+< /dev/rhdiskpower349 :EMC :SYMMETRIX :5876 :3901f72008 : 1F72: ----- :000295700039 
+< /dev/rhdiskpower350 :EMC :SYMMETRIX :5876 :3901f73008 : 1F73: ----- :000295700039 
+< /dev/rhdiskpower351 :EMC :SYMMETRIX :5876 :3901f74008 : 1F74: ----- :000295700039 
+< /dev/rhdiskpower352 :EMC :SYMMETRIX :5876 :39031bf000 : 31BF: ----- :000295700039 
+< /dev/rhdiskpower353 :EMC :SYMMETRIX :5876 :39031c0000 : 31C0: ----- :000295700039 
+< /dev/rhdiskpower354 :EMC :SYMMETRIX :5876 :39031c1000 : 31C1: ----- :000295700039 
+< /dev/rhdiskpower355 :EMC :SYMMETRIX :5876 :3903218000 : 3218: ----- :000295700039 
+< /dev/rhdiskpower356 :EMC :SYMMETRIX :5876 :390321c000 : 321C: ----- :000295700039 
+< /dev/rhdiskpower357 :EMC :SYMMETRIX :5876 :390331a000 : 331A: ----- :000295700039 
+< /dev/rhdiskpower358 :EMC :SYMMETRIX :5876 :390331b000 : 331B: ----- :000295700039 
+< /dev/rhdiskpower359 :EMC :SYMMETRIX :5876 :3903322000 : 3322: ----- :000295700039 
+< /dev/rhdiskpower360 :EMC :SYMMETRIX :5876 :3903323000 : 3323: ----- :000295700039 
+< /dev/rhdiskpower361 :EMC :SYMMETRIX :5876 :3903648000 : 3648: ----- :000295700039 
+< /dev/rhdiskpower362 :EMC :SYMMETRIX :5876 :3903c73000 : 3C73: 2880 :000295700039 
+< /dev/rhdiskpower363 :EMC :SYMMETRIX :5876 :3903c74000 : 3C74: 2880 :000295700039 
+< /dev/rhdiskpower364 :EMC :SYMMETRIX :5876 :3903c75000 : 3C75: 2880 :000295700039 
+< /dev/rhdiskpower365 :EMC :SYMMETRIX :5876 :3903c76000 : 3C76: 2880 :000295700039 
+< /dev/rhdiskpower366 :EMC :SYMMETRIX :5876 :3903c77000 : 3C77: 2880 :000295700039 
+< /dev/rhdiskpower367 :EMC :SYMMETRIX :5876 :3903c78000 : 3C78: 2880 :000295700039 
+< /dev/rhdiskpower368 :EMC :SYMMETRIX :5876 :3903c79000 : 3C79: 2880 :000295700039 
+< /dev/rhdiskpower369 :EMC :SYMMETRIX :5876 :3903c7a000 : 3C7A: 2880 :000295700039 
+< /dev/rhdiskpower370 :EMC :SYMMETRIX :5876 :3903c7b000 : 3C7B: 2880 :000295700039 
+< /dev/rhdiskpower371 :EMC :SYMMETRIX :5876 :3903c7c000 : 3C7C: 2880 :000295700039 
+< /dev/rhdiskpower372 :EMC :SYMMETRIX :5876 :3903c7d000 : 3C7D: 2880 :000295700039 
+< /dev/rhdiskpower373 :EMC :SYMMETRIX :5876 :3903c7e000 : 3C7E: 2880 :000295700039 
+< /dev/rhdiskpower374 :EMC :SYMMETRIX :5876 :3903c7f000 : 3C7F: 2880 :000295700039 
+< /dev/rhdiskpower375 :EMC :SYMMETRIX :5876 :3903c80000 : 3C80: 2880 :000295700039
+< /dev/rhdiskpower377 :EMC :SYMMETRIX :5876 :3903c82000 : 3C82: 2880 :000295700039 
+
+###########################################################################################
+
+Relance du script hchkbckpssh pour vérif 
+=> Les disques sont visibles
+
+cat /usr/local/MeoBackup/conf/listdisk_parva4022575.txt
+
+Hello,
+
+Les disques sont bien visibles. oui, on commencera le test de backup quand le REH sera terminé.
+
+#**********************************************************************
+#           PRODUCTION & BACKUP DISKS                                 *
+#**********************************************************************
+
+SYMMETRIXID     DEVID   PVID                VG             NlPRD          USE     NlBCK
+000295700039    3C74    none                None           hdiskpower15   PROD    hdiskpower363
+000295700039    3C75    none                None           hdiskpower16   PROD    hdiskpower364
+000295700039    3C76    none                None           hdiskpower17   PROD    hdiskpower365
+000295700039    3C77    none                None           hdiskpower18   PROD    hdiskpower366
+000295700039    3C78    none                None           hdiskpower19   PROD    hdiskpower367
+000295700039    3C79    none                None           hdiskpower20   PROD    hdiskpower368
+000295700039    3C7A    none                None           hdiskpower21   PROD    hdiskpower369
+000295700039    3C7B    none                None           hdiskpower22   PROD    hdiskpower370
+000295700039    3C7C    none                None           hdiskpower23   PROD    hdiskpower371
+000295700039    3C7D    none                None           hdiskpower24   PROD    hdiskpower372
+000295700039    3C7E    none                None           hdiskpower25   PROD    hdiskpower373
+000295700039    3C7F    none                None           hdiskpower26   PROD    hdiskpower374
+000295700039    3C80    none                None           hdiskpower27   PROD    hdiskpower375
+000295700039    3C81    none                None           hdiskpower28   PROD    hdiskpower376
+000295700039    3C82    none                None           hdiskpower29   PROD    hdiskpower377
+000295700039    3718    none                None           hdiskpower30   PROD    hdiskpower345
+000295700039    3719    none                None           hdiskpower31   PROD    hdiskpower346
+000295700039    371A    none                None           hdiskpower32   PROD    hdiskpower347
+000295700039    3C73    00cc0afcca0fd1b1    None           hdiskpower14   PROD    hdiskpower362
+000295700039    1F71    00cc0afc13ca36cd    extvgBCV       hdiskpower0    PROD    hdiskpower348
+000295700039    1F72    00cc0afc13c3b03b    extvgBCV       hdiskpower1    PROD    hdiskpower349
+000295700039    1F73    00cc0afc13c158ea    extvgBCV       hdiskpower2    PROD    hdiskpower350
+000295700039    1F74    00cc0afc13bf5288    extvgBCV       hdiskpower3    PROD    hdiskpower351
+000295700039    31BF    00cc0afc13cdaceb    extvgBCV       hdiskpower4    PROD    hdiskpower352
+000295700039    31C0    00cc0afc13cc79ab    extvgBCV       hdiskpower5    PROD    hdiskpower353
+000295700039    331B    00cc0afc13c48b33    extvgBCV1      hdiskpower10   PROD    hdiskpower358
+000295700039    3322    00cc0afc13c367b4    extvgBCV1      hdiskpower11   PROD    hdiskpower359
+000295700039    3323    00cc0afc13c16a68    extvgBCV1      hdiskpower12   PROD    hdiskpower360
+000295700039    3648    00cc0afc13cee2ee    extvgBCV1      hdiskpower13   PROD    hdiskpower361
+000295700039    31C1    00cc0afc13c89c63    extvgBCV1      hdiskpower6    PROD    hdiskpower354
+000295700039    3218    00cc0afc13caccd0    extvgBCV1      hdiskpower7    PROD    hdiskpower355
+000295700039    321C    00cc0afc13c885d8    extvgBCV1      hdiskpower8    PROD    hdiskpower356
+000295700039    331A    00cc0afc13c69a3b    extvgBCV1      hdiskpower9    PROD    hdiskpower357
+
+
+###########################################################################################
+
+cat /usr/local/MeoBackup/conf/netcfg_parva4022575.txt
+#**********************************************************************
+#           PRODUCTION  NETWORK CONFIGURATION                         *
+#**********************************************************************
+
+PRDHOST=parva4022575
+PRDALIAS=
+PRDIP=159.50.50.141
+PRDINTERFACE=en0
+PRDNETMASK=255.255.255.192
+
+#**********************************************************************
+#                 BACKUP  NETWORK  CONFIGURATION                      *
+#**********************************************************************
+
+BCKHOST=s00va9923997
+BCKALIAS=s00va9923997
+BCKIP=159.50.50.138
+BCKINTERFACE=en0
+BCKNETMASK=255.255.255.192
+
+
+#**********************************************************************
+#                 BFI TEMPORARY IP                                    *
+#**********************************************************************
+
+Temporary IP  Temporary Hostname
+159.50.50.35  temporaire-atlas1
+159.50.50.36  temporaire-atlas4
+159.50.50.37  temporaire-atlas5
+
+
+#**********************************************************************
+#                        TIME ZONE                                    *
+#**********************************************************************
+
+PRODUCTION : TZ=Europe/Paris
+BACKUP     : TZ=Europe/Paris
+
+###########################################################################################
+
+PREREQUIS LE JOUR DE LA BASCULE
+
+1) Vérifier que les traitements du dernier jour ouvré se sont bien déroulés :
+•	Fermeture TP : jtp2
+•	Sauvegarde avant fin jour : jas9k1
+•	Batch : jfj1
+•	Sauvegarde après fin jour : j9f2
+Vérification du tracking 
+
+2) Positionner l’autosub à off
+su - root
+cautil stop autosub
+
+3) Réaliser une sauvegarde Avant FJ du serveur de Production avant de commencer l’opération.
+
+###########################################################################################
+
+3.	Bascule sur le serveur de backup
+
+3.1.1.	Communication
+S’assurer que les BSM ont bien pris en compte le mail du point précédent.
+Envoyer un autre mail à tous les intervenants renseignés dans la roadmap de l’exercice (remplie au préalable) les informant du début effectif de l’opération.
+
+###########################################################################################
+
+3.1.2.	Vérification du mode de la base, et des etats des unikix, du catalogue cft et des files systems:
+- Faire un testkix pour connaître l’état d’unikix. Notez le. A VOIR AVEC YUTHAY
+- Faire un testkixmir pour connaître l’état d’unikix miroir s’il existe. Notez le.
+- Faire un testkix avec le user portefeuille ( su – ptfprod) s’il existe. Notez le.
+- Regarder le mode demarrage de la base et notez le :
+sesu oracle ; sqlplus /as sysdba ; archive log list ; exit ; exit
+- Verifier le lien symbolique dans /apps/oracle/product/XXX/dbs (il pointe sur TP ou batch).
+- Lorsque CFT sera arrété, noté la dernière ligne du fichier /apps/cft/fillog/IDU.log, pour connaître le dernier transfert réalisé. 
+- Dans /usr/local/MeoBackup/jclscript/hors_site, lancer un Atlas2CheckFS afin de comparer l’état des FS avant et après opération.
+
+---------
+testkix 
+testkixmir
+kixok
+
+su – ptfprod
+testkix
+exit
+
+sesu oracle ; sqlplus /as sysdba ; archive log list ; exit ; exit
+---------
+PARVA4022575 => PROD ATLAS2 NOUVELLE CALEDONIE SV4 (atlas)
+/apps/oracle/product/11204/dbs$ls -ltr
+total 104
+-rw-r--r--    1 oracle   dba            2851 May 15 2009  init.ora
+-rw-r-----    1 oracle   dba              24 Oct 15 10:17 lkSURFI
+-rw-r-----    1 oracle   dba              24 Oct 16 09:23 lkATSEC
+lrwxrwxrwx    1 oracle   dba              51 Oct 22 01:54 initatsec.ora -> /apps/oracle/admin/atsec/config/initatsec_batch.ora
+lrwxrwxrwx    1 oracle   dba              47 Oct 29 00:49 spfilesurfi.ora -> /apps/oracle/admin/surfi/config/spfilesurfi.ora
+-rw-r-----    1 oracle   dba              24 Oct 29 01:36 lkATPR01
+-rw-r-----    1 oracle   dba              24 Nov  4 20:05 lkATDR01
+-rw-r-----    1 oracle   dba              24 Jan 21 01:15 lkATPSA7
+-rw-r-----    1 oracle   dba              24 Jan 21 02:31 lkATDSA7
+-rw-rw----    1 oracle   dba            1544 Jan 22 01:36 hc_atpsa7.dat
+lrwxrwxrwx    1 oracle   dba              53 Jan 25 20:56 initatdsa7.ora -> /apps/oracle/admin/atdsa7/config/initatdsa7_batch.ora
+-rw-rw----    1 oracle   dba            1544 Jan 25 21:21 hc_atdsa7.dat
+lrwxrwxrwx    1 oracle   dba              53 Mar 15 20:57 initatdr01.ora -> /apps/oracle/admin/atdr01/config/initatdr01_batch.ora
+lrwxrwxrwx    1 oracle   dba              53 Mar 23 22:02 initatpr01.ora -> /apps/oracle/admin/atpr01/config/initatpr01_batch.ora
+-rw-rw----    1 oracle   dba            1544 Apr  4 21:29 hc_atdr01.dat
+-rw-rw----    1 oracle   dba            1544 Apr  5 01:21 hc_surfi.dat
+-rw-rw----    1 oracle   dba            1544 Apr  5 01:21 hc_atsec.dat
+-rw-rw----    1 oracle   dba            1544 Apr  5 20:40 hc_atpr01.dat
+
+
+cd /usr/local/MeoBackup/jclscript/site
+Atlas2CheckFS
+ksh -x Atlas2CheckFs -c > /ficsav/EQUIPE_MEO/TEST_BACKUP/CheckFs
+=> Verification de l'ordre d'apparition des FS dans /etc/filesystems:  KO
+ReorderFS /etc/filesystems
+ksh -x Atlas2CheckFs -c > /ficsav/EQUIPE_MEO/TEST_BACKUP/CheckFs_1100
+
+---------
+
+/ficsav/EQUIPE_MEO/TEST_BACKUP$cat CheckFs_1100
+
+
+Sauvegarde du fichier /etc/filesystems :  OK
+Nouveau fichier
+/etc/filesystems.20160405.205958
+
+Verification de non repetition de declaration de FS dans /etc/filesystems :  OK
+Verification que tous les FS remontent automatiquement apres reboot :  OK
+Verification que tous les FS montes sont definis dans /etc/filesystems :   OK
+Verification que tous les FS declares dans /etc/filesystems sont montes :   OK
+Verification que tous les FS sont montes dans l'ordre:   OK
+Verification de l'ordre d'apparition des FS dans /etc/filesystems:  OK
+
+###########################################################################################
+
+SUR LA PROD
+3.2.	Arrêt des applications de la production
+
+su - atlas
+sesu
+
+/usr/local/MeoBackup/jclscript/hors_site$./Atlas2Stop
+
+###########################################################################################
+
+SUR LE BACKUP
+3.3.	Arrêt des applications sur le backup
+
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2Stop
+
+###########################################################################################
+
+3.4.	Sauvegarder les fichiers de configuration système PROD et BACKUP
+Il est important de sauvegarder les fichiers de configurations du serveur de production et du serveur de backup :
+
+PROD : DEJA FAIT AVANT
+
+BACKUP:
+cd /usr/local/MeoBackup/jclscript/site
+./hsaveconfig
+
+###########################################################################################
+
+3.5.	Arrêt du serveur de production.
+Le serveur de production est totalement arrêté afin de libérer les disques, l’ip et le nom DNS.
+Cela évite une modification de la configuration système du nominal.
+
+SUR LA PROD
+shutdown -F
+
+###########################################################################################
+
+3.6.	Démontage des disques externes et export des vg du backup
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2UmountFS
+
+Il se peut que certains FS ne se démontent pas. 
+Dans ce cas il faut, après avoir arrêté les process qui utilisent ces FS, les démonter manuellement. 
+Une fois tous les FS concernés démontés, il faut relancer le script au niveau des export VG (cette étape est très importante). 
+
+VOIR LA DOC
+
+
+ksh -x Atlas2UmountFS2 -c > /ficsav/EQUIPE_MEO/TEST_BACKUP/Atlas2UmountFS2.log
+
+
+###########################################################################################
+
+3.7.	Modification Time Zone du backup  
+Pour faire cette modification, aller sous smitty, puis « System Environments », 
+puis, « Change / Show Date, Time, and Time Zone », 
+puis « Change Time Zone Using User Entered Values » 
+et mettre les valeurs de PRODUCTION.
+
+###########################################################################################
+
+3.8.	Import des VG de production et montage des FS sur le backup
+
+SUR LE BACKUP
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2MountFS nom_production  PROD
+./Atlas2MountFS PARVA4022575 PROD
+
+###########################################################################################
+
+SUR LE BACKUP
+cd /usr/local/MeoBackup/jclscript/site
+hsaveconfig
+
+
+3.9.	Restauration des sauvegardes de la production sur le backup
+
+Avant de lancer cette étape, il est important de s’assurer que les FS sont tous bien montés (ne pas hésiter à faire une review et à monter ceux manquants manuellement).
+Il faut ensuite s’assurer que les fichiers présents dans /savecfg sont désormais ceux de la production :
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2Restore
+
+###########################################################################################
+
+3.10.	Attribution de l’identité de la production au backup
+
+Cette étape est critique. 
+Il s’agit de renommer le hostname du backup avec celui de la production et IP du backup avec celui de la production. 
+Les informations sont contenues dans le fichier « /storecfg/nom_production/netcfg_nom_production.txt ». 
+La procédure est à faire avec smitty, voire exemple ci-dessous : 
+
+VOIR DOC POUR SMITTY
+
+smit mktcpip  
+choisir l’interface qui correspond à BCKINTERFACE
+Puis modifier HOSTNAME et Internet ADDRESS (dotted decimal) en mettant ceux de la production
+
+Attention : Une fois avoir vérifié bien les valeurs tapées, taper entrée 
+Désormais la machine de backup est accessible via le nom de la production
+
+###########################################################################################
+
+3.11.	Reboot du backup (production)
+Lancer le reboot de la machine de backup en se connectant sur la machine de production qui désormais a pris son nom et son IP. 
+shutdown -Fr
+
+###########################################################################################
+
+3.12.	Vérification du bon démarrage des applications
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2Status
+
+En fonction du retour du script, il faut s’assurer que tous les produits soient démarrés.
+Dans l’ordre :
+-	TNG
+-	CFT
+-	Bases Oracle (se reporter à l’état des bases )
+-	Kix
+
+###########################################################################################
+
+Tests techniques du backup  (production)
+
+
+3.13.	CFT
+Vérifier l’état du cft (en user cft):
+cftping -v
+
+3.14.	Unikix/Cobol
+kixok
+
+###########################################################################################
+###########################################################################################
+4.	Tests site
+###########################################################################################
+###########################################################################################
+
+Contacter le Coordinateur pour donner le feu vert au site afin de procéder aux tests de validation. 
+Le site est censé vérifier :
+-	La connexion au kix
+-	Envoi et réception CFT 
+-	File d’impression
+
+###########################################################################################
+###########################################################################################
+5.	Retour sur le nominal
+###########################################################################################
+###########################################################################################
+
+5.1.	Arrêt des applications sur le backup
+Prévoir d’arrêter unikix avant de lancer le script ci-dessous sur les sites Antilles, Réunion (unikix miroir) et La nouvelle Calédonie (unikix BKOF intégré). 
+
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2Stop
+
+###########################################################################################
+
+5.2.	Démontage des disques externes et export des vg du backup
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2UmountFS2
+
+fuser -kuxc /apps/sys/log/stats
+umount /apps/sys/log/stats
+fuser -kuxc /dev/lv_tng
+umount /dev/lv_tng
+
+###########################################################################################
+
+5.3.	Remise de l’identité du backup
+Se positionner dans le répertoire de la machine de backup /storecfg/nom_production et 
+se baser sur le fichier netcfg_nom_production.txt pour renommer les IP et HOSTNAME. 
+
+VOIR DOC POUR SMITTY
+
+Faire: smit mktcpip  et choisir l’interface qui correspond à BCKINTERFACE puis taper entrée (en1)
+Puis modifier HOSTNAME et Internet ADDRESS (dotted decimal) en mettant ceux du backup. 
+
+BCKHOST=s00va9923997
+BCKALIAS=s00va9923997
+BCKIP=159.50.50.138
+BCKINTERFACE=en0
+BCKNETMASK=255.255.255.192
+
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2UmountFS2
+
+###########################################################################################
+
+5.4.	Remise en état de la production
+5.4.1.	Démarrage de la production
+
+Appeler les BSM afin de contacter l’astreinte système BP2I pour démarrer le serveur de production.
+
+###########################################################################################
+
+5.4.2.	Vérification du démarrage des applications sur la production
+
+SUR LA PROD
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2CheckFS
+./Atlas2Status
+
+###########################################################################################
+
+5.4.3.	Remise d’unikix dans l’état 
+Remettre unikix dans l’état avant l’opération de backup. Se référer au chapitre 3.1.3
+
+SUR LA PROD
+/!\ Verifier aussi le kix du portefeuille.
+su - ptfprod
+kixstart
+
+###########################################################################################
+
+5.4.4.	Tests techniques sur la production
+
+
+
+
+###########################################################################################
+
+5.4.5.	Vérification des transferts CFT
+
+
+
+###########################################################################################
+
+5.4.6.	Redémarrage autosub/autoscan sur la production
+
+SUR LA PROD
+Repasser l’autosub à on : 
+cautil start autosub
+
+Vérifier deux fois que Autosub et autoscan sont réactivés.
+Checker l’état des FS (bon montage, > 80 % …)
+
+###########################################################################################
+
+5.5.	Remise en état du backup
+5.5.1.	Import des VG du backup
+
+SUR LE BACKUP
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2MountFS nom_production  BCKP
+
+./Atlas2MountFS  parva4022575 BCKP
+
+###########################################################################################
+
+5.5.2.	Modification Time Zone du backup  
+
+Le fichier contenant les informations concernant TIME ZONE et le réseau se trouve sous « /storecfg/nom_production/netcfg_nom_production.txt »
+
+NB : Reprendre le screenshot fait en début d’opération.
+Pour faire cette modification, aller sous smitty, puis « System Environments », 
+puis, « Change / Show Date, Time, and Time Zone », 
+puis « Change Time Zone Using User Entered Values » et mettre les valeurs de BACKUP.
+
+###########################################################################################
+
+5.5.3.	Restauration fichiers
+
+Il faut s’assurer avant de lancer le script que les fichiers présents dans /savecfg sont cette fois bien ceux du backup.
+
+SUR LE BACKUP
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2Restore
+
+###########################################################################################
+
+5.5.4.	Reboot du backup
+
+SUR LE BACKUP
+shutdown -Fr
+
+###########################################################################################
+
+5.5.5.	Vérification du démarrage des applications sur le backup
+
+SUR LE BACKUP
+cd /usr/local/MeoBackup/jclscript/site
+./Atlas2Status
+
+Vérifier que l’autoscan est activé sur la machine de backup :
+Après avoir modifié la variable relancer TNG.
+Checker l’état des FS sur la backup (bon montage, > 80 % …)
+
+###########################################################################################
+
+6.	Fin d’opération
+Attention, à la fin de l’opération, la production doit être opérationnelle .
+
+6.1.	BSM et Contacts
+Appeler le BSM pour lui dire que l’opération est terminée.
+Envoyer un mail à tous les intervenants pour notifier de la fin de l’opération.
+6.2.	Compte Rendu d’opération
+A envoyer à la fin de l’opération, le PV de recette de l’exercice contenant
+=> Le résultat, concluant ou non, de l’exercice
+=> Tous les pb, les solutions, contournement…
+=> En cas d’erreur, les corrections et préconisations à apporter pour les futurs exercices.
+
+###########################################################################################
+
+
+4	TESTS TECHNIQUES DU BACKUP
+
+4.1	CFT
+
+Le test CFT consiste à envoyer un message puis à vérifier que ce message est bien passé et vérifier que le transfert s’est bien déroulé (100%).
+
+Attention au point suivant :
+•	Le type de transfert, il faudra soit créer un fichier TXT ou alors un fichier binaire (faire un gtar d’un fichier de test)
+•	Le fichier doit être mis dans le répertoire d’envoi déclaré dans le « gif.dat » doit être prise en compte.
+
+
+4.2	Imprimantes 
+
+Téléphoner à la personne en charge du site, afin qu’elle vous fournisse le nom d’une file d’impression à utiliser pour effectuer un test (dans le cas d’un test c’est déjà fait) :
+banner TEST BACKUP |lp -d <queue_name>; lpstat -p<queue_name>
+
+Vérifier que l’impression a été effectuée :
+# lpstat -p<queue_name>
+
+
+
+4.3	Unikix/Cobol
+
+# cd /apps/meoatlas2/outils/BACKUP/jclscript
+# ./TestKix
+
+	*Au step 20 du job: 
+     -    Appuyer sur la touche ECHAP 
+     -    Appuyer en simultané : MAJ+O   et  MAJ+M
+	-    Taper  AA01
+	-    Appuyer en simultané : MAJ+O   et  MAJ+M
+     -    Taper    CSSF LOGOFF
+-    Appuyer en simultané : MAJ+O   et  MAJ+M  pour quitter la mire et le job reprend tout seul au step suivant
+
+Et enfin, passer le job DASJ31 pour tester cobol (attention faudrait être atlas), Faire:  
+# su – atlas 
+#dasj31
+	
+	Faire CTRL+D (se déconnecter de  atlas et revenir à root) 
+4.4	Syncsort
+
+# cd /apps/meoatlas2/outils/BACKUP/jclscript
+# ./TestSync
+
+
+4.5	Tests site
+
+Tenir le site informer que la base est à la date j-1 (dernière date ouvrable sur la production) et que le test revamping s’effectue avec l’URL de la preprod.
+Contacter le Coordinateur pour donner le feu vert au site afin de procéder aux tests de validation. 
+

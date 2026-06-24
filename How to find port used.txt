@@ -1,0 +1,71 @@
+Answer
+AIX Command 
+
+1. lsof -i :<port number>
+- This command must be run as root. lsof executable is available here.
+https://www14.software.ibm.com/webapp/iwm/web/reg/pick.do?source=aixbp&lang=en_US
+
+AIX Example
+
+Let's set SVCENAME to 50000, so that the listener will use this port.
+
+$ db2 update dbm cfg using svcename 50000
+$ db2start
+
+Then, use the command above to check if the port is indeed being used by DB2 LUW. Run this as root.
+
+$ lsof -i :50000
+COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME
+db2sysc 4128774 db2inst1 5u IPv6 0xf1000e00019f3bb8 0t0 TCP *:50000 (LISTEN)
+
+Please note that this technote previously illustrated the use of rmsock command. However, a recent discovery revealed that rmsock command may exhibit an unstable behaviour. Hence, it was removed from this technote. We apologize for the inconvenience this has caused.
+
+
+Windows Command
+1. netstat -aon | findstr "<port number>"
+- This shows if the specified <port number> is being used. The number in the last column is the process id (PID) of the process holding the socket. Once PID is determined, one can refer to "Windows Task Manager" to determine which application corresponds to the PID.
+
+Windows Example
+
+C:\>netstat -aon | findstr "50000"
+TCP 0.0.0.0:50000 0.0.0.0:0 LISTENING 2564
+
+C:\>pslist 2564
+
+pslist v1.28 - Sysinternals PsList
+Copyright ? 2000-2004 
+Sysinternals
+
+Process information for MACHINENAME:
+Process information for MACHINENAME:
+
+Name Pid Pri Thd Hnd Priv CPU Time Elapsed Time
+db2syscs 2564 8 15 366 30912 0:00:02.859 2:12:08.564
+The example above shows the use of pslist to determine the name of the process. Note that pslist is a free command available from Microsoft Sysinternals at http://www.microsoft.com/technet/sysinternals/default.mspx .
+
+
+Linux Command
+
+1. netstat -anp | grep <port number>
+- This shows the PID and the program name that uses the port. The command must be run as root.
+
+2. Alternatively, one can also run
+fuser -n tcp <port number>
+
+Linux Example
+
+Suppose the port 12345 is being used by someone else. Find out who by running the following.
+
+# netstat -anp | grep 12345
+# netstat -anp | grep 12345
+tcp 0 0 127.0.0.1:12345 0.0.0.0:* LISTEN 6629/ssh
+tcp 0 0 ::1:12345 :::* LISTEN 6629/ssh
+
+
+ssh with the PID 6629 is using the port. Find more info about it.
+
+# ps -efl | grep 6629
+4 S root 6629 29716 0 75 0 - 6976 - 14:05 pts/4 00:00:00 ssh testserver -D 12345 -l db2inst1
+0 S root 7648 7302 0 78 0 - 742 pipe_w 14:07 pts/7 00:00:00 grep 6629
+
+In this case, the user db2inst1 is deliberately using the port 12345 by specifying -D option of ssh.

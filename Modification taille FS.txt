@@ -1,0 +1,318 @@
+######################################
+#                                    #
+# AUGMENTATION DE LA TAILLE D'UN F.S #
+#                                    #
+######################################
+
+
+
+EXEMPLE:
+--------
+
+
+
+Pourriez-vous agrandir le FS ci-dessous de 5Go svp?
+
+{parva4000639} (atlas) {Developpement Site - BICI - Cote d Ivoire/Burkina Faso - sa5}
+/apps/atlas/atlas2v0/sa5$df -gt .
+
+Système de fichiers    Blocs GB      Util      Libre %Util Monté sur
+/dev/lv_atl2v0sa5          2.38      2.38       0.00  100% /apps/atlas/atlas2v0/sa5
+
+
+
+
+
+
+1> VERIFIER L'ESPACE DISPO DU V.G:
+
+  - faire un lslv pour récupérer le nom du VG:
+
+    # lslv lv_atl2v0sa5
+
+    LOGICAL VOLUME:     lv_atl2v0sa5           VOLUME GROUP:   extvgda
+    LV IDENTIFIER:      0022a2ca00004c00000000fe70ff2d9e.18 PERMISSION:     read/write
+    VG STATE:           active/complete        LV STATE:       opened/syncd
+    TYPE:               jfs                    WRITE VERIFY:   off
+
+    Ici "extvgda"
+
+  - faire un lsvg pour verifier l'espace dispo:
+
+    # lsvg extvgda | grep FREE
+
+    MAX LVs:    256            FREE PPs:       490 (62720 megabytes)
+
+    Ici "62720 megabytes"
+
+
+2> AUGMENTATION DE LA TAILLE DU FS:
+
+  - # chfs -a size=+5G /apps/atlas/atlas2v0/sa5
+
+    File System size changed to 15466496
+
+
+3> AFFICHAGE RESULTAT POUR RAPPORT IDELPHE:
+
+  - # df -g /apps/atlas/atlas2v0/sa5
+
+
+    Filesystem       GB blocks    Free   %Used   Iused  %Iused Mounted on
+
+ /dev/lv_atl2v0sa5      7.38       4.84   35%    78204    5%   /apps/atlas/atlas2v0/sa5
+ 
+
+        ####################################################
+
+
+Cas où l'on doit récuperer de l'espace avec suppresion de FS:
+
+On environment SB5 , could you please increase by 80 GB the FS of the next to be equal to 470 GB.
+
+/dev/lv_atpsb5_m         390.00      39.79   90%      112     1% /apps/oradbf/atpsb5
+
+
+
+You can get the needed space after you delete the following FS which belong to the infocenter and to use the whole space of them:
+
+/dev/lv_sa6_inf     80.00     14.09   83%      366     1% /apps/atlas/atlas2v0/sa6/infoc 
+
+
+1> VERIFIER LA TAILLE DU FS A SUPPRIMER:
+
+  - # df -g /apps/atlas/atlas2v0/sa6/infoc
+
+    Système de fichiers    Blocs GB      Libre %Util    Iutil %Iutil Monté sur
+    /dev/lv_sa6_inf           80.00      14.09   83%      366     1% /apps/atlas/atlas2v0/sa6/infoc
+
+    Ici on va pouvoir récuperer les 80G 
+
+
+2> DEMONTER LE FS AVANT SUPRESSION:
+
+  - # umount /apps/atlas/atlas2v0/sa6/infoc
+
+
+3> SUPPRIMER LE FS:
+
+  - # rmfs /apps/atlas/atlas2v0/sa6/infoc
+
+    rmlv : le volume logique lv_sa6_inf est supprimé.
+
+
+4> AUGMENTATION DE LA TAILLE DU FS:
+
+  - # chfs -a size=+40G /apps/oradbf/atpsb5
+
+    La taille du système de fichiers a été portée à 985661440
+
+
+5> AFFICHAGE RESULTAT POUR RAPPORT IDELPHE:
+
+  - # df -g /apps/oradbf/atpsb5
+
+    Système de fichiers    Blocs GB      Libre %Util    Iutil %Iutil Monté sur
+    /dev/lv_atpsb5_m         470.00     119.78   75%      112     1% /apps/oradbf/atpsb5
+
+
+
+##########################################################################################################
+##########################################################################################################
+
+/apps/meoatlas2/outils/fs2reduce  -------->  juste sur les serveur pré-prod
+
+
+
+
+
+Autre exemple:
+--------------
+
+/apps/atlas/atlas2v0/sa10/data1/fic$df -g /apps/oradbf/atps10
+
+Système de fichiers    Blocs GB      Libre %Util    Iutil %Iutil Monté sur
+/dev/lv_atps10           189.62      27.56   86%      111     1% /apps/oradbf/atps10
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+/apps/atlas/atlas2v0/sa10/data1/fic$df -gI /apps/oradbf/atpr01
+
+Système de fichiers    Blocs GB      Util      Libre %Util Monté sur
+/dev/lv_atpr01           200.00    164.04      35.96   83% /apps/oradbf/atpr01
+
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+/apps/atlas/atlas2v0/sa10/data1/fic$df -g /apps/atlas/atlas2v0/sa10/data1/fic
+
+Système de fichiers    Blocs GB      Libre %Util    Iutil %Iutil Monté sur
+/dev/lv_sa10data1fic     379.00       0.00  100%    90473    86% /apps/atlas/atlas2v0/sa10/data1/fic
+
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+/apps/atlas/atlas2v0/sa10/data1/fic$lslv lv_sa10data1fic
+
+
+LOGICAL VOLUME:     lv_sa10data1fic        VOLUME GROUP:   extvgdb
+LV IDENTIFIER:      0022a2ca00004c000000010286f7a3ec.9 PERMISSION:     read/write
+VG STATE:           active/complete        LV STATE:       opened/syncd
+TYPE:               jfs2                   WRITE VERIFY:   off
+MAX LPs:            16384                  PP SIZE:        128 megabyte(s)
+COPIES:             1                      SCHED POLICY:   parallel
+LPs:                3032                   PPs:            3032
+STALE PPs:          0                      BB POLICY:      relocatable
+INTER-POLICY:       minimum                RELOCATABLE:    yes
+INTRA-POLICY:       middle                 UPPER BOUND:    32
+MOUNT POINT:        /apps/atlas/atlas2v0/sa10/data1/fic LABEL:          /apps/atlas/atlas2v0/sa10/data1/fic
+MIRROR WRITE CONSISTENCY: on/ACTIVE
+EACH LP COPY ON A SEPARATE PV ?: yes
+Serialize IO ?:     NO
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+/apps/atlas/atlas2v0/sa10/data1/fic$lsvg extvgdb
+VOLUME GROUP:       extvgdb                  VG IDENTIFIER:  0022a2ca00004c000000010286f7a3ec
+VG STATE:           active                   PP SIZE:        128 megabyte(s)
+VG PERMISSION:      read/write               TOTAL PPs:      14145 (1810560 megabytes)
+MAX LVs:            256                      FREE PPs:       8 (1024 megabytes)
+LVs:                30                       USED PPs:       14137 (1809536 megabytes)
+OPEN LVs:           28                       QUORUM:         13 (Enabled)
+TOTAL PVs:          25                       VG DESCRIPTORS: 25
+STALE PVs:          0                        STALE PPs:      0
+ACTIVE PVs:         25                       AUTO ON:        yes
+MAX PPs per VG:     32512
+MAX PPs per PV:     1016                     MAX PVs:        32
+LTG size:           128 kilobyte(s)          AUTO SYNC:      no
+HOT SPARE:          no                       BB POLICY:      relocatable
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+/apps/atlas/atlas2v0/sa10/data1/fic$sesu - root
+Please enter your password:
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+
+
+#####################################################
+Machine : parva4000641, Version AIX : 5.3.
+#####################################################
+
+
+Votre système est au moins en 5.3. Début d'analyse.
+Le FS /apps/atlas/atlas2v0/sa10/data1/fic fait parti du VG extvgdb (LV : lv_sa10data1fic)
+
+
+TailleTOTALE    FREE    (%used)         FS
+        379.00  0.00    (100%)          /apps/atlas/atlas2v0/sa10/data1/fic
+
+
+
+¤ Ne retirez pas trop de mémoire à un un FS d'un environnement utilisé pour certains projets consommateurs (FIC et BASE ont besoin de mémo
+¤ Vérifiez qu'une restoration n'est pas en cours (Taille FREE énorme).
+
+
+
+Nom du VG qui contient des jfs2 à réduire : extvgdb .
+
+Il reste actuellement sur le VG 1024 Mo libres.
+-----------------------------------------------------
+TailleTOTALE    FREE    (%used)         FS
+        4.00    1.83    (55%)           /apps/atlas/atlas2v0/sa9
+        1.00    0.77    (23%)           /apps/atlas/atlas2v0/sa9/data1
+        2.00    0.53    (74%)           /apps/atlas/atlas2v0/sa9/data1/imp
+        10.50   2.56    (76%)           /apps/atlas/atlas2v0/sa10
+        20.50   4.18    (80%)           /apps/atlas/atlas2v0/sa10/data1
+        379.00  0.00    (100%)          /apps/atlas/atlas2v0/sa10/data1/fic
+        367.25  44.44   (88%)           /apps/atlas/atlas2v0/sc2/data1/fic
+        163.00  10.32   (94%)           /apps/oradbf/atpsa5
+        15.00   14.65   (3%)            /apps/atlas/atlas2v0/sa6/data1/imp
+        174.00  60.68   (66%)           /apps/oradbf/atdr01
+        5.00    3.40    (32%)           /apps/atlas/atlas2v0/sa5/data1/imp
+        246.12  41.17   (84%)           /apps/atlas/atlas2v0/sa9/data1/fic
+        20.00   16.78   (17%)           /apps/atlas/atlas2v0/rf1/data1
+        10.00   0.60    (94%)           /apps/atlas/atlas2v0/sa10/data1/imp
+        25.62   21.85   (15%)           /apps/atlas/atlas2v0/rf1/data1/imp
+        7.00    2.98    (58%)           /apps/atlas/atlas2v0/sc2/data1/imp
+        138.00  1.12    (100%)          /apps/oradbf/atdsa9
+        112.00  0.31    (100%)          /apps/atlas/atlas2v0/sa11/data1/fic
+        2.00    1.42    (30%)           /apps/oradbf/tipspqc1
+-----------------------------------------------------
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+/apps/meoatlas2/outils$chfs -a size=-5G /apps/atlas/atlas2v0/sa6/data1/imp
+
+La taille du système de fichiers a été portée à 20971520
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+/apps/meoatlas2/outils$df -g /apps/atlas/atlas2v0/sa6/data1/imp
+
+Système de fichiers    Blocs GB      Libre %Util    Iutil %Iutil Monté sur
+/dev/lv_sa6data1imp       10.00       9.65    4%     2955     1% /apps/atlas/atlas2v0/sa6/data1/imp
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+/apps/meoatlas2/outils$chfs -a size=+5G /apps/atlas/atlas2v0/sa10/data1/fic
+
+La taille du système de fichiers a été portée à 805306368
+
+
+{parva4000641} (atlas) {BDSI: Dev. Tests OCEAN-SI - sa10}
+
+
+
+######################################################################################################################
+
+
+
+
+root@parva4015222:/apps/loubna$ lsvg -l vg_burkina
+
+
+vg_burkina:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv_bur1             jfs2       1       1       1    open/syncd    /apps/burki1
+loglv05             jfs2log    1       1       1    open/syncd    N/A
+lv_IAM1BFIexp       jfs2       445     445     1    open/syncd    /apps/oracle/exp/IAM1BFI0
+lv_bur1_infoc       jfs2       120     120     2    open/syncd    /apps/burki1/infoc
+lv_bur1_base        jfs2       1       1       1    open/syncd    /apps/burki1/infoc/base
+lv_bur1_basedr      jfs2       160     160     1    open/syncd    /apps/burki1/infoc/base_dr
+lv_bur1_dwhdr       jfs2       2       2       2    open/syncd    /apps/burki1/infoc/dwh_dr
+lv_bur1_ficsav      jfs2       1       1       1    open/syncd    /apps/burki1/ficsav
+lv_cftdata_bur1     jfs2       1       1       1    open/syncd    /apps/cft_data/burki1
+lv_bur2             jfs2       1       1       1    open/syncd    /apps/burki2
+lv_bur2_infoc       jfs2       1       1       1    open/syncd    /apps/burki2/infoc
+lv_bur2_base        jfs2       1       1       1    open/syncd    /apps/burki2/infoc/base
+lv_bur2_basedr      jfs2       1       1       1    open/syncd    /apps/burki2/infoc/base_dr
+lv_bur2_dwhdr       jfs2       1       1       1    open/syncd    /apps/burki2/infoc/dwh_dr
+lv_bur2_ficsav      jfs2       1       1       1    open/syncd    /apps/burki2/ficsav
+lv_IAM1BFIarch      jfs2       1       1       1    open/syncd    /apps/oracle/arch/IAM1BFI0
+lv_IAM1BFIback      jfs2       1       1       1    open/syncd    /apps/oracle/backup/IAM1BFI0
+lv_IAM1BFIadm       jfs2       1       1       1    open/syncd    /apps/oracle/adm/IAM1BFI0
+lvIAM1BFIosys1      jfs2       40      40      2    open/syncd    /apps/oracledata/IAM1BFI0/osys1
+lvIAM1BFIosys2      jfs2       40      40      1    open/syncd    /apps/oracledata/IAM1BFI0/osys2
+lvIAM1BFIosys3      jfs2       28      28      1    open/syncd    /apps/oracledata/IAM1BFI0/osys3
+lvIAM1BFId0001      jfs2       560     560     1    open/syncd    /apps/oracledata/IAM1BFI0/data0001
+lvIAM1BFIi0001      jfs2       280     280     2    open/syncd    /apps/oracledata/IAM1BFI0/indx0001
+lv_IAM2BFIexp       jfs2       1       1       1    open/syncd    /apps/oracle/exp/IAM2BFI0
+lv_IAM2BFIarch      jfs2       1       1       1    open/syncd    /apps/oracle/arch/IAM2BFI0
+lv_IAM2BFIback      jfs2       1       1       1    open/syncd    /apps/oracle/backup/IAM2BFI0
+lv_IAM2BFIadm       jfs2       1       1       1    open/syncd    /apps/oracle/adm/IAM2BFI0
+lvIAM2BFIosys1      jfs2       4       4       1    open/syncd    /apps/oracledata/IAM2BFI0/osys1
+lvIAM2BFIosys2      jfs2       4       4       1    open/syncd    /apps/oracledata/IAM2BFI0/osys2
+lvIAM2BFIosys3      jfs2       4       4       1    open/syncd    /apps/oracledata/IAM2BFI0/osys3
+lvIAM2BFId0001      jfs2       8       8       1    open/syncd    /apps/oracledata/IAM2BFI0/data0001
+lvIAM2BFIi0001      jfs2       4       4       1    open/syncd    /apps/oracledata/IAM2BFI0/indx0001
+
+

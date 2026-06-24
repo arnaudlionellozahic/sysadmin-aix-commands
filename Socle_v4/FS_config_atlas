@@ -1,0 +1,62 @@
+mklv -y lv_2v0SV4  -t jfs2 -x 1024 vg_data 5G
+ 
+crfs -v jfs2 -d lv_2v0SV4   -m /apps/atlas/atlas2v0SV4 -A yes -p rw -t no && mount  /apps/atlas/atlas2v0SV4  
+
+mklv -y lv_uf1SV4  -t jfs2 -x 1024 vg_data 11G
+
+crfs -v jfs2 -d lv_uf1SV4    -m /apps/atlas/atlas2v0SV4/uf1SV4 -A yes -p rw -t no && mount /apps/atlas/atlas2v0SV4/uf1SV4 
+
+
+mklv -y lv_uf1ficsvSV4  -t jfs2 -x 4096 vg_data 105G
+
+crfs -v jfs2 -d lv_uf1ficsvSV4   -m /apps/atlas/atlas2v0SV4/uf1SV4/ficsavSV4  -A yes -p rw -t no && mount /apps/atlas/atlas2v0SV4/uf1SV4/ficsavSV4 
+
+
+
+mklv -y lv_uf1data1SV4  -t jfs2 -x 1024 vg_data 42G
+
+crfs -v jfs2 -d lv_uf1data1SV4   -m /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4  -A yes -p rw -t no && mount /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4
+
+
+
+mklv -y lv_uf1infocdrSV  -t jfs2 -x 1024 vg_data 100G
+
+
+
+
+crfs -v jfs2 -d lv_uf1infocdrSV   -m /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/infocdrSV4  -A yes -p rw -t no && mount /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/infocdrSV4
+
+mklv -y lv_uf1infocSV4 -t jfs2 -x 1024 vg_data 85G
+
+crfs -v jfs2 -d lv_uf1infocSV4  -m /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/infocSV4  -A yes -p rw -t no && mount /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/infocSV4
+
+
+
+mklv -y lv_uf1impSV4  -t jfs2 -x 1024 vg_data 16G
+
+crfs -v jfs2 -d lv_uf1impSV4   -m /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/impSV4 -A yes -p rw -t no && mount /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/impSV4
+
+
+mklv -y lv_uf1ficSV4  -t jfs2 -x 4096 vg_data 325G
+
+crfs -v jfs2 -d lv_uf1ficSV4  -m /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/ficSV4  -A yes -p rw -t no && mount /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/ficSV4
+
+
+
+
+chown -R atlas:atlas /apps/atlas/atlas2v0SV4 && chmod -R 775 /apps/atlas/atlas2v0SV4
+
+
+mklv -y lv_oradbfSV4 -t jfs2 -x 1024 vg_data 4G
+
+crfs -v jfs2 -d lv_oradbfSV4  -m /apps/oradbf -A yes -p rw -t no && mount /apps/oradbf
+
+
+mklv -y lv_tipspr01 -t jfs2 -x 1024 vg_data 3G
+
+crfs -v jfs2 -d lv_tipspr01  -m /apps/oradbf/tipspr01 -A yes -p rw -t no && mount /apps/oradbf/tipspr01
+
+
+mklv -y lv_backup -t jfs2 -x 1024 vg_data 125G
+
+crfs -v jfs2 -d lv_backup   -m /apps/oradbf/backup  -A yes -p rw -t no && mount /apps/oradbf/backup

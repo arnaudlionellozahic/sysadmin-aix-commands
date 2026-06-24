@@ -1,0 +1,204 @@
+
+/dev/lv_anti       0.12      0.00      0.12    1% /apps/antill
+/dev/lv_anti_infoc      9.00      3.45      5.55   39% /apps/antill/infoc
+/dev/lv_anti_dwhdr      7.38      5.30      2.08   72% /apps/antill/infoc/dwh_dr
+/dev/lv_anti_basedr     60.00     46.33     13.67   78% /apps/antill/infoc/base_dr
+/dev/lv_anti_base     98.38     76.54     21.84   78% /apps/antill/infoc/base
+/dev/lv_anti_home      0.12      0.00      0.12    1% /apps/antill/home
+/dev/lv_anti_ficsav     56.50     28.68     27.82   51% /apps/antill/ficsav
+/dev/lv_cftdata_anti     40.00     11.57     28.43   29% /apps/cft_data/antill
+/dev/lv_cfttousites      1.25      0.03      1.22    3% /apps/cft_data/tousites
+
+mklv -y lv_anti -t jfs2 -e x vg_data 120M
+mklv -y lv_anti_infoc -t jfs2 -e x vg_data 9G
+mklv -y lv_anti_dwhdr -t jfs2 -e x vg_data 8G
+mklv -y lv_anti_basedr -t jfs2 -e x vg_data 60G
+mklv -y lv_anti_base -t jfs2 -e x vg_data 98G
+mklv -y lv_anti_home -t jfs2 -e x vg_data 120M
+mklv -y lv_anti_ficsav -t jfs2 -e x vg_data 56G
+mklv -y lv_cftdata_anti -t jfs2 -e x vg_data 40G
+mklv -y lv_cfttousites -t jfs2 -e x vg_data 1G
+
+
+
+mklv -y lvinfoc -t jfs2 -e x vg_data 750M
+crfs -v jfs2 -d lvinfoc -m /apps/atlas/infoc -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/atlas/infoc
+
+mklv -y lvinfoclogv -t jfs2 -e x vg_data 120M
+crfs -v jfs2 -d lvinfoclogv  -m /apps/atlas/infoc/log -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/atlas/infoc/log
+
+mklv -y lvinfocsauv -t jfs2 -e x vg_data 500M
+crfs -v jfs2 -d lvinfocsauv -m /apps/atlas/infoc/sauv -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/atlas/infoc/sauv
+
+mklv -y lv_infoc_log -t jfs2 -e x vg_data 200M
+crfs -v jfs2 -d lv_infoc_log -m /apps/infoc/log -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/infoc/log
+
+mklv -y lv_infoc_sauv -t jfs2 -e x vg_data 500M
+crfs -v jfs2 -d lv_infoc_sauv -m /apps/infoc/sauv -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/infoc/sauv
+
+mklv -y lv_matlGDI -t jfs2 -e x extvgd0 6G
+crfs -v jfs2 -d lv_matlGDI -m /apps/matl/GDI -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/matl/GDI
+
+mklv -y lv_nmon -t jfs2 -e x vg_data 200M
+crfs -v jfs2 -d lv_nmon -m /apps/sys/log/stats/NMON -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/sys/log/stats/NMON
+
+mklv -y lv_syncsort -t jfs2 -e x vg_data 120M
+crfs -v jfs2 -d lv_syncsort -m /apps/syncsort -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/syncsort
+
+mklv -y lv_tempo -t jfs2 -e x extvgd0 7G
+crfs -v jfs2 -d lv_tempo -m /tempo -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /tempo
+
+mklv -y lv_mqlalori01p -t jfs2 -e x vg_data 500M
+crfs -v jfs2 -d lv_mqlalori01p -m /var/mqm/log/ALORI01P -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /var/mqm/log/ALORI01P
+
+mklv -y lv_mqqalori01p -t jfs2 -e x vg_data 500M
+crfs -v jfs2 -d lv_mqqalori01p -m /var/mqm/qmgrs/ALORI01P -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /var/mqm/qmgrs/ALORI01P
+
+
+
+
+
+
+
+crfs -v jfs2 -d lv_anti -m /apps/antill -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_anti_infoc -m /apps/antill/infoc -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_anti_dwhdr -m /apps/antill/infoc/dwh_dr -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_anti_basedr -m /apps/antill/infoc/base_dr -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_anti_base -m /apps/antill/infoc/base -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_anti_home -m /apps/antill/home -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_anti_ficsav -m /apps/antill/ficsav -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_cftdata_anti -m /apps/cft_data/antill -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_cfttousites -m /apps/cft_data/tousites -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+mount /apps/antill 
+mount /apps/antill/infoc 
+mount /apps/antill/infoc/dwh_dr 
+mount /apps/antill/infoc/base_dr 
+mount /apps/antill/infoc/base 
+mount /apps/antill/home 
+mount /apps/antill/ficsav 
+mount /apps/cft_data/antill 
+mount /apps/cft_data/tousites 
+
+/dev/lv_IAM1ANPd0001    704.38    628.88     75.50   90% /apps/oracledata/IAM1ANP0/data0001
+/dev/lv_IAM1ANPi0001    278.62    229.98     48.65   83% /apps/oracledata/IAM1ANP0/indx0001
+/dev/lv_IAM1ANPosys1      4.00      2.21      1.79   56% /apps/oracledata/IAM1ANP0/osys1
+/dev/lv_IAM1ANPosys2    103.00     84.86     18.14   83% /apps/oracledata/IAM1ANP0/osys2
+/dev/lv_IAM1ANPosys3      8.50      7.22      1.28   85% /apps/oracledata/IAM1ANP0/osys3
+/dev/lv_IAM1ANPexp    457.00    307.14    149.86   68% /apps/oracle/exp/IAM1ANP0
+/dev/lv_IAM1ANPback    127.00      0.02    126.98    1% /apps/oracle/backup/IAM1ANP0
+/dev/lv_IAM1ANParch    167.00     45.22    121.78   28% /apps/oracle/arch/IAM1ANP0
+/dev/lv_IAM1ANPadm      1.12      0.01      1.11    2% /apps/oracle/adm/IAM1ANP0
+
+
+mklv -y lv_IAM1ANPd0001 -t jfs2 -e x vg_data 705G
+mklv -y lv_IAM1ANPi0001 -t jfs2 -e x vg_data2 280G
+mklv -y lv_IAM1ANPosys1 -t jfs2 -e x vg_data 4G
+mklv -y lv_IAM1ANPosys2 -t jfs2 -e x vg_data 105G
+mklv -y lv_IAM1ANPosys3 -t jfs2 -e x vg_data 10G
+mklv -y lv_IAM1ANPexp -t jfs2 -e x vg_data2 1G
+mklv -y lv_IAM1ANPback -t jfs2 -e x vg_data2 130G
+mklv -y lv_IAM1ANParch -t jfs2 -e x vg_data2 160G
+mklv -y lv_IAM1ANPadm -t jfs2 -e x vg_data 1G
+
+
+
+
+mklv -y lv_uf1fic -t jfs2 -e x vg_data 300G
+crfs -v jfs2 -d lv_uf1fic -m /apps/atlas/atlas2v0/uf1/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/atlas/atlas2v0/uf1/data1/fic
+
+
+
+
+crfs -v jfs2 -d lv_IAM1ANPd0001 -m /apps/oracledata/IAM1ANP0/data0001 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANPi0001 -m /apps/oracledata/IAM1ANP0/indx0001 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANPosys1 -m /apps/oracledata/IAM1ANP0/osys1 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANPosys2 -m /apps/oracledata/IAM1ANP0/osys2 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANPosys3 -m /apps/oracledata/IAM1ANP0/osys3 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANPexp -m /apps/oracle/exp/IAM1ANP0 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANPback -m /apps/oracle/backup/IAM1ANP0 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANParch -m /apps/oracle/arch/IAM1ANP0 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+crfs -v jfs2 -d lv_IAM1ANPadm -m /apps/oracle/adm/IAM1ANP0 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+
+mount /apps/oracledata/IAM1ANP0/data0001
+mount /apps/oracledata/IAM1ANP0/indx0001 
+mount /apps/oracledata/IAM1ANP0/osys1
+mount /apps/oracledata/IAM1ANP0/osys2
+mount /apps/oracledata/IAM1ANP0/osys3 
+mount /apps/oracle/exp/IAM1ANP0 
+mount /apps/oracle/backup/IAM1ANP0 
+mount /apps/oracle/arch/IAM1ANP0 
+mount /apps/oracle/adm/IAM1ANP0 
+
+
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps:
+->df -g |grep antill
+/dev/lv_anti       0.12      0.12    2%       10     1% /apps/antill
+/dev/lv_anti_infoc      9.00      8.96    1%        7     1% /apps/antill/infoc
+/dev/lv_anti_ficsav     56.00     55.77    1%        4     1% /apps/antill/ficsav
+/dev/lv_anti_dwhdr      8.00      7.97    1%        4     1% /apps/antill/infoc/dwh_dr
+/dev/lv_anti_basedr     60.00     59.76    1%        4     1% /apps/antill/infoc/base_dr
+/dev/lv_anti_base     98.00     97.60    1%        4     1% /apps/antill/infoc/base
+/dev/lv_anti_home      0.12      0.12    2%        4     1% /apps/antill/home
+/dev/lv_cftdata_anti     40.00     39.84    1%        4     1% /apps/cft_data/antill
+
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps:
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps/oracle/network/admin:
+->df -g |grep antill
+/dev/lv_anti       0.25      0.25    1%        8     1% /apps/antill
+/dev/lv_anti_infoc      9.00      8.96    1%        7     1% /apps/antill/infoc
+/dev/lv_anti_dwhdr      8.00      7.97    1%        6     1% /apps/antill/infoc/dwh_dr
+/dev/lv_anti_basedr     60.00     59.76    1%        5     1% /apps/antill/infoc/base_dr
+/dev/lv_anti_base     98.00     97.60    1%       10     1% /apps/antill/infoc/base
+/dev/lv_anti_home      0.25      0.25    1%        4     1% /apps/antill/home
+/dev/lv_anti_ficsav     56.00     55.77    1%        4     1% /apps/antill/ficsav
+/dev/lv_cftdata_anti     40.00     39.84    1%        8     1% /apps/cft_data/antill
+
+
+
+PROFILE 
+
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps/infocentre/home:
+->ls -ltr profile.antill
+-rwxrwxr-x    1 infoc    infoc          3450 Jan 29 16:39 profile.antill
+
+
+.PROFILE
+
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps/infocentre/home:
+->su - infoc
+1) Senegal (senega)
+2) Mali (malinf)
+3) Algerie (algeri)
+4) Burkina Faso (burkin)
+5) Cote d Ivoire (ivoire)
+6) Antilles (antill)
+Choisir l'environnement souhaite...6
+cat: 0652-050 Cannot open /apps/antill/infoc/dwhexeloa/jcl/atlas2niv.load.
+cat: 0652-050 Cannot open /apps/antill/infoc/dwhexeloa/jcl/infocniv.load.
+Files systems >= 80%
+ %use       Mount
+ 87%    /apps/oracle/product/1120
+ 82%    /apps/burkin
+ 83%    /apps/malinf
+PARVA4020783 => Production IAM RBIS (infoc) - antill (atlas: - din: - oracle:1120 - base:IAM1ANP0)
+/apps/antill/infoc :
+
+
+
+
+mklv -y lv_anti -t jfs2 -e x vg_data 25G
+crfs -v jfs2 -d lv_anti -m /apps/antill -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/antill 

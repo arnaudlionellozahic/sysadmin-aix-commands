@@ -1,0 +1,12 @@
+# Fichier parametre du script cr_fs.ksh
+# le separateur de champ est : (comme /etc/passwd)
+# premier champ le nom du LV a creer
+# deuxieme champ le point de montage
+# troisieme champ la taille du FS en Mo
+#
+# NB : la taille du LV sera arrondi a un nombre entier de PP
+#    : le nom du LV doit respecter la convention de nom (lv_xxx)
+#
+# exemple :
+#lv_essai:/tmp/essai:200
+lv_{{fs_name}}:{{fs_path}}:{{fs_size}}

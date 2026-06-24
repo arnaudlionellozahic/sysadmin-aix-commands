@@ -1,0 +1,27 @@
+
+
+:1,$ s%PARVA4001835%s00va9934113%g
+
+:1,$ s%8001%56001%g
+
+:1,$ s%atlas-guinee.rbis.echonet%prod-atlas-test.rb.echonet%g
+
+
+
+ - perl: warning: Falling back to the standard locale ("C").
+ - perl: warning: Setting locale failed.
+ - perl: warning: Please check that your locale settings:
+ -      LC_ALL = (unset),
+ -      LC__FASTMSG = "true",
+ -      LC_MESSAGES = "fr_FR",
+ -      LANG = "C"
+ -     are supported and installed on your system.
+
+./meo_multi_deploy.sh PROD app_a_a_crysalid_packaging-3.1.31
+
+
+
+Tool ConfigScriptTools Installation step
+ - mkdir: cannot create /apps/work/TMP_DIR34144442.
+ - /apps/work/TMP_DIR34144442: File exists
+ - perl: warning: Setting locale failed.

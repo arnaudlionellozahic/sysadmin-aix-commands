@@ -1,0 +1,1319 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <title>X-Files</title>
+  <link rel="stylesheet" href="https://doc.lagout.org/.theme/css/fancyindex.css">
+  <link rel="stylesheet" href="https://doc.lagout.org/.theme/css/StyleCmp.css" />
+  <link rel="stylesheet" href="https://doc.lagout.org/.theme/css/jquery-ui.css" />
+  <script type="text/javascript" src="https://doc.lagout.org/.theme/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="https://doc.lagout.org/.theme/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="https://doc.lagout.org/.theme/jquery-ui.js"></script>
+  <meta name="msvalidate.01" content="41D438AEDF84ECB741911F8BB73661A4" />
+
+ <script>
+
+          $(function () {
+          var aff = 0;
+          var x = document.cookie;
+          if (x == 1)
+              aff = 1;
+              if(aff==0){
+                $("#dialog-message").dialog({
+                  // transforme la division en popup
+                  modal: true,
+                  autoOpen: true,
+                  width: 400,
+                  dialogClass: 'dialogstyleperso',
+                  buttons: [
+                      {
+                          text: "OK",
+                          class: 'ui-state-information',
+                          click: function () {
+                              $(this).dialog("close");
+                              $('#popupinformation').remove();
+                          }
+                      },
+                      {
+                          text: "Donate",
+                          class: "ui-state-question",
+                          click: function () {
+                              // affiche la page de l'attribut href
+                              window.location.href = 'https://www.lagout.org/dons/ ';
+                              $("#popupconfirmation").remove();
+                          }
+                      }
+                  ]
+                  
+                  });
+                aff = 1;
+                document.cookie = aff;
+              }
+          });
+</script>
+
+
+
+<div id="dialog-message" title="donate" hidden >
+
+    <p>
+
+        
+
+        Les services de Lagout.org ont un certain coÃ»t. Pour qu'ils continuent,
+
+        les dons sont les bienvenus. Merci !
+
+    </p>
+
+    <p>
+
+         The services of lagout.org cost some bucks every months. To keep 'em
+
+         alive, donations are very welcome, thanks !
+
+    </p>
+
+</div>
+<script type="text/javascript" src="https://doc.lagout.org/.theme/alimcmp.js"></script>
+</head>
+<body>
+
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<!-- saved from url=(0046)http://www.unixguide.net/ibm/aixcommands.shtml -->
+<html class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   
+   <meta name="Generator" content="Microsoft Word 97">
+   <meta name="Template" content="C:\Program Files\Microsoft Office\Office\html.dot">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (WinNT; U) [Netscape]">
+   <title>UNIX: Guide commandes AIX</title>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="UNIX&#32;&#32;Guide&#32;commandes&#32;AIX_files/translateelement.css"></head>
+<body link="#0000FF" vlink="#800080">
+<center> <script async="" type="text/javascript" src="UNIX&#32;&#32;Guide&#32;commandes&#32;AIX_files/ca-pub-9786751149916387.js"></script><script type="text/javascript">
+<!--
+google_ad_client = "pub-9786751149916387";
+//728x90, created 12/20/07
+google_ad_slot = "4611910146";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="UNIX&#32;&#32;Guide&#32;commandes&#32;AIX_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+ </center> <br><font><font>
+AIX: commandes </font></font><br><font><font>
+compilées par: John Flecther
+</font></font><table border="" cellpadding="9" width="100%" bordercolor="#000000">
+<tbody><tr>
+<td valign="TOP" width="13%" bgcolor="#FFFFFF"><b><font size="-1"><font><font>COMMANDE</font></font></font></b></td>
+
+<td valign="TOP" width="27%" bgcolor="#FFFFFF"><b><font size="-1"><font><font>PARAMETER</font></font></font></b></td>
+
+<td valign="TOP" width="60%" bgcolor="#FFFFFF"><b><font size="-1"><font><font>DESCRIPTION</font></font></font></b></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>bootlist&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-M &lt;dev2&gt; de &lt;dev1&gt; normale</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font class="">Modifie la liste des périphériques de démarrage (ou la commande de ces dispositifs dans la liste à la disposition du système)</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>bosboot&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-A</font></font></font>
+<p><font size="-1"><font><font>-Annonce / dev / RNT &lt;x&gt;</font></font></font>
+</p><p><font size="-1"><font><font>-B &lt;loc de bootimage&gt;</font></font></font></p></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Créer une image de démarrage sur le périphérique de démarrage par défaut&nbsp;</font></font></font>
+<p><font size="-1"><font><font>Créer une image de démarrage à l'emplacement et l'envoyer à bande</font></font></font></p></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>cfgmgr</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Configure des unités en exécutant les programmes dans le répertoire / etc / méthodes.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chcons&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Redirige la console système périphérique ou le fichier, efficace prochain démarrage</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chdev</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-L-&lt;périphérique&gt; un &lt;params&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie les caractéristiques d'un périphérique.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chdisp&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifier l'affichage utilisé par le faible fonction de la borne (LFT sous-système.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chfont</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie la police par défaut sélectionnée au moment du démarrage.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chfs</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-Une taille = + &lt;blocks&gt; / &lt;fs&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Change les attributs d'un système de fichiers. </font><font>Celui-ci va augmenter le système de fichiers.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chgroup</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>Utilisateur = x, y, z &lt;grp &lt;nom</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie les attributs pour les groupes.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chlv</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-N &lt;nlvname&gt; &lt;olvname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Renommer volume logique de olvname à nlvname</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chps</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-S &lt;no. </font><font>pps&gt; &lt;ps &lt;nom</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Change les attributs d'un espace de pagination.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chpv</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifier les caractéristiques d'un volume physique dans un groupe de volumes.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chque</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-Q &lt;q &lt;nom_pool_médias&gt; a'host = x '</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie le nom de file d'attente.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chssys&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie une définition du sous-système à la classe d'objet du sous-système.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chtcb</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Les changements ou les requêtes de l'attribut de base de l'informatique de confiance d'un fichier.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>Chtz.</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie les informations de temps du système de zone</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chuser</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>rlogin = true &lt;username&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie les attributs de l'utilisateur spécifié.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chvfs</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie les entrées dans le fichier etc / vfs /.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>chvg</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Définit les caractéristiques d'un groupe de volumes.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>crfs</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-V &lt;fstype&gt; (JFS)</font></font></font>
+<p><font size="-1"><font><font>-D &lt;lvname&gt;</font></font></font>
+</p><p><font size="-1"><font><font>-M &lt;mount point&gt;</font></font></font>
+</p><p><font size="-1"><font><font>-Ayes</font></font></font></p></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Créer un système de fichiers sur un volume logique pré-définie (qui automount au démarrage!)</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>crfs</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-V &lt;fstype&gt; (JFS)</font></font></font>
+<p><font size="-1"><font><font>-G &lt;vgname&gt;</font></font></font>
+</p><p><font size="-1"><font><font>-Une taille = '&lt;aucun sur des blocs'</font></font></font>
+</p><p><font size="-1"><font><font>-M &lt;mount point&gt;</font></font></font>
+</p><p><font size="-1"><font><font>-Ayes</font></font></font></p></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Créer un système de fichiers et son volume logique (utilise LVname par défaut)</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>crvfs&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Crée des entrées dans le fichier / etc / vfs.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>exportvg</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>Aucun</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Exporter un groupe de volumes</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>grpck</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-N ALL</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Vérifie l'exactitude de la définition d'un groupe.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>hvirprt&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie les valeurs des attributs d'une imprimante virtuelle.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>importvg</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-Y &lt;vgname&gt;</font></font></font>
+<p><font size="-1"><font><font>&lt;hdisk x&gt;</font></font></font></p></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Importer un groupe de volumes sur hdisk x</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lpstat</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste des files d'attente d'impression</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsallq&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Dresse la liste des noms de toutes les files d'attente configurées.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsallqdev&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Listes toutes imprimante et la file d'attente du traceur noms de périphériques configurés dans une file d'attente spécifiée.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsattr&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-El &lt;devname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Inscrivez configuration détaillée d'un dispositif</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lscfg&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>La liste de tous les périphériques configurés</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-V</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste en détail</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-L scsi *</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste tous les périphériques SCSI IO</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsdev</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>Cc-bande</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Unités de bande liste configurés</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>Cc-disque</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste configuré disques sur des appareils</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-C-s scsi-H</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste tous les périphériques SCSI définis</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsdisp</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Dresse la liste des écrans disponibles sur le système.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsfont</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Dresse la liste des polices disponibles pour une utilisation par l'écran.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsfs</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-L</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>La liste de tous les systèmes de fichiers dans / etc / filesystems Quering la zone de descripteur de LVM et superblocks</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsfs</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche les caractéristiques des systèmes de fichiers.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsgroup</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>TOUT</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche les attributs des groupes. (Chèques NIS aswell!)</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsitab</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-A</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche la liste des dossiers dans le fichier / etc / inittab.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lskbd</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Listes clavier cartes actuellement disponibles à la faible fonction de la borne (LFT sous-système.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lslicense&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche le nombre de licences fixes et le statut de la licence flottante.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lslpp&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-L</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>La liste de tous les logiciels installés</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lslv</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>&lt;lvname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>détails sur la configuration de la liste d'un volume logique donné</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-L &lt;lvname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>La liste des autres détails de configuration d'un disque donné</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsprtsv&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-Ch</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche des informations de service d'impression stockées dans la base de données.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsps</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-A</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Espace liste de pagaing</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lspv</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>Aucun</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste configuré disques</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>&lt;hdisk&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>détails sur la configuration de la liste d'un disque donné</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-L &lt;hdisk&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste volumes logiques / systèmes de fichiers sur un disque donné</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsque</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche le nom de strophe de file d'attente.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsquedev&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche le nom de strophe de l'appareil.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lssrc</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-A</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>La liste de tous les sous-systèmes</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsuser</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche les attributs des comptes d'utilisateurs.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsvfs</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>entrées sont classées par la etc / vfs /.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>lsvg</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>Aucun</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Les groupes de volumes configurés liste</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>&lt;vgname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>détails sur la configuration de la liste d'un groupe de volume donné</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%">&nbsp;</td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-L &lt;vgname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Liste volumes logiques / systèmes de fichiers sur un groupe de volumes donné</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkcatdefs&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Un prétraitement d'un fichier source du message.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkdev</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute un périphérique au système.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkfont&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute le code associé à une police d'affichage pour le système.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkfontdir&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Crée un fichier fonts.dir à partir d'un répertoire de fichiers de police.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkgroup&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Crée un nouveau groupe.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkitab</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Fait enregistrements dans le fichier / etc / inittab.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mklv</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-Y &lt;lvname&gt;</font></font></font>
+<p><font size="-1"><font><font>&lt;vgname&gt;</font></font></font>
+</p><p><font size="-1"><font><font>&lt;aucun de pps&gt;</font></font></font></p></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Créer un volume logique</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mklv</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Crée un volume logique.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mklvcopy&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute des copies à un volume logique.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mknamsv&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Configure le service TCP / IP-nom sur un hôte pour un client.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mknotify&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute un aviser définition de la méthode de la classe d'objet informer.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkprtsv&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Configure TCP / service d'impression sur IP sur un hôte.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkps</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajouter un espace de pagination supplémentaire au système.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkque</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute une file d'attente de l'imprimante pour le système.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkquedev&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute une file d'attente d'imprimante au système.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkserver&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute une définition de sous-serveur pour la classe d'objets sous-serveur.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkssys</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute une définition de sous-système à la classe de l'objet de sous-système.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mksysb.&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Dos montés les systèmes de fichiers dans le groupe de volumes rootvg pour réinstallation ultérieure</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkszfile.&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Dossiers taille des systèmes de fichiers montés dans le groupe de volumes rootvg pour la réinstallation</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mktcpip&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Définit les valeurs requises pour lancer TCP / IP sur un hôte.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkuser&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Crée un nouveau compte d'utilisateur.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkuser.sys&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Personnalise un nouveau compte d'utilisateur.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>Mkvg</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-Y &lt;vgname&gt;&nbsp;</font></font></font>
+<p><font size="-1"><font><font>-S &lt;ppsize&gt;</font></font></font>
+</p><p><font size="-1"><font><font>&lt;hdisk x&gt;</font></font></font></p></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Créer un groupe de volumes sur hdisk x</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkvg</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Crée un groupe de volumes.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>mkvirprt&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Fait une imprimante virtuelle.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>odmadd</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Ajoute des objets à des classes d'objets créés.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>odmchange&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Modifie le contenu d'un objet sélectionné dans la classe de l'objet spécifié.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>odmcreate&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Produit les. C (source et. H (notamment les fichiers nécessaires pour le développement d'applications ODM et crée objectclasses vides.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>odmdelete&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime les objets sélectionnés à partir d'une classe d'objet spécifié.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>odmdrop&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime une classe d'objet.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>odmget</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Récupère les objets des classes d'objets spécifiés et les place dans un fichier d'entrée odmadd.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>odmshow&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Affiche une définition de classe d'objet sur l'écran.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>pwdck</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Vérifie l'exactitude des informations d'authentification locale.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>redefinevg</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Redéfinit l'ensemble des volumes physiques du groupe de volumes donnée dans la base de données de configuration du périphérique.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>reducevg&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime des volumes physiques d'un groupe de volumes. </font><font>Lorsque tous les volumes physiques sont éliminés dans le groupe de volumes, le groupe de volumes est supprimé.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>reorgvg&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Réorganise la répartition de la partition physique d'un groupe de volumes.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>restbase&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Restaure des informations personnalisées à partir de l'image de démarrage.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmdel</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un delta d'un système de contrôle de code source (fichier SCCS.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmdev</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un périphérique du système.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmf</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime les dossiers et les messages qu'ils contiennent.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmfs</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un système de fichiers.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmgroup</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un groupe.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmitab</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime les enregistrements dans le fichier / etc / inittab.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmlv</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime les volumes logiques d'un groupe de volumes.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmlvcopy&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime les copies à partir d'un volume logique.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>RMM</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime les messages.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmnamsv&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Service de nom IP déconfigure TCP / sur un hôte.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmnotify&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un aviser définition de la méthode de la classe de l'objet informer.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmprtsv&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Déconfigure un service d'impression sur une machine client ou serveur.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmps</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un espace de pagination du système.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmque</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime une file d'attente de l'imprimante du système.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmquedev&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un périphérique du système file d'attente imprimante ou un traceur.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmserver&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime une définition de sous-serveur de la classe d'objets sous-serveur.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmssys</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime une définition de sous-système à partir de la classe d'objet du sous-système.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmuser</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime un compte d'utilisateur.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmvfs</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime des entrées dans le fichier / etc / vfs.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>rmvirprt&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Supprime une imprimante virtuelle.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>runcat</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Tuyaux les données de sortie des mkcatdefs commande à la commande gencat.&nbsp;</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>savebase&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Enregistre les données de l'appareil de base personnalisée à l'ODM sur le périphérique de démarrage.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>startsrc&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-S &lt;Sous-système&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Lancer un sous-système</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>stopsrc&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>-S &lt;Sous-système&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Arrêt d'un sous-système</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>syncvg&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Synchronisation des copies de volumes logiques qui ne sont pas en cours.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>usrck</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Vérifie l'exactitude de la définition d'un utilisateur.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>varyoffvg</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>&lt;vgname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Prend hors ligne d'un groupe de volumes</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>varyoffvg</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Désactive un groupe de volumes.</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>varyonvg</font></font></font></td>
+
+<td valign="TOP" width="27%"><font size="-1"><font><font>&lt;vgname&gt;</font></font></font></td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Met un groupe de volumes en ligne</font></font></font></td>
+</tr>
+
+<tr>
+<td valign="TOP" width="13%"><font size="-1"><font><font>varyonvg&nbsp;</font></font></font></td>
+
+<td valign="TOP" width="27%">&nbsp;</td>
+
+<td valign="TOP" width="60%"><font size="-1"><font><font>Active un groupe de volumes.</font></font></font></td>
+</tr>
+</tbody></table>
+<hr><blockquote><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/82.shtml"></a><li><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/82.shtml"><font><font>bon</font></font><br>
+ </a><font><font> par: </font></font><a href="mailto:pandianspp@gmail.com"><font><font>pandian</font></font></a><font><font> (Mer 6 décembre 20:17:07 2006)
+</font></font><p></p></li></blockquote><blockquote><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/81.shtml"></a><li><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/81.shtml"><font><font>Quelqu'un nous a mis en place le AIX</font></font><br>
+ </a><font><font> par: anonyme (mar. 7 novembre 13:20:36 2006)
+</font></font><p></p></li></blockquote><blockquote><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/80.shtml"></a><li><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/80.shtml"><font><font>AIX COMMANDES</font></font><br>
+ </a><font><font> par: </font></font><a href="mailto:lkolala@yahoo.com"><font><font>anonyme</font></font></a><font><font> (vendredi 3 novembre 3:13:46 2006)
+</font></font><p></p></li></blockquote><blockquote><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/79.shtml"></a><li><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/79.shtml"><font><font>Je veux être un SystemAdmin. </font><font>aix</font></font><br>
+ </a><font><font> par: </font></font><a href="mailto:k_shib@yahoo.com"><font><font>Shakeb</font></font></a><font><font> (vendredi 4 août 22:25:28 2006)
+</font></font><p></p></li></blockquote><blockquote><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/78.shtml"></a><li><a href="http://www.unixguide.net/comments/ibm/aixcommands.shtml/78.shtml"><font><font>Unix AIX commandes</font></font><br>
+ </a><font><font> par: </font></font><a href="mailto:ghazala.anjum@gmail.com"><font><font>Ghazala Anjum</font></font></a><font><font> (jeu. 20 juillet 15:12:54 2006)
+</font></font><p></p></li></blockquote><a href="http://www.unixguide.net/cgi-bin/comments.pl?FULL=/ibm/aixcommands.shtml"><font><font>Tous les commentaires</font></font></a><hr><form method="post" action="http://www.unixguide.net/cgi-bin/submit_comments.cgi" enctype="multipart/form-data"><font><font>
+Nom: </font></font><input type="text" name="Name" value="anonymous" size="30"><br><font><font>Mot de passe: </font></font><input type="password" name="Password" size="30"><br><font><font>E-mail: </font></font><input type="text" name="Email" size="50"><br><font><font>Objet: </font></font><input type="text" name="Subject" size="50"><br><font><font>Commentaires:</font></font><br><textarea name="Comments" rows="5" cols="70"></textarea><p><input type="reset" name=".reset"><font><font><input type="submit" name="Submit Comments" value="Soumettre Commentaires"></font></font><input type="hidden" name="file" value="/ibm/aixcommands.shtml"></p></form><hr>
+<script type="text/javascript">
+<!--
+google_ad_client = "pub-9786751149916387";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+//-->
+</script>
+<script type="text/javascript" src="UNIX&#32;&#32;Guide&#32;commandes&#32;AIX_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+<br>
+<table width="100%">
+<tbody><tr><td width="33%">
+<a href="http://www.unixguide.net/"><font><font>UNIXguide.net </font></font></a>
+<br><a href="http://www.binisaya.com/"><font><font>Anglais à Visayan Cebuano Dictionnaire</font></font></a>
+</td>
+<td align="center" width="33%">
+<form method="get" action="http://www.google.com/search">
+
+<input type="text" name="q" size="31" maxlength="255" value="">
+<font><font><input type="submit" value="Google Recherche"></font></font>
+<input type="hidden" name="sitesearch" value="unixguide.net" checked="">
+
+</form>
+
+</td>
+<td align="right" width="33%">
+<a href="http://www.unixguide.net/addurl.shtml"><font><font>Proposer un site </font></font></a>
+<br><a href="http://www.binisaya.com/cebuano/"><font><font>visayan Cebuano à Anglais</font></font></a>
+</td>
+</tr></tbody></table><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: hidden; left: 973px; top: 240px; display: none;"><div style="padding: 8px;"><div><div class="logo"><img src="UNIX&#32;&#32;Guide&#32;commandes&#32;AIX_files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texte d'origine</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">Alters the list of boot devices
+(or the ordering of these devices in the list available to the system)</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Proposer une meilleure traduction</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0;"></div></div>
+     
+
+
+</body></html>
+<footer>
+	               <table border=0>
+
+                    <tr>
+
+                        <td colspan=2 align=center>
+
+                            <FONT size="-1">
+
+                                <div id="cmp"></div>
+
+                            </FONT>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan=2 align="left">
+
+                            <div id="myProgress">
+
+                                <div id="myBar"></div>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan=2 align=center>
+
+                            <FONT size="-1">sur 100 â‚¬ d'objectif</FONT>
+
+                        </td>
+
+                    </tr>
+
+                    <tr></tr>
+
+                    <tr>
+
+                        <td width='60' align=center>
+
+                            <FONT size="-1">
+
+                                <div id="donateur"></div>
+
+                            </FONT>
+
+                        </td>
+
+                        <td width='60' align=center>
+
+                            <FONT size="-1">
+
+                                <div id="nbjourrest"></div>
+
+                            </FONT>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td width='70' align=center>
+
+                            <FONT size="0">donateurs</FONT>
+
+                        </td>
+
+                        <td width='70' align=center>
+
+                            <FONT size="0">jours restants</FONT>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td colspan=2 align=center>
+
+                            <a href="https://www.lagout.org/dons/">
+
+                                <table>
+
+                                    <tr>
+
+                                        <td bgcolor="#0000FF">
+
+                                            <FONT size="-1">FAIRE UN DON</FONT>
+
+                                        </td>
+
+                                    </tr>
+
+                                </table>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+		<p></h5>
+		<br>
+		<br>
+		<div style="font-size:18px; font-family:Arial, Helvetica, sans-serif">
+		Site hÃ©bergÃ© sur un <a href="https://www.ikoula.com/?utm_source=lagout.org&utm_medium=balise-pied-de-page&utm_campaign=iksvp">serveur</a> IKOULA 
+		<a href="https://www.ikoula.com/?utm_source=lagout.org&utm_medium=balise-pied-de-page&utm_campaign=iksvp" title="Ikoula HÃ©bergement web, serveurs dÃ©diÃ©s et solutions sur mesure" target="_blank" rel="noopener"><img src="https://www.ikoula.com/img/hosted_by_ikoula_150_blanc.png" alt="Ikoula" border="0"/></a> </div>
+
+		</h5>
+ 
+</footer>
+
+</html>

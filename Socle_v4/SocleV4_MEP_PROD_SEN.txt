@@ -1,0 +1,745 @@
+-----------FS a créer
+/apps/atlas/atlas2v0 : 5Go
+/apps/atlas/atlas2v0/uf1 : 11Go
+/apps/atlas/atlas2v0/uf1/ficsav : 105 Go
+/apps/atlas/atlas2v0/uf1/data1 : 42Go
+/apps/atlas/atlas2v0/uf1/data1/infocdr : 100Go
+
+/apps/atlas/atlas2v0/uf1/data1/infoc : 85 Go
+
+/apps/atlas/atlas2v0/uf1/data1/imp : 16Go
+
+/apps/atlas/atlas2v0/uf1/data1/fic : 325 Go
+
+
+
+
+/apps/oradbf : 4Go
+/apps/oradbf/tipspr01 : 3Go
+
+/apps/oradbf/backup : 125Go
+/apps/oradbf/atpr01 : 300Go
+/apps/oradbf/atdr01 : 300Go
+
+/apps/convert : 2 Go
+/apps/orion : 2 Go
+/apps/ptcom : 2  Go
+/apps/evatl : 2Go
+/apps/evtec : 0,5Go
+/apps/nyrsk : 0,5Go
+------------------------------------Creation ------------
+
+
+
+mklv -y lv_2v0 -t jfs2 -x 1024 vg_data 5G
+ 
+crfs -v jfs2 -d lv_2v0  -m /apps/atlas/atlas2v0 -A yes -p rw -t no && mount  /apps/atlas/atlas2v0  
+
+mklv -y lv_uf1 -t jfs2 -x 1024 vg_data 11G
+
+crfs -v jfs2 -d lv_uf1   -m /apps/atlas/atlas2v0/uf1 -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1 
+
+
+mklv -y lv_uf1ficsav -t jfs2 -x 1024 vg_data 105G
+
+crfs -v jfs2 -d lv_uf1ficsav   -m /apps/atlas/atlas2v0/uf1/ficsav  -A yes -p rw -t no && mount 
+
+/apps/atlas/atlas2v0/uf1/ficsav 
+
+mklv -y lv_uf1data1 -t jfs2 -x 1024 vg_data 42G
+
+crfs -v jfs2 -d lv_uf1data1   -m /apps/atlas/atlas2v0/uf1/data1  -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1
+
+mklv -y lv_uf1infocdr -t jfs2 -x 1024 vg_data 100G
+
+crfs -v jfs2 -d lv_uf1infocdr   -m /apps/atlas/atlas2v0/uf1/data1/infocdr  -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/infocdr
+
+mklv -y lv_uf1infoc -t jfs2 -x 1024 vg_data 85G
+
+crfs -v jfs2 -d lv_uf1infoc   -m /apps/atlas/atlas2v0/uf1/data1/infoc  -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/infoc
+
+
+mklv -y lv_uf1imp -t jfs2 -x 1024 vg_data 16G
+
+crfs -v jfs2 -d lv_uf1imp   -m /apps/atlas/atlas2v0/uf1/data1/imp -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/imp
+
+
+mklv -y lv_uf1fic -t jfs2 -x 4096 vg_data 325G
+
+crfs -v jfs2 -d lv_uf1fic   -m /apps/atlas/atlas2v0/uf1/data1/fic  -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/data1/fic
+
+chown -R atlas:atlas /apps/atlas/atlas2v0 && chmod -R 775 /apps/atlas/atlas2v0
+
+
+mklv -y lv_oradbf -t jfs2 -x 1024 vg_data 4G
+
+crfs -v jfs2 -d lv_oradbf  -m /apps/oradbf -A yes -p rw -t no && mount /apps/oradbf
+
+
+mklv -y lv_tipspr01 -t jfs2 -x 1024 vg_data 3G
+
+crfs -v jfs2 -d lv_tipspr01  -m /apps/oradbf/tipspr01 -A yes -p rw -t no && mount /apps/oradbf/tipspr01
+
+
+mklv -y lv_backup -t jfs2 -x 1024 vg_data 125G
+
+crfs -v jfs2 -d lv_backup   -m /apps/oradbf/backup  -A yes -p rw -t no && mount /apps/oradbf/backup
+
+
+mklv -y lv_atpr01 -t jfs2 -x 4096 extvgBCV2 300G
+
+crfs -v jfs2 -d lv_atpr01   -m /apps/oradbf/atpr01 -A yes -p rw -t no && mount /apps/oradbf/atpr01
+
+
+mklv -y lv_atdr01 -t jfs2 -x 4096 extvgBCV2 300G
+
+crfs -v jfs2 -d lv_atdr01   -m /apps/oradbf/atdr01 -A yes -p rw -t no && mount /apps/oradbf/atdr01
+
+
+chown -R oracle:dba  /apps/oradbf
+
+mklv -y lv_convert -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_convert   -m /apps/convert -A yes -p rw -t no && mount /apps/convert
+
+
+mklv -y lv_orion -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_orion    -m /apps/orion -A yes -p rw -t no && mount /apps/orion
+
+mklv -y lv_ptcom -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_ptcom    -m /apps/ptcom -A yes -p rw -t no && mount /apps/ptcom
+
+mklv -y lv_evatl -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_evatl    -m /apps/evatl -A yes -p rw -t no && mount /apps/evatl
+
+mklv -y lv_evtec -t jfs2 -x 1024 vg_data 500M
+
+crfs -v jfs2 -d lv_evtec    -m /apps/evtec -A yes -p rw -t no && mount /apps/evtec
+
+mklv -y lv_nyrsk -t jfs2 -x 1024 vg_data 500M
+
+crfs -v jfs2 -d lv_nyrsk    -m /apps/nyrsk -A yes -p rw -t no && mount /apps/nyrsk && chown -R atlas:atlas /apps/nyrsk
+
+
+df -g |awk '{print $NF}' |while read i ; do ls -ld $i |awk '{print $3" "$NF}' ; done |sort
+
+atlas /apps/atlas/atlas2v0
+atlas /apps/atlas/atlas2v0/uf1
+atlas /apps/atlas/atlas2v0/uf1/data1
+atlas /apps/atlas/atlas2v0/uf1/data1/fic
+atlas /apps/atlas/atlas2v0/uf1/data1/imp
+atlas /apps/atlas/atlas2v0/uf1/data1/infoc
+atlas /apps/atlas/atlas2v0/uf1/data1/infocdr
+
+/apps/atlas/atlas2v0/uf1/ficsav
+
+
+mklv -y lv_nyrsk -t jfs2 -x 1024 vg_data 500M
+
+crfs -v jfs2 -d lv_nyrsk    -m /apps/atlas/atlas2v0/uf1/ficsav -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/ficsav && chown -R atlas:atlas /apps/atlas/atlas2v0/uf1/ficsav
+
+
+
+mklv -y lv_uf1ficsav -t jfs2 -x 4046 vg_data 95G
+
+crfs -v jfs2 -d lv_uf1ficsav    -m /apps/atlas/atlas2v0/uf1/ficsav -A yes -p rw -t no && mount /apps/atlas/atlas2v0/uf1/ficsav && chown -R atlas:atlas /apps/atlas/atlas2v0/uf1/ficsav
+
+
+
+mklv -y lv_tempo -t jfs2 -x 1024 vg_data 19G
+
+crfs -v jfs2 -d lv_tempo   -m /tempo -A yes -p rw -t no && mount /tempo
+
+
+/savecfg
+-------------------
+
+FS créer sur la prod sv2
+
+extvga2
+
+/apps/oracle/product/9208
+
+======================================
+recompilation des programmes
+
+connexion a l'environnement
+
+ADOAT :
+
+suppression des composants
+
+/apps/atlas/atlas2uf1/uf1$rm -rf $(ls | grep -v data1)
+
+
+ORION:
+
+cd /apps/orion/031/uf1
+
+rm -rf $(ls | grep -v data1)
+
+PTCOM:
+
+cd /apps/ptcom/015/uf1
+
+rm -rf $(ls | grep -v data1)
+
+
+mv count_tab.lst count_tab_AVANT.lst
+---------------
+
+:split -b 10000m atpr12_SV2_9208.tgz
+
+
+sur environnement source (env 13 SV2) :
+
+dans
+/apps/atlas/atlas2v0/uf12
+gtar cvzf /apps/atlas/atlas2v0/uf12/ficsav/ENV_ADOAT.tgz A2_GUI ATLAS2.niv ATLAS2COR.niv ATLAS2_AMELIA.niv ATLASGDI.niv BankOffice COMP
+_PARIS.dat FR51-sene.csv LIV_INST.lst binbtch bincics bms javasrc jcl jclsite jobset map na site src tipsbin
+
+orion
+dans 
+/apps/orion/031/uf12
+
+gtar cvzf /apps/atlas/atlas2v0/uf12/ficsav/ENV_ORIEN.tgz $(ls | grep -v data1)
+
+ptcom
+dans
+
+/apps/ptcom/015/uf12
+
+gtar cvzf /apps/atlas/atlas2v0/uf12/ficsav/ENV_PTCOM.tgz $(ls | grep -v data1)
+
+convertisseur :
+
+/apps/convert
+
+gtar cvzf /apps/atlas/atlas2v0/uf12/ficsav/ENV_Convert.tgz $(ls)
+----------------------------------------
+
+compatible au minimum à 10.1.0
+db_cache_size 50M
+pga_aggregate_target 24M
+db_block_size 4096
+
+db_block_buffers doit êtr eremplacé par db_cache_size à 81920000
+
+ max_rollback_segments à supprimer
+ log_archive_start
+ remote_os_authent
+ 
+ remote_os_authent  déprécié
+ background_dump_dest remplacé par diagnostic_dest à /apps/oracle
+  user_dump_dest idem
+
+
+
+
+----------------------------
+Total to compile : 10318
+End of compilation / 10307 compilations OK / 11 compilations errors
+Complete log = /apps/exploit/work/run_compil_std.log
+Error log = /apps/exploit/work/run_compil_std_err.log
+START COMPILATION DATE : lun 17 jun 16:53:14 HAEC 2013
+END COMPILATION DATE   : mar 18 jun 02:09:16 HAEC 2013
+            COMPILATION MENU
+   =================================================================
+   1  -  Compilation of standard components [6500 scb/3818 cbl]
+   2  -  Compilation of site components [94 scb/333 cbl]
+   3  -  Exit
+   =================================================================
+
+                           Your choice :
+
+=============================================================
+
+a2interf -i 00014087  -B -L lance_Euf1
+
+a2interf -i 00014091  -B -L lance_Euf1
+
+a2interf -i 00014092  -B -L lance_Euf1
+a2interf -i 00014101 -B -L lance_Euf1
+-------------installation sur la preproduction ------------
+
+
+
+
+
+
+
+170906
+
+
+-----------
+a2interf -i 00014087  -B -L lance_Eqc1
+a2interf-cp_p + [[  != *[a-zA-Z]* ]]
+a2interf-cp_p + f_msg ERREUR: Aucun package n'a ete selectionne. ERROR: no package was selected.
+ERREUR: Aucun package n'a ete selectionne.
+a2interf-cp_p + exit 1
+a2interf-cp_p + rm -f /var/tmp/ctrl_liv.36110464 /var/tmp/ctrl_liv_reduit.36110464
+a2interf-cp_p + cd /
+
+
+a2interf-cp_p + f_msg INFO: package PCKCMP.01.00014087 omis (5.0-t8.1) != (5.1-t11.3) INFO: package PCKCMP.01.00014087 skipped (5.0-t8.1) != (5.1-t11.3)
+INFO: package PCKCMP.01.00014087 omis (5.0-t8.1) != (5.1-t11.3)
+a2interf-cp_p + continue
+
+-----------------------------------
+170907
+a2interf -i 00014091  -B -L lance_Eqc1
+170908
+a2interf -i 00014092  -B -L lance_Eqc1
+170911
+a2interf -i 00014101 -B -L lance_Eqc1
+
+==========================
+Renommer un FS
+
+chfs -m /apps/oradbf/atpr12 /apps/oradbf/atpr01
+
+umount /apps/oradbf/atpr01
+
+
+df -g /apps/oradbf/atpr12
+Système de fichiers    Blocs GB      Libre %Util    Iutil %Iutil Monté sur
+/dev/lv_oradbf             4,00       4,00    1%        9     1% /apps/oradbf
+
+mount /apps/oradbf/atpr12
+
+df -g /apps/oradbf/atpr12
+
+
+df -g | grep -i atpr
+/dev/lv_atpr01           300,00     299,95    1%        4     1% /apps/oradbf/atpr12
+
+
+ORA-00381: cannot use both new and old parameters for buffer cache size specification
+on met
+#db_block_buffers = 20000  
+dans init.ora
+
+SQL*Plus: Release 11.2.0.2.0 Production on Wed Jun 19 16:26:21 2013
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Connected to an idle instance.
+ORACLE instance started.
+
+Total System Global Area  839319552 bytes
+Fixed Size                  2224184 bytes
+Variable Size             750784456 bytes
+Database Buffers           83886080 bytes
+Redo Buffers                2424832 bytes
+Database mounted.
+Database opened.
+Disconnected from Oracle Database 11g Enterprise Edition Release 11.2.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+
+
+Oracle Database 11.2 Post-Upgrade Status Tool           06-19-2013 16:53:45
+.
+Component                                Status         Version  HH:MM:SS
+.
+Oracle Server
+.                                         VALID      11.2.0.2.0  00:16:57
+Gathering Statistics
+.                                                                00:01:16
+Total Upgrade Time: 00:18:16
+
+*********************************************************
+*              DBA_REGISTRY                             *
+*********************************************************
+
+COMP_ID         COMP_NAME                                VERSION         STATUS
+--------------- ---------------------------------------- --------------- -----------
+CATALOG         Oracle Database Catalog Views            11.2.0.2.0      VALID
+CATPROC         Oracle Database Packages and Types       11.2.0.2.0      VALID
+
+*********************************************************
+*              INVALID OBJECTS                          *
+*********************************************************
+
+OWNER        OBJECT                         TYPE                STATUS
+------------ ------------------------------ ------------------- -------
+SYSTEM       VDJ901                         VIEW                INVALID
+SYSTEM       SMINSTALLATION_V               VIEW                INVALID
+SYSTEM       SMINSTALLED_PRODUCT_V          VIEW                INVALID
+SYSTEM       SMCLIENT_V                     VIEW                INVALID
+SYSTEM       SMCLIENT_INSTALLATION_V        VIEW                INVALID
+SYSTEM       SMHOST_FOLDER_MAP_V            VIEW                INVALID
+SYSTEM       SMCLIENT_FOLDER_MAP_V          VIEW                INVALID
+ATLAS_HB     CREA_LIEN_ANNUL_1              PROCEDURE           INVALID
+ATLAS_HB     CREA_LIEN_ANNUL_2              PROCEDURE           INVALID
+ATLAS_HB     CREA_LIEN_FINAL                PROCEDURE           INVALID
+ATLAS_HB     CREA_LIEN_TRAIT                PROCEDURE           INVALID
+ATLAS_HB     CREA_LIEN_PRINCIPAL            PROCEDURE           INVALID
+ATLAS_HB     REN_COL_BIS                    PROCEDURE           INVALID
+ATLAS_HB     GESTFK                         PROCEDURE           INVALID
+
+
+
+a2interf -i 00016110 -B -L lance_Euf1
+
+
+cdtn était KO
+
+on crée
+/apps/init_vars.parva4020782 à l'identique de parva4020780
+
+----------------
+
+/apps/unicenter/EM/3.1/sche/scripts
+
+vi envsetlocal
+#
+#     default directory containing job shells in CAISCHD0004
+CAISCHD0004=/apps/exploit/tng
+export CAISCHD0004
+
+===================
+
+
+mklv -y lv_ead -t jfs2 -x 1024 vg_data 2G
+
+crfs -v jfs2 -d lv_ead -m /apps/ead -A yes -p rw -t no && mount /apps/ead
+
+
+
+mklv -y lv_xrdj -t jfs2 -x 1024 vg_data 1G
+
+crfs -v jfs2 -d lv_xrdj -m /apps/xrdj -A yes -p rw -t no && mount /apps/xrdj
+
+
+export A2_BASE=$A2_BASE_OWN
+reprendre le fichier count_tab.sql dans cddj
+et lancer en utilisant la syntaxe de count_tab.sh :
+
+sqlplus atlas/atlas
+set head off
+set linesize 80
+set pagesize 0
+set feed off
+set ver off
+set term off
+start /$A2_VERSION/$A2_ENV/$A2_DATA/jcl/count_tab.sql
+cdi
+mv count_tab.lst count_tab_APRES2.lst
+vérifier que les infos sont correctes dans ce fichier
+
+diff count_tab_AVANT.lst count_tab_APRES2.lst
+
+----------------------
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) / :
+tar xvf /ficsav/EQUIPE_MEO/SocleV4/cashdb.tar
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) / :
+chmod 776 /apps/unicenter/EM/3.1/bases/cashdb
+
+
+SQL: connect to cashdb;
+ERROR  300J: The database shared segment cannot be mapped or created
+SQL:
+
+
+Database CASHDB is not started.
+Entrée standard: FIN
+
+
+           Component Name               Pid        Status
+------------------------------------  -------  --------------
+CA-Calendar Server                    7340180  running
+CA-CCI Server                         11141254  running
+CA-CCI Remote Server                  20774934  running
+CA-CCI Clean Up                       5898240  running
+CA-SNMP Trap Manager                  24510510  running
+CA-SNMP Trap Multiplexer              24379594  running
+CA-DB Listener                        7471244  running
+CA-DB Servers                               -  2 running
+CA-Doc Help Server                    8257572  running
+CA-Event Manager                      8388702  running
+CA-Event SAF Daemon                   6750432  running
+CA-Star Server                        19923008  running
+CA-Job Management Monitor                   -  not active
+CA-Job Management Command Server            -  not active
+CA-Job Management Display Server            -  not active
+CA-Job Management Display Daemons           -  not active
+CA-Job Management Job Tracker               -  not active
+CA-Job Management Station Server            -  not active
+CA-Job Management Syscon Server             -  not active
+CA-Job Management 1.5 Job Servers           -  not active
+CA-Job Management 1.5 Event Mgrs.           -  not active
+CA-Job Management 2.0 Job Server            -  not active
+CA-Job Management 2.0 Event Mgr.            -  not active
+CA-Job Management Event Logger          14090462  running
+Atech Messaging Service               8978458  running
+Atech File Transfer                         -  not active
+Atech Service Control Mgr             16646158  running
+Atech Object Request Broker           18677900  running
+Atech Service Administrator           15532174  running
+Atech caiLogA2                        8519880  running
+Atech caiUxOs                         25165846  running
+
+Status of Unicenter NSM databases:
+Database CAIUNIDB is started.
+Database CASHDB is not started.
+Entrée standard: FIN
+---------------
+
+Atech Messaging Service               8978458  running
+Atech File Transfer                         -  not active
+Atech Service Control Mgr             16646158  running
+Atech Object Request Broker           18677900  running
+Atech Service Administrator           15532174  running
+Atech caiLogA2                        8519880  running
+Atech caiUxOs                         25165846  running
+
+
+MSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+.CACM_E_019 Error requesting the status of Calendar binary file ()
+.CAMSGF_E_SYSERR <2> : Un fichier ou un répertoire du chemin d'accès n'existe pas.
+OSUNLD: semaphore semid=60817423 for CADB_64BIT_OVERRIDE has been removed
+OSUNLD: semaphore semid=61865999 for CADB_64BIT_OVERRIDE has been removed
+ERROR   71J: Cannot open database file CASHFIL2 : FILE # 2, FILE SIZE 10000
+Unable to start Database cashdb.
+cashdb database not started
+
+
+Database caiunidb started, free journal blocks 8167.
+.CAOP_I_DBCACHED Database (re)loaded on Fri Jun 21 15:04:14 2013
+.CAOP_I_MSGRDRINIT Message reader initialized on Fri Jun 21 15:04:14 2013
+.CAOP_I_DAEMONINIT Daemon initialized on Fri Jun 21 15:04:14 2013
+.CACM_S_047 Calendar daemon initialization in progress...
+.CACM_S_005 Number of calendars loaded into storage is 4
+.CACM_S_005 Number of calendars loaded into storage is 4
+.CACM_S_049 ---------------------------------------------------------
+.CACM_S_050                List of available Calendars
+.CACM_S_049 ---------------------------------------------------------
+.CACM_S_051  Calendar (cal_null) is available
+.CACM_S_051  Calendar (cal_dim) is available
+.CACM_S_051  Calendar (cal_tlj) is available
+.CACM_S_051  Calendar (cal_men) is available
+.CACM_S_049 ---------------------------------------------------------
+.CACM_S_048 Calendar daemon initialization was successful. Waiting for requests...
+CATRAPMUX: process already active
+.CATD_S_038 CA SNMP Trap Manager started successfully
+.CADR_I_DOCINIT Doc/Help server initialized on Fri Jun 21 15:04:20 2013
+OSUNLD: semaphore semid=41943060 for CADB_64BIT_OVERRIDE has been removed
+OSUNLD: semaphore semid=42991636 for CADB_64BIT_OVERRIDE has been removed
+ERROR   71J: Cannot open database file CASHFIL2 : FILE # 2, FILE SIZE 10000
+Unable to start Database cashdb.
+cashdb database not started
+.STAR_S_DEASTRT Daemon started on node parva4020782.
+******************************************************
+Unicenter NSM startup initiated.
+******************************************************
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /apps/unicenter/EM :
+==============correction ============
+
+fichier manquant pour le demarrage de la base cashdb
+----
+/apps/unicenter/EM/3.1/cadb/manager/calnm/cadb
+
+-------------------
+
+sauvegarde cal
+
+parva4001843
+ /apps/unicenter/EM/3.1/cadb/manager/calnm/cadb
+ cd $CAIGLBL0000/cal
+tar cvf /ficsav/EQUIPE_MEO/STEVE/cal.tar $(ls -al |grep -v inst_log |grep '^-'| awk '{print $9}')
+
+
+sauvegarde au chaud de la base
+
+
+$CAIGLBL0000/db/scripts/unidbbackup -d caiunidb -f /ficsav/EQUIPE_MEO/STEVE
+$CAIGLBL0000/db/scripts/unidbbackup -d cashdb -f /ficsav/EQUIPE_MEO/STEVE
+
+-------
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /ficsav/EQUIPE_MEO/SocleV4 :
+chmod 777 cal.tar caidbback.0621.544806 caidbback.0621.2715872
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /ficsav/EQUIPE_MEO/SocleV4 :
+cat caidbback.0621.2715872 >CAI.tar
+
+cat caidbback.0621.544806 >CASH.tar
+
+
+arret du produit
+
+
+relance du produit
+
+deactiver l'autoscan
+
+# cd $CAIGLBL0000/sche/scripts
+# $CAIGLBL0000/sche/scripts# vi envsetlocal
+envsetlocal:#  CAISCHD0012 interval between autoscans in hours
+envsetlocal:CAISCHD0012=0           # autoscan every day
+
+
+autoscan est déactivé a mettre en place pour la production
+
+
+
+
+===============
+retour arrier
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /ficsav/EQUIPE_MEO/SocleV4 :
+cd /
+parva4020782 => PRODUCTION SENEGAL SV4  (root) / :
+gtar tvzf /ficsav/EQUIPE_MEO/SocleV4/tng.tar.Z
+
+=====================
+
+ébut de la sauvegarde du jobset present dans la base unicenter ...
+jobset jec2Euf1 not found
+
+Jobset inexistant dans la base unicenter
+Poursuite du chargement du jobset sans sauvegarde ...
+
+Variable rep = n , positionnée par fichier /apps/atlas/atlas2v0/uf1/jobset/parm/jec2Euf1.parm
+
++------------------------------------------------------------------
+| Error:  not found... Aborting
++------------------------------------------------------------------
+
+
+Nom du user de lancement des jcl   [atlas] :
+
+Jobset avec autoscan yes ou no   [no] :
+
+Heure de depart requise du jobset (HH:MM , n pour aucune)? [n] :
+
+Heure de fin requise du jobset (HH:MM ou n pour aucune) ? [n] :
+
+Début de la sauvegarde du jobset present dans la base unicenter ...
+jobset jfjaEuf1 not found
+
+Jobset inexistant dans la base unicenter
+Poursuite du chargement du jobset sans sauvegarde ...
+
++------------------------------------------------------------------
+| Error:  not found... Aborting
++------------------------------------------------------------------
+parva4020782 => PRODUCTION SENEGAL SV4  (atlas) /apps/atlas/atlas2v0/uf1/jobset
+
+==============Passage du fin jour
+
+
+cautil alter jobparm id=j9f1Sene,jaxt01,01 parm2=999
+cautil alter jobparm id=j9f1Sene,jbcvok,01 parm2=999
+cautil alter jobparm id=j9f1Sene,jbcvsp,01 parm2=999
+
+-------------------------
+
+
+
+
+JAXT01 - Debut de step S020 - ARCH       - 21/06/13 18:03:24
+mkdir : 0653-357 Impossible d'accéder au répertoire /savecfg.
+/savecfg: Un fichier ou un répertoire du chemin d'accès n'existe pas.
+JAXT01 - Fin de step   S020 - ARCH       - 21/06/13 18:03:24 - 00:00:00 - RC = 2
+
+JAXT01 - **************************************************************
+JAXT01 - *              FIN ANORMALE DU JOB JAXT01                    *
+JAXT01 - **************************************************************
+
+JAXT01 - **************************************************************
+JAXT01 - *             FIN ANORMALE D UN UTILITAIRE                   *
+JAXT01 - **************************************************************
+
+JAXT01 - Fin de job 21/06/13 18:03:25 - 00:00:02 - RC = 020
+parva4020782 => PRODUCTION SENEGAL SV4  (atlas) /apps/atlas/atlas2v0/uf1/data1/imp
+
+
+correction
+
+
+mklv -y lv_savecfg -t jfs2 -x 1024 vg_apps 3G
+
+crfs -v jfs2 -d lv_savecfg    -m /savecfg -A yes -p rw -t no && mount /savecfg && chown -R sys:sys /savecfg
+
+
+
+
+mklv -y lv_arch-t jfs2 -x 1024 vg_data 50G
+
+crfs -v jfs2 -d lv_arch    -m /apps/arch -A yes -p rw -t no && mount /apps/arch && chown -R atlas:atlas /apps/arch
+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (atlas) /apps/arch
+mkdir imp-0 imp-1 imp-2 imp-3 imp-pfe
+parva4020782 => PRODUCTION SENEGAL SV4  (atlas) /apps/arch
+
+
+--------------
+
+
+
+JAXT01 - * S080 - INFO - Renseignements complementaires README.TXT   *
+
+JAXT01 - Debut de step S080 - INFO       - 21/06/13 18:07:55
+JAXT01 - Fin de step   S080 - INFO       - 21/06/13 18:07:55 - 00:00:00 - RC = 0
+rm -f /apps/atlas/atlas2v0/uf1/data1/fic/AXT_TJT01**
+
+JAXT01 - **************************************************************
+JAXT01 - *               FIN NORMALE DU JOB JAXT01                    *
+JAXT01 - **************************************************************
+
+JAXT01 - Fin de job 21/06/13 18:07:55 - 00:00:11 - RC = 0
+parva4020782 => PRODUCTION SENEGAL SV4  (atlas) /apps/atlas/atlas2v0/uf1/data1/imp
+
+===================
+
+creation du user atlas_hb car le job JHBF02 est en submission fail 
+
+meme id que la production sv2
+
+
+create synonym ops$atlas_hb.TDN39
+              for atlas_hb.TDN39;
+
+create synonym ops$atlas_hb.TDN60
+              for atlas_hb.TDN60;
+
+create synonym ops$atlas_hb.TDN32
+              for atlas_hb.TDN32;
+
+JHBF02 - Fin de step   S030 - grant      - 21/06/13 18:44:48 - 00:00:07 - RC = 0
+rm -f /apps/atlas/atlas2v0/uf1/data1/fic/HBF_TJF02**
+
+JHBF02 - **************************************************************
+JHBF02 - *               FIN NORMALE DU JOB JHBF02                    *
+JHBF02 - **************************************************************
+
+JHBF02 - Fin de job 21/06/13 18:44:48 - 00:03:02 - RC = 0
+parva4020782 => PRODUCTION SENEGAL SV4  (atlas) /apps/atlas/atlas2v0/uf1/data1/imp
+id atlas_hb
+===================================
+

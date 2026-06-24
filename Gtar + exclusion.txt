@@ -1,0 +1,13 @@
+
+
+
+
+
+
+gtar -xvzf /apps/restauration/ANIS/rep_infocdrreun_07082012.tgz --exclude="base_dr/*.load"
+
+
+
+
+
+Et si vous voulez exclure plusieurs répertoires, il faut mettre à chaque fois l'option --exclude devant chacun des répertoires à exclure.

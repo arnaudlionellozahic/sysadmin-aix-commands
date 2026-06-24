@@ -1,0 +1,222 @@
+Comment créer et décompresser une archive avec tar?
+
+(Écrit en orthographe recommandée. Voir note en bas de page)
+
+
+
+
+Vous avez plusieurs fichiers ou répertoires que vous voulez archiver, la commande tar est votre amie:
+
+Création d'une archive : vous voulez archiver le répertoire /home/toto/Mes_documents dans une archive que vous appellerez (comme vous voudrez !) par exemple: "/répertoire_de_votre_archive/MesDocs.tar". Faites : 
+
+tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto/Mes_documents      
+
+Explications:         tar : nom de la commande.
+
+c pour créer
+/home/toto/Mes_documents    --> c'est le nom de ce qu'on veut archiver
+MesDocs.tar                            --> c'est le nom qu'on donne à l'archive qui va être créée
+/répertoire_de_votre_archive/    --> le répertoire où vous voulez que tar crée votre archive
+
+Une petite précision en passant : la commande tar ne rajoute pas l'extension .tar à la fin de l'archive. C'est vous-même qui devrez la mettre. Si vous l'oubliez, il vous suffira de renommer votre archive après coup.
+
+
+
+Et si vous voulez archiver plusieurs répertoires dans la même archive, par exemple : /home/toto/Mes_documents/   /etc/   /usr/local/  faites : 
+
+ tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto/Mes_documents   /etc/    /usr/local/
+
+Explications : le premier nom de fichier est celui de l'archive qui va être créée; tous les suivants sont ceux qui vont être archivés par tar.
+
+Quelque chose pourra vous gêner quand vous ferez une archive. Par exemple, si vous faites :
+
+tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto/Mes_documents, vous allez vous retrouver avec /home/toto/ dans votre archive. Si vous n'en voulez pas, faites :
+
+cd /home/toto/
+
+tar cf /répertoire_de_votre_archive/MesDocs.tar ./Mes_documents
+
+Bon, j'ai compris comment archiver plusieurs répertoires. Mais si je veux exclure un sous-répertoire de mon archivage ? Par exemple, je veux archiver /home/toto/, mais PAS /home/toto/Mes_documents/
+
+Tout simple. Il suffit d'utiliser l'option --exclude suivi du nom du répertoire (ou du fichier) que vous ne voulez pas (ici, on fera --exclude /home/toto/Mes_documents). Attention : NE METTEZ PAS LE / à la fin du chemin, sinon ça ne marchera pas. Exemple : il faut mettre /home/toto/Mes_documents et PAS /home/toto/Mes_documents/)
+
+tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto --exclude /home/toto/Mes_documents 
+
+Et si vous voulez exclure plusieurs répertoires, il faut mettre à chaque fois l'option --exclude devant chacun des répertoires à exclure. Exemple : pour exclure les répertoires /home/toto/Mes_documents et /home/toto/Mes_images, il suffit de faire :
+
+tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto --exclude /home/toto/Mes_documents --exclude /home/toto/Mes_images
+
+Et si je veux désarchiver... une archive ? Il suffit de faire : 
+
+tar xf /répertoire_de_votre_archive/MesDocs.tar         
+x pour eXtraire
+
+Mais avant de désarchiver, je voudrais savoir quels fichiers il y dedans.
+
+Utilisez l'option "t" et le tour sera joué:
+
+tar tf  /répertoire_de_votre_archive/ MesDocs.tar
+
+Et pour compresser l'archive en même temps qu'elle se crée, comment faire ? 
+
+Rajouter l'option z pour compresser avec gzip et l'option j pour compresser avec bzip2. (L'option de compression  est l'option par défaut, c'est à dire -5)
+tar czf pour créer une archive compressé par gzip2
+tar cjf pour créer une archive compressée par bzip2
+Bien sur, c'est beaucoup plus lent.
+Il est possible de compresser avec d'autres options (c'est à dire d'autres taux de compression).
+
+
+Pour désarchiver une archive compressée, c'est la même chose.
+
+tar xzf /répertoire_de_votre_archive/ MesDocs.tar.gz
+ou
+tar xjf /répertoire_de_votre_archive/MesDocs.tar.bz
+
+Là aussi, la commande tar ne rajoutera pas l'extension tar.gz ou tar.bz et il vous faudra le faire vous-même. Par contre, si vous compressez après coup (avec la commande bzip ou gzip), l'extension bz ou gz sera rajouté automatiquement.
+
+
+
+J'ai désarchivé /répertoire_de_votre_archive/ MesDocs.tar et je n'arrive pas à retrouver les fichiers désarchivés. 
+
+C'est normal : tar désarchive dans le répertoire courant, donc pas du tout obligatoirement dans le répertoire où est l'archive. (heureusement d'ailleurs, on ferait comment pour désarchiver directement à partir d'un CDrom ?) 
+Donc, si je suis dans /home/toto et que mon fichier /répertoire_de_votre_archive/ MesDocs.tar est dans /home/toto/Mes_documents/, en faisant :
+tar xf /répertoire_de_votre_archive/MesDocs.tar, je vais retrouver le résultat du désarchivage dans /home/toto/ et non pas dans /home/toto/Mes_documents/.
+Rappel: pour connaitre le répertoire courant (c'est à dire celui où on se trouve) faire   pwd. 
+Pour changer de répertoire, faire: cd /nouveau_repertoire/
+
+J'ai bien compris: si je veux désarchiver dans /home/toto/Mes_documents/Courrier/ (par exemple), je fais : 
+
+cd /home/toto/Mes_documents/Courrier/         et ensuite
+tar xf /répertoire_de_votre_archive/MesDocs.tar
+
+C'est bien beau tout ça, mais si j'ai une archive de 500 Mo et qu'il n'y a un ou deux fichiers qui m'intéressent, je ne vais quand même pas désarchiver 500Mo pour ne garder qu'un ou deux fichiers 30 Ko ! 
+
+Si par exemple, dans l'archive /répertoire_de_votre_archive/MesDocs.tar, il y a les fichiers (ou répertoires) images1 et images2 que vous voulez extraire,  vous devez d'abord connaitre leurs chemins complets à l'intérieur de l'archive avec l'option t
+tar tf /répertoire_de_votre_archive/MesDocs.tar
+qui va vous lister tous les fichiers de l'archive avec leurs chemins. Comme ça risque d'être long, vous pouvez filtrer avec grep en faisant :
+tar tf /répertoire_de_votre_archive/MesDocs.tar  | grep images1 (idem avec images2)
+Mettons que vous trouviez :
+Mon_album/Mes_photos/image1
+et
+Mon_album/Mes_dessins/image2
+Faites :
+tar xf /répertoire_de_votre_archive/MesDocs.tar  Mon_album/Mes_photos/image1  mon_album/Mes_dessins/image2
+Et tar va extraire *uniquement* ces deux fichiers de cette grosse archive (ça peut être un peu long).
+
+Aïe ! Ça commence mal : j'ai essayé d'extraire le fichier Mon_album/Mes clichés/photo4 et j'ai ce message d'erreur : 
+
+tar: Mon_album/Mes: ne peut être retrouvé dans l'archive.
+
+tar: clichés/photo4: ne peut être retrouvé dans l'archive.
+
+tar: Statut d'erreur reporté d'erreurs précédentes.
+
+C'est pas au point, votre truc ! 
+
+C'est à cause de l'espace dans "Mes clichés". Deux solutions : vous renommez en mettant _ à la place de l'espace. Ou alors vous mettez le nom complet entre " " comme ça.
+tar xf /répertoire_de_votre_archive/MesDocs.tar "Mon_album/Mes clichés/photo4"
+
+
+J'ai archivé le répertoire /home/toto/Mes_documents/Mes_images/  dans lequel il y avait "photo1" et "photo2" et en lisant l'archive (option t) ou en la désarchivant (option x), je me trouve avec des noms de fichiers "à rallonge"
+/home/toto/Mes_documents/Mes_images/photo1 et
+/home/toto/Mes_documents/Mes_images/photo2
+Il n'y a pas moyen de n'avoir que "photo1" et "photo2" ?
+
+Il suffit de se mettre dans le répertoire à archiver en faisant :
+cd /home/toto/Mes_documents/Mes_images/    puis de lancer :
+tar cf /répertoire_de_votre_archive/MesDocs.tar *
+* veut dire tout ce qui se trouve dans le répertoire courant.
+Faites attention quand même à l'usage que vous ferez de cette archive (surtout si elle contient de nombreux fichiers). Si vous, ou quelqu'un d'autre, la désarchivez dans un répertoire quelconque, vous allez vous retrouvez avec une foule de fichiers qui vont y être rajoutés, et vous aurez bien du travail pour savoir quels étaient les fichiers qui étaient là à l'origine. Bon courage et bonne chance ! Si vous vous trouvez devant une telle archive, il  vaut mieux se mettre (avec la commande cd) dans un répertoire vide. Vous serez toujours à temps de déplacer vos fichiers.
+
+Donc, en résumé, si avec la commande tar tf, vous avez quelque chose du genre :
+photo1
+photo2
+photo3
+....
+mettez-vous dans un répertoire vide, parce que tout va être désarchivé en vrac.
+
+Si vous avez quelque chose dans ce gout-là :
+album/photo1
+album/photo2
+album/photo3
+....
+vous pouvez vous en dispenser, puisque tout va être désarchivé dans le répertoire album qui va être créé.
+
+A chaque fois que je crée une archive, j'ai ce message d'erreur : 
+
+tar: Retrait de l'en-tête `/' des noms des membres
+
+Ce n'est pas un message d'erreur: tar enlève le premier / pour donner un chemin relatif aux fichiers de l'archive au lieu de leur donner un chemin absolu pour des raisons de sécurité . En effet, imaginez que vous archiviez le répertoire /etc. Dans l'archive, vous aurez par exemple etc/passwd (ou /etc/shadow). Lors de l'archivage, ça n'a aucune incidence. Lors du désarchivage, par contre, si vous aviez /etc/passwd dans l'archive, il va écraser le /etc/passwd existant! Jolie catastrophe! Comme vous avez etc/passwd, il va se désarchiver dans le répertoire courant (par exemple /home/toto/ ce qui donnera /home/toto/etc/passwd). Ensuite, libre à vous de mettre ce fichier passwd à la place de celui qui est déjà dans /etc (en supposant que vous savez ce que vous faites). Mais ça ne se fera pas automatiquement, ni à votre insu.
+Notez qu'il est possible d'invalider cette action de suppression des / avec l'option -P (ce qui peut être dangereux). Donc, si vous désarchivez un fichier.tar, jetez-y un coup d'oeil avant avec l'option -t. Si les noms des fichiers ne commencent pas par /, c'est tout bon; sinon, danger !
+
+Dernière chose, pour reprendre l'exemple de etc/passwd, il est bien clair que si votre répertoire courant est la racine (c'est à dire si vous avez fait un cd / ou si la commande pwd vous renvoie /, votre fichier /etc/passwd original sera écrasé par le fichier etc/passwd de votre archive.
+Conclusion, avant de désarchiver un fichier tar, rendez-vous dans un répertoire où vous ne risquez pas grand-chose: créez-le même exprès pour l'occasion avec la commande mkdir. Exemple :
+mkdir /home/toto/repertoire_de_desarchivage
+cd /home/toto/repertoire_de_desarchivage
+tar xf /répertoire_de_votre_archive/MesDocs.tar
+
+Si l'archive est grosse (et encore plus si elle est compressée, la simple lecture avec tar tf peut être longue et fastidieuse, particulièrement si vous cherchez un fichier dans plusieurs archives gravées sur différents Cds. Il est donc judicieux de générer un index que vous mettrez dans le même répertoire (ou Cd) que l'archive elle-même. Pour faire cet index:
+
+tar tf /répertoire_de_votre_archive/MesDocs.tar > /répertoire_de_votre_archive/Index_de_MesDocs
+
+
+
+La génération de cet index pourra aussi vous servir de vérification de votre archive. Je m'explique: vous faites votre archive tar et vous la rangez à l'abri (après l'avoir gravée sur un CD). Or, si elle a un défaut, vous ne vous en rendrez compte que le jour où vous aurez besoin de récupérer vos données (par exemple si votre disque dur vous lâche), c'est-à-dire trop tard. Comment vérifier donc votre archive? J'ai trouvé trois moyens: 
+La commande tar tf (tjf si elle est compressée par bzip2 et tzf par gzip) vous affichera la liste complète des fichiers et répertoires archivés... sauf si l'archive est corrompue. Dans ce cas, le programme tar tf s'arrêtera sur le message d'erreur suivant:
+
+"bzip2: Data integrity error when decompressing.
+        Input file = (stdin), output file = (stdout)
+It is possible that the compressed file(s) have become corrupted.
+You can use the -tvv option to test integrity of such files.
+You can use the `bzip2recover' program to attempt to recover
+data from undamaged sections of corrupted files."
+
+Si vous n'avez pas ce message, c'est bon signe.
+
+Attention !! Ce message ne sera pas enregistré dans l'index que vous auriez généré avec la commande :
+tar tf /répertoire_de_votre_archive/MesDocs.tar > /répertoire_de_votre_archive/Index_de_MesDocs, donc ne vous croyez pas tranquille si vous n'avez pas vu de message d'erreur dans l'index.
+
+En effet, le signe > redirige les messages normaux (canal standard) de la commande tar vers le fichier Index_de_MesDocs, mais il ne redirige pas les messages d'erreurs (canal d'erreurs). Pour rediriger ces derniers, il faudrait remplacer > par 2>
+Si vous voulez rediriger les messages normaux et d'erreurs dans l'index, remplacez > par 2&> et le tour sera joué.
+
+
+La commande tar df (djf ou dzf) comparera l'archive qui vient d'être créée avec les fichiers et répertoires que vous venez d'archiver.
+Donc, si vous venez de faire...
+tar cf /répertoire_de_votre_archive/MesDocs.tar  /home/toto/Mes_documents
+
+...et si la commande ne vous renvoie rien, c'est bon signe. Bien entendu, il ne faut pas qu'entretemps, vos données à archiver aient changé (ce qui est le cas si vous archivez le répertoire caché de configuration de votre gestionnaire de fenêtres alors même que vous vous en servez pour créer l'archive)
+
+Si vous avez ce message par contre, c'est pas bon du tout :
+"bzip2: Data integrity error when decompressing.
+        Input file = (stdin), output file = (stdout)"
+
+
+Le programme de compression bzip2 peut être source de problème (rarement toutefois). Vérifiez votre archive (compressée) en faisant:
+bzip2 -tvv /répertoire_de_votre_archive/MesDocs.tar.bz2
+
+Si tout se passe bien, vous verrez une série de lignes qui ressemblent à ça:
+[1: huff+mtf rt+rld]
+[2: huff+mtf rt+rld]
+
+S'il y a un problème, le programme s'arrêtera avec ce message d'erreur:
+[159: huff+mtf rt+rld]data integrity (CRC) error in data
+
+
+Si les tests ne sont pas bons, pas d'hésitation: recommencez !
+
+
+
+Si vous faites des sauvegardes et que vous voulez conserver les droits sur les fichiers, utilisez l'option -p (*pas* -P, attention: voir plus haut). Je ne l'ai jamais essayée, mais il me semble que cette option -p n'est à utiliser que lors du désarchivage (elle serait donc inutile au moment de l'archivage)
+
+
+Voilà, il y aurait encore plein de choses à dire sur tar, mais vous avez déjà de quoi vous amuser (et puis n'oubliez pas que "man tar" et "info tar" sont vos amis :-)
+
+
+Ce howto est soumis à la licence LGPL. Vous pouvez le copier, le traduire et le diffuser comme bon vous semble à condition de ne pas l'altérer et de laisser intacte la présente notice. Il a été écrit avec l'aide de plusieurs membres de la communauté du logiciel libre que je remercie au passage.
+
+
+
+
+
+Des erreurs, des suggestions ? écrivez-moi.  Voir mon adresse ici http://astuce.linux.free.fr/index.html
+

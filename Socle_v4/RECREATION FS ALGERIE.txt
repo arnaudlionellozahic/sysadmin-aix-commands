@@ -1,0 +1,52 @@
+mklv -y lv_exploit -t jfs2 -e x extvga1 3G
+crfs -v jfs2 -d lv_exploit -m /apps/exploit -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/exploit
+
+mklv -y lv_work -t jfs2 -e x extvga1 250M
+crfs -v jfs2 -d lv_work -m /apps/exploit/work -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/exploit/work
+
+mklv -y lv_atlas -t jfs2 -e x extvga1 2500M
+crfs -v jfs2 -d lv_atlas -m /apps/atlas/atlas2v0 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/atlas/atlas2v0
+
+
+mklv -y lv_atsec -t jfs2 -e x extvga1 300M
+crfs -v jfs2 -d lv_atsec -m /apps/oradbf/atsec -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/oradbf/atsec
+
+mklv -y lv_aptf01 -t jfs2 -e x extvga1 4G
+crfs -v jfs2 -d lv_aptf01 -m /apps/oradbf/aptf01 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/oradbf/aptf01
+
+mklv -y lv_outilsCID -t jfs2 -e x extvga1 15G
+crfs -v jfs2 -d lv_outilsCID -m /apps/exploit/outilsCID -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/exploit/outilsCID
+
+mklv -y lv_oradbfbck -t jfs2 -e x extvga1 114G
+crfs -v jfs2 -d lv_oradbfbck -m /apps/oradbf/backup -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/oradbf/backup
+
+mklv -y lv_savecfg -t jfs2 -e x extvga1 3G
+crfs -v jfs2 -d lv_savecfg -m /savecfg -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /savecfg
+
+mklv -y lv_arch -t jfs2 -e x extvga1 39G
+crfs -v jfs2 -d lv_arch -m /apps/arch -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/arch
+
+mklv -y lv_oraclient  -t jfs2 -e x extvga1 15G
+crfs -v jfs2 -d lv_oraclient  -m  /apps/oracle/product/1120cli32 -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount  /apps/oracle/product/1120cli32
+
+mklv -y lv_arch -t jfs2 -e x extvga1 39G
+crfs -v jfs2 -d lv_arch -m /apps/arch -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/arch
+
+mklv -y lv_BankOffice -t jfs2 -e x vg_apps 500M
+crfs -v jfs2 -d lv_BankOffice -m /apps/BankOffice -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/BankOffice
+
+mklv -y lv_BankOffbkof -t jfs2 -e x vg_apps 9G
+crfs -v jfs2 -d lv_BankOffbkof -m /apps/BankOffice/bkof -A yes -p rw -a agblksize=4096 -a logname=INLINE
+mount /apps/BankOffice/bkof

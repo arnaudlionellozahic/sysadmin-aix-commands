@@ -1,0 +1,799 @@
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps$ps -ef
+     UID      PID     PPID   C    STIME    TTY  TIME CMD
+    root        1        0   0   Jan 17      -  1:24 /etc/init
+    root  2228374        1   0   Jan 17      -  0:06 ./nimbus /apps/nimsoft
+    root  2752746        1   0   Jan 17      -  0:00 /usr/ccs/bin/shlap64
+    root  2949164  2228374   0   Jan 17      -  1:02 nimbus(controller)
+    root  3014716  2097488   0   Jan 17      -  0:00 /usr/sbin/portmap
+    root  3080238  2097488   0   Jan 17      -  0:00 /usr/sbin/syslogd -r
+    root  3145778        1   0   Jan 17      -  0:18 /apps/unicenter/EM/3.1/sche/bin/cau9cli.exe
+    root  3211488        1   0   Jan 17      -  0:01 /opt/freeware/cimom/pegasus/bin/cimprovagt 0 12 16 root SLPProviderModule
+    root  3276800        1   0   Jan 17      -  0:17 /usr/sbin/cron
+  oracle  3408058        1   0   Jan 18      -  0:05 ora_qmnc_atsec
+    root  3473426  2097488   0   Jan 17      -  0:00 /usr/sbin/sshd
+    root  3538962        1   0   Jan 17      -  0:00 /opt/ibm/director/cimom/bin/tier1slp
+     apl  3604650 54132894   0 05:56:26      -  0:00 nsqpub
+    root  3670150  1901084   0   Jan 29      -  0:04 /usr/bin/vmstat 19
+    root  3801158  3145778   0   Jan 17      -  0:04 /apps/unicenter/EM/3.1/sche/bin/cau9cli.exe
+     apl  3866660        1   0 05:56:26      -  0:00 nsqmq -m* +u -e -s15010
+    root  3997760        1   0   Jan 17      -  0:13 /apps/eTAC/bin/seagent SEOSD
+    root  4063300        1   0   Jan 17      -  0:01 [cimserve]
+    root  4128926        1   1   Jan 17      - 23:44 /apps/eTAC/bin/seosd
+    root  4259946  3145778   0   Jan 17      -  0:04 /apps/unicenter/EM/3.1/sche/bin/cau9cli.exe
+    cadb  4325630  4522140   0   Jan 17      -  8:50 /system/dbserver 1048593 11534559 root
+    root  4522140        1   0   Jan 17      -  4:18 /apps/unicenter/EM/3.1/sche/bin/cau9lcs.exe 15728864
+    root  4587692  2818738   0   Jan 17      - 17:13 /apps/unicenter/EM/3.1/cci/bin/ccirmtd
+    root  4653198        1   0   Jan 17      -  0:18 /apps/OmniVision/bin/omv_mng
+    root  4784366        1   0   Jan 17      -  0:00 /apps/unicenter/EM/3.1/bin/caidoc
+    root  4849718        1   0   Jan 17      - 19:47 ./dm_primer start
+    root  4915220        1   0   Jan 17      -  0:00 /apps/unicenter/EM/3.1/sche/bin/wmrsd
+    root  5046318        1   0   Jan 17      -  0:00 /apps/unicenter/EM/3.1/snmp/bin/catrapd
+    root  5111940  3145778   0   Jan 17      -  0:04 /apps/unicenter/EM/3.1/sche/bin/cau9cli.exe
+    root  5243080        1   0   Jan 17      - 18:36 /apps/unicenter/EM/3.1/sche/bin/cau9mtr.exe
+ l114210  5308630  5505204   0 12:54:58  pts/6  0:00 -ksh
+    root  5439532        1   0   Jan 17      -  5:03 /apps/unicenter/DSM/r11/Agent/CCNF/bin/ccnfagent
+    root  5505204  2163158   0 12:54:57      -  0:00 telnetd -a
+    root  5570790  2753094   0   Jan 17      - 14:58 /apps/unicenter/EM/3.1/sche/bin/cau9dcm.exe 15728864 1
+  oracle  5898478        1   0   Jan 18      -  0:20 ora_diag_aptf01
+  oracle  6226086        1   0   Jan 18      - 17:45 ora_pmon_atsec
+   atlas  6291708 26345770   0   Jan 28      -  0:01 unikixtran 7
+    root  6422562  2097488   0   Jan 17      -  0:02 /usr/sbin/rsct/bin/vac8/IBM.DMSRMd
+   bkof3  6684806 13107500   0   Jan 18      -  0:00 unikixtnemux
+    root  6815860  2097488   0   Jan 17      -  0:00 /usr/sbin/rsct/bin/IBM.DRMd
+  oracle  6946854        1   0   Jan 29      -  0:06 ora_mman_atdr01
+   bkof1  7078092 13304282   0   Jan 18      -  0:00 unikixtran 1
+  oracle  7340098        1   0   Jan 18      -  0:29 ora_dbw3_surfi
+  oracle  7405620        1   0   Jan 18      -  0:35 ora_dbrm_aptf03
+  oracle  7471356        1   0   Jan 18      -  0:29 ora_dbw1_aptf01
+  oracle  7536666        1   0   Jan 18      -  0:28 ora_dbw2_aptf01
+  oracle  7602208        1   0   Jan 18      -  1:05 ora_mmon_atsec
+  oracle  7667732        1   0   Jan 18      -  0:25 ora_dbw2_atsec
+  oracle  7733498        1   0   Jan 18      -  2:05 ora_mmnl_atsec
+  oracle  7798802        1   0   Jan 18      -  3:44 ora_dia0_aptf01
+  oracle  7864338        1   0   Jan 18      -  0:37 ora_dbrm_aptf01
+  oracle  7929876        1   0   Jan 18      -  0:30 ora_dbw0_aptf01
+  oracle  7995410        1   0   Jan 18      -  0:22 ora_mman_aptf01
+  oracle  8060956        1   0   Jan 18      -  0:09 ora_p002_aptf01
+  oracle  8126482        1   0   Jan 18      -  0:29 ora_dbw5_aptf01
+  oracle  8192020        1   0   Jan 18      -  0:24 ora_lgwr_aptf01
+  oracle  8257558        1   0   Jan 18      -  2:32 ora_ckpt_aptf01
+  oracle  8323100        1   0   Jan 18      -  0:09 ora_p000_aptf01
+  oracle  8388634        1   0   Jan 18      -  0:09 ora_p001_aptf01
+  oracle  8454330        1   0   Jan 18      -  1:11 ora_mmon_aptf02
+  oracle  8519750        1   0   Jan 18      -  0:27 ora_dbw1_aptf02
+  oracle  8585300        1   0   Jan 18      -  1:07 ora_psp0_aptf03
+  oracle  8650812        1   0   Jan 18      -  0:22 ora_lgwr_aptf03
+  oracle  8716436        1   0   Jan 18      -  0:05 ora_reco_aptf03
+  oracle  8781896        1   0   Jan 18      -  8:10 ora_vktm_aptf02
+  oracle  8847456        1   0   Jan 18      -  0:05 ora_qmnc_aptf02
+  oracle  8912966        1   0   Jan 18      -  0:28 ora_dbw0_aptf02
+  oracle  8978510        1   0   Jan 18      -  0:26 ora_dbw5_aptf02
+  oracle  9044044        1   0   Jan 18      -  0:26 ora_dbw3_aptf02
+  oracle  9109582        1   0   Jan 18      -  0:27 ora_dbw4_aptf02
+  oracle  9175120        1   0   Jan 18      -  0:22 ora_lgwr_aptf02
+  oracle  9240660        1   0   Jan 18      -  0:05 ora_reco_aptf02
+  oracle  9306232        1   0   Jan 18      -  0:20 ora_diag_aptf03
+  oracle  9371780        1   0   Jan 18      -  0:20 ora_mman_aptf03
+  oracle  9437224        1   0   Jan 18      -  2:42 ora_mmnl_surfi
+  oracle  9502722        1   0   Jan 25      -  4:31 ora_vktm_atmir01
+  oracle  9568370        1   0   Jan 18      -  0:05 ora_qmnc_surfi
+  oracle  9633920        1   0   Jan 18      -  0:20 ora_diag_surfi
+  oracle  9699458        1   0   Jan 18      -  1:12 ora_mmon_aptf03
+  oracle  9765060        1   0   Jan 18      -  0:29 ora_dbw4_surfi
+  oracle  9830536        1   0   Jan 18      -  0:09 ora_p001_aptf03
+  oracle  9896110        1   0   Jan 25      -  0:16 ora_dbw1_tipspr01
+  oracle  9961570        1   0   Jan 18      -  0:30 ora_dbw0_surfi
+  oracle 10027054        1   0   Jan 18      -  0:29 ora_dbw1_surfi
+  oracle 10092568        1   0   Jan 18      -  8:13 ora_vktm_surfi
+  oracle 10158094        1   0   Jan 18      -  0:28 ora_dbw5_surfi
+  oracle 10223820        1   0   Jan 18      -  0:05 ora_q001_aptf03
+  oracle 10354838        1   0   Jan 18      -  0:29 /apps/oracle/product/11204/bin/tnslsnr LISTENER -inherit
+   bkof1 10420422 13304282   0   Jan 18      - 12:53 unikixadmin
+  oracle 10485864        1   0   Jan 25      -  0:04 ora_p002_tipspr01
+  oracle 10551368        1   0   Jan 25      -  1:30 ora_ckpt_atmir01
+  oracle 10616878        1   0   Jan 25      -  0:22 ora_lgwr_atmir01
+   atlas 10748026 26345770   0   Jan 28      -  0:00 unikixtran 6
+   bkof1 11010266 13304282   0   Jan 18      -  0:00 unikixsock
+  oracle 11206730        1   0   Jan 25      -  0:19 ora_dbw4_atmir01
+  oracle 11272360        1   0   Jan 25      -  0:39 ora_psp0_tipspr01
+  oracle 11403354        1   0   Jan 25      -  0:05 ora_p003_atmir01
+  oracle 11468898        1   0   Jan 18      -  0:21 ora_smco_aptf03
+  oracle 12124356        1   0   Jan 29      -  0:10 ora_dbw0_atdr01
+  oracle 12517572        1   0   Jan 25      -  0:37 ora_psp0_atmir01
+   bkof3 12779528 26935628   0   Jan 18      -  0:00 unikixtran 3
+   bkof3 12976346 26935628   0   Jan 18      -  0:00 unikixtran 0
+  oracle 13172790        1   0   Jan 25      -  0:04 ora_p003_tipspr01
+   atlas 13369552 26345770   0   Jan 28      -  0:25 unikixtran 14
+ l300447 13434892  5046744   0 05:49:49  pts/2  0:00 -ksh
+  oracle 13762718        1   0   Jan 27      -  2:11 ora_mmnl_atpr01
+   atlas 15532120 26345770   0   Jan 28      -  0:00 unikixCommMgr
+  oracle 15794388        1   0   Jan 25      -  0:03 ora_qmnc_tipspr01
+     apl 15859766        1   0 05:56:26      -  0:00 nsqtacon -mANORI01P -i
+   bkof1 15991030 17367152   0   Jan 18      -  0:00 unikixtnemux
+   bkof1 16973920 13304282   0   Jan 18      -  0:00 unikixept
+   atlas 17170652 26345770   0   Jan 28      -  0:12 unikixstrt
+   bkof1 17367152 13304282   0   Jan 18      -  0:00 unikixCommMgr
+  oracle 17825804        1   0   Jan 25      -  0:12 ora_smco_tipspr01
+   atlas 17891352 45023446   0   Jan 28      -  0:04 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof3 17957086 26935628   0   Jan 18      -  0:00 unikixtcp
+  oracle 18743532        1   0   Jan 25      -  0:16 ora_dbw5_tipspr01
+   bkof3 18940020 13107500   0   Jan 18      -  0:00 unikixtnemux
+  oracle 19464330        1   0   Jan 29      -  0:10 ora_dbw1_atdr01
+  oracle 19792126        1   0   Jan 25      -  0:02 ora_q000_tipspr01
+   bkof1 20316312 13304282   0   Jan 18      -  0:00 unikixprt
+  oracle 20578436        1   0   Jan 25      -  0:10 ora_smon_atmir01
+   bkof2 21233824 27590852   0   Jan 18      -  0:00 unikixrcv
+  oracle 21757976        1   0   Jan 27      -  0:02 ora_q000_atpr01
+   atlas 22216910 26345770   0   Jan 28      -  0:01 unikixtran 13
+   bkof3 22347982 26935628   0   Jan 18      -  0:00 unikixept
+  oracle 22675598        1   0   Jan 25      -  4:30 ora_vktm_tipspr01
+  oracle 22806766        1   0   Jan 25      -  0:13 ora_smon_tipspr01
+   bkof1 22872074 13304282   0   Jan 18      -  0:00 unikixtcp
+  oracle 23068700        1   0 08:54:50      -  0:00 ora_w000_atdr01
+  oracle 23920826        1   0   Jan 27      -  0:10 ora_mman_atpr01
+    cadb 24051816  5570790   0   Jan 18      - 36:34 /system/dbserver 17825800 723518275 root
+   atlas 24445098 35062294   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof1 24641742 13304282   0   Jan 18      -  0:00 unikixtran 2
+   bkof3 24707254 26935628   0   Jan 18      -  0:00 unikixtran 2
+   atlas 24903844 32702714   0   Jan 28      -  0:01 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+     mqm 25296960 38863272   0   Jan 28      -  0:07 /usr/mqm/bin/amqzmur0 -m ANORI01P
+  oracle 25362576        1   0   Jan 29      -  3:51 ora_dia0_atdr01
+   atlas 25624658 26345770   0   Jan 28      -  0:00 unikixtran 16
+   bkof1 27459644 23724508   0   Jan 18      -  0:00 oracleaptf01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof2 27590852        1   0   Jan 18      -  0:07 unikixmain -P26012 -p6012 -F -Mt200M -Mc40M -S256M -TM -Q -L20 -l /apps/unikix/t11.3.4/bin/sx5.1
+   bkof3 27656294 26935628   0   Jan 18      -  0:00 unikixtran 1
+     mqm 28049504 30802070   0 06:22:33  pts/5  0:00 -ksh
+   atlas 28246270 26345770   0   Jan 28      -  0:00 unikixept
+   atlas 28311614 25100794   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 28573942 26345770   0   Jan 28      -  0:07 unikixprt
+  oracle 28770546        1   0   Jan 27      -  1:00 ora_mmon_atpr01
+   atlas 28836064 26345770   0   Jan 28      -  0:00 unikixsock
+   atlas 28901522 26345770   0   Jan 28      -  0:00 unikixtran 0
+   atlas 29098136 28901522   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 30081110 52953104  10 08:46:40  pts/2  0:13 tar -tvf -
+   atlas 30736386 31916144   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+    root 30802070 37749366   0   Jan 28  pts/5  0:00 ksh
+  oracle 31457386        1   0   Jan 25      -  0:16 ora_dbw4_tipspr01
+     mqm 31588380 38863272   0   Jan 28      -  0:21 /usr/mqm/bin/amqzlaa0 -mANORI01P -fip0
+  oracle 31719440        1   0   Jan 27      -  0:25 ora_dbw1_atpr01
+   atlas 31916144 26345770   0   Jan 28      -  0:00 unikixtran 25
+    root 32112836  6357574   0   Jan 29 pts/12  0:00 -ksh
+  oracle 32505960        1   0   Jan 29      -  0:01 ora_qmnc_atdr01
+   atlas 32702714 26345770   0   Jan 28      -  0:02 unikixtran 2
+   atlas 32833640 26345770   0   Jan 28      -  0:32 unikixtran 1
+     mqm 33685626 38863272   0   Jan 28      -  0:01 /usr/mqm/bin/amqzfuma -m ANORI01P
+   atlas 38076536 11665720   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 38797498 27722034   0   Jan 28      -  0:02 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+     mqm 40698078 29950456   0   Jan 28      -  0:06 /usr/mqm/bin/amqpcsea ANORI01P
+  oracle 41418890        1   0 08:45:53      -  0:00 ora_w000_aptf01
+    root 42860580  2163158   0   Feb 01      -  0:00 telnetd -a
+   atlas 43581618 22151726   0   Jan 28      -  0:02 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 45023446 26345770   0   Jan 28      -  0:29 unikixtran 10
+  oracle 46399548        1   0   Jan 29      -  2:24 ora_vktm_atdr01
+     mqm 47841370 30671548   0   Jan 28      -  0:03 /usr/mqm/bin/amqfcxba -m ANORI01P
+  oracle 47907040        1   0   Jan 27      -  0:08 ora_diag_atpr01
+   atlas 47972572 33554778   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 48103562 26345770   0   Jan 28      -  0:00 unikixtran 24
+     mqm 49283144 38863272   0   Jan 28      -  0:03 /usr/mqm/bin/amqzmuc0 -m ANORI01P
+    root 49676434        1   0   Jan 21      -  0:26 /usr/bin/ksh /apps/amelia/sh/a2instd
+  oracle 49741958        1   0   Jan 25      -  0:10 ora_diag_tipspr01
+  oracle 49807494        1   0 08:46:08      -  0:00 ora_w000_aptf02
+  oracle 50004070        1   0   Jan 25      -  0:03 ora_qmnc_atmir01
+   atlas 51183670 26345770   0   Jan 28      -  0:00 unikixtran 21
+  oracle 52691054        1   0   Jan 29      -  0:09 ora_dbw5_atdr01
+   atlas 52756664 26345770   0   Jan 28      -  7:29 unikixadmin
+  oracle 52953104 13434892   0 05:50:07  pts/2  0:00 -ksh
+     apl 54132894        1   0 05:56:26      -  0:00 nsqpub
+    root  1835500        1   0   Jan 17      - 47:52 /usr/sbin/syncd 60
+    cadb  1900962  5243080   0   Jan 17      -  3:16 /system/dbserver 22 3145749 root
+   atlas  2032082 26345770   0   Jan 28      -  0:01 unikixtran 11
+    root  2097488        1   0   Jan 17      -  0:00 /usr/sbin/srcmstr
+    root  2163158  2097488   0   Jan 17      -  0:00 /usr/sbin/inetd
+    root  3014920  2097488   0   Jan 17      -  0:29 /usr/sbin/xntpd
+    root  3080464  2097488   0   Jan 17      -  0:17 /usr/sbin/aso
+    root  3145990  2097488   0   Jan 17      -  0:00 /opt/freeware/cimom/pegasus/bin/cimssys platform_agent
+  getlog  3211630        1   0   Jan 17      -  0:00 /apps/getlog/get_log -service -/apps/getlog/conf/get_log.ini
+    root  3277216        1   0   Jan 17      -  0:24 /apps/eTAC/bin/seoswd AGENT
+    root  3408148        1   0   Jan 17      -  0:00 /usr/sbin/uprintfd
+    root  3539230  2949164   0   Jan 17      -  2:37 nimbus(spooler)
+    root  3670304  2097488   0   Jan 17      -  0:00 /usr/sbin/snmpd
+    root  3801390        1   0   Jan 17      -  0:00 ./slp_srvreg -D
+  oracle  3932666        1   0   Jan 18      -  0:27 ora_lgwr_surfi
+    root  4063674  3145778 110   Jan 17      - 8616:59 /apps/unicenter/EM/3.1/sche/bin/cau9ctk.exe 2097377
+  oracle  4194596        1   0   Jan 18      -  3:02 ora_dia0_atsec
+  oracle  4260182        1   0   Jan 18      -  0:05 ora_q001_aptf02
+    root  4325730        1   0   Jan 17      -  0:00 /usr/bin/cimlistener
+   bkof1  4456782 17367152   0   Jan 18      -  0:00 unikixtnemux
+    root  4784398        1   0   Jan 17      -  1:03 cam
+  oracle  4850150        1   0   Jan 27      -  0:26 ora_dbrm_atpr01
+  oracle  4981198        1   0   Jan 18      - 15:37 ora_pmon_surfi
+    root  5046744  2163158   0 05:49:48      -  0:00 telnetd -a
+  oracle  5112102        1   0   Jan 18      -  0:20 ora_diag_aptf02
+    root  5177620  2359906   0   Jan 17      - 12:02 /apps/unicenter/AT/3.1/agents/bin/caiUxOs run --name=caiUxOs --instance=caiUxOs -f/apps/unicenter/AT/3.1/logs/caiUxOs.log
+    root  5243136  2097488   0   Jan 17      -  0:00 /usr/sbin/rsct/bin/IBM.ServiceRMd
+    root  5308900        1   0   Jan 17      -  4:49 /apps/unicenter/EM/3.1/bin/caiopr
+    root  5439970        1   0   Jan 17      -  0:17 dsmcad -SE=TSM-SZ201
+    root  5636574  2097488   0   Jan 17      -  0:00 /usr/sbin/rsct/bin/vac8/IBM.CSMAgentRMd
+  oracle  5702002        1   0   Jan 18      -  0:17 ora_gen0_atsec
+  oracle  5767598        1   0   Jan 18      -  0:21 ora_lgwr_atsec
+  oracle  5833184        1   0   Jan 18      -  0:25 ora_dbw4_atsec
+   bkof2  5964226 15860262   0   Jan 18      -  0:00 unikixtnemux
+    root  6095338        1   0   Jan 17      -  0:32 /apps/unicenter/EM/3.1/sche/bin/cau9wbr.exe 15728864
+  oracle  6291890        1   0   Jan 18      -  0:29 ora_dbw4_aptf01
+    root  6422924        1   0   Jan 17      -  0:16 /apps/unicenter/DSM/r11/caf/bin/cfFTPlugin
+    cadb  6488324  2556570   0   Jan 17      -  2:27 /system/dbserver 2097167 9437249 root
+  oracle  6881780        1   0   Jan 18      - 16:15 ora_pmon_aptf03
+    root  6947202        1   0   Jan 17      - 30:15 storapid start -name storapid
+  oracle  7012840        1   0   Jan 18      -  1:07 ora_psp0_aptf02
+  oracle  7078242        1   0   Jan 27      -  0:24 ora_lgwr_atpr01
+  oracle  7143710        1   0   Jan 18      -  0:25 ora_smon_aptf01
+  oracle  7405840        1   0   Jan 18      -  0:27 ora_dbw0_atsec
+    cadb  7471480  3146342   0   Jan 17      - 1307:18 /system/dbserver 2097197 426770653 root
+  oracle  7537118        1   0   Jan 18      -  0:19 ora_gen0_aptf02
+  oracle  7602434        1   0   Jan 18      -  0:31 ora_dbrm_atsec
+  oracle  7668022        1   0   Jan 18      -  8:14 ora_vktm_aptf01
+  oracle  7799104        1   0   Jan 18      -  1:05 ora_psp0_atsec
+  oracle  8061378        1   0   Jan 25      -  0:12 ora_mman_atmir01
+  oracle  8126946        1   0   Jan 18      -  8:09 ora_vktm_aptf03
+  oracle  8257980        1   0   Jan 18      -  0:20 ora_diag_atsec
+  oracle  8389040        1   0   Jan 18      -  0:09 ora_p000_aptf02
+  oracle  8454568        1   0   Jan 18      -  2:28 ora_ckpt_atsec
+  oracle  8520138        1   0   Jan 18      -  0:29 ora_dbw3_aptf01
+  oracle  8782272        1   0   Jan 18      -  1:12 ora_mmon_aptf01
+  oracle  8847802        1   0   Jan 18      -  0:05 ora_reco_atsec
+  oracle  8913384        1   0   Jan 18      - 14:48 ora_pmon_aptf02
+  oracle  8978904        1   0   Jan 18      -  0:35 ora_dbrm_aptf02
+  oracle  9044412        1   0   Jan 18      -  0:07 ora_q000_atsec
+  oracle  9109994        1   0   Jan 18      -  2:38 ora_ckpt_surfi
+   bkof1  9306444 24641742   0   Jan 18      -  0:00 oracleaptf01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof1  9437652 19792512   0   Jan 18      -  0:00 oracleaptf01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle  9503044        1   0   Jan 18      -  0:20 ora_mman_aptf02
+  oracle  9568586        1   0   Jan 18      -  0:09 ora_p001_aptf02
+  oracle  9634164        1   0   Jan 18      -  0:09 ora_p003_aptf03
+  oracle  9699696        1   0   Jan 18      -  0:19 ora_gen0_aptf03
+  oracle  9765300        1   0   Jan 18      -  0:30 ora_dbw2_surfi
+  oracle  9830772        1   0   Jan 18      -  0:26 ora_dbw1_aptf03
+  oracle  9896310        1   0   Jan 18      -  0:27 ora_dbw2_aptf03
+  oracle  9961740        1   0   Jan 18      -  0:21 ora_smco_aptf02
+  oracle 10027386        1   0   Jan 18      -  0:27 ora_dbw4_aptf03
+  oracle 10092944        1   0   Jan 18      -  0:04 ora_qmnc_aptf03
+  oracle 10158462        1   0   Jan 18      -  2:31 ora_ckpt_aptf03
+  oracle 10289484        1   0   Jan 18      -  0:05 ora_reco_surfi
+  oracle 10355154        1   0   Jan 18      -  4:58 ora_dia0_surfi
+  oracle 10420616        1   0   Jan 18      -  1:07 ora_mmon_surfi
+  oracle 10486234        1   0   Jan 25      -  2:06 ora_dia0_tipspr01
+  oracle 10551806        1   0   Jan 18      -  0:07 ora_q000_aptf03
+  oracle 10813784        1   0   Jan 25      -  0:16 ora_dbw2_tipspr01
+  oracle 10879446        1   0   Jan 25      -  1:19 ora_mmnl_tipspr01
+  oracle 10944980        1   0   Jan 18      -  0:07 ora_q000_surfi
+  oracle 11141608        1   0   Jan 18      -  0:05 ora_q001_surfi
+  oracle 11337988        1   0   Jan 25      -  0:20 ora_dbrm_tipspr01
+  oracle 11403560        1   0   Jan 25      -  0:04 ora_p001_atmir01
+  oracle 11534638        1   0   Jan 25      -  0:12 ora_smco_atmir01
+  oracle 11600148        1   0   Jan 18      -  0:20 ora_smco_atsec
+   atlas 11665720 26345770   0   Jan 28      -  0:00 unikixtran 4
+  oracle 11796778        1   0   Jan 25      -  0:18 ora_dbw5_atmir01
+  oracle 12124452        1   0   Jan 25      -  0:23 ora_dbrm_atmir01
+   bkof3 12189980 26935628   0   Jan 18      -  0:00 unikixprt
+  oracle 12255546        1   0   Jan 18      -  0:22 ora_smco_aptf01
+ l300447 12321212 28508600   0 04:49:57  pts/1  0:00 -ksh
+  oracle 12517728        1   0   Jan 18      -  0:21 ora_smco_surfi
+   bkof3 13107500 26935628   0   Jan 18      -  0:00 unikixCommMgr
+  oracle 13173038        1   0   Jan 25      -  0:03 ora_q000_atmir01
+   bkof1 13304282        1   0   Jan 18      -  0:07 unikixmain -P26011 -p6011 -F -Mt200M -Mc40M -S256M -TM -Q -L20 -l /apps/unikix/t11.3.4/bin/sx5.1
+   bkof3 13435380 12976346   0   Jan 18      -  0:00 oracleaptf03 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 13566230        1   0   Jan 29      -  0:57 ora_ckpt_atdr01
+   bkof3 14090628 13107500   0   Jan 18      -  0:00 unikixtnemux
+  oracle 14156146        1   0   Jan 25      -  0:12 ora_mman_tipspr01
+   bkof2 14221698 27590852   0   Jan 18      -  0:00 unikixtcp
+   bkof1 14680358 17367152   0   Jan 18      -  0:00 unikixtnemux
+  oracle 14877002        1   0   Jan 29      -  0:10 ora_dbw2_atdr01
+    root 15073788  3276800   0 08:55:00      -  0:00 /bin/ksh /apps/unicenter/AT/3.1/NewAgentScript/superviseur/LanceNAS.ksh /apps/unicenter/AT/3.1/NewAgentScript/scripts/surv_AT_DSM.ksh
+   bkof2 15270388 27590852   0   Jan 18      - 12:56 unikixadmin
+   atlas 16187842 22741474   0   Jan 28      -  0:04 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof3 16449838 24707254   0   Jan 18      -  0:00 oracleaptf03 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 16580922        1   0   Jan 27      -  0:09 ora_gen0_atpr01
+   atlas 16974294 25362912   0   Jan 28      -  0:01 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 17170924        1   0   Jan 25      -  0:10 ora_diag_atmir01
+   atlas 17236404 15532120   0   Jan 28      -  0:00 unikixtnemux
+   bkof2 17433006 10945120   0   Jan 18      -  0:00 oracleaptf02 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof1 18874836  7078092   0   Jan 18      -  0:00 oracleaptf01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof2 19005908 15860262   0   Jan 18      -  0:00 unikixtnemux
+  oracle 19071462        1   0   Jan 29      -  0:41 ora_mmon_atdr01
+   atlas 19464456 15532120   0   Jan 28      -  0:00 unikixtnemux
+   bkof2 19530124 27590852   0   Jan 18      -  0:00 unikixprt
+  oracle 19595644        1   0   Jan 27      -  0:25 ora_dbw0_atpr01
+   atlas 20120046 26345770   0   Jan 28      -  0:00 unikixtcp
+   atlas 20250978 26345770   0   Jan 28      -  0:00 unikixtran 5
+ l422083 20316530 23003514   0 09:18:06  pts/4  0:00 -ksh
+    cadb 21037544  2687528   0   Jan 18      -  0:02 /system/dbserver 16777287 710934579 root
+   bkof2 21299500 26477242   0   Jan 18      -  0:00 oracleaptf02 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof2 21561676 15860262   0   Jan 18      -  0:00 unikixtnemux
+  oracle 21889462        1   0   Jan 29      -  5:20 ora_pmon_atdr01
+  oracle 22151620        1   0   Jan 27      -  0:09 ora_smco_atpr01
+   bkof2 22282608 27590852   0   Jan 18      -  0:27 unikixstrt
+   atlas 22741474 26345770   0   Jan 28      -  0:24 unikixtran 19
+    root 23003514  2163158   0 09:18:06      -  0:00 telnetd -a
+   bkof3 23658956 27656294   0   Jan 18      -  0:00 oracleaptf03 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof1 23724508 13304282   0   Jan 18      -  0:00 unikixtran 3
+   atlas 23855562 26345770   0   Jan 28      -  0:00 unikixtran 23
+  oracle 24904168        1   0   Jan 25      -  0:04 ora_p000_atmir01
+  oracle 25035214        1   0   Jan 25      -  0:19 ora_dbw0_atmir01
+   atlas 25100794 26345770   0   Jan 28      -  0:00 unikixtran 9
+   bkof2 25166084 27590852   0   Jan 18      -  0:00 unikixtran 0
+    root 25297342 26346200   0 08:55:28      -  0:00 /usr/lib/sa/sadc -x abcdkmqrvwy 19 2
+   atlas 25362912 26345770   0   Jan 28      -  0:02 unikixtran 15
+   bkof2 25559508 27590852   0   Jan 18      -  0:00 unikixtran 3
+   bkof2 26149168 27590852   0   Jan 18      -  0:00 unikixept
+  oracle 26214714        1   0 08:36:50      -  0:00 ora_w000_atpr01
+   atlas 26345770        1   0   Jan 28      -  0:04 unikixmain -P26001 -p8001 -F -Mt200M -Mc40M -S256M -TM -Q -L20 -l /apps/unikix/t11.3.4/bin/sx5.1
+   bkof3 26935628        1   0   Jan 18      -  0:07 unikixmain -P26013 -p6013 -F -Mt200M -Mc40M -S256M -TM -Q -L20 -l /apps/unikix/t11.3.4/bin/sx5.1
+   atlas 27132192  6291708   0   Jan 28      -  0:01 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 27722034 26345770   0   Jan 28      -  0:15 unikixtran 22
+    root 28508600  2163158   0 04:49:57      -  0:00 telnetd -a
+   atlas 29360384 20316530   0 09:18:25  pts/4  0:00 -ksh
+  oracle 29753742        1   0   Jan 29      -  0:00 ora_reco_atdr01
+     mqm 29950456 38863272   0   Jan 28      -  0:01 /usr/mqm/bin/amqzmgr0 -m ANORI01P
+    cadb 30146906  3408422   0   Jan 22      -  0:00 /system/dbserver 4194311 133169325 root
+   atlas 31523132 26345770   0   Jan 28      -  0:00 unikixtran 20
+  oracle 31916532        1   0   Jan 25      -  0:04 ora_p000_tipspr01
+   atlas 32637190 26345770   0   Jan 28      -  0:00 unikixtran 8
+   atlas 33292742 22216910   0   Jan 28      -  0:01 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 33358110 15532120   0   Jan 28      -  0:00 unikixtnemux
+   atlas 33554778 26345770   0   Jan 28      -  0:00 unikixtran 18
+  oracle 34472312        1   0 08:47:16      -  0:00 ora_w000_surfi
+    root 34603404  3015370   0 08:55:39      -  0:00 sleep 1
+     apl 35193320  3866660   0 05:56:28      -  0:00 nsqmq -m* +u -e -s15010
+  oracle 35258674        1   0   Jan 27      -  0:22 ora_dbw5_atpr01
+    root 35651946 43909600   0   Feb 01  pts/8  0:00 -ksh
+    root 36503908  2163158   0 06:21:39      -  0:00 telnetd -a
+    root 37355870 35651946   2 08:55:39  pts/8  0:00 ps -ef
+  oracle 37487060        1   0 20:47:22      -  0:00 oracleatpr01 (LOCAL=NO)
+  oracle 38076850        1   0   Jan 29      -  0:10 ora_dbw3_atdr01
+     mqm 38404360 29950456   0   Jan 28      -  0:01 /usr/mqm/bin/runmqchi -m ANORI01P -q SYSTEM.CHANNEL.INITQ -r
+     mqm 38863272        1   0   Jan 28      -  0:07 /usr/mqm/bin/amqzxma0 -m ANORI01P
+  oracle 38928724        1   0   Jan 27      -  0:29 ora_psp0_atpr01
+  oracle 39649674        1   0   Jan 27      -  0:23 ora_dbw3_atpr01
+  oracle 39715094        1   0   Jan 25      -  0:17 ora_dbw0_tipspr01
+  oracle 40370446        1   0 08:54:08      -  0:00 ora_w000_tipspr01
+    root 40960306  2097488   0   Jan 22      -  0:00 /bin/ksh /opt/itlm/tlmagent
+   atlas 41222638 48103562   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 42926552 10748026   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 43385182        1   0   Jan 29      -  0:01 ora_q000_atdr01
+   atlas 43516252 45679194   0 13:03:56  pts/3  0:08 -ksh
+ l926213 43909600 42860580   0   Feb 01  pts/8  0:00 -ksh
+  oracle 45154806        1   0 08:47:01      -  0:00 ora_w000_aptf03
+  oracle 45941136        1   0   Jan 25      -  0:03 ora_q001_tipspr01
+  oracle 47448338 12321212   0 05:55:35  pts/1  0:00 -ksh
+   atlas 49152318 26345770   0   Jan 28      -  0:00 unikixrcv
+    root  1180266  2949164   0   Jan 17      -  0:19 nimbus(hdb)
+    root  1376786        1   0   Jan 17      -  0:00 /usr/lib/errdemon
+    root  1573520        1   0   Jan 17      -  0:00 /opt/freeware/cimom/pegasus/bin/CIM_diagd
+    root  1639016  2097488   0   Jan 17      -  0:00 /opt/freeware/cimom/pegasus/bin/cimssys cimsys
+    root  1770130  2818738   0   Jan 17      -  0:04 /apps/unicenter/EM/3.1/cci/bin/LicIT
+    root  1901084  2949164   4   Jan 17      - 24:22 nimbus(cdm)
+    root  1966652        1   0   Jan 17      -  2:08 /apps/eTAC/bin/selogrd
+    root  2097882  2359906   0   Jan 17      -  1:10 /apps/unicenter/AT/3.1/agents/bin/caiLogA2 run --name=caiLogA2 --instance=caiLogA2 -f/apps/unicenter/AT/3.1/logs/caiLogA2.log
+  oracle  2228964        1   0   Jan 29      -  0:00 ora_q001_atdr01
+    root  2294458        1   0   Jan 17      - 179:56 /apps/unicenter/EM/3.1/bin/oprsafd
+    root  2359906        1   0   Jan 17      -  0:28 awservices run -m
+    root  2425508        1   0   Jan 17      -  0:03 /apps/eTAC/bin/serevu
+    root  2556570        1   0   Jan 17      -  1:13 /apps/unicenter/EM/3.1/sche/bin/cau8trk.exe 15728864
+    root  2622092  2818738   0   Jan 17      -  1:02 /apps/unicenter/EM/3.1/cci/bin/cciclnd
+    root  2687528  2753094   0   Jan 17      -  0:09 /apps/unicenter/EM/3.1/sche/bin/cau9dcm.exe 15728864 2
+    root  2753094        1   0   Jan 17      -  0:27 /apps/unicenter/EM/3.1/sche/bin/cau9lcd.exe 15728864
+    root  2818738        1   0   Jan 17      -  0:06 /apps/unicenter/EM/3.1/cci/bin/caiccid
+    root  2949858  3145778   0   Jan 17      -  0:05 /apps/unicenter/EM/3.1/sche/bin/cau9cli.exe
+    root  3015370        1   0   Jan 17      - 10:30 /bin/ksh /apps/unicenter/AT/3.1/NewAgentScript/superviseur/NewAgentScript.ksh
+    root  3146342  2753094   0   Jan 17      - 550:35 /apps/unicenter/EM/3.1/sche/bin/cau9dcm.exe 15728864 0
+    root  3211806  2097488   0   Jan 17      -  0:00 /usr/sbin/qdaemon
+    root  3277542  2359906   0   Jan 17      -  1:41 /apps/unicenter/AT/3.1/services/bin/aws_orb run --name=aws_orb --instance=aws_orb
+    root  3343078        1   0   Jan 17      -  0:00 /apps/unicenter/EM/3.1/snmp/bin/catrapmuxd
+    root  3408422        1   0   Jan 17      -  0:06 /apps/unicenter/EM/3.1/bin/ca_calendar -f
+    root  3474130        1   0   Jan 17      -  0:00 /apps/unicenter/EM/3.1/bin/stardaemon
+    root  3539456        1   0   Jan 17      -  0:00 /apps/unicenter/EM/3.1/cadb/system/db_listener
+    root  3605204  2359906   0   Jan 17      -  5:15 /apps/unicenter/AT/3.1/services/bin/aws_sadmin run --name=aws_sadmin --instance=aws_sadmin
+    root  3670618  5243080   0   Jan 17      -  0:22 /apps/unicenter/EM/3.1/sche/bin/cau9mtr.exe
+    root  3736258        1   0   Jan 17      -  0:00 /bin/sh /apps/SCM/5.1/client/jacclient start
+    root  3801792        1   0   Jan 17      -  0:21 /apps/unicenter/EM/3.1/sche/bin/cau9en2.exe
+    root  3867328  3145778   0   Jan 17      -  0:04 /apps/unicenter/EM/3.1/sche/bin/cau9cli.exe
+    root  3932902        1   0   Jan 17      -  0:14 /opt/CA/SharedComponents/ca_lic/lic98fds
+    root  4063780        1   0   Jan 17      - 43:34 /apps/unicenter/DSM/r11/Agent/CCSM/bin/ccsmagtd
+    root  4391556        1   0   Jan 17      -  0:01 /apps/unicenter/DSM/r11/caf/bin/cfsmsmd -t
+    root  4457108        1   0   Jan 17      -  3:29 /apps/unicenter/DSM/r11/caf/bin/caf service
+    root  4522606        1   0   Jan 17      -  0:09 /apps/unicenter/DSM/r11/caf/bin/cfnotsrvd
+    root  4784756        1   0   Jan 17      -  6:26 /usr/bin/topasrec  -L -s 300 -R 1 -r 6 -o /etc/perf/daily/ -ypersistent=1 -O type=bin -ystart_time=06:31:20,Jan17,2016
+    root  4850310  2097488   0   Jan 17      -  1:07 /usr/sbin/rsct/bin/rmcd -a IBM.LPCommands -r -S 1500
+    root  5046896        1   0   Jan 17      -  0:22 /apps/OmniVision/bin/omv_ic
+  oracle  5178064        1   0   Jan 18      -  0:07 ora_q000_aptf02
+  oracle  5309126        1   0   Jan 18      -  1:09 ora_psp0_aptf01
+    root  5440216        1   0   Jan 17      -  0:00 storwatchd start -name storwatchd
+    root  5505648        1   0   Jan 17      -  5:08 /usr/sbin/getty /dev/console
+    root  5571160  2097488   0   Jan 17      -  0:00 /usr/sbin/rsct/bin/vac8/IBM.HWCTRLRMd
+    root  5702292        1   0   Jan 17      -  0:00 ./mflm_manager
+   atlas  5767802 32833640   0   Jan 28      -  0:04 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+ l926213  6357574 42795530   0   Jan 29 pts/12  0:00 -ksh
+  oracle  6881828        1   0   Jan 25      -  9:05 ora_pmon_tipspr01
+  oracle  7013014        1   0   Jan 29      -  0:05 ora_gen0_atdr01
+  oracle  7144166        1   0   Jan 18      -  0:18 ora_mman_atsec
+  oracle  7209490        1   0   Jan 18      -  2:19 ora_mmnl_aptf01
+  oracle  7406120        1   0   Jan 27      -  0:24 ora_dbw2_atpr01
+  oracle  7537174        1   0   Jan 18      -  8:28 ora_vktm_atsec
+  oracle  7602702        1   0   Jan 18      -  0:05 ora_reco_aptf01
+  oracle  7668476        1   0   Jan 18      -  0:25 ora_dbw1_atsec
+  oracle  7733762        1   0   Jan 18      -  0:27 ora_smon_atsec
+  oracle  7799550        1   0   Jan 18      -  0:25 ora_dbw3_atsec
+  oracle  7864832        1   0   Jan 18      -  0:25 ora_dbw5_atsec
+  oracle  7930396        1   0   Jan 18      -  0:21 ora_gen0_aptf01
+  oracle  7995914        1   0   Jan 18      -  0:04 ora_q001_atsec
+  oracle  8061450        1   0   Jan 18      - 14:03 ora_pmon_aptf01
+  oracle  8127080        1   0   Jan 18      -  3:44 ora_dia0_aptf03
+  oracle  8192542        1   0   Jan 18      -  0:09 ora_p003_aptf01
+  oracle  8258096        1   0   Jan 18      -  0:05 ora_qmnc_aptf01
+  oracle  8323636        1   0   Jan 18      -  0:07 ora_q000_aptf01
+  oracle  8454700        1   0   Jan 18      -  0:04 ora_q001_aptf01
+  oracle  8520286        1   0   Jan 18      -  0:26 ora_dbw3_aptf03
+  oracle  8585878        1   0   Jan 18      -  2:31 ora_ckpt_aptf02
+  oracle  8651342        1   0   Jan 18      -  0:09 ora_p002_aptf02
+  oracle  8716994        1   0   Jan 18      -  0:19 ora_gen0_surfi
+  oracle  8782404        1   0   Jan 18      -  0:25 ora_smon_aptf02
+  oracle  8847942        1   0   Jan 18      -  0:27 ora_dbw2_aptf02
+  oracle  8913472        1   0   Jan 18      -  3:44 ora_dia0_aptf02
+  oracle  8979028        1   0   Jan 18      -  2:18 ora_mmnl_aptf02
+  oracle  9044568        1   0   Jan 18      -  0:09 ora_p003_aptf02
+  oracle  9110178        1   0   Jan 18      -  1:08 ora_psp0_surfi
+  oracle  9175688        1   0   Jan 18      -  0:28 ora_dbw0_aptf03
+  oracle  9306728        1   0   Jan 18      -  0:27 ora_dbw5_aptf03
+  oracle  9372262        1   0   Jan 18      -  0:25 ora_smon_aptf03
+  oracle  9437826        1   0   Jan 18      -  2:18 ora_mmnl_aptf03
+  oracle  9503364        1   0   Jan 18      -  0:09 ora_p000_aptf03
+  oracle  9568906        1   0   Jan 18      -  0:09 ora_p002_aptf03
+  oracle  9831098        1   0   Jan 25      -  3:13 ora_dia0_atmir01
+  oracle  9896524        1   0   Jan 18      -  0:20 ora_mman_surfi
+  oracle 10027638        1   0   Jan 25      -  0:16 ora_dbw3_tipspr01
+  oracle 10093120        1   0   Jan 18      -  0:26 ora_smon_surfi
+  oracle 10158780        1   0   Jan 18      -  0:39 ora_dbrm_surfi
+  oracle 10289744        1   0   Jan 25      -  0:11 ora_gen0_atmir01
+  oracle 10486374        1   0   Jan 25      -  0:18 ora_dbw3_atmir01
+  oracle 10551810        1   0   Jan 25      -  0:42 ora_mmon_tipspr01
+  oracle 10879546        1   0   Jan 25      -  8:58 ora_pmon_atmir01
+   bkof2 10945120 27590852   0   Jan 18      -  0:00 unikixtran 2
+  oracle 11010616        1   0   Jan 25      -  0:33 ora_mmnl_atmir01
+     mqm 11272862 38863272   0   Jan 28      -  0:00 /usr/mqm/bin/amqrrmfa -m ANORI01P -t2332800 -s2592000 -p2592000 -g5184000 -c3600
+  oracle 11403976        1   0   Jan 29      -  0:10 ora_dbw4_atdr01
+   atlas 11534898 26345770   0   Jan 28      -  0:01 unikixtran 12
+   bkof3 12190220 13107500   0   Jan 18      -  0:00 unikixtnemux
+   atlas 13107728 36897526   0 06:21:54  pts/7  0:00 -ksh
+    root 13173486  2163158   0   Jan 28      -  0:00 telnetd -a
+  oracle 13304342        1   0   Jan 25      -  0:18 ora_dbw2_atmir01
+   bkof2 13501136 15860262   0   Jan 18      -  0:00 unikixtnemux
+  oracle 14222022        1   0   Jan 25      -  0:04 ora_p001_tipspr01
+    root 15008496 49676434   0 08:55:25      -  0:00 sleep 60
+   bkof1 15139368 17367152   0   Jan 18      -  0:00 unikixtnemux
+   bkof2 15860262 27590852   0   Jan 18      -  0:00 unikixCommMgr
+  oracle 16057078        1   0   Jan 29      -  0:20 ora_psp0_atdr01
+   atlas 16515748 23855562   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 16712378        1   0   Jan 27      -  0:25 ora_smon_atpr01
+     mqm 17760936        1   0   Jan 28  pts/5  0:00 ./runmqtrm -m ANORI01P -q ANORI01P.INITQ.MQM
+  oracle 19006060        1   0   Jan 25      -  0:18 ora_dbw1_atmir01
+   bkof2 19268214 27590852   0   Jan 18      -  0:00 unikixsock
+   bkof3 19464910 12779528   0   Jan 18      -  0:00 oracleaptf03 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 19661338        1   0   Jan 25      -  0:04 ora_p002_atmir01
+   bkof1 19792512 13304282   0   Jan 18      -  0:00 unikixtran 0
+   bkof1 19989246 13304282   0   Jan 18      -  0:00 unikixrcv
+  oracle 20120238        1   0   Jan 25      -  1:07 ora_mmon_atmir01
+   atlas 20316856 51183670   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   bkof3 20447904 26935628   0   Jan 18      - 12:56 unikixadmin
+  oracle 20644384        1   0   Jan 29      -  0:05 ora_diag_atdr01
+  oracle 20775670        1   0   Jan 27      -  1:25 ora_ckpt_atpr01
+   bkof3 21037634 26935628   0   Jan 18      -  0:00 unikixrcv
+   atlas 21365282 31523132   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 21692948        1   0   Jan 29      -  0:18 ora_smon_atdr01
+   atlas 22020774 11534898   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 22151726 26345770   0   Jan 28      -  0:02 unikixtran 3
+    root 22282890 15073788   0 08:55:00      -  0:00 sleep 118
+ la77686 22348324 13173486   0   Jan 28  pts/5  0:00 -ksh
+    root 22872754  2163158   0   Feb 02      -  0:00 telnetd -a
+   bkof1 23200334 13304282   0   Jan 18      -  0:27 unikixstrt
+   bkof2 23462446 25166084   0   Jan 18      -  0:00 oracleaptf02 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 23528050  5308630   0 12:55:08  pts/6  0:00 -ksh
+  oracle 23724636        1   0   Jan 25      -  0:10 ora_gen0_tipspr01
+  oracle 24052442        1   0   Jan 27      -  0:01 ora_qmnc_atpr01
+  oracle 24314598        1   0   Jan 27      -  3:33 ora_vktm_atpr01
+   bkof2 24445520 25559508   0   Jan 18      -  0:00 oracleaptf02 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 24511098        1   0 08:50:30      -  0:00 ora_w000_atmir01
+   bkof3 24576538 26935628   0   Jan 18      -  0:28 unikixstrt
+     mqm 24904326 28049504   0 06:39:16  pts/5  0:00 /home/mqm/current/adm/.env/admin/.command.tmp ANORI01P
+     apl 24969754 54132894   0 05:56:26      -  0:00 nsqpub
+    root 25166586 40960306   0   Jan 22      -  0:12 /opt/itlm/tlmagent.bin
+   bkof3 25297518 26935628   0   Jan 18      -  0:00 unikixsock
+   atlas 26149594 25624658   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 26215156  2032082   0   Jan 28      -  0:01 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 26280552        1   0   Jan 25      -  0:14 ora_lgwr_tipspr01
+    root 26346200  1901084   0 08:55:28      -  0:00 /usr/sbin/sar -P ALL 19
+   bkof2 26477242 27590852   0   Jan 18      -  0:00 unikixtran 1
+  oracle 27001352        1   0 08:54:00      -  0:00 ora_w000_atsec
+     mqm 27132660 38863272   0   Jan 28      -  0:02 /usr/mqm/bin/amqzmuf0 -m ANORI01P
+  oracle 29033068        1   0   Jan 29      -  0:18 ora_dbrm_atdr01
+  oracle 29426236        1   0   Jan 29      -  0:06 ora_smco_atdr01
+  oracle 30540448 52953104 151 08:46:40  pts/2  4:15 pigz -cd -p4 atpr01-atlas.11204.gz
+     mqm 30671548 27132660   0   Jan 28      -  0:02 /usr/mqm/bin/amqfqpub -mANORI01P
+  oracle 30737112        1   0   Jan 25      -  0:02 ora_q001_atmir01
+  oracle 30802476        1   0   Jan 29      -  1:32 ora_mmnl_atdr01
+  oracle 31982162        1   0   Jan 27      -  5:36 ora_dia0_atpr01
+     mqm 33292814 38863272   0   Jan 28      -  0:00 /usr/mqm/bin/amqzdmaa -m ANORI01P
+  oracle 34144926        1   0   Jan 27      -  0:25 ora_dbw4_atpr01
+  oracle 34800164        1   0   Jan 29      -  0:10 ora_lgwr_atdr01
+   atlas 35062294 26345770   0   Jan 28      -  0:00 unikixtran 17
+  oracle 35455540        1   0   Jan 25      -  1:30 ora_ckpt_tipspr01
+   atlas 35652244 32637190   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+ l593304 36897526 36503908   0 06:21:40  pts/7  0:00 -ksh
+     apl 37487292  3866660   0 05:56:28      -  0:00 nsqmq -m* +u -e -s15010
+    root 37749366 22348324   0   Jan 28  pts/5  0:00 ksh
+    root 37946050  3736258   0   Feb 01      -  1:20 /apps/SCM/5.1/client/../_jvm-client/jre/bin/java -Djava.compiler=NONE -Xss1m -Xms64m -Xmx512m -Djlog.logCmdPort=1953 -Dsun.net.inetaddr.ttl=0
+   atlas 38076934 20250978   0   Jan 28      -  0:00 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+   atlas 40239824 13369552   0   Jan 28      -  0:04 oracleatpr01 (DESCRIPTION=(LOCAL=YES)(ADDRESS=(PROTOCOL=beq)))
+  oracle 41222756        1   0   Jan 27      -  0:02 ora_q001_atpr01
+  oracle 41878172        1   0   Jan 25      -  0:02 ora_reco_atmir01
+  oracle 42074654        1   0   Jan 27      -  0:02 ora_reco_atpr01
+    root 42271384        1   0 00:05:01      -  0:02 /usr/bin/topas_nmon  -m /apps/sys/log/stats/NMON -A -W -G -fdt -s300 -c288 -youtput_dir=/apps/sys/log/stats/NMON/s00va9941870 -ystart_time=00:
+    root 42795530  2163158   0   Jan 29      -  0:00 telnetd -a
+  oracle 43057664        1   0   Jan 25      -  0:02 ora_reco_tipspr01
+     apl 43844222        1   0 05:56:26      -  0:00 nsqmsg -mANORI01P
+   atlas 44696096 15532120   0   Jan 28      -  0:00 unikixtnemux
+ l117057 45679194 22872754   0   Feb 02  pts/3  0:00 -ksh
+  oracle 47055560        1   0   Jan 27      -  9:25 ora_pmon_atpr01
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps$df -g
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/hd4           0.38      0.18   54%     5102     9% /
+/dev/hd2           4.25      0.77   82%    75514    27% /usr
+/dev/hd9var        1.00      0.69   31%     9034     6% /var
+/dev/hd3           1.56      0.40   75%     1624     2% /tmp
+/dev/hd1           0.06      0.05   23%     1543    12% /home
+/dev/hd11admin      0.12      0.12    1%        5     1% /admin
+/proc                 -         -    -         -     -  /proc
+/dev/hd10opt       2.00      1.00   50%    17937     8% /opt
+/dev/livedump      0.25      0.25    1%        4     1% /var/adm/ras/livedump
+/dev/lv_auditlog      0.12      0.12    1%        4     1% /var/log/eprise
+/dev/lv_masters      2.00      1.70   15%     1701     1% /itsmasters
+/dev/lv_apps       0.50      0.44   12%     1584     2% /apps
+/dev/lv_mksysb      7.00      1.77   75%       37     1% /apps/sys/back
+/dev/lv_OMNI       0.25      0.23    7%      181     1% /apps/OmniVision
+/dev/lv_perfs      4.81      4.15   14%       55     1% /apps/sys/log/stats
+/dev/lv_save       1.00      1.00    1%      131     1% /apps/sys/log/save
+/dev/lv_deploy      2.00      1.94    4%      126     1% /apps/Deploy
+/dev/lv_CoreDP      0.06      0.06    1%        4     1% /var/core
+/dev/lv_ILMT       0.12      0.10   22%      232     1% /opt/itlm
+/dev/lv_scm        0.50      0.41   18%      798     1% /apps/SCM/5.1
+/dev/lv_tng        1.31      0.97   27%     6611     3% /apps/unicenter
+/dev/lv_nas        0.06      0.05   28%      121     2% /apps/unicenter/AT/3.1/NewAgentScript
+/dev/lv_tng_base      1.06      0.81   24%       46     1% /apps/unicenter/EM/3.1/bases
+/dev/lv_tng_logs      0.19      0.10   46%      204     1% /apps/unicenter/EM/3.1/opr/logs
+/dev/lv_dsm        2.06      1.72   17%     1293     1% /apps/unicenter/DSM
+/dev/lv_etac       0.56      0.38   33%     2541     3% /apps/eTAC
+/dev/lv_cft        2.00      0.67   67%     3655     3% /apps/cft
+/dev/lv_tmpcft      0.12      0.12    1%        4     1% /apps/tmpcft
+/dev/lv_candle      0.75      0.47   38%     4232     4% /apps/ua_candle
+/dev/lv_tmpcandle      1.62      1.33   19%      187     1% /apps/tmp_candle
+/dev/lv_mqm        0.25      0.25    1%       68     1% /var/mqm
+/dev/lv_mqerr      0.25      0.25    1%        6     1% /var/mqm/errors
+/dev/lv_mqapp      1.00      0.36   65%     5310     6% /apps/mqm/product
+/dev/lv_nimsoft      0.12      0.09   26%      609     3% /apps/nimsoft
+/dev/lv_mqadm      0.25      0.24    5%      264     1% /apps/mqm/admin
+/dev/lv_oracle      7.00      6.76    4%     6266     1% /apps/oracle
+/dev/lv_oracle11     15.00      6.40   58%    40723     3% /apps/oracle/product/1120
+/dev/lv_oraclework      2.00      1.99    1%        3     1% /apps/work/ora_1120
+/dev/lv_oradbf      1.00      0.99    1%       16     1% /apps/oradbf
+/dev/lv_carto      1.00      0.95    5%      192     1% /apps/carto_data
+/dev/lv_amelia      1.00      0.32   68%     3906     5% /apps/amelia
+/dev/lv_express      1.00      0.86   15%      147     1% /apps/dmexpress
+/dev/lv_cobol      1.00      0.69   32%     9423     6% /apps/cobol
+/dev/lv_oraclient     15.00     11.12   26%    10737     1% /apps/oracle/product/1120cli32
+/dev/lv_oradbfbck    185.12      6.41   97%       20     1% /apps/oradbf/backup
+/dev/lv_exploit      3.00      0.93   70%    18367     8% /apps/exploit
+/dev/lv_unikix      0.50      0.37   27%     1645     2% /apps/unikix
+/dev/lv_ead        4.00      1.24   70%     1726     1% /apps/ead
+/dev/lv_atlas2v0      4.00      2.29   43%    39524     7% /apps/atlas/atlas2v0
+/dev/lv_atl2v0uf1      6.00      2.40   61%    96047    14% /apps/atlas/atlas2v0/uf1
+/dev/lv_uf1ficsav    185.00     33.49   82%      174     1% /apps/atlas/atlas2v0/uf1/ficsav
+/dev/lv_uf1data1     85.00     56.50   34%    20642     1% /apps/atlas/atlas2v0/uf1/data1
+/dev/lv_uf1data1imp     30.00     15.26   50%    22202     1% /apps/atlas/atlas2v0/uf1/data1/imp
+/dev/lv_uf1data1fic    870.00    184.63   79%   593619     2% /apps/atlas/atlas2v0/uf1/data1/fic
+/dev/lv_uf1data1info    150.00     83.88   45%      281     1% /apps/atlas/atlas2v0/uf1/data1/infoc
+/dev/lv_uf1data1infd    140.00     35.42   75%        7     1% /apps/atlas/atlas2v0/uf1/data1/infocdr
+/dev/lv_fsit     100.00     82.38   18%     1430     1% /apps/atlas/atlas2v0/uf1/data1/fsit
+/dev/lv_packages      3.00      2.73    9%       15     1% /apps/amelia/packages
+/dev/lv_work      40.00     35.59   12%      250     1% /apps/exploit/work
+/dev/lv_orion      1.00      0.73   27%     4380     3% /apps/orion
+/dev/lv_ptcom      1.00      0.99    2%      189     1% /apps/ptcom
+/dev/lv_basfi      5.00      4.96    1%      461     1% /apps/basfi
+/dev/lv_evatl      2.00      1.90    5%     2297     1% /apps/evatl
+/dev/lv_toolboxes      1.00      0.73   27%     2216     2% /apps/toolboxes
+/dev/lv_getlog      0.50      0.50    1%       24     1% /apps/getlog
+/dev/lv_cl3211204     10.00      6.08   40%    10602     1% /apps/oracle/product/11204cli32
+/dev/lv_orawork11204      2.00      1.99    1%        3     1% /apps/work/ora_11204
+/dev/lv_oraserv11204     10.00      0.80   92%    48007    21% /apps/oracle/product/11204
+/dev/lv_mig_sv4      5.00      4.98    1%        3     1% /mig_SV4
+/dev/lv_surf1      2.00      1.73   14%      437     1% /apps/surfi/surf1
+/dev/lv_data_surfi      1.00      0.94    7%     5825     3% /apps/surfi/surf1/data_surfi
+/dev/lv_surfi_impr      2.00      1.99    1%        5     1% /apps/surfi/surf1/data_surfi/impr
+/dev/lv_surfi_fic      2.00      1.99    1%      241     1% /apps/surfi/surf1/data_surfi/fic
+/dev/lv_surfi_batch     10.00      4.09   60%      644     1% /apps/surfi/surf1/BankOffice/batch
+/dev/lv_surfi_batcyc      5.00      1.92   62%      355     1% /apps/surfi/surf1/BankOffice/batch/recycl
+/dev/lv_surfi_batlog      4.00      3.97    1%       28     1% /apps/surfi/surf1/BankOffice/batch/log
+/dev/lv_ora_surfi     32.00      7.19   78%       33     1% /apps/oradbf/surfi
+/dev/lv_tipspr01      2.00      0.34   83%       37     1% /apps/oradbf/tipspr01
+/dev/lv_aptf01      6.00      2.08   66%       36     1% /apps/oradbf/aptf01
+/dev/lv_aptf02      6.00      0.86   86%       36     1% /apps/oradbf/aptf02
+/dev/lv_aptf03      6.00      2.11   65%       35     1% /apps/oradbf/aptf03
+/dev/lv_atmir01     30.00     21.49   29%       69     1% /apps/oradbf/atmir01
+/dev/lv_atsec      1.50      0.13   92%       32     1% /apps/oradbf/atsec
+/dev/lv_cftdata     30.00     22.88   24%       85     1% /apps/cft_data
+/dev/lv_sysshell      5.00      0.41   92%    42150    31% /apps/sys/shell
+/dev/lv_convert      1.00      0.95    6%     2310     2% /apps/convert
+/dev/lv_BankOffice      1.00      0.96    4%      477     1% /apps/BankOffice
+/dev/lv_BankOffbkof3      8.00      7.60    6%    11672     1% /apps/BankOffice/bkof3
+/dev/lv_BankOfbkof3l      1.00      0.98    3%       44     1% /apps/BankOffice/bkof3/batch/log
+/dev/lv_BankOffbkof2     10.00      9.54    5%    11460     1% /apps/BankOffice/bkof2
+/dev/lv_BankOfbkof2t     15.00     12.07   20%      495     1% /apps/BankOffice/bkof2/batch/tmp
+/dev/lv_BankOfbkof2l      1.00      0.95    5%       56     1% /apps/BankOffice/bkof2/batch/log
+/dev/lv_BankOffbkof1     10.00      9.49    6%    11579     1% /apps/BankOffice/bkof1
+/dev/lv_BankOfbkof1t     20.00      9.67   52%     1396     1% /apps/BankOffice/bkof1/batch/tmp
+/dev/lv_BankOfbkof1l      1.00      0.94    6%       57     1% /apps/BankOffice/bkof1/batch/log
+/dev/lv_BankOfbkof3t     15.00      6.95   54%     3324     1% /apps/BankOffice/bkof3/batch/tmp
+/dev/lv_apl        0.25      0.14   43%      573     2% /apps/nastel
+/dev/lv_evolan      0.50      0.38   25%      579     1% /apps/evolan
+/dev/lv_livr      10.00      2.22   78%     3130     1% /livraisons
+/dev/lv_savfj     10.00      9.96    1%       12     1% /apps/savesite
+/dev/lv_intsn      0.50      0.49    2%      147     1% /apps/intsn
+/dev/lv_shell      0.12      0.12    5%      253     1% /apps/exploit/shell
+/dev/lvmeoatlas2      2.00      1.71   15%     8163     3% /apps/meoatlas2
+/dev/lv_sonar      1.00      0.98    2%      248     1% /apps/sonar
+/dev/lv_arch      65.00      2.65   96%   122348    16% /apps/arch
+/dev/lv_evtec      1.00      0.99    2%       79     1% /apps/evtec
+/dev/lv_matlgdi      6.00      1.78   71%     3025     1% /apps/matl/GDI
+/dev/lv_pgp        1.00      0.99    1%       19     1% /apps/pgp
+/dev/lv_meopgp      1.00      0.99    1%      206     1% /apps/meopgp
+/dev/lv_ppe        1.00      0.99    2%       14     1% /apps/ppe
+/dev/lv_supct      0.50      0.49    2%      247     1% /apps/supct
+/dev/lv_xrdj       0.25      0.24    6%      409     1% /apps/xrdj
+/dev/lv_usd        0.25      0.22   12%      384     1% /apps/usd
+/dev/lv_atpr01    465.00      2.97  100%      138     1% /apps/oradbf/atpr01
+/dev/lv_meo        2.00      1.99    1%        6     1% /ficsav/EQUIPE_MEO
+/dev/lv_atdr01    460.00     20.78   96%      127     1% /apps/oradbf/atdr01
+/dev/lv_mqqanori01p      1.00      0.99    1%      392     1% /var/mqm/qmgrs/ANORI01P
+/dev/lv_mqlanori01p      1.00      0.94    6%       21     1% /var/mqm/log/ANORI01P
+/dev/lv_agent121      5.00      4.33   14%    10197     1% /apps/oracle/121/oem/agent121
+
+
+
+
+
+
+
+
+
+
+uid=300(oracle) gid=300(dba) groups=210(cft),501(atlas)
+$ ps -ef |grep pmon
+  oracle  6226086        1   0   Jan 18      - 17:45 ora_pmon_atsec
+  oracle 52101278 31260764   0 08:56:50  pts/8  0:00 grep pmon
+  oracle  4981198        1   1   Jan 18      - 15:37 ora_pmon_surfi
+  oracle  6881780        1   0   Jan 18      - 16:15 ora_pmon_aptf03
+  oracle  8913384        1   0   Jan 18      - 14:48 ora_pmon_aptf02
+  oracle 21889462        1   1   Jan 29      -  5:21 ora_pmon_atdr01
+  oracle  6881828        1   0   Jan 25      -  9:05 ora_pmon_tipspr01
+  oracle  8061450        1   0   Jan 18      - 14:03 ora_pmon_aptf01
+  oracle 10879546        1   0   Jan 25      -  8:58 ora_pmon_atmir01
+  oracle 47055560        1   0   Jan 27      -  9:25 ora_pmon_atpr01
+
+
+
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/matl/GDI/GDI234520$unishutdown all
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/etc/local/stop$./SCMstop.ksh
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/etc/local/stop$./ATstop.ksh
+Stop NSM Monitoring on Infrastructure (00:00:00, STOP_AT)
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/OmniVision/bin$./omnivision_stop
+09:03:47  INFO: Beginning shutdown of OmniVision on node s00va9941870.
+09:03:48  INFO: Signalling the OmniVision manager process to begin termination.
+
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (atlas)
+/apps/atlas/atlas2v0/uf1$sesu oracle
+Please enter your password:
+$ lsnrctl stop
+
+LSNRCTL for IBM/AIX RISC System/6000: Version 11.2.0.4.0 - Production on 03-FÉVR.-2016 09:11:18
+
+Copyright (c) 1991, 2013, Oracle.  All rights reserved.
+
+Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=IPC)(KEY=EXTPROC)))
+The command completed successfully
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+root@s00va9941870:/$ df -g |grep apps
+/dev/lv_apps       0.50      0.44   12%     1584     2% /apps
+root@s00va9941870:/$ umount /apps
+umount: error unmounting /dev/lv_apps: Device busy
+root@s00va9941870:/$ fuser -k /apps
+/apps:
+root@s00va9941870:/$ umount /apps
+umount: error unmounting /dev/lv_apps: Device busy
+root@s00va9941870:/$ fuser -kxuc /apps
+/apps:  5439970c(root) 3932902c(root)
+root@s00va9941870:/$ umount /apps
+root@s00va9941870:/$ rmfs /apps
+rmlv: Logical volume lv_apps is removed.
+
+
+
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/$df -g |grep unicenter
+/dev/lv_tng        1.31      0.97   27%     6599     3% /apps/unicenter
+/dev/lv_tng_logs      0.19      0.10   46%      204     1% /apps/unicenter/EM/3.1/opr/logs
+/dev/lv_tng_base      1.06      0.81   24%       44     1% /apps/unicenter/EM/3.1/bases
+/dev/lv_dsm        2.06      1.72   17%     1292     1% /apps/unicenter/DSM
+/dev/lv_nas        0.06      0.05   28%      122     2% /apps/unicenter/AT/3.1/NewAgentScript
+
+
+

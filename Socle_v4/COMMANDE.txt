@@ -1,0 +1,2086 @@
+tar xvzf nomarchive "*nomfichier*"
+
+gtar ton_fichier.gz "*toto*" "*tata*"
+
+gtar xvzf FIC.JSAVF1.20130216.004256.tar.Z "*ASY_IJY1A202*"
+
+gtar xvzf FIC.JSAVF1.20130216.004256.tar.Z "*ASY_IJY1A202*"
+
+
+du -sg *
+
+l919072
+Taber12*
+MDP REUNION : ADCJ
+
+gtar cvzf nomarchive ./repertoire ./repertoire ./repertoire ./fichi* ./toto
+
+\\Pardmp12sh\Prodfr\BU_RB_EM\PSM-ATLAS-INFOCENTRE\DOCUMENTATION\Projets\Pieces_jointes\Soliam
+
+================
+FIC MENSUEL 
+
+dsmc ret -se=TSM-TRANSVERSE-VAUZ "/apps/atlas/atlas2v0/uf1/ficsav/MAS9C2.fic.tgz_201211010117" /ficsav/EQUIPE_MEO/loic/
+
+
+
+
+MDP REUNION : 1jour-B0
+
+
+=========================
+
+URL MDP SERVEUR : 
+https://passwordvault.itp.echonet/PasswordVault/logon.aspx?ReturnUrl=%2fPasswordVault%2fdefault.aspx
+
+==============================
+
+df -g $(lsvg -l extvgd7 | grep jfs2 | grep -v uf1 | egrep 'atlas|oradbf' | awk '{ print $NF }')
+
+===================================
+$A2_CONVERT ---> convert
+
+export A2I_LOG=$A2I_REP/log
+================================
+
+DSM SYS FICHIER DE CONFIF POUR DSMC
+
+/usr/tivoli/tsm/client/ba/bin/dsm.sys
+
+
+/usr/tivoli/tsm/client/ba/bin$grep SErvername /usr/tivoli/tsm/client/ba/bin/dsm.sys
+SErvername      TSMARZ304
+SErvername      TSM-EMEA-MARZ
+SErvername      TSM-EMEA-VAUZ
+SErvername      TSM-TRANSVERSE-VAUZ
+SErvername      TSM-ARZ102
+PARVA4004778 => TESTS ATLAS 2 LIBYA SFDI (root)
+
+
+=================================
+
+MESSAGE ERREUR INSTALL GDI :
+
+supprimer ls
+
+rm CACAI.dta
+
+/apps/atlas/atlas2v0/sa18/data1/fic$ls -rtl C*?C?I*
+
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:28 CACAI.dta -> /apps/ead/FTG/R3944477438/mess/CACAI.dta
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:32 CACAI.idx -> /apps/ead/FTG/R3944477438/mess/CACAI.idx
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:33 CBCBI.idx -> /apps/ead/FTG/R3944477438/mess/CBCBI.idx
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:33 CBCBI.dta -> /apps/ead/FTG/R3944477438/mess/CBCBI.dta
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:33 CFCFI.dta -> /apps/ead/FTG/R3944477438/mess/CFCFI.dta
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:33 CKCKI.idx -> /apps/ead/FTG/R3944477438/mess/CKCKI.idx
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:33 CKCKI.dta -> /apps/ead/FTG/R3944477438/mess/CKCKI.dta
+lrwxrwxrwx    1 atlas    atlas            40 Jan 24 08:33 CFCFI.idx -> /apps/ead/FTG/R3944477438/mess/CFCFI.idx
+
+===============================
+0157431088
+
+=======================================================
+
+COMPOSANT INFOCENTRE (bien utiliser le descripteur)
+bin.infocentre
+
+=======================================================
+
+VOIR LES JOBSET CHARGE EN BASE TNG
+
+
+cautil sel jobset id=mpf3* li
+
+tracking : cautil sel tjobset id=mpf3* li
+
+
+========================================================
+VERIF COMMANDE DISQUE
+
+\\Pardmp12sh\Prodfr\BU_RB_EM\_Perso\Emmanuel\plan-type-suivi-avancement.xlsx
+
+
+===========================================================
+gtar tvzf XXXXXXX.tar.Z|grep chaine
+
+=========================================================
+
+	
+
+===============================================================================================
+
+FOURNIR UNE FRESH COPIE :
+
+PRENDRE APRES FINJOUR BASE FICHIER COMPOSANT LES PLUS RECENT (POUR NCAL EGYPTE MAROC)
+
+================================================================================================
+
+=================================================================================================
+
+
+\\Pardmp12sh\Prodfr\BU_RB_EM\_Perso\Emmanuel\plan-type-suivi-avancement.xlsx
+
+=================================================================================================
+
+CHECK PROD PASSAGE DES TRAITEMENT APRESFINJOUR
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1$cdi-2
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/arch/imp-2$ls -ltr | grep -i jfj1
+-rw-rw-r--    1 atlas    atlas          3601 Mar 19 00:51 JASF84.jfj1.sysout.20130319.005123
+-rw-rw-r--    1 atlas    atlas          4669 Mar 19 00:51 JASF84.jfj1.log.20130319.005123
+-rw-rw-r--    1 atlas    atlas          6864 Mar 19 00:52 DASL22.jfj1.sysout.20130319.005129
+-rw-rw-r--    1 atlas    atlas          6826 Mar 19 00:52 DASL22.jfj1.log.20130319.005129
+-rw-rw-r--    1 atlas    atlas          2649 Mar 19 01:05 JASF9X.jfj1.sysout.20130319.010458
+-rw-rw-r--    1 atlas    atlas          4454 Mar 19 01:05 JASF9X.jfj1.log.20130319.010458
+-rw-rw-r--    1 atlas    atlas          2649 Mar 19 01:05 JASF9Z.jfj1.sysout.20130319.010458
+-rw-rw-r--    1 atlas    atlas        244111 Mar 19 01:05 JASF9Z.jfj1.log.20130319.010458
+
+
+==================================================================================================S
+FLUX ET TRANSFERT DE FICHIERS
+
+http://tdf.bp2i.echonet/_fr/Frame04p_requete_bord_fr.htm
+
+=====================================================================================
+
+ls -ltr /apps/oradbf/atdsa9/ctl*/ctl*.ctl
+rm /apps/oradbf/atpsa6/ctl*/ctl*.ctl
+
+==============================================
+
+SUBSTITUTION
+
+substitute : 
+
+:1,$ s%atpr04%atpr12%g
+
+
+onmar1
+
+
+:1,$ s/onmar1/onmar3/g
+
+
+==============================================
+
+CHOPIN URL :
+
+https://itsm.itp.echonet/arsys/forms/vip-itsm-application/SHR%3ALandingConsole/Default+Administrator+View/?cacheid=279e68bb
+
+================================================
+UTILISATION DE LA FRESH COPY EN RESTAU :
+CHECK ATLDAT SI DATE OK 
+
+4016556
+
+SUR UF1 FIC
+
+for i in $(ls -1)                 
+do
+cp -Rp $i /apps/atlas/atlas2v0/sa3/data1/fic/
+done
+
+
+{parva4004779} (atlas) { ATM NEW DEPLOYMENT  - sa3 - atlas400.51 - din04650}
+/apps/atlas/atlas2v0/sa3$
+kixok
+{parva4004779} (atlas) { ATM NEW DEPLOYMENT  - sa3 - atlas400.51 - din04650}
+/apps/atlas/atlas2v0/sa3$
+sesu oracle
+Please enter your password:
+{parva4004779} (atlas) { ATM NEW DEPLOYMENT  - sa3 - atlas400.51 - din04650}
+/apps/atlas/atlas2v0/sa3$
+cd /
+{parva4004779} (atlas) { ATM NEW DEPLOYMENT  - sa3 - atlas400.51 - din04650}
+/$
+relocatedb atpr01 atpsa3
+Instance ORACLE arrêtée.
+Le volume de la base est 422469776 M
+volume convenable
+
+Base de données modifiée.
+
+========================================================================
+
+Si pb LPA mail a ATLAS2ASSISTANCE,
+
+
+===================================================================================
+
+gtar cvfz xrdj_compl.tar.Z xrdj_exit/ xrdj_exitsite/ xrdj_utl/
+
+
+==================================================================
+
+MERCI DE LANCER LE SCRIPT ./ajout_disque_tf.sh POUR CONNAITRE DE FACON SURE LES DISQUES DISPONIBLES
+
+===================================
+
+PARIS BP2I SECURITY PASSWORD VAULT, ---> EQUIPE DEMANDE PASSWORD VAULT
+
+774436
+
+
+"CTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 STORAGE(INITIAL 65536 FREELIST"
+ "S 1 FREELIST GROUPS 1)                                LOGGING NOCOMPRESS"
+
+
+
+ATLAS2 ASSISTANCE
+
+
+==================================
+
+/apps/exploit/outils/kixref80/40050$crepct
+Release Unikix 8.0.1
+Info : Le fichier /apps/exploit/outils/kixref80/40050/pct.site detecte.
+Il sera utilise pour la creation de la table Unikix
+To generate .tbl from .lst
+Warning: Bad entry in line 1050  of file pct.lst
+ LN0020CS,,LN20,0,1,DEF,D,0,,,,Y,
+Message :
+**** Duplicate Tran ID in entry 1050
+Warning: Bad entry in line 1052  of file pct.lst
+ LN0030CS,,LN30,0,1,DEF,D,0,,,,Y,
+Message :
+**** Duplicate Tran ID in entry 1051
+2  bad entry(s) not written to pct.tbl
+pct.lst converted successfully to pct.tbl
+
+
+grep LN0030CS pct.lst.GDI185815 ppt.lst.GDI185815
+
+
+A classe
+
+
+
+SUPPRESSION de 
+
+********************ANOMALIE**************************
+UNIKIX EST DEMARRE:
+ Veuillez l'arreter avant de lancer la restauration...
+
+q  35654474 0x23014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304 8749292 7831682 10:20:46 10:20:46  7:03:04
+q  35654475 0x22014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304 8749292 8179918 10:20:38 10:20:38  7:03:04
+q  35654476 0x21014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304 8749292 7544994 10:20:55 10:20:55  7:03:04
+q  35654477 0x20014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304 8749292 7561328 10:21:10 10:21:10  7:03:04
+q  35654478 0x0b014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304      0      0 pas d'entrée pas d'entrée  7:03:03
+q  49285967 0x06014034 --rw-rw-rw-    atlas    atlas    atlas    atlas      6576        12   4194304 5984480 7340084  8:35:42 10:13:28  7:03:03
+q  35654480 0x09014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304 7831682 7770146 10:13:26 10:13:26  7:03:03
+q  35654481 0x0d014034 -Rrw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304      0      0 pas d'entrée pas d'entrée  7:03:03
+q 108006226 0x08014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304 7561328 8749292 10:21:10 10:21:10  7:03:03
+q 108006227 0x04014034 --rw-rw-rw-    atlas    atlas    atlas    atlas       252         1   4194304 5984480 7938082  8:35:42 23:01:33  7:03:03
+q  35654484 0x01014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304 7938082 7831682 23:01:33 23:01:33  7:03:03
+q  35654485 0x07014034 --rw-rw-rw-    atlas    atlas    atlas    atlas         0         0   4194304      0      0 pas d'entrée pas d'entrée  7:03:03
+m 818937990 0x0f014034 --rw-rw-rw-    atlas    atlas    atlas    atlas      6      2040 5984480 5984480 10:11:48  8:36:00  7:03:03
+m 221249695 0x1f014034 --rw-rw-rw-    atlas    atlas    atlas    atlas      1     67116 5984480 5984480  7:03:14  8:36:00  7:03:03
+m 650117297 0x1b014034 --rw-rw-rw-    atlas    atlas    atlas    atlas      5  28565629 5984480 5984480 10:11:48  8:36:00  7:03:03
+m 333447347 0x10014034 --rw-rw-rw-    atlas    atlas    atlas    atlas      6 268435456 5984480 5984480 10:11:48  8:36:00  7:03:03
+
+
+ipcrm -q -m
+
+=================================================
+
+
+du -sg * |grep -v ^0
+
+
+=================================================
+
+CHECK DISK 
+
+lspv | grep -i power | grep -i none
+
+
+
+===============================================================================
+
+TROUVER LE PARAMETRE MAXDATAFILE EN PRODUCTION :
+
+:q!
+PARVA4000632 => PRODUCTION Algerie (oracle) /apps/oracle/admin/atdr01/config :
+ls -ltr
+total 144
+-rw-r--r--    1 oracle   dba            1359 Apr  1 02:19 initatpr01_tp.oraold
+-rw-r--r--    1 oracle   dba            1231 Apr  1 02:19 initatpr01_tp.ora.AIX5.2
+-rw-r--r--    1 oracle   dba            1601 Apr  1 02:19 initatpr01_tp.ora.20110201
+-rw-r--r--    1 oracle   dba            1621 Apr  1 02:19 initatpr01_tp.ora
+-rw-r--r--    1 oracle   dba            1348 Apr  1 02:19 initatpr01_batch.ora.AIX5.2
+-rw-r--r--    1 oracle   dba            1464 Apr  1 02:19 initatpr01_batch.ora.20111230.171100
+-rw-r--r--    1 oracle   dba            1444 Apr  1 02:19 initatpr01_batch.ora.20110201
+-rw-r--r--    1 oracle   dba            1540 Apr  1 02:19 initatpr01_batch.ora
+-rw-r--r--    1 oracle   dba             989 Apr  1 02:19 initatpr01.ora.AIX5.2
+-rw-r--r--    1 oracle   dba            1087 Apr  1 02:19 initatpr01.ora
+-rw-rw-r--    1 oracle   dba            3653 Apr  1 02:19 control.sql
+-rw-r--r--    1 oracle   dba             299 Apr  1 02:19 configatpr01.ora.AIX5.2
+-rw-r--r--    1 oracle   dba             299 Apr  1 02:19 configatpr01.ora
+-rw-r--r--    1 oracle   dba              53 Apr  1 02:19 afiedt.buf
+-rw-r--r--    1 oracle   dba            1621 Apr  1 03:39 initatdr01_tp.ora
+-rw-r--r--    1 oracle   dba            1540 Apr  1 03:39 initatdr01_batch.ora
+-rw-r--r--    1 oracle   dba            1087 Apr  1 03:39 initatdr01.ora
+-rw-r--r--    1 oracle   dba             299 Apr  1 03:39 configatdr01.ora
+PARVA4000632 => PRODUCTION Algerie (oracle) /apps/oracle/admin/atdr01/config :
+grep MAXDATAFILES *
+control.sql:    MAXDATAFILES 50
+PARVA4000632 => PRODUCTION Algerie (oracle) /apps/oracle/admin/atdr01/config :
+
+
+
+
+
+===========================
+
+06 65 88 47 97 ---> Fathi
+
+06 15 58 72 28 ---> RAHMAN
+==============================
+
+COMMANDE SEARCHSPACE
+
+dsmc q ar "/apps/oradbf/backup/hub1siag/SAVE_100530/LAST_APRES_SP/*"
+dsmc q ar -se=TSM-EMEA-MARZ -virtualnodename=parva4002804 -password=parva4002804 "/apps/oradbf/backup/hub1siag/SAVE_100917/*"
+
+dsmc ret -se=TSM-EMEA-MARZ -virtualnodename=parva4002804 -password=parva4002804 "/apps/oradbf/backup/hub1siag/SAVE_100917/LAST_APRES_SP/*" "/apps/oradbf/backup/hub1siag/"
+
+
+dsmc q ar -se=TSM-EMEA-MANZ1 -virtualnodename=parva4004038 -password=parva4004038 "/apps/oradbf/backup/hub1ncal/SAVE_100917/*"
+
+
+dsmc ret "/apps/oradbf/backup/hub1ncal/SAVE_120827/LAST_APRES_SP/ief1ncal-JAPRES_SP_jsb2_bases-1208271709.2.tar.Z
+" "/ficsav/recup_sauv/"
+dsmc ret "/apps/oradbf/backup/hub1ncal/SAVE_120827/LAST_APRES_SP/ief1ncal-JAPRES_SP_jsb2_bases-1208271709.1.tar.Z" /ficsav/recup_sauv/
+dsmc ret "/apps/oradbf/backup/hub1ncal/SAVE_120827/LAST_APRES_SP/data1-IEF-JAPRES_SP_jsb2_fichiers-1208271707.tar.Z" /ficsav/recup_sauv/
+dsmc ret "/apps/oradbf/backup/hub1ncal/SAVE_120827/LAST_APRES_SP/data1-IEFBIN-JAPRES_SP_jsb2_fichiers-1208271708.tar.Z" /ficsav/recup_sauv/
+dsmc ret "/apps/oradbf/backup/hub1ncal/SAVE_120827/LAST_APRES_SP/data1-JAPRES_SP_jsb2_fichiers-1208271707.tar.Z" /ficsav/recup_sauv/
+dsmc ret "/apps/oradbf/backup/hub1ncal/SAVE_120827/LAST_APRES_SP/data1-log-JAPRES_SP_jsb2_fichiers-1208271709.tar.Z" /ficsav/recup_sauv/
+dsmc ret "/apps/oradbf/backup/hub1ncal/SAVE_120827/LAST_APRES_SP/hub1ncal-JAPRES_SP_jsb2_bases-1208271707.tar.Z" /ficsav/recup_sauv/
+
+=====================================================================
+
+CONFIG PORT UNIKIX
+
+/apps/exploit/profiles/initenv$grep KIX init_env_atlas_sa14
+export A2_KIX_PORT=6011
+export A2_KIX_PORTTCP=8011
+export A2_KIX_TRANS=AA01
+export A2_KIX_PORTCLI=26011
+export A2_KIX_PORTCLI_BKOF=6002
+export A2_KIXVER=t8.0.1
+
+
+26 BKOF
+
+24 KIX
+
+export A2_KIX_PORT=6024
+export A2_KIX_PORTTCP=8024
+export A2_KIX_TRANS=AA01
+export A2_KIX_PORTCLI=26024
+export A2_KIX_PORTCLI_BKOF=6026
+
+
+LISTER LES PORTS UNIKLIX UTILISER
+
+apps/exploit/profiles/initenv :grep A2_KIX_PORT= *init*
+=====================================================================
+
+
+CHARGEMENT JOBSET
+
+
+cautil sel conlog li conlog |more
+
+PARVA4000839 => PROD ATLAS 2 NOUVELLE CALEDONIE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/site/jobset$cdu
+PARVA4000839 => PROD ATLAS 2 NOUVELLE CALEDONIE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/jobset$cd parm
+PARVA4000839 => PROD ATLAS 2 NOUVELLE CALEDONIE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/jobset/parm$ls -lrt jst3*
+-rw-rw-r--    1 atlas    atlas            59 Nov 16 2010  jst3Cald.parm
+PARVA4000839 => PROD ATLAS 2 NOUVELLE CALEDONIE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/jobset/parm$more jst3Cald.parm
+export usrexp=atlas
+export muststartt=n
+export mustcompt=n
+PARVA4000839 => PROD ATLAS 2 NOUVELLE CALEDONIE SFDI (atlas)
+
+=========================================================================
+
+gtar xvzf SEXPM.CAI.09042013_213644.gtar.z --exclude '*.dmp'
+
+lspv | grep hdiskpower | grep none
+
+
+/apps/exploit/outilsora$new.relocatedb atpr01 atpr02
+
+=================================================
+
+CHECK ETAT DE L'IMPRIMANTE 
+
+parva4000632 => PRODUCTION ALGERIE  (root) / :
+lpstat -vIUS90
+Queue   Dev   Status    Job Files              User         PP %   Blks  Cp Rnk
+------- ----- --------- --- ------------------ ---------- ---- -- ----- --- ---
+IUS90   @IUS9 READY
+IUS90: JetDirect lpd: no jobs queued on the port Auto
+
+
+===============================================
+PB CALENDRIER TNG
+
+en root : 
+sql  
+connect to caiunidb; (ou cashdb)
+select * from system.specauth where userid like '%6213%'; 	
+grant dba to l926213;
+release; 
+quit;
+
+
+=========================================================
+
+CHECK INSTALL GDI 
+
+
+cd /apps/amelia/sessions
+
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions :
+cd 00000794
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794 :
+ls -ltr
+total 64
+-rwxrwxr-x    1 atlas    a2instal       5290 Jun  1 00:50 lance_tech_3477602_SA10
+drwxrwxr-x    2 atlas    a2instal        256 Jun  1 00:50 files_to_install
+-rw-rw-r--    1 atlas    a2instal         82 Jun  1 00:50 correspondance.txt
+drwxrwxr-x    2 atlas    a2instal        256 Jun  1 00:51 log
+drwxrwxr-x    3 conv     a2instal        256 Jun  1 00:51 backup
+-rw-rw-r--    1 root     system          896 Jun  1 00:51 install.txt
+-rw-rw-r--    1 root     system          460 Jun  1 00:51 backup.txt
+-rw-rw-r--    1 root     system         2438 Jun  1 00:51 CR_Install_FULL.txt
+-rw-rw-r--    1 root     a2instal        664 Jun  1 00:51 vars.old
+-rw-rw-r--    1 root     a2instal        680 Jun  1 00:51 vars
+drwxrwxr-x    2 atlas    a2instal        256 Jun  1 00:51 msg
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794 :
+cd bcakup
+ksh: bcakup:  not found
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794 :
+cd backup
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup :
+ls -ltr
+total 0
+drwxrwxr-x    3 atlas    atlas           256 Jun  1 00:51 apps
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup :
+cd apps
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps :
+ls -ltr
+total 0
+drwxrwxr-x    3 atlas    atlas           256 Jun  1 00:51 atlas
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps :
+cd atlas
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas :
+ls
+atlas2v0
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas :
+cd atlas2v0
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0 :
+ls -l
+total 0
+drwxrwxr-x    3 atlas    atlas           256 Jun  1 00:51 sa10
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0 :
+cd sa10
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0/sa10 :
+ls -l
+total 0
+drwxrwxr-x    2 atlas    atlas           256 Jun  1 00:51 jcl
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0/sa10 :
+cd jcl
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0/sa10/jcl :
+ls -l
+total 32
+-r-xr-xr-x    1 atlas    atlas         12985 Jun  1 00:51 jhbf00
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0/sa10/jcl :
+cd jhbf00
+ksh: jhbf00: not a directory
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0/sa10/jcl :
+cd /apps/amelia/sessions/00000794
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794 :
+cd log
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/log :
+ls
+gescomp.log
+parva4000644 => PRE-PRODUCTION NOUVELLE CALEDONIE  (root) /apps/amelia/sessions/00000794/log :
+view gescomp.log
+"gescomp.log" [Read only] 14 lines, 805 characters
+
+Les composants suivants vont etre livres depuis /apps/amelia/sessions/00000794/data/02/files vers /apps/atlas/atlas2v0/sa10 par atlas
+
+No GDI   Nom    T N  Date reception    Date livraison
+------ -------  - - ----------------- -----------------
+168175 jhbf00 4 6 02497556 12/06/12 14/06/12 17:01:33 ==> OK
+Test de presence des composants dans /apps/amelia/sessions/00000794/data/02/files
+Copie de /apps/amelia/sessions/00000794/data/02/files/jhbf00 vers /apps/atlas/atlas2v0/sa10/jcl/.
+INFO : RCBACKUP=0 jhbf00 sauvegarde dans /apps/amelia/sessions/00000794/backup/apps/atlas/atlas2v0/sa10/jcl/jhbf00
+INFO : RCINSTALL=0 jhbf00 installe dans /apps/atlas/atlas2v0/sa10/jcl/jhbf00.
+ faite
+Verrouillage en ecriture de /apps/atlas/atlas2v0/sa10/jcl/jhbf00
+Recherche des JCLs relivres presents dans jclsite.
+
+============================================================================================
+CHECK TABLESPACE EN MEGA
+
+set pages 150
+set lines 150
+select tot.t1 "TABLESPACE", 
+       round(tot.t2,2) "TAILLE (Go)", 
+       nvl(round(tot.t2-nvl(free.f2,0),2),0) "UTILISE (Go)", 
+       nvl(round(nvl(free.f2,0),2),0) "DISPONIBLE (Go)",
+       nvl(round((tot.t2-nvl(free.f2,0))/tot.t2*100,2),0) "% OCCUPATION"
+from
+(select tablespace_name t1, sum(bytes/1024/1024/1024) t2 from dba_data_files where tablespace_name like '%SEN%' group by tablespace_name 
+union
+select tablespace_name t1, sum(bytes/1024/1024/1024) t2 from dba_temp_files where tablespace_name like '%SEN%'  group by tablespace_name) tot,
+(select tablespace_name f1, sum(bytes/1024/1024/1024) f2 from dba_free_space where tablespace_name like '%SEN%' group by tablespace_name) free
+where tot.t1=free.f1(+)
+order by 5 desc;
+
+=================================================================================================
+RAHMAN 06 15 58 72 28
+
+
+=================================================================================================
+CHECK PASSAGE DE SAUVEGARDE
+
+[parva4006384|infoc|IAM1NCP0|04750|40051|noucal]:/apps/noucal/infoc $ cdim
+[parva4006384|infoc|IAM1NCP0|04750|40051|noucal]:/apps/noucal/infoc/base_dr/log $ ls -ltr DMEO*
+-rwxrwxr-x    1 infoc    infoc       1417616 Apr  4 2010  DMEO02.mtot.log.20100404.001850
+-rwxrwxr-x    1 infoc    infoc       1413861 May  7 2010  DMEO02.mtot.log.20100507.162219
+-rwxrwxr-x    1 infoc    infoc       1419846 Jun  5 2010  DMEO02.mtot.log.20100605.144538
+-rwxrwxr-x    1 infoc    infoc          9393 Jun  5 2010  DMEO02.mtot.log.20100605.174135
+-rw-rw-rw-    1 infoc    infoc         38386 Jul  4 2011  DMEO01.mcft.log.20110704.183955
+-rw-rw-rw-    1 infoc    infoc         38386 Aug  2 2011  DMEO01.mcft.log.20110802.183143
+-rw-rw-rw-    1 infoc    infoc         38386 Sep  2 2011  DMEO01.mcft.log.20110902.193158
+-rw-rw-rw-    1 infoc    infoc         38387 Oct  4 2011  DMEO01.mcft.log.20111004.193125
+-rw-rw-rw-    1 infoc    infoc          7007 Mar  7 12:44 DMEO07.mexp1..log.20130307.124450
+-rw-rw-rw-    1 oracle   dba         2260668 Mar 11 23:02 DMEO06.mexp..log.20130311.172338
+-rw-rw-rw-    1 oracle   dba         2364639 Mar 12 14:55 DMEO06.mexp..log.20130312.071953
+-rw-rw-rw-    1 oracle   dba            7098 Mar 12 15:16 DMEO06.mexp..log.20130312.151612
+-rw-rw-rw-    1 infoc    infoc          7007 Apr  4 20:51 DMEO07.mexp1..log.20130404.205105
+-rw-rw-rw-    1 oracle   dba         2376491 Apr  5 23:51 DMEO06.mexp..log.20130405.194622
+-rw-rw-rw-    1 infoc    infoc          7007 May  3 21:31 DMEO07.mexp1..log.20130503.213100
+-rw-rw-rw-    1 oracle   dba         2381401 May  4 17:36 DMEO06.mexp..log.20130504.133101
+-rw-rw-rw-    1 infoc    infoc          7007 Jun  6 01:49 DMEO07.mexp1..log.20130606.014910
+-rw-rw-rw-    1 oracle   dba         2392770 Jun  7 02:56 DMEO06.mexp..log.20130606.222945
+-rw-rw-rw-    1 oracle   dba            7096 Jun  7 08:48 DMEO06.mexp..log.20130607.084827
+
+
+==================================================================================================
+
+LOG CKPDB
+
+{parva4000642} (atlas) { Environnement recette - ISLAMIC BANKING -  - sa20}
+/tmp$vi o_backup_5603342.log
+
+==================================================================================================
+REINITIALISATION MDP
+
+gesuser
+delock_user
+
+===================================================================================================
+
+MDP ATLDSI :
+------------
+Gesap543!
+
+infdsi -> @siux0544
+parva1000544
+
+ATLDSI --> parva1000543
+INFDSI --> parva1000544
+INFOSI --> parva1010587
+===================================================================================================
+
+\\Pardmp12sh\Prodfr\BU_RB_EM\PSM-ATLAS-INFOCENTRE\DOCUMENTATION\Opérations\ATLAS\Template_OP_reboot.PROD_new_
+
+==================================================================================================================
+
+ps -e | grep pmon | awk '{z=$1}' | kill -9 $z 
+
+=========================================================================================
+
+|awk -F_ '{print $NF}'
+
+===============================
+
+cautil start autosub
+cautil status monitor
+
+============================================================================================
+
+CHECK CARTOGRAPHIE CFT
+
+==============================================
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1$cautil select jobsethist id=mrp2* li
+
+
+jil<ton_fichier_jill_autosys.jil
+
+
+http://www.11footballclub.com/46-psg-paris
+
+=======================================================================
+
+Connecté.
+SQL> shutdown abort;
+Instance ORACLE arrêtée.
+SQL> startup mount;
+Instance ORACLE lancée.
+
+Total System Global Area  838961344 bytes
+Fixed Size                   743616 bytes
+Variable Size             754974720 bytes
+Database Buffers           81920000 bytes
+Redo Buffers                1323008 bytes
+Base de données montée.
+SQL> alter database open;
+$E~yiV0(
+
+=====================================================================
+mexp dmeo06 PARINC004991015
+
+=========================================================================
+e-delphe FA thomas 
+
+867681 : un des serveurs en ping pas, l'autre a un pb de config local ( telnet 515 en erreur et lpstat qui renvoit une impossibilité de se connecter)
+PARDEM00081564 : il manque le pilote ou le modèle des imprimantes pour les créer
+
+==================================================================================
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/jobset/parm$cautil list jobset id=d1p3*
+Date: 07/25/13     Object: JOBSET                          Page     1
+Jobset: d1p3Anti
+  Station: exploit              Calendar: base
+  Description: Systemes de paiement-interface swift mt01
+  Anycpu: No  Autosel: No  Backlog: Yes Hold: No   Userenv: No
+  Priority: 01 Set Type: CPU     History: 0010 Skip:
+  Early time:                Average Time:  00:03:55.00
+  Must Time:                 Must Complete:
+  Maximum Time:              Abend Action:  ABORT
+  Failcond: ( +0001 , +9999 )
+  Effective Date:             Expiration Date:
+  Update User: atlas                            Date: 22-07-2013  Time: 12:05:23.00
+  Create User: atlas                            Date: 22-07-2013  Time: 12:05:23.00
+  Criteria: Calendar:          Holiday Action:
+  Criteria: Non-workday Action:   Adjustment:
+  Criteria: Keywords:
+=====================================================================================
+
+L = INFOCENTRE
+U = ATLAS
+
+=====================================================================================
+New relocate db
+
+PARVA4004778 => TESTS ATLAS 2 LIBYA SFDI sa6 (oracle)
+/apps/oradbf/atpsa6$df -g .
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/lv_atpsa6    365,00      5,44   99%       83     1% /apps/oradbf/atpsa6
+PARVA4004778 => TESTS ATLAS 2 LIBYA SFDI sa6 (oracle)
+/apps/oradbf/atpsa6$cd archive
+PARVA4004778 => TESTS ATLAS 2 LIBYA SFDI sa6 (oracle)
+/apps/oradbf/atpsa6/archive$ls -ltr
+total 24
+-rw-rw-r--    1 oracle   dba             243  1 ÃÚÓ 05:32 duplicbase_lctl.lst
+-rw-rw-r--    1 oracle   dba            3726  1 ÃÚÓ 05:32 duplicbase_lfic.lst
+-rw-rw-r--    1 oracle   dba            3410  1 ÃÚÓ 05:32 control.trc
+PARVA4004778 => TESTS ATLAS 2 LIBYA SFDI sa6 (oracle)
+/apps/oradbf/atpsa6/archive$new.relocatedb atpr01 atpsa6
+ORACLE instance shut down.
+Message 608 unknown
+Message 631 unknown
+Message 681 unknown
+Message 680 unknown
+Message 642 unknown
+atpsa6
+ORACLE instance started.
+
+Total System Global Area  540673784 bytes
+Fixed Size                   743160 bytes
+Variable Size             436207616 bytes
+Database Buffers          102400000 bytes
+Redo Buffers                1323008 bytes
+
+Control file created.
+
+
+Database altered.
+
+
+  COUNT(*)
+----------
+        27
+
+Message 670 unknown
+Message 881 unknown
+grep: 0652-033 Cannot open /tmp/testconn1515718.tmp.
+PARVA4004778 => TESTS ATLAS 2 LIBYA SFDI sa6 (oracle)
+
+========================================================================================
+
+set pages 150
+set lines 150
+select tot.t1 "TABLESPACE", 
+       round(tot.t2,2) "TAILLE (Mo)", 
+       nvl(round(tot.t2-nvl(free.f2,0),2),0) "UTILISE (Mo)", 
+       nvl(round(nvl(free.f2,0),2),0) "DISPONIBLE (Mo)",
+       nvl(round((tot.t2-nvl(free.f2,0))/tot.t2*100,2),0) "% OCCUPATION"
+from
+(select tablespace_name t1, sum(bytes/1024/1024) t2 from dba_data_files group by tablespace_name) tot,
+(select tablespace_name f1, sum(bytes/1024/1024) f2 from dba_free_space group by tablespace_name) free
+where tot.t1=free.f1(+) and tot.t1 like '%ANT%'
+order by 5 desc
+; 
+
+
+Bonjour,
+
+Sur le serveur parva4015222, pouvez vous créér l'instance oracle IAM6MAI0 identique à l'instance de Production Infocentre Maroc On Shore IAM1MAP0 du serveur parva4002348 avec les tablespaces taillés au minimum.
+
+L'instance sera créée sur le VG vg_senegal.
+
+Cdlt
+
+
+=========================================================================================
+IMP SENEGAL
+dsmc ret -se=TSM-ARZ105 "/ficsav/parva4001843/apres/data1-impall.20130801.080313.tgz" /ficsav/EQUIPE_MEO/loic/
+==========================================================================================
+CRYPTAGE BASE (5 a 6h)
+
+/apps/atlas/atlas2v0/rf1/jclsite$test.120
+test.120[12]: as/atlas2v0/uf1/tipsbin:  introuvable.
+PATH : /apps/atlas/atlas2v0/rf1/jclsite/test.120
+
+{parva4014152} (atlas) {Reference Composant Site - Senegal - rf1}
+/apps/atlas/atlas2v0/rf1/jclsite$das9b0
+PATH : /apps/exploit/outilsora/das9b0
+
+=================================================================================
+DEBLOCAGE FILE D'IMPRESSION
+
+parva4000634 => PRODUCTION MAROC  (root) /:
+cd /var/spool/lpd/qdir
+parva4000634 => PRODUCTION MAROC  (root) /var/spool/lpd/qdir:
+parva4000634 => PRODUCTION MAROC  (root) /var/spool/lpd/qdir:
+rm *E403* *C113* *kl03* *7407* *KA73* *9403* *K303*
+=================================================================================
+
+Bonjour, 
+
+Les 2 files d'impression ci-dessous sont en arrêt, merci de faire le nécessaire:  
+G08IL G08II 
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (root)
+/$lpstat -vG08IL
+Queue   Dev   Status    Job Files              User         PP %   Blks  Cp Rnk
+------- ----- --------- --- ------------------ ---------- ---- -- ----- --- ---
+G08IL   @cayw DOWN
+              QUEUED    357 STDIN.3969256      atlas                  4   1   1
+===================================================================================
+commande pour vérifier l'activation du lpd :
+
+lssrc -g spooler
+=====================================================================================
+HOLD RAFRAICHISSEMNT RF1 
+
+parva4001876 => Pre PRODUCTION Maroc  (root) /apps/meoatlas2/outils/CPP1/script :
+cautil alter jobset id=jcpp* hold=no
+CASH_I_0320 00 = Monitor return code
+
+parva4001876 => Pre PRODUCTION Maroc  (root) /apps/meoatlas2/outils/CPP1/script :
+cautil list jobset id=jcpp*
+
+======================================================================================
+gtar -T /ficsav/EQ_MEO/loic/test2 -cvzf /ficsav/EQ_MEO/loic/archive.tar.Z
+
+gtar -T {repertoire/fichier_de_liste} -cvzf {repertoire/fichier_archive.tar.Z}
+
+======================================================================================
+FRANCK ---> 06 50 66 15 17
+FRED WISS ---> 06 11 16 08 43
+
+=====================================================================================
+
+/etc/local/stop
+
+cft@parva4017018:/etc/local/stop $ cftstop
+Waiting for CFTTCPS ...... stopped
+Waiting for CFTTCOM ... stopped
+Waiting for CFTLOG ... stopped
+Waiting for CFTTPRO ... stopped
+Waiting for CFTTFIL ... stopped
+Waiting for CFTMAIN ... stopped
+CFT stopped correctly.
+
+cft@parva4017018:/etc/local/stop $ ps -ef|grep -i cft
+     cft 41878338 37948768   5 10:36:28  pts/9  0:00 ps -ef
+   atlas 32048262        1  70   Jul 31      - 21548:00 gtar -czvf //DAS9I2.imp.tgz_201307311657 . /apps/atlas/atlas2uf1/uf1/data1/imp/../imp.cft/
+     cft 12191092        1   0 10:36:22      -  0:00 /bin/sh /tmp/cftcn_-anEa
+     cft 58983842 37948768   0 10:36:28  pts/9  0:00 grep -i cft
+     cft 25757298 12191092   0 10:36:22      -  0:00 sleep 10
+   atlas 21433412        1  68   Jul 31      - 21570:13 gtar -czvf //DAS9I2.imp.tgz_201307311635 . /apps/atlas/atlas2uf1/uf1/data1/imp/../imp.cft/
+   atlas 23596462        1  75   Jul 31      - 21593:46 gtar -czvf //DAS9I2.imp.tgz_201307311602 . /apps/atlas/atlas2uf1/uf1/data1/imp/../imp.cft/
+     cft 37948768 21237654   0 10:35:48  pts/9  0:00 -ksh
+cft@parva4017018:/etc/local/stop $ id
+uid=210(cft) gid=210(cft) groups=1(staff)
+cft@parva4017018:/etc/local/stop $ exit
+root@parva4017018:/etc/local/stop$ ./ESMstop.ksh
+root@parva4017018:/etc/local/stop$ ./DSMstop.ksh
+root@parva4017018:/etc/local/stop$ ./ATstop.ksh
+
+=========================================================================
+
+A/R AMELIA
+
+Arreter/Relance  Amelia
+sesu - root
+
+/apps/amelia/sh/a2instd
+sinon
+
+{parva4000644} (atlas) {SA4  - V400.41 OR30.01 - sa4}
+/apps/amelia/outils$a2i_menu
+L'automate d'installation (Amelia) n'est pas démarré (daemon a2instd).
+Demarrez l automate si vous souhaitez effectuer une installation.
+
+   --- AMELIA - Automate d'installation pour Atlas 2 ---
+
+
+
+
+1) Sortie
+2) Installer une livraison
+3) Restaurer  un backup pre-install
+4) Controler / Reprendre une session
+5) Voir les logs et états
+6) Arret / Lancement /Controle du daemon d'AMELIA
+7) Contenu d une livraison
+ Configurer AMELIA
+
+===========================================================================
+
+Le mot de passe de l'UID 926213 a été réinitialisé.
+Sa nouvelle valeur est : 82090?Iy
+Il est valable 3 jours.
+Attendez quelques minutes avant d'utiliser le nouveau mot de passe avec l'accès internet. La synchronisation peut durer jusqu'à 15 minutes,
+
+root@parva4015222:/apps/OmniVision/bin$ ps -ef |grep pmon
+  oracle 1138738       1   0   Apr 03      - 16:25 ora_pmon_IAM2DZI0
+  oracle 1376272       1   0   Apr 05      - 16:38 ora_pmon_IAM5MAI0
+    root 1790060 8155322   0 10:57:17 pts/10  0:00 grep pmon
+  oracle 1810552       1   0   Apr 03      - 197:31 ora_pmon_IAM2GNI0
+  oracle 1916998       1   0   Apr 18      - 14:54 ora_pmon_IAM3CII0
+  oracle 2064492       1   0   Apr 03      - 199:21 ora_pmon_IAM3SNI0
+  oracle 3006568       1   0   Apr 05      - 16:30 ora_pmon_IAM4CII0
+  oracle 3440874       1   0 17:00:13      -  1:23 ora_pmon_IAM3GNI0
+  oracle 4345856       1   0   Aug 08      - 69:56 ora_pmon_IAM4MFI0
+  oracle 4386912       1   0   May 17      - 12:16 ora_pmon_IAM4MAI0
+  oracle 4775936       1   0   Jul 29      - 78:11 ora_pmon_IAM1MFI0
+  oracle 4821018       1   0   Sep 03      - 20:24 ora_pmon_IAM6DZI0
+  oracle 6410284       1   0   Aug 08      - 66:11 ora_pmon_IAM4MFI0
+  oracle 7000070       1   0   Aug 20      - 42:10 ora_pmon_IAM1SNI0
+   infoc 7106664       1   0   Aug 01      - 66:35 ora_pmon_IAM3MAI0
+  oracle 7340202       1   0   Aug 08      - 52:54 ora_pmon_IAM6MAI0
+  oracle 7540844       1   0   Aug 08      - 60:53 ora_pmon_IAM6MAI0
+   infoc 7577680       1   0   Jun 24      - 136:12 ora_pmon_IAM3DZI0
+  oracle 7598220       1   0   Jun 13      - 148:45 ora_pmon_IAM2BFI0
+  oracle 7651488       1   0   Sep 03      - 19:54 ora_pmon_IAM6DZI0
+  oracle 7942326       1   0   Jun 07      -  9:57 ora_pmon_IAM3MFI0
+  oracle 8343638       1   0 09:41:26      -  0:00 ora_pmon_IAM4DZI0
+=======================================================================
+
+mail de l'équipe support pour ejb goal , a contacter en cas de pb sur incident ou nouveau déploiement : PARIS ITP GOAL
+3:04:56 PM: Loic CADIN: ok thx
+3:05:09 PM: Florian HADDAD: sinon, tu peux contacter Aymeric Blintzcomplet way !
+
+====================================================================
+PILOTAGE, GPMX, MLIST SDM, ASTREINTE MEO
+mail a envoyé avant et après opé
+
+====================================================================
+
+CHECK PASSAGE FINJOUR
+
+cautil sel jobhist id=j9f2*,j9f2ok,01 list | grep End:
+
+====================================================================
+merci de bien vouloir effacer de la base NSM le jobset jdm8onma
+----> delete sur le job en base sur TNG
+PARVA4002348 => PRODUCTION IAM RBIS (root) /:
+->cautil select jobset id=jdm8onma list
+CASH_E_0318 Record not found
+
+Date: 09/16/13     Object: JOBSET                          Page     1
+Jobset:
+  Station:                      Calendar:
+  Description:
+  Anycpu:     Autosel:     Backlog:     Hold:      Userenv:
+  Priority:    Set Type:         History:      Skip:
+  Early time:                Average Time:
+  Must Time:                 Must Complete:
+  Maximum Time:              Abend Action:
+  Failcond: (       ,       )
+  Effective Date:             Expiration Date:
+  Update User:                                  Date:             Time:
+  Create User:                                  Date:             Time:
+  Criteria: Calendar:          Holiday Action:
+  Criteria: Non-workday Action:   Adjustment:
+  Criteria: Keywords:
+=======================================================================
+
+ANIS+THOMAS+NACERA+BENJ+FABIEN+STEEVE+ALEX
+==========================================================================
+
+PARVA4002348 => Production IAM RBIS (infoc) - senega (atlas:40050 - din:04750 - oracle:10204 - base:IAM1SNP0)
+/apps/senega/infoc :
+->cautil sel jobset id=mfl43sene list
+Date: 09/17/13     Object: JOBSET                          Page     1
+Jobset: mfl43sene
+  Station: exploit              Calendar: base
+  Description: INFO-CENTER - EXTRACTOR FLOWS
+  Anycpu: No  Autosel: No  Backlog: Yes Hold: No   Userenv: No
+  Priority: 01 Set Type: CPU     History: 0000 Skip:
+  Early time:                Average Time:
+  Must Time:                 Must Complete:
+  Maximum Time:              Abend Action:  ABORT
+  Failcond: ( +0001 , +9999 )
+  Effective Date:             Expiration Date:
+  Update User: infoc                            Date: 23-08-2013  Time: 10:43:34.00
+  Create User: infoc                            Date: 23-08-2013  Time: 10:43:34.00
+  Criteria: Calendar:          Holiday Action:
+  Criteria: Non-workday Action:   Adjustment:
+  Criteria: Keywords:
+==============================================================================
+SCRIPT LIVRAISON COMPOSANT 
+livrprog
+==============================================================================
+cautil select cal id=sfdi1___2013 list exp=y
+===============================================================================
+
+cat ASF_PJF11101 AS9_PJ9T1151
+================================================================================
+LPA 
+
+Merci de bien vouloir installer la DLL191776 (voir mail de livraison boite PSM) :
+
+1/  Installation du GDI191776_L.tar sur le serveur atlas parva4020780 (env uf6).
+
+2/ Installation du GDI191776_U.tar sur le serveur de pré-production infocentre parva4020781, l'env Seneg2.
+
+Cordialement,
+   DM
+
+
+GDI191776_U.tar sur atlas
+il faut y' aller dans l'envi cible:
+cd 
+
+/apps/atlas/atlas2uf6/uf6
+
+sauvegarde /apps/atlas/atlas2uf6/uf6/dwhexeunl047 en apps/atlas/atlas2uf6/uf6/dwhexeunl047_2013xxx
+cd /apps/atlas/atlas2uf6/uf6/dwhexeunl047/INSUNL_04750_40050.log  /apps/atlas/atlas2uf6/uf6/dwhexeunl047/INSUNL_04750_40050.log_date.
+
+deposer le fichier GDI191776_U.tar dans le repertoire 
+
+/apps/exploit/dwhtoolsunl/source
+*
+
+detarer le fichier  GDI191776_U.tar
+
+cd ../
+./bld_unload047.sh
+
+===================================================================================
+Les restaurants sont composés, les bronzés font du script
+===================================================================================
+
+
+Dans le cadre du projet Alexander (Cession de l'Egypte) une bascule réseau de test est planifiée le 25/10/2013.
+Le but de l'opération est de modifier l'interface d'accueil télécom du réseau Egypte (scope IP 10.131.0.0/16 - 10.77.24.81 - 10.77.24.85)
+du firewall Africa vers le firewall Extranet.
+
+===================================================================================
+
+gtar xvzf /archive.tgz --exclude="base/*" --exclude="base_dr/*" --exclude="dwh_dr/*"
+====================================================================================
+VOIR LE MODE DE DEMARRAGE D'UNE BASE ORACLE
+SQL> archive log list
+====================================================================================
+VERIF APRES RECHARGEMENT HISTORIQUE JOURN2E INFOC
+SQL> connect ANT_INFOC/ANT_INFOC;
+Connected.
+
+SQL> select distinct A9000 from TDZ12 where A9000>'OCT-01-2013' order by A9000; et select distinct A9000 from TDZ17 where A9000>'SEP-01-2013' order by A9000;
+
+======================================================================================
+PASSER l'AUTOSELECT a NO
+
+cautil alter jobset id=j1i2Anti autosel=no
+
+=======================================================================================
+IDU LOG
+
+Merci aussi de nous restaurer les fichier IDU* depuis le répertoire  /apps/cft/fillog de tous le mois 10
+11:27:06 AM: Fouad MOUHSSINE: dsmc q ba -ina "/XXXL"
+dsmc restore -inactive -pick -subdir=yes "/XXXL/*" /tmp/oldfiles/
+=======================================================================================
+FA
+
+Creation		
+/usr/lib/lpd/pio/etc/piomisc_ext mkpq_remote_local -p 'hplj-4' -D pcl -q'V822S1010' -h 'NOUW0V82' -r 'V822S1010' -t 'bsd' -4 'yes' -C 'FALSE'
+
+
+supp
+/usr/lib/lpd/pio/etc/piomisc_ext rmpq_other 'V822S1010:@NOUW0V82' 'remote.local'
+
+
+Format
+
+/usr/lib/lpd/pio/etc/piochpq -q 'V822S1010' -d '@NOUW0V82' -l '43' -w '132' -z '+' -a s1='4' -a  s2='4' -a s7='4' -a s0='4' paysage
+/usr/lib/lpd/pio/etc/piochpq -q 'V822S1010' -d '@NOUW0V82' -l '60' -w '80' -z '+' -a s1='4' -a  s2='4' -a s7='4' -a s0='4' portrait
+=====================================================================================================
+
+VERIF INTEGRITE RESTAU BASE
+
+Connexion à la base restauré (dans le rep perso de restau)
+
+export ORACLE_SID=tabase
+
+sqlplus "/as sysdba"
+
+
+
+set head off
+set linesize 80
+set pagesize 0
+set feed off
+set ver off
+set term off
+
+spool check_bad_dbf.lst
+
+SELECT
+ SUBSTR(d.TABLESPACE_NAME,1,15) TNAME,
+SUBSTR(d.FILE_NAME,1,55) FNAME
+FROM
+  DBA_FREE_SPACE f , DBA_DATA_FILES d
+WHERE
+ f.tablespace_name(+) = d.tablespace_name
+ AND f.file_id(+) = d.file_id
+GROUP BY
+ d.tablespace_name ,
+ d.file_name ,
+ d.file_id ;
+
+spool off
+
+
+exit
+
+
+
+grep -i MISSING check_bad_dbf.lst
+
+cette commande est sensé rien retourner quand tout est OK
+
+Si il y a des lignes c'est que le fichier de controle a mal été créé et qu'il manque des déclarations de .dbf dans le fichier cloner.sql
+=========================================================================================================================================
+COMMANDE POUR COPIER LES FICHIERS TREs NOMBREUX (qd le mv ne passe pas)
+
+find .|cpio -mpdv /apps/atlas/atlas2v0/sa2/data1/fic
+
+BOUCLE POUR LES MOVER
+
+{parva4000644} (atlas) {SA2 - Environnement de Maintenance - sa2}
+/apps/atlas/atlas2v0/sa2/data1/fic/apps/atlas/atlas2v0/sa5/data1/fic$for i in $(ls -1)^Jdo^Jecho $i^Jdone
+{parva4000644} (atlas) {SA2 - Environnement de Maintenance - sa2}
+/apps/atlas/atlas2v0/sa2/data1/fic/apps/atlas/atlas2v0/sa5/data1/fic$for i in $(ls -1)
+> do
+> mv $i /apps/atlas/atlas2v0/sa2/data1/fic
+> done
+
+=========================================================================================================================================
+ARRET ET RELANCE SERVEUR COBOL
+
+#arret
+sesu root
+cd /usr/lib/mflmf
+./lmfgetpv k
+ps –ef | grep mflm_manager
+
+
+#demarrage
+ sesu root
+ cd /etc
+ ./mflmrcscripttail
+===========================================================================================================================================
+INFO SUR LE SYSTEME
+
+root@s00va9925035: /apps/work/ora_1120 # prtconf
+Modèle de système : IBM,9117-MMB
+Numéro de série de la machine : Non disponible
+Type de processeur : PowerPC_POWER7
+Mode de mise en oeuvre du processeur :  POWER 7
+Version de processeur : PV_7_Compat
+Nombre de processeurs : 0
+Fréquence d'horloge du processeur : 3108 MHz
+Type d'UC : 64-bit
+Type Kernel : 64-bit
+Infos LPAR : 38 s00va9925035
+Taille de mémoire : 20480 MB
+Taille de mémoire appropriée : 20480 MB
+Niveau du microprogramme de la plateforme : AM730_114
+Version du microprogramme : IBM,AM730_114
+Connexion à la console : enable
+Redémarrage automatique : true
+Fichier core complet : false
+
+================================================================
+WEBSPHERE MEAR
+parva4022529 --> BUS
+parva4022528 ---> PREZ
+4022526
+4022527
+=================================================================
+
+"Atlas2Bascule2" [Lecture seule] 298 lignes, 11803 caractères
+saut  #**********************************************************************
+ecrit '* S230 - LPD - Bascule des imprimantes                             *'
+      #**********************************************************************
+        . debstep S230 LPD
+
+        export LANG=en_EN
+
+        lssrc -g spooler | awk '{ print $NF }' | grep -v "Status" | grep -q "active"
+        if [[ $? -ne 0 ]]
+        then
+                Archive=BCK_LPD.tgz
+                cd /
+                gtar -xz -O saveTNGonline_$HostPROD/$Archive <  $CFTRECV/TNGonline_$HostPROD.tgz | gtar xvzf - 2>>$A2_LOG
+                . recRCU
+
+         else
+                echo Le spooler d impression est actif  >>$A2_LOG 2>&1
+                echo lancer le script Atlas2Stop ou arreter le spooler ou les sevices separement >>$A2_LOG 2>&1
+                A2_RCU=60
+        fi
+
+        . finstep S230 LPD
+        fi
+================================================================
+SPOOLER
+
+lssrc -g spooler
+
+root@s00va9925035: /etc # stopsrc -g spooler
+0513-044 L'arrêt du sous-système writesrv a été demandé.
+0513-044 L'arrêt du sous-système qdaemon a été demandé.
+0513-044 L'arrêt du sous-système lpd a été demandé.
+
+================================================================
+MDP BACKUP ATLAS 
+
+ bUQ72;8A 
+
+===============================================================
+
+root@parva4022575:/home/root$ lparstat -i
+Node Name                                  : parva4022575
+Partition Name                             : parva4022575
+Partition Number                           : 7
+Type                                       : Shared-SMT-4
+Mode                                       : Uncapped
+Entitled Capacity                          : 1.20
+Partition Group-ID                         : 32775
+Shared Pool ID                             : 0
+Online Virtual CPUs                        : 2
+Maximum Virtual CPUs                       : 32
+Minimum Virtual CPUs                       : 1
+Online Memory                              : 12288 MB
+Maximum Memory                             : 16384 MB
+Minimum Memory                             : 1024 MB
+Variable Capacity Weight                   : 128
+Minimum Capacity                           : 0.10
+Maximum Capacity                           : 32.00
+Capacity Increment                         : 0.01
+Maximum Physical CPUs in system            : 64
+Active Physical CPUs in system             : 28
+Active CPUs in Pool                        : 28
+Shared Physical CPUs in system             : 28
+Maximum Capacity of Pool                   : 2800
+Entitled Capacity of Pool                  : 810
+Unallocated Capacity                       : 0.00
+Physical CPU Percentage                    : 60.00%
+Unallocated Weight                         : 0
+Memory Mode                                : Dedicated-Expanded
+Total I/O Memory Entitlement               : -
+Variable Memory Capacity Weight            : -
+Memory Pool ID                             : -
+Physical Memory in the Pool                : -
+Hypervisor Page Size                       : -
+Unallocated Variable Memory Capacity Weight: -
+Unallocated I/O Memory entitlement         : -
+Memory Group ID of LPAR                    : -
+Desired Virtual CPUs                       : 2
+Desired Memory                             : 12288 MB
+Desired Variable Capacity Weight           : 128
+Desired Capacity                           : 1.20
+Target Memory Expansion Factor             : 1.00
+Target Memory Expansion Size               : 12288 MB
+Power Saving Mode                          : Disabled
+
+============================================================================
+10.9. comment éliminer les "ls * The parameter list is too long" ? On peut modifier le paramètre ncargs. Ce paramètre controle la longeur maximum de la ligne de commande. 
+Elle inclue les variables d'environnement. Par défaut ce paramêtre est de 6 blocks de 4K soit 24K. Les commandes suivantes permettent de lister et de modifier ce parametre. lsattr -El sys0 -a ncargs
+ chdev -l sys0 -a ncargs=8
+
+?	MODIFICATION DE LA TAILLE DU BUFFER DE LA LIGNE DE COMMANDE
+Ce changement permet par exemple l’exécution de commandes Unix avec un nombre d’arguments étendu.
+Chdev –l sys0 –a ncargs=128
+
+===============================================
+
+SQL> SELECT * FROM nls_database_parameters;
+===============================================
+
+
+SQL> show parameters recyclebin;
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+recyclebin                           string      OFF
+
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+session_cached_cursors               integer     20
+
+alter system set session_cached_cursors=50 scope = spfile;
+
+
+=====================================================================================
+FINGER 
+
+S00VA9930231 => Production 2 IAM RBIS (infoc) - onmaro (atlas:40051 - din:04750 - oracle:1120 - base:IAM1MAP0)
+/apps/backupSV2/test :
+->finger -l
+Login name: l203555                   In real life: Jean-Christophe MARTIN
+Site Info: 42992
+Directory: /home/l203555                Shell: /bin/ksh
+On since Jun 18 12:24:33 on pts/0, 23 hours Idle Time
+    from parw00139030.fr.net.intra
+No Plan.
+
+Login name: l926213                   In real life: Loic CADIN
+Site Info:
+Directory: /home/l926213                Shell: /bin/ksh
+On since Jun 16 10:51:12 on pts/2
+    from parw00109810.fr.net.intra
+On since Jun 18 11:14:19 on pts/3, 1 hour 10 minutes Idle Time
+    from parw00109810.fr.net.intra
+No Plan.
+
+Login name: l430518                   In real life: Nicolas KOL
+Site Info:
+Directory: /home/l430518                Shell: /bin/ksh
+On since Jun 18 10:08:14 on pts/4, 1 day 2 hours Idle Time
+    from parw00139869.fr.net.intra
+No Plan.
+
+Login name: l795469                   In real life: Cedric DAMIENS
+Site Info:
+Directory: /home/l795469                Shell: /bin/ksh
+On since Jun 19 11:57:05 on pts/5, 2 minutes 1 second
+ Idle Time
+    from parw00147888.fr.net.intra
+No Plan.
+
+=========================================================================
+HEURE PASSAGE AUTOSCAN
+
+S00VA9930231 => Production 2 IAM RBIS (infoc) - onmaro (atlas:40051 - din:04750 - oracle:1120 - base:IAM1MAP0)
+/apps/onmaro/infoc/base/log :
+->env | grep 0011
+CAISCHD0011=1
+
+MODIF 
+
+root@s00va9930231:/apps/cft_data/onmaro/recv$ cd $CAIGLBL0000/sche/scripts
+root@s00va9930231:/apps/unicenter/EM/3.1/sche/scripts$ grep 0011 *
+envset:#   CAISCHD0011 0-23 represents hour for new day autoscan
+envset:CAISCHD0011=1      # autoscan at 1 am
+=========================================================================
+ERREUR DFED 
+
+# locale
+LANG=en_US
+LC_COLLATE="en_US"
+LC_CTYPE="en_US"
+LC_MONETARY="en_US"
+LC_NUMERIC="en_US"
+LC_TIME="en_US"
+LC_MESSAGES="en_US"
+LC_ALL= 
+=========================================================================
+EQUIPE TNG
+
+SUP BP2I PRODUIT TECHNIQUE N2
+==========================================================================
+COMMANDE RMAN POUR PURGE
+
+./backup.ksh -s IAM1MLP0 -t purge 
+
+ca remplace la commande ./del_bkp_rman_disk.ksh -I $ORACLE_SID  qui se trouve dans le xsrman
+
+a lancer en oracle 
+
+=====================================
+
+CREATION CONTROL FILE
+
+SQL> tail 
+======================================
+
+VOIR LES DATES DE RECHARGEMENT INFOCENTRE
+
+
+Loubna PRUNET: sqlplus onm_infoc/onm_infoc
+SQL> select distinct a9000 from tdz17 order by a9000; 
+pour la table DZ17
+SQL> select distinct a9000 from tdz12 order by a9000;
+pour la table DZ12 
+
+Par mois :
+
+select distinct A9000 from TDZ12 where A9000>'07-01-2013' order by A9000;
+
+
+Pour récupérer  une journée perdu de rechargement infocentre : 
+--------------------------------------------------------------
+
+supprimer les *load*
+ensuite détarer l'archive de la journée concernée : 
+
+PARVA4002348 => Production IAM RBIS (infoc) - onmaro (atlas:40051 - din:04650 - oracle:920 - base:IAM1MAP0)
+/apps/onmaro/infoc/base :
+rm *load*
+gtar xvzf /apps/cft_data/onmaro/recv/SAV_DJ_ONM_20121229.tar.Z_SAV
+
+
+Et lancer les 2 commandes dans l'ordre: 
+
+PARVA4002348 => Production IAM RBIS (infoc) - onmaro (atlas:40051 - din:04650 - oracle:920 - base:IAM1MAP0)
+/apps/onmaro/infoc :
+->lance_onma dfsao4 0 INF_D
+->lance_onma dfsao5 0 INF_D
+
+lance_anti
+Mais avant de faire toutes ces manip, il faudera quand meme valider avec l'équipe PARIS RBIS ATLAS2 INFOCENTRE MNT
+
+
+Sur Atlas Maroc : /apps/atlas/atlas2v0/uf1/infoc/maroc_on_DL
+=========================================================================
+
+
+
+==========================================
+
+cautil select tjobparm id=jfl99guin,jfs200,01 li
+
+=====================================================
+
+Envoyer sur bande de archives - DSMC
+------------------------------------
+
+dsmc ar -desc=CFTJ_onma_20121228 -archmc=ARCH0365 -DELETEFILE /apps/cft_data/onmaro/recv/SAV_DJ_ONM_20121228.tar.Z_SAV
+
+dsmc ar -desc=save_sa6_20140210 -archmc=ARCH0365 -DELETEFILE /apps/infoc/sa6/Sauvegardes/FIC_sa6_20130524-09-31.tgz
+
+le paramètre -archmc s'appelle une "classe d'archive" et il définie plusieurs choses, dont le temps de rétention.
+la commande pour toutes les afficher c'est "dsmc query mgmtclass -detail"
+
+ou  dsmc q mgmt 
+
+===========================================================
+
+PB CFT 2.7.1
+
+Thomas HINDELANG: 
+
+14:57:44: export LIBPATH=/opt/freeware/lib:$LIBPATH 
+
+Maria22!!
+
+===================================
+EXPORTER UN SCHEMA UNIQUE
+
+exp SEN_INFODTM/SEN_INFODTM rows=Y OWNER=SEN_INFODTM compress=Y file=/apps/oracledata/IAM4SNI0/INFODTM.dmp log=/apps/oracledata/IAM4SNI0/INFODTM.log
+
+=================================================================
+MODIFIER LE OASINI SUR ALGERIE INFOC SV4 COMMENTER STEP S50 MEXP
+=================================================================
+
+
+Bonjour,
+
+Merci de modifier votre TNSNAMES.ora en ajoutant la chiane suivante:
+
+IAM1GNP0.WORLD =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = s00va9930231)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVICE_NAME = IAM1GNP0)
+    )
+  )
+
+
+
+CFTUTIL send part=MB06600R,idf=DCIR2PS4,fname=/apps/sauv/$SITE/${SITE_MAJ}_LOG.gtar,parm=${SITE_MAJ}_LOG.${DATE}_${HEURE}.gtar 
+============================================================================
+MODIF PARAMETRE COMPATIBLE
+
+alter system set compatible='11.2.0.0.0' scope=spfile
+============================================================================
+LIST TBS INFOC
+
+SQL> select file_name,tablespace_name from dba_data_files
+  2  union
+  3  select  file_name,tablespace_name from dba_temp_files;
+
+==============================================================================
+M : 0652150068
+===================
+VOIR PREDECESSEUR JOBSET 
+
+cautil sel jobsetpred pset=hflj2onma  li|awk '/^Jobset:/{t=$2}/^Job:/{t=t","$2}/^Job No:/{print t","$3}' 
+=====================================================================================================
+HNO MERCREDI 15 OCTOBRE
+
+3H OPE REBOOT+AJOUT DE RAM + RECHARGEMENT INFOCENTRE ALGERIE SV4
+
+JEUDI 16 OCTOBRE 
+
+1H MONTREUIL + 2H HNO MIG ALG
+
+VENDREDI 17 OCTOBRE
+
+1H SAUVEGARDE SV4
+
+SAMEDI 18 OCTOBRE
+
+2H OPE MIGRATION VG PROD INFOC
+
+1H SAUVEGARDE ALG SV4
+
+1H DEMARRAGE INSTANCE
+
+DIMANCHE 19 OCTOBRE 
+
+2H APPEL NASSER BAGTACHE
+
+1H SOIR
+
+MERCREDI 22 OCTOBRE
+OPE AJOUT RAM 2H
+
+VENDREDI 24 OCTOBRE
+OPE DEBUT 18h fin 0h50
+
+SAMEDI 25 OCTOBRE
+1H
+
+DIMANCHE 26 OCTOBRE
+6H
+
+======================================================================================================
+====================================================================
+Cadrage effectué au niveau chantier
+
+
+PARVA4002348 => PRODUCTION IAM RBIS (root) /apps/oracledata/IAM1MAP0:
+->gtar cvf - data0001 | pigz > /apps/onmaro/DIN47/IAM1MFP0_data.tgz
+gtar cvf - indx0001 | pigz > /apps/onmaro/DIN47/IAM1MFP0_indx.tgz
+gtar cvf - osys* | pigz > /apps/onmaro/DIN47/IAM1MFP0_osys.tgz
+
+gtar cvf - data0001 | pigz > /apps/onmaro/DIN47/IAM1MAP0_data.tgz
+gtar cvf - indx0001 | pigz > /apps/onmaro/DIN47/IAM1MAP0_indx.tgz
+gtar cvf - osys* | pigz > /apps/onmaro/DIN47/IAM1MAP0_osys.tgz
+ 
+
+16:53:05: 1/ verifier le tracking et holder les traitements 
+
+16:53:20: 2/ arreter les instances aprés fermeture Tp 
+
+16:53:52: 3/ Prévenir Pilotage et Bsm 
+
+16:54:40: 4/ Faire les Gtar 
+
+16:54:58: 5/ Prevenir Hafedh KADDACHI des la fin des sauvegardes
+
+
+cautil sel tjobset id=*nouc li | egrep "^Jobset:|Run Status:"  | awk '/^Jobset:/ {js=$NF}/Run Status:/ {r=$3; print js"\t"r }'
+--> tous tjobsets doivent être COMPL
+
+06 88 49 45 08 HAFEDH
+
+========================================================================
+MESSAGE UNKNOW 
+
+VERIFIER PRESENCE .KSHRC dans HOME 
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/home/atlas$ls -ltr .kshrc
+-rw-r--r--    1 atlas    atlas            56 Aug 13 2004  .kshrc
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/home/atlas$cat .kshrc
+export LIBPATH=$SAV_LIBPATH
+export NLSPATH=$SAV_NLSPATH
+
+=======================================================================
+ACTION A MENER POST MEP
+
+- Arrêt du déclenchement des jobsets 
+- Arrêt de la supervision de la base et les FS associe à cette instance
+- purge des trackings de tous les jobsets *alge
+- Arrêt de la base infocentre  SV2 Algerie parva4002348
+- mail envoyé au pilotage et BSM 
+
+========================================================================
+
+MODIF TRIGGER
+
+PARVA4020783 => Production IAM RBIS (infoc) - burkin (atlas:40050 - din:04750 - oracle:1120 - base:IAM7EUP)
+/apps/cft/filusr :
+->cautil alter trigger id=til1burk,DSCLOSEU filename="/apps/cft_data/burkin/recv/DJ_BUR_*"
+
+=========================================================================
+
+S00VA9930231 => Production2 IAM RBIS (infoc) - onmaro (atlas:40051 - din:04750 - oracle:1120 - base:IAM1MAP0)
+/apps/cft_data/ofmaro/recv :
+->cautil sel tjobset id=*onma li | egrep "Jobset|Status"
+Jobset: jds99onma
+  Run Status: WPRED      Calendar: wdayonma
+Jobset: jfl99onma
+  Run Status: WPRED      Calendar: wdayonma
+Jobset: jvismonma
+  Run Status: START      Calendar: base
+
+=============================================
+COMMANDE ENVOI SUR BANDE
+
+dsmc ar -se=TSM-ARZ105 -ARCHMC=ARCH1460 -desc=SAV_20150203 "/ficsavSV4/antill/DBSV4_IAM1ANP0_ora_adm_apmig112.tgz" 
+dsmc ar -se=TSM-ARZ105 -ARCHMC=ARCH1460 -desc=SAV_20150203 "/ficsavSV4/antill/DVSV4_IAM1ANP0_osys_apmig112.tgz" 
+=============================================
+ERREUR CFT PB TO RUN CFTUTIL 
+
+
+CFTU26E SEND     _ Error ( Communication media opening error rc=-204)
+CFTU00I SEND     _ Failed  (IDF=ABM09110,PART=M086208A,FNAME=/apps/noucal/info
+CFTU00I                     c/base/AD_ATL_BMRC_RISQUES_09110.txt,PARM=09110)
+CFTU20I Number of Command(s) 1
+CFTU20I Number of error(s)   1
+CFTU20I Ending   Session on 21/01/2015 Time is 11:43:24
+CFTU20I Session active for  0:00:00
+DDSUE0 - Problem to run cftutil
+
+-rw-r--r--    1 infoc    cft            2896 Jan 21 12:02 infoc.cfi (passer en infoc.cft)
+
+
+root@s00va9930231:/apps/cft/fildat$ chmod 777 cft_com cft_cata
+
+===================================================
+HNO DIMANCHE 15/02 5H MEP ANTILLES
+	LUNDI 16/02 2H APRES 22H MEP ANTILLES
+
+
+HNO LUNDI 23/02 2H REBOOT PROD ALG SV4
+====================================================
+
+COMMANDE EXTRACTION TNG SEB
+
+parva4001843 => PRODUCTION SENEGAL SV4  (root) /apps/unicenter/EM/3.1/sche/bin :
+ls
+ca7lcd.com    caevent       cau9ckl.exe   cau9dcm.exe   cau9hid.exe   cau9mtr.exe   cau9smd.exe   cawrksec      wmrsd
+ca7lcs.com    cau8pxr.exe   cau9cli.exe   cau9en2.exe   cau9lcd.exe   cau9rmt.exe   cau9wbr.exe   convtrig.exe  wmrsd.com
+ca7trk.com    cau8trk.exe   cau9ctk.exe   cau9en4.exe   cau9lcs.exe   cau9sat.exe   cauexpr       sche_at
+ca7wbr.com    cau9and.exe   cau9dbc.exe   cau9fmd.exe   cau9mov       cau9sem.exe   caujobvx      wmmodel.exe
+parva4001843 => PRODUCTION SENEGAL SV4  (root) /apps/unicenter/EM/3.1/sche/bin :
+./cauexpr -a 
+
+==================================================
+
+VOIR LISTE CALENDRIER ACTIF :
+
+root@s00va9927160:/$ caladmin -l
+.CACM_S_049 ---------------------------------------------------------
+.CACM_S_050                List of available Calendars
+.CACM_S_049 ---------------------------------------------------------
+.CACM_S_051  Calendar (cal_men) is available
+.CACM_S_051  Calendar (cal_dim) is available
+.CACM_S_051  Calendar (cal_tlj) is available
+.CACM_S_051  Calendar (cal_null) is available
+.CACM_S_051  Calendar (base) is available
+
+
+==================================================
+
+SENDMAIL
+
+
+s00va9927046:root:/etc/mail:] ping vip-m-parpop.fr.net.intra
+ping: host name vip-m-parpop.fr.net.intra NOT FOUND
+
+[s00va9927046:root:/etc/mail:] ls -ltr /etc/resolv*
+/etc/resolv* not found
+
+[s00va9927046:root:/etc/mail:] vi /etc/resolv.conf
+ATTENTION SELON LES SITES ET LES SERVEURS (MULTI SITE OU NON)l ORDRE DE RECHERCHE EST DIFFERENT 
+
+root@parva4020781: /apps/oracle/exp/ALL # cat /etc/resolv.conf
+search fr.net.intra net.intra
+nameserver      159.50.169.10
+nameserver      159.50.101.10
+nameserver      159.50.203.10
+
+exemple algerie A2 SV2
+
+parva4000632 => PRODUCTION ALGERIE  (root) /etc/mail :
+cat /etc/resolv.conf
+search fr.net.intra net.intra dz.net.intra
+nameserver      159.50.101.10
+nameserver      159.50.169.10
+nameserver      159.50.203.10
+
+
+you have mail in /usr/spool/mail/root
+[s00va9927046:root:/etc/mail:] ping vip-m-parpop.fr.net.intra
+PING vip-m-parpop.fr.net.intra (159.50.128.147): 56 data bytes
+64 bytes from 159.50.128.147: icmp_seq=0 ttl=245 time=3 ms
+64 bytes from 159.50.128.147: icmp_seq=1 ttl=245 time=3 ms
+64 bytes from 159.50.128.147: icmp_seq=2 ttl=245 time=4 ms
+64 bytes from 159.50.128.147: icmp_seq=3 ttl=245 time=3 ms
+
+commande test envoi : echo "Subject: TEST " |  sendmail -v -f paris_ips_meo_irb@bnpparibas.com -t loic.cadin@externe.bnpparibas.com
+
+====================================================================
+NUMERO DELPHES CFT IVOIRE
+
+PARDEM001553091
+
+====================================================================
+RENOMMER HOSTNAME DANS CHAQUE FICHIER AVANT RECHARGEMENT
+
+DEFINIR STATION ET CALENDRIER AVANT RECHARGEMENT
+
+
+cautil del station id="(exploit,cpu)"
+
+cautil def station id="(exploit,cpu)" nodetype="unix"  desc="('Station standard pour exploitation ATLAS 2')"   node=s00va9949990
+
+
+cautil del station id="(prepa,precpu)"
+
+cautil def station id="(prepa,precpu)" nodetype="unix"  desc="('Station standard pour preparation ATLAS 2')"  node=s00va9949990
+
+
+cautil del station id="(sta_tdb634,cpu)"
+
+cautil def station id="(sta_tdb990,cpu)" nodetype="unix"  desc="('station TDB sta_tdb990 - hostname: s00va9949990')"  node=s00va9949990
+
+
+cautil del station id="(sta_va40634,cpu)"
+
+cautil def station id="(sta_va99990,cpu)" nodetype="unix"  desc="('Station CA affectee a la machine va99990')"  node=s00va9949990
+
+
+cautil del station id="(websphere,cpu)"
+
+cautil def station id="(websphere,cpu)" nodetype="unix"  desc="('Station Standard pour Websphere')"  node=s00va9949990
+
+
+
+
+cautil del stationgroup id="(cli_va40634)"
+
+cautil def stationgroup id="(serv_va99990)"  desc="('groupe de station du serveur va99990')"  node=s00va9949990
+
+
+PURGE MESSAGE ACTION TNG
+
+cautil sel msgrec msgid="*"  del msgrec
+
+PURGE JOBSET TNG
+
+cautil delete jobset id=*
+
+PURGE TRIGGER TNG
+
+cautil delete trigger id=*,*
+
+PURGE RESSOURCE TNG
+
+cautil delete resource id="(*,GLOBAL)"
+
+RE INDEXATION TNG (arreter TNG avant)
+
+root@s00va9927160:/apps/unicenter/EM/3.1/sche/scripts$ ./cashrcvr
+
+CHECK CHARGEMENT TNG
+
+root@s00va9927160:/apps/unicenter/EM/3.1/sche/bin$ ./cauexpr -a "*"
+
+PB JOBSET DYNAMIC
+
+root@s00va9927160:/ficsav/EQUIPE_MEO/loic/test_nsm_sv2$ cautil -f cauexpr.txt
+CASH_E_0446 JOBSET base record already on file
+
+CASH_I_0320 08 = Monitor return code
+
+root@s00va9927160:/ficsav/EQUIPE_MEO/loic/test_nsm_sv2$ vi  cauexpr.txt
+root@s00va9927160:/ficsav/EQUIPE_MEO/loic/test_nsm_sv2$ cautil select jobset id=* list
+Date: 04/16/15     Object: JOBSET                          Page     1
+Jobset: DYNAMIC
+  Station:                      Calendar: Def
+  Description: Dynamic jobset for dynamic jobs
+  Anycpu: No  Autosel: No  Backlog: Yes Hold: No   Userenv: No
+  Priority: 01 Set Type: CPU     History:      Skip:
+  Early time:                Average Time:
+  Must Time:                 Must Complete:
+  Maximum Time:              Abend Action:  ABORT
+  Failcond: ( +0002 , +9999 )
+  Effective Date:             Expiration Date:
+  Update User:                                  Date:             Time:
+  Create User: CA7MNGR                          Date: 16-04-2015  Time: 14:32:25.00
+  Criteria: Calendar:          Holiday Action:
+  Criteria: Non-workday Action:   Adjustment:
+  Criteria: Keywords:
+
+
+RECUPERATION MESSAGE ACTION
+
+PARVA4000839 => PROD ATLAS 2 NOUVELLE CALEDONIE SFDI (root)
+
+AJOUT TRACE /ETC/PROFILE
+
+##########################################
+#GB: 31/10/2007: Trace Logins au serveur
+#                Aide au Diagnostic
+#---------------------------------------
+G=$(date +"%d.%m.%y_%H");REP=/apps/meoatlas2/trace && touch $REP/login_$G 2>/dev/null && D=$(date +"%H:%M");A=$(who -um 2>/dev/null);B=$(id -un 2>/dev/null); echo "$D -- $B -- $A" >> $REP/login_$G
+; chmod 777 $REP/login_$G 2>/dev/null ;echo "">/dev/null && tty >/dev/null 2>&1 && { \
+  export HISTFILE=$REP/$(who am i|awk '{print $1}')_pts$(basename $(tty))_$G; \
+  touch $HISTFILE 2>/dev/null; \
+  chmod 666 $HISTFILE 2>/dev/null; \
+  export HISTSIZE=50000; }
+###########################################
+
+/ficsav/EQUIPE_MEO/loic/test$oprdb script db > messact.txt
+
+=======================================================================
+RECHERCHE VARIABLE
+
+find . -exec grep -il CAISCHD0004 {} \;
+========================================================================
+PARAMETRE QDEPTH
+
+Chdev –l hdsikpowerXX –a queue_depth=40
+
+========================================================================
+KIX BKOF jpfes1/jpfes2
+========================================================================
+DEMARRAGE MQM
+
+root@s00va9927160:/home/mqm/current/adm/cmd$ rc.MQSeriesLaunch
+
+-------------------- Demarrage des Queue Managers ---------------------
+
+
+Queue Manager 'ALORI01P' :
+  - Lancement du Queue Manager                              [Started]
+  - Aucun canal SNA                                         [Ok     ]
+  - Aucune queue triggeree                                  [Ok     ]
+  - Pas de lancement de Broker                              [Ok     ]
+  - Lancement du Command Server                             [Started]
+
+
+----------------- Lancement du(des) agent(s) QPasa -------------------
+
+/home/mqm/current/adm/cmd/qpasastart.ksh[31]: ./qpasa_start:  not found
+============================================================================
+VENDREDI 4h du mat
+SAMEDI 9h30/23H
+DIMANCHE 9H30/0H30
+LUNDI 20H
+
+===============================
+HEURE AUTOSCAN 
+
+set |grep 011
+
+===============================
+vacance said 5 au 20 
+
+AJOUT ESPCE TNG 
+
+parva4022576 => Socle V4 preproduction NouCal  (cadb) /apps/sys/unicenter/exploitation : ./cash.addspace2
+parva4022576 => Socle V4 preproduction NouCal  (cadb) /apps/sys/unicenter/exploitation : ./cash.addspace2
+parva4022576 => Socle V4 preproduction NouCal  (cadb) /apps/sys/unicenter/exploitation : ./cash.addspace2
+parva4022576 => Socle V4 preproduction NouCal  (cadb) /apps/sys/unicenter/exploitation : ./sys.addspace2
+
+
+
+
+===========================================
+
+A RECUP SUR SV2
+
+CREER LE /APPS/EXPLOIT/WORK ET CREER LE REP ETATSUNIKIX
+
+-rw-r-----    1 l926213  system         1521 Jun 25 01:14 sendfile_ncal_sv2.tgz
+-rw-r-----    1 l926213  system       722989 Jul 27 23:28 usrlocalbin_prod_sv2.tgz
+-rw-r-----    1 l926213  system    307681106 Jul 29 00:21 ficref_ncal_sv2.tgz
+-rw-r-----    1 l926213  system     24265266 Jul 29 00:28 kixref11.tgz
+-rw-r-----    1 l926213  system    231325936 Jul 29 00:53 ead_ncal_sv2.tgz
+
+
+[parva4022576:root:/home/atlas:] vi .kshrc
+
+cat .kshrc
+export LIBPATH=$SAV_LIBPATH
+export NLSPATH=$SAV_NLSPATH
+
+[parva4022576:root:/home/atlas:] vi profile.cft
+
+
+
+
+==============================================================================
+
+CHECK INSTALL PATCH NSM
+
+root@s00va9930772:/usr/tmp/applyptf$ grep T5SS170 $CAIGLBL0000/`hostname`.his
+[Fri Aug 14 08:44:54 2015] - PTF Wizard installed T5SS170 (UNIEM)
+
+root@s00va9930772:/usr/tmp/applyptf$ grep T5XB029 $CAIGLBL0000/`hostname`.his
+[Fri Aug 14 08:45:47 2015] - PTF Wizard installed T5XB029 (UNIEM)
+
+==============================================================================
+MODIF DU JAS9A2 SUBDIR ET NO CR
+
+Dans chaque commande d'archive dsmc ajouter les 2 parametres :
+
+dsmc Archive -ARCHMC=ARCH0090 -DESC=$ARCH_DESC "$A2_CKPBASE/$A2_BASE/" "$A2_FICSAV/JAS*" -subdir=no -compression=no >>$DSMC_LOG 2>&1
+
+=============================================================================
+
+PBI000000027115 
+
+==================================
+
+USER ATLAS DANS BASE TNG 
+
+root@s00va9930772:/apps/unicenter/EM/3.1/sche/scripts$ type sql
+sql is /apps/unicenter/EM/3.1/cadb/system/sql
+root@s00va9930772:/apps/unicenter/EM/3.1/sche/scripts$ sql
+root@s00va9930772:/apps/unicenter/EM/3.1/sche/scripts$ sql
+
+     ----------------------------- CA-DB/UNIX ----------------------------
+          Copyright (C) 1990 Computer Associates International, Inc.
+                              All rights reserved.
+
+Interactive SQL              Version 210        Wed Sep 30 13:39:31 2015
+
+SQL: connect to caiunidb;
+SQL: grant dba to atlas;
+SQL: release;
+SQL: quit;
+
+======================================
+USER ATLAS NE VOIT PAS LES BASES DANS UNIFSTAT
+
+mettre ce fichier en read :
+
+$CAIGLBL0000/cadb/manager/calnm/cadb
+
+ls -altr
+total 16
+drwxrwxrwt    2 cadb     sys             256 Oct 19 2008  .
+-rw-rw-rw-    1 root     system         4813 Jul  9 2012  cadb
+
+========================================
+RECHERCHE ET REMPLACEMENT USER
+
+
+ find / -user 503 -type l | xargs chown -h 501 
+ find / -user 503 | xargs chown 501"
+
+find / -user 503
+=======================================
+RECUP ARBO REP
+
+Petite commande pratique si tu veux récupérer que l'arbo des répertoires sans les fichiers (du genre, cft_data) 
+dans le répertoire que tu veux sauvegarder :
+
+zip /ficsav/EQUIPE_MEO/directories.zip `find . -type d`
+
+Et ensuite unzip du .zip de l'autre côté dans le même répertoire
+
+============================================
+for i in $(cat test)
+do
+gtar cvzfr /ficsav/EQUIPE_MEO/comp.tgz $i
+done 
+
+cat test | gtar -cvzf /ficsav/EQUIPE_MEO/jclsite.tgz -T -
+
+===========================================
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/amelia/sh$for i in $(df -g |grep apps |awk '{print $NF}')
+> do
+> umount $i
+> done
+umount: error unmounting /dev/lv_apps: Device busy
+umount: error unmounting /dev/lv_OMNI: Device busy
+
+
+for i in $(cat /apps/amelia/sessions/*/correspondance.txt | awk '{printf $NF"\n"}' | sort | uniq)
+do
+echo "                                                   ####################### GDI # $i #######################\n"
+echo "                                                     GDI         COMP                                           TYPE    BACKUP BIN      BACKUP SRC     INST BIN        INST SRC"
+echo "-----------------------------------------------------------+--------------------------------------------------+-------+---------------+---------------+---------------+--------+"
+grep $i /apps/amelia/sessions/*/CR_Install_FULL.txt
+echo "\n                                                  ###########################################################\n\n"
+done 
+
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/usr/local/MeoBackup/conf$cat /apps/amelia/sessions/*/correspondance.txt | awk -F ":" '{printf $4"\n"}' | sort | uniq
+ DLL ADOAT 400.52 199506
+ DLL ADOAT 400.52 219594
+ DLL ADOAT 400.52 219974
+ DLL ADOAT 400.52 233999
+ DLL ADOAT 400.52 234282
+ DLL ADOAT 400.91 215176
+ DLL ADOAT 410.00 201862
+ DLL ADOAT 410.00 234520
+ DLL TECHN 215526
+ DLL TECHN 227384
+ DLL TECHN 227638
+
+
+
+S00VA9941870 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/amelia/sh$df -g |grep apps
+/dev/lv_apps       0.50      0.44   12%     1584     2% /apps
+/dev/lv_OMNI       0.25      0.23    7%      182     1% /apps/OmniVision
+/dev/lv_perfs      4.81      4.15   14%       55     1% /apps/sys/log/stats
+/dev/lv_tng        1.31      0.97   27%     6599     3% /apps/unicenter
+/dev/lv_etac       0.56      0.38   33%     2541     3% /apps/eTAC
+/dev/lv_mqapp      1.00      0.36   65%     5310     6% /apps/mqm/product
+/dev/lv_nimsoft      0.12      0.09   26%      609     3% /apps/nimsoft
+/dev/lv_mqadm      0.25      0.24    5%      264     1% /apps/mqm/admin
+/dev/lv_oracle      7.00      6.76    4%     6284     1% /apps/oracle
+/dev/lv_oradbf      1.00      0.99    1%       16     1% /apps/oradbf
+/dev/lv_amelia      1.00      0.32   68%     3906     5% /apps/amelia
+/dev/lv_exploit      3.00      0.93   69%    18365     8% /apps/exploit
+/dev/lv_atlas2v0      4.00      2.29   43%    39524     7% /apps/atlas/atlas2v0
+/dev/lv_atl2v0uf1      6.00      2.40   61%    96047    14% /apps/atlas/atlas2v0/uf1
+/dev/lv_uf1ficsav    185.00     33.49   82%      174     1% /apps/atlas/atlas2v0/uf1/ficsav
+/dev/lv_uf1data1     85.00     56.50   34%    20610     1% /apps/atlas/atlas2v0/uf1/data1
+/dev/lv_uf1data1imp     30.00     15.26   50%    22202     1% /apps/atlas/atlas2v0/uf1/data1/imp
+/dev/lv_uf1data1fic    870.00    184.63   79%   593619     2% /apps/atlas/atlas2v0/uf1/data1/fic
+/dev/lv_getlog      0.50      0.50    1%       24     1% /apps/getlog
+/dev/lv_surf1      2.00      1.73   14%      437     1% /apps/surfi/surf1
+/dev/lv_BankOffice      1.00      0.96    4%      477     1% /apps/BankOffice
+/dev/lv_apl        0.25      0.14   43%      573     2% /apps/nastel
+/dev/lv_arch      65.00      2.65   96%   122348    16% /apps/arch
+/dev/lv_atpr01    465.00      2.97  100%      138     1% /apps/oradbf/atpr01
+
+
+
+INFO TF
+========
+PARVA4000627 => PROD ATLAS2 ANTILLES - GUYANE SV4 (root)
+/apps/exploit/shell$cat Init-env.ksh
+#!/bin/ksh
+###############################################################################################
+#
+# Auteur              : Franck VANHOUCKE
+#                       Email   : franck.vanhoucke@bnpparobas.com
+#                       Tel     : 01.55.77.63.59
+# Groupe              : PBCB2 ATLAS OMR SFDI
+# Date de creation    : 07/06/2004
+# Programme   : Init-env.ksh
+# Utilise en parametre
+#               TF / RDF : Fichier d'initialisation pour Time Finder  ou SRDF
+# Objet               : Initialisation des variables et fonction(s) commune pour
+#                       Time Finder / SFDR
+#
+# Attention           :
+#
+# Modification        : le 27/04/2005 par F. VANHOUCKE
+#                               modification pour la version 2
+#                               Ajout du test de Version entre les scripts
+#
+###############################################################################################
+
+
+#-----------------------------------------------------------------------
+# Initialisations Variable(s) & Fichier(s) & Fonction(s)
+#-----------------------------------------------------------------------
+export REP_EXPLOIT=${A2_PRODUITS:-/apps}/exploit/shell
+export VG_BCV="extvgBCV extvgBCV1 extvgBCV2"
+export SYMCLICMD=/usr/symcli/bin
+export SYMMAN=/usr/symcli/man
+export SYMBP2I=/apps/Storage_Replication_Manager_Perl
+export SYMPLUGINS=$SYMBP2I/plugins
+export REP_FILES_DISKS=/apps/Storage_Replication_Manager_Perl/backup
+export LANG=C
+export VERSION_ENV_BCV=2.00
+export PART_ADSM=ME05200P
+export PART_PREP=ME13200V
+
+
+DIMANCHE 27H 1H
+
+====================================
+
+MQSERIES S ASSURER QUE LA QUEUE EST VIDE 
+
+PARVA4022575 => PROD ATLAS2 NOUVELLE CALEDONIE SV4 (atlas)
+/home/atlas$/home/mqm/current/outils/bin/mqsqinfo -lq -m NCORI01P
+
+
+==================================
+
+
+MODIFIER LE PORT SUR WEBAPP A2TEST 6001 a changer en 20050
+
+
+
+RAPPEL DE COMMANDE 
+
+set -o vi
+unset HISTFILE
+export HISTFILE=$HOME/.sh_history$(tty | tr '/' '_')
+export VISUAL=vi
+export TERM=vt220
+export NLSPATH=$A2_BNP/exploit/msg/%L/%N:$A2_BNP/exploit/msg/%L/%N.cat
+stty erase ^?

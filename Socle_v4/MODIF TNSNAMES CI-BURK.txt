@@ -1,0 +1,78 @@
+439
+
+BURK
+=====
+
+SFDI-PR-INFO-BUR.WORLD=
+  (DESCRIPTION=
+    (ADDRESS_LIST=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=PARVA4020783.fr.net.intra)
+        (PORT=1521)
+      )
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=PARVA4020783.fr.net.intra)
+        (PORT=1526)
+      )
+    )
+    (CONNECT_DATA=
+      (SID=IAM7EUP)
+    )
+  )
+
+
+
+IVOI
+====
+
+
+SFDI-PR-INFO-IVO.WORLD=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=PARVA4020783.fr.net.intra)
+      (PORT=1521)
+    )
+    (CONNECT_DATA=
+      (SID=IAM7EUP)
+    )
+  )
+
+
+440
+
+BUR
+====
+
+SFDI-PR-INFO-BUR.WORLD=
+  (DESCRIPTION=
+    (ADDRESS_LIST=
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=PARVA4020783.fr.net.intra)
+        (PORT=1521)
+      )
+      (ADDRESS=
+        (PROTOCOL=TCP)
+        (HOST=PARVA4020783.fr.net.intra)
+        (PORT=1526)
+      )
+
+
+IVO
+====
+
+SFDI-PR-INFO-IVO.WORLD=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=PARVA4020783.fr.net.intra)
+      (PORT=1521)
+    )
+    (CONNECT_DATA=
+      (SID=IAM7EUP)
+    )
+  )
+

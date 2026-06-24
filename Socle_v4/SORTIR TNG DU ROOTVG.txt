@@ -1,0 +1,83 @@
+root@s00va9949845:/apps/exploit/tng/tech$ unishutdown all
+unishutdown: shutting down all of Unicenter NSM...
+
+root@s00va9949845:/etc/local/stop$ ./ATstop.ksh
+Stop NSM Monitoring on Infrastructure (00:00:00, STOP_AT)
+
+
+
+
+root@s00va9949845:/apps/exploit/tng/tech$ df -g |grep unicenter
+/dev/lv_tng        0.25      0.12   54%     3150    11% /apps/unicenter
+/dev/lv_nas        0.06      0.05   21%      115     1% /apps/unicenter/AT/3.1/NewAgentScript
+/dev/lv_tng_base      0.75      0.54   29%       29     1% /apps/unicenter/EM/3.1/bases
+/dev/lv_tng_logs      0.19      0.18    4%       72     1% /apps/unicenter/EM/3.1/opr/logs
+
+oot@s00va9949845:/apps/exploit/tng/tech$ gtar cvzf /ficsav/EQUIPE_MEO/apps_unicenter_opr_logs.tgz /apps/unicenter/EM/3.1/opr/logs
+gtar: Removing leading `/' from member names
+/apps/unicenter/EM/3.1/opr/logs/
+/apps/unicenter/EM/3.1/opr/logs/lost+found/
+/apps/unicenter/EM/3.1/opr/logs/opano.20160222
+[...]
+
+root@s00va9949845:/apps/exploit/tng/tech$ umount /apps/unicenter/EM/3.1/opr/logs
+
+
+
+root@s00va9949845:/apps/exploit/tng/tech$ gtar cvzf /ficsav/EQUIPE_MEO/apps_unicenter_bases.tgz /apps/unicenter/EM/3.1/bases
+gtar: Removing leading `/' from member names
+/apps/unicenter/EM/3.1/bases/
+/apps/unicenter/EM/3.1/bases/caiunidb/
+/apps/unicenter/EM/3.1/bases/caiunidb/action.tbl
+/apps/unicenter/EM/3.1/bases/caiunidb/calendar.tbl
+/apps/unicenter/EM/3.1/bases/caiunidb/control.tbl
+[...]
+
+root@s00va9949845:/apps/exploit/tng/tech$ umount /apps/unicenter/EM/3.1/bases
+
+
+root@s00va9949845:/apps/exploit/tng/tech$ gtar cvzf /ficsav/EQUIPE_MEO/apps_unicenter_NA.tgz /apps/unicenter/AT/3.1/NewAgentScript
+gtar: Removing leading `/' from member names
+/apps/unicenter/AT/3.1/NewAgentScript/
+/apps/unicenter/AT/3.1/NewAgentScript/NAS.history
+/apps/unicenter/AT/3.1/NewAgentScript/crontabs/
+/apps/unicenter/AT/3.1/NewAgentScript/crontabs/GesrefNAS.ksh
+/apps/unicenter/AT/3.1/NewAgentScript/crontabs/new_crontab
+/apps/unicenter/AT/3.1/NewAgentScript/crontabs/new_crontab1
+/apps/unicenter/AT/3.1/NewAgentScript/crontabs/new_lines
+[...]
+
+
+root@s00va9949845:/etc/local/stop$ umount /apps/unicenter/AT/3.1/NewAgentScript
+
+
+root@s00va9949845:/etc/local/stop$ gtar cvzf /ficsav/EQUIPE_MEO/apps_unicenter.tgz /apps/unicenter
+gtar: Removing leading `/' from member names
+/apps/unicenter/
+/apps/unicenter/AT/
+/apps/unicenter/AT/3.1/
+/apps/unicenter/AT/3.1/.NO_MIBS
+/apps/unicenter/AT/3.1/.deploiement
+/apps/unicenter/AT/3.1/.filelist
+[...]
+
+root@s00va9949845:/$ umount /apps/unicenter
+
+
+
+CREATION FS 
+
+
+mklv -y lv_tng -t jfs2 -e x vg_apps 250M
+crfs -v jfs2 -d lv_tng -m /apps/unicenter -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/unicenter
+
+mklv -y lv_nas -t jfs2 -e x vg_apps 60M
+crfs -v jfs2 -d lv_nas -m /apps/unicenter/AT/3.1/NewAgentScript -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/unicenter/AT/3.1/NewAgentScript
+
+mklv -y lv_tng_base -t jfs2 -e x vg_apps 750M
+crfs -v jfs2 -d lv_tng_base -m /apps/unicenter/EM/3.1/bases -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/unicenter/EM/3.1/bases
+
+mklv -y lv_tng_logs -t jfs2 -e x vg_apps 200M
+crfs -v jfs2 -d lv_tng_logs -m /apps/unicenter/EM/3.1/opr/logs -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/unicenter/EM/3.1/opr/logs
+
+

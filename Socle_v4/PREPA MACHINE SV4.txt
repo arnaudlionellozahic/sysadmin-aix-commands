@@ -1,0 +1,220 @@
+A INSTALLER
+============
+
+ORACLE
+COBOL
+UNIKIX
+DMEXPRESS
+JAVA
+AMELIA
+OUTILS UNIX
+
+^
+
+A RECUP SUR SV2
+================
+
+SENDFILE (/apps/cft/ifcft)
+USR/LOCAL/BIN
+FICREF
+KIXREF
+APPS/EAD
+PROFILE.CFT (dans home/atlas)
+APPS/EXPLOIT/SCHEMABASE
+APPS/EXPLOIT/TNG
+APPS/EXPLOIT/SHELL
+APPS/SYS/SHELL
+APPS/MEOATLAS2
+/LIVRAISONS
+CRONTAB
+/USR/LOCAL/MEOBACKUP
+/apps/atlas/atlas2v0/uf1/binbkof
+/apps/Storage_Replication_Manager_Perl   ??!
+
+POUR UNE PREPROD RECUPERER LE /APPS/EXPLOIT DE LA PP
+
+A CREER
+========
+
+KSHRC /home/atlas
+APPS/EXPLOIT/WORK (+ CREER LE REP ETATSUNIKIX)
+/apps/savesite (arbo)
+
+-rw-r-----    1 l926213  system         1521 Jun 25 01:14 sendfile_ncal_sv2.tgz
+-rw-r-----    1 l926213  system       722989 Jul 27 23:28 usrlocalbin_prod_sv2.tgz
+-rw-r-----    1 l926213  system    307681106 Jul 29 00:21 ficref_ncal_sv2.tgz
+-rw-r-----    1 l926213  system     24265266 Jul 29 00:28 kixref11.tgz
+-rw-r-----    1 l926213  system    231325936 Jul 29 00:53 ead_ncal_sv2.tgz
+
+
+[parva4022576:root:/home/atlas:] vi .kshrc
+
+cat .kshrc
+export LIBPATH=$SAV_LIBPATH
+export NLSPATH=$SAV_NLSPATH
+
+[parva4022576:root:/home/atlas:] vi profile.cft
+
+
+APPEL JAVA.ENV DANS PROFILE A2 # Variable d'environnement pour java et webkix
+. $A2_OUTILS/java.env
+
+
+
+ARBO /APPS/CFT_DATA
+
+
+A MODIFIER
+============
+
+VALEUR CAISCHD0004 (--> /Apps/exploit/tng)
+
+#     default directory containing job shells in CAISCHD0004
+CAISCHD0004=/apps/exploit/tng
+export CAISCHD0004
+
+
+root@s00va9930772:/apps/unicenter/EM/3.1/sche/scripts$ grep CAISCHD0004 /apps/unicenter/EM/3.1/sche/scripts/envsetlocal
+#     default directory containing job shells in CAISCHD0004
+CAISCHD0004=/apps/exploit/tng
+export CAISCHD0004
+
+
+
+PARVA4022575 => PROD ATLAS 2 NOUVELLE CALEDONIE SFDI (atlas)
+/etc$grep PS1 profile
+PS1=`echo \$(hostname|tr 'a-z' 'A-Z')" => \033[1mPROD ATLAS 2 NOUVELLE CALEDONIE SFDI\033[0m ("'$LOGIN'")\n"'$PWD'"$"`
+
+
+
+CFT
+====
+
+AJOUT DU PAVE CFT
+
+# Variable d'environnement pour java et webkix
+PS4="java.env + "
+. $A2_OUTILS/java.env
+PS4="${LANCE}$ENV + "
+
+#####################################################
+#  CFT
+#####################################################
+
+. /home/atlas/profile.cft
+
+# Correspondance des noms de fichiers logiques de CFT
+
+. /apps/cft/ENV_CFT
+
+#---------------------------------------#
+# Default options (after valdef loading)#
+#---------------------------------------#
+export A2_SUFOPT=O
+export A2_IDEN_JOBSET=O
+export A2_SAVE_FIC_EXTRAIT=N
+export A2_MESS_APP=ACTIVE
+
+
+
+INSTALLATION DES TRACES
+========================
+
+AJOUT PAVE /ETC/PROFILE
+
+####################################################################################################################################################################
+#GB: 31/10/2007: Trace Logins au serveur
+#                Aide au Diagnostic
+#---------------------------------------
+G=$(date +"%d.%m.%y_%H");REP=/apps/meoatlas2/trace && touch $REP/login_$G 2>/dev/null && D=$(date +"%H:%M");A=$(who -um 2>/dev/null);B=$(id -un 2>/dev/null);
+ echo "$D -- $B -- $A" >> $REP/login_$G ; chmod 777 $REP/login_$G 2>/dev/null ;echo "">/dev/null && tty >/dev/null 2>&1 && { \
+
+  export HISTFILE=$REP/$(who am i|awk '{print $1}')_pts$(basename $(tty))_$G; \
+  touch $HISTFILE 2>/dev/null; \
+  chmod 666 $HISTFILE 2>/dev/null; \
+  export HISTSIZE=50000; }
+####################################################################################################################################################################
+
+CREATION REP TRACE /APPS/MEOATLAS2
+
+
+SUR PP
+=======
+
+RECUP /APPS/APPLIWEB
+
+Chargement du profileS2 dans le profileA2
+
+ # Calling profileS2
+   if [[ -r $A2_OUTILS/profileS2 ]]
+   then
+    . $A2_OUTILS/profileS2
+   else
+     print $A2_OUTILS/profileS2 non charge
+   fi
+
+=====
+
+AZJOUT PAV2 QUESTION COMPIL 32 BIT PROFILE A2
+
+
+echo "Voulez vous compiler (utilisation client 32bits Oracle) O/N"
+          read REP32B
+case $REP32B in
+        ("o"|"oui"|"y"|"yes"|"O"|"Y")
+          export A2_ORACLI=1
+        ;;
+
+        *) ;;
+   esac
+
+
+AJOUT PAVE JAVA.ENV
+=====================
+
+{parva4022576} (atlas) {Env HP3 A2 sa1 - sa1}
+/apps/exploit/profiles$ls -l *parva4022576*
+-rwxrwxrwx 1 atlas atlas 7515 Jun 25 19:40 profileA2.parva4022576
+
+Lignes à ajouter (avant l'appel au mod path ou pathSpecial):
+# Variable d'environnement pour java et webkix
+. $A2_OUTILS/java.env
+
+
+CHOUZENOUX
+===========
+
+Plus globalement, nous avions constaté un certain nombre de points non recopiés en SV4 lors de la migration NCAL, à savoir :
+
+- Mettre à jour les répertoires /usr/local/bin, /apps/sys/shell avec les scripts applicatifs 
+- Créer l'arbo data1_bkof, DEP sous data1, 
+arch sous data1, 
+l'arbo /apps/atlas/atlas2v0/sa7/BankOffice,  
+l'arbo /apps/atlas/atlas2v0/sa7/data1/base, 
+/apps/cft_data/recv/CASH/ARCHIVES (si inexistant le job DVRS05 purge le répertoire fic !), 
+l'arbo /apps/cft_data 
+
+- Vérifier les droits sur le répertoire /apps/oradbf/backup
+
+
+
+
+SI GROS VG_DATA VOIR POUR SPLITTER EN 2 VG_DATA
+
+
+SURVEILLANCE/BRIQUES
+
+/apps/unicenter/AT/3.1/load24/reflocal
+
+
+AJOUT PAVE SENDMAIL 
+====================
+
+
+Peux-tu dans le fichier /etc/mail/sendmail.cf  
+remplacer 
+# "Smart" relay host (may be null)
+DS
+par
+# "Smart" relay host (may be null)
+DSvip-m-parpop.fr.net.intra

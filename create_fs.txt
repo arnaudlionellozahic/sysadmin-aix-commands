@@ -1,0 +1,201 @@
+CREATION FS
+============
+
+mklv -y lv_meo -t jfs2 -e x vg_data 100G
+crfs -v jfs2 -d lv_meo   -m /ficsav/EQUIPE_MEO  -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /ficsav/EQUIPE_MEO
+chmod 777 /ficsav/EQUIPE_MEO
+
+mklv -y lv_oracle -t jfs2 -e x vg_apps 8G
+crfs -v jfs2 -d lv_oracle -m /apps/oracle -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oracle
+
+mklv -y lv_cl3211204 -t jfs2 -e x vg_apps 10G
+crfs -v jfs2 -d lv_cl3211204 -m /apps/oracle/product/11204cli32 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oracle/product/11204cli32 
+
+mklv -y lv_oracle11204 -t jfs2 -e x vg_apps 15G
+crfs -v jfs2 -d lv_oracle11204 -m /apps/oracle/product/11204 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oracle/product/11204
+
+mklv -y lv_orawork11204 -t jfs2 -e x vg_apps 13G
+crfs -v jfs2 -d lv_orawork11204 -m /apps/work/ora_11204 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/work/ora_11204 
+
+chown -R oracle:dba /apps/oracle && chmod -R 755 /apps/oracle && chmod -R a-s /apps/oracle
+chown -R oracle:dba /apps/work && chmod -R 755 /apps/work && chmod -R a-s /apps/work
+
+*******************************************************************
+
+mklv -y lv_oradbf -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_oradbf -m /apps/oradbf  -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oradbf 
+chown oracle:dba /apps/oradbf && chmod 755 /apps/oradbf && chmod a-s /apps/oradbf
+
+mklv -y lv_oradbfbck -t jfs2 -e x vg_data 400G
+crfs -v jfs2 -d lv_oradbfbck  -m /apps/oradbf/backup -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oradbf/backup
+chown oracle:dba /apps/oradbf/backup && chmod 755 /apps/oradbf/backup && chmod a-s /apps/oradbf/backup
+
+mklv -y lv_arch -t jfs2 -e x vg_data 20G
+crfs -v jfs2 -d lv_arch -m /apps/arch -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/arch
+chown atlas:atlas /apps/arch && chmod 777 /apps/arch
+
+mklv -y lvmeoatlas2 -t jfs2 -e x vg_data 6G
+crfs -v jfs2 -d lvmeoatlas2 -m /apps/meoatlas2 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/meoatlas2
+chmod 777 /apps/meoatlas2
+
+mklv -y lv_atlas2v0 -t jfs2 -e x vg_data 4G
+crfs -v jfs2 -d lv_atlas2v0 -m /apps/atlas/atlas2v0 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/atlas/atlas2v0
+chown atlas:atlas /apps/atlas/atlas2v0 && chmod 755 /apps/atlas/atlas2v0 && chmod a-s /apps/atlas/atlas2v0
+
+mklv -y lv_amelia -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_amelia  -m /apps/amelia -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/amelia
+
+mklv -y lv_packages -t jfs2 -e x vg_data 15G
+crfs -v jfs2 -d lv_packages -m /apps/matl/packages -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/matl/packages
+
+mklv -y lv_matlgdi -t jfs2 -e x vg_data 8G
+crfs -v jfs2 -d lv_matlgdi -m /apps/matl/GDI -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/matl/GDI
+
+mklv -y lv_express -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_express -m /apps/dmexpress/ -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/dmexpress
+
+mklv -y lv_cobol -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/cobol 
+
+mklv -y lv_unikix -t jfs2 -e x vg_apps 500M
+crfs -v jfs2 -d lv_unikix  -m /apps/unikix -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/unikix
+
+mklv -y lv_ead -t jfs2 -e x vg_apps 4G
+crfs -v jfs2 -d lv_ead -m /apps/ead -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ead
+
+mklv -y lv_work -t jfs2 -e x vg_data 65G
+crfs -v jfs2 -d lv_work -m /apps/exploit/work -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/exploit/work
+chmod 777 /apps/exploit/work && chown atlas.atlas /apps/exploit/work
+
+mklv -y lv_shell -t jfs2 -e x vg_apps 50M
+crfs -v jfs2 -d lv_shell -m /apps/exploit/shell -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/exploit/shell
+chmod 777 /apps/exploit/shell && chown atlas.atlas /apps/exploit/shell
+
+mklv -y lv_livr -t jfs2 -e x vg_data 25G
+crfs -v jfs2 -d lv_livr -m /livraisons -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /livraisons
+
+mklv -y lvmeoatlas2 -t jfs2 -e x vg_data 2G
+crfs -v jfs2 -d lvmeoatlas2 -m /apps/meoatlas2 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/meoatlas2
+
+mklv -y lv_ppe -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_ppe -m /apps/ppe -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ppe
+
+mklv -y lv_xrdj -t jfs2 -e x vg_apps 250M
+crfs -v jfs2 -d lv_xrdj -m /apps/xrdj -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/xrdj
+
+mklv -y lv_usd -t jfs2 -e x vg_apps 250M
+crfs -v jfs2 -d lv_usd -m /apps/usd -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/usd
+
+mklv -y lv_carto -t jfs2 -e x vg_apps 1G 
+crfs -v jfs2 -d lv_carto -m /apps/carto_data -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/carto_data
+
+###########################################################################################
+
+root@s00va9942351:/apps/atlas/atlas2v0$ lsvg -l vg_data
+vg_data:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+log2vg_data         jfs2log    2       2       1    closed/syncd  N/A
+lv_atpr01           jfs2       4960    4960    43   open/syncd    /apps/oradbf/atpr01
+lv_atdr01           jfs2       4800    4800    43   open/syncd    /apps/oradbf/atdr01
+lv_oradbf           jfs2       8       8       8    open/syncd    /apps/oradbf
+lv_oracle           jfs2       240     240     43   open/syncd    /apps/oracle
+lv_orabck           jfs2       3200    3200    43   open/syncd    /apps/oradbf/backup
+lv_uf1data1         jfs2       16      16      16   open/syncd    /apps/atlas/atlas2v0/uf1/data1
+lv_uf1data1imp      jfs2       40      40      40   open/syncd    /apps/atlas/atlas2v0/uf1/data1/imp
+lv_uf1data1fic      jfs2       10480   10480   43   open/syncd    /apps/atlas/atlas2v0/uf1/data1/fic
+lv_ficsav           jfs2       8       8       8    open/syncd    /ficsav
+lv_ficano           jfs2       4800    4800    43   open/syncd    /ficsav/parva4000634
+
+mklv -y lv_atpr01 -t jfs2 -e x vg_data 620G
+crfs -v jfs2 -d lv_atpr01 -m /apps/oradbf/atpr01 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oradbf/atpr01
+chown oracle:dba /apps/oradbf/atpr01 && chmod 775 /apps/oradbf/atpr01 && chmod a-s /apps/oradbf/atpr01
+
+mklv -y lv_atdr01 -t jfs2 -e x vg_data 620G
+crfs -v jfs2 -d lv_atdr01 -m /apps/oradbf/atdr01 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/oradbf/atdr01
+chown oracle:dba /apps/oradbf/atdr01 && chmod 775 /apps/oradbf/atdr01 && chmod a-s /apps/oradbf/atdr01
+
+mklv -y lv_uf1 -t jfs2 -e x vg_data 6G
+crfs -v jfs2 -d lv_uf1 -m /apps/atlas/atlas2v0/uf1 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/atlas/atlas2v0/uf1
+chown atlas:atlas /apps/atlas/atlas2v0/uf1 && chmod 777 /apps/atlas/atlas2v0/uf1
+
+mklv -y lv_uf1ficsav -t jfs2 -e x vg_data 165G
+crfs -v jfs2 -d lv_uf1ficsav -m /ficsav -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /ficsav
+chown atlas:atlas /ficsav && chmod 777 /ficsav
+
+mklv -y lv_uf1data1imp -t jfs2 -e x vg_data 30G
+crfs -v jfs2 -d lv_uf1data1imp -m /apps/atlas/atlas2v0/uf1/data1/imp -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/atlas/atlas2v0/uf1/data1/imp
+chown atlas:atlas /apps/atlas/atlas2v0/uf1/data1/imp && chmod 777 /apps/atlas/atlas2v0/uf1/data1/imp
+
+mklv -y lv_uf1data1fic -t jfs2 -e x vg_data 1300G
+crfs -v jfs2 -d lv_uf1data1fic -m /apps/atlas/atlas2v0/uf1/data1/fic -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/atlas/atlas2v0/uf1/data1/fic
+chown atlas:atlas /apps/atlas/atlas2v0/uf1/data1/fic && chmod 777 /apps/atlas/atlas2v0/uf1/data1/fic
+
+mklv -y lv_ficano -t jfs2 -e x vg_data 600G
+crfs -v jfs2 -d lv_ficano -m /ficsav/parva4000634 -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /ficsav/parva4000634
+chown atlas:atlas /ficsav/parva4000634 && chmod 777 /ficsav/parva4000634
+
+mklv -y lv_orion -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_orion -m /apps/orion -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/orion
+chown atlas:atlas /apps/orion && chmod 775 /apps/orion
+
+mklv -y lv_ptcom -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_ptcom -m /apps/ptcom -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ptcom
+chown atlas:atlas /apps/ptcom && chmod 775 /apps/ptcom
+
+mklv -y lv_loans -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_loans -m /apps/loans -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/loans
+chown atlas:atlas /apps/loans && chmod 775 /apps/loans
+
+mklv -y lv_argos -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_argos -m /apps/argos -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/argos
+chown atlas:atlas /apps/argos && chmod 775 /apps/argos
+
+mklv -y lv_inter -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_inter -m /apps/inter -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/inter
+chown atlas:atlas /apps/inter && chmod 775 /apps/inter
+
+mklv -y lv_ptcom -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_ptcom -m /apps/ptcom -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ptcom
+chown atlas:atlas /apps/ptcom && chmod 775 /apps/ptcom
+
+mklv -y lv_ptcom -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_ptcom -m /apps/ptcom -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ptcom
+chown atlas:atlas /apps/ptcom && chmod 775 /apps/ptcom
+
+mklv -y lv_ptcom -t jfs2 -e x vg_data 1G
+crfs -v jfs2 -d lv_ptcom -m /apps/ptcom -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ptcom
+chown atlas:atlas /apps/ptcom && chmod 775 /apps/ptcom
+
+mklv -y lv_adret -t jfs2 -e x vg_data 6G
+crfs -v jfs2 -d lv_adret -m /apps/adret -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/adret
+chown atlas:atlas /apps/adret && chmod 775 /apps/adret
+
+###########################################################################################
+
+root@s00va9942351:/apps/atlas/atlas2v0$ lsvg -l vg_apps
+vg_apps:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+log2vg_apps         jfs2log    2       2       1    open/syncd    N/A
+lv_cft              jfs2       16      16      1    open/syncd    /apps/cft
+lv_atl2v0uf1        jfs2       48      48      1    open/syncd    /apps/atlas/atlas2v0/uf1
+lv_uf1ficsav        jfs2       280     280     1    open/syncd    /apps/atlas/atlas2v0/uf1/ficsav
+lv_exploit          jfs2       48      48      1    open/syncd    /apps/exploit
+lv_adret            jfs2       48      48      1    open/syncd    /apps/adret
+lv_meoatlas2        jfs2       48      48      1    open/syncd    /apps/meoatlas2
+lv_uf1rfper         jfs2       8       8       1    open/syncd    /apps/rfper
+lv_uf1orion         jfs2       8       8       1    open/syncd    /apps/orion
+lv_uf1ptcom         jfs2       8       8       1    open/syncd    /apps/ptcom
+lv_uf1argos         jfs2       8       8       1    open/syncd    /apps/argos
+lv_uf1inter         jfs2       8       8       1    open/syncd    /apps/inter
+lv_ua_candle        jfs2       8       8       1    open/syncd    /apps/ua_candle
+lv_env              jfs2       80      80      1    open/syncd    /apps/env
+lv_toolboxes        jfs2       8       8       1    open/syncd    /apps/toolboxes
+lv_getlog           jfs2       4       4       1    open/syncd    /apps/getlog
+
+mklv -y lv_ua_candle -t jfs2 -e x vg_apps 1G
+crfs -v jfs2 -d lv_ua_candle -m /apps/ua_candle -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/ua_candle
+chown cft:cft /apps/ua_candle && chmod 775 /apps/ua_candle
+
+mklv -y lv_env -t jfs2 -e x vg_apps 10G
+crfs -v jfs2 -d lv_env -m /apps/env -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps/env
+chmod 777 /apps/env

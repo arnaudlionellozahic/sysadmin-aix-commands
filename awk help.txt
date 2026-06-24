@@ -1,0 +1,10 @@
+awk -f $LOG/filter.awk $FILE
+
+->cat filter.awk
+BEGIN {print "jobset,job,Date job available,Time job available,Date job start,Time job start,Date job end,Time job end,Code job Complete"}
+/Jobset/ {jobset=$3}
+/Job =/ {job=$3}
+/Available date and time/  {date=$6;split(date,stmp,"/");jobdavailable=stmp[2]"/"stmp[1]"/"stmp[3];jobhavailable=$7;gsub(/\./,":",jobhavailable)}
+/Start date and time/ {date=$6;split(date,stmp,"/");jobdstart=stmp[2]"/"stmp[1]"/"stmp[3];jobhstart=$7;gsub(/\./,":",jobhstart)}
+/End date and time/ {date=$6;split(date,stmp,"/");jobdend=stmp[2]"/"stmp[1]"/"stmp[3];jobhend=$7;gsub(/\./,":",jobhend)}
+/Completion code/ {jobcomplete=$4;print jobset job "," jobdavailable "," jobhavailable "," jobdstart "," jobhstart "," jobdend "," jobhend "," jobcomplete}

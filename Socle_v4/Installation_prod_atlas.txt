@@ -1,0 +1,406 @@
+---------------------création des users----------------
+uid=300(oracle) gid=300(dba) groups=1(staff)
+ mkuser id=503 atlas
+ mkuser id=502 conv
+mkgroup -A users='atlas' id=503 atlas
+mkgroup -A users='atlas,conv' id=262 a2instal
+
+mkgroup -A users='atlas,conv' id=503 atlas
+
+---------------------- FS créer ---------------------------
+
+
+mklv -y lv_meo -t jfs2 -x 4096 extvgd1 160G
+
+
+crfs -v jfs2 -d lv_meo   -m /ficsav/EQUIPE_MEO  -A yes -p rw -t no && mount /ficsav/EQUIPE_MEO
+
+
+mklv -y lv_oracle -t jfs2 -x 1024 vg_apps 7G
+
+crfs -v jfs2 -d lv_oracle   -m /apps/oracle -A yes -p rw -t no && mount  /apps/oracle
+
+
+
+
+mklv -y lv_oracle11 -t jfs2 -x 1024 vg_apps 15G
+
+crfs -v jfs2 -d lv_oracle11   -m /apps/oracle/product/1120 -A yes -p rw -t no && mount /apps/oracle/product/1120
+
+
+mklv -y lv_oraclework -t jfs2 -x 1024 vg_apps 13G
+
+crfs -v jfs2 -d lv_oraclework   -m /apps/work/ora_1120  -A yes -p rw -t no && mount /apps/work/ora_1120 
+
+
+
+
+
+
+
+
+mklv -y lv_carto -t jfs2 -x 1024 vg_apps 1G
+
+crfs -v jfs2 -d lv_carto  -m /apps/carto_data -A yes -p rw -t no && mount /apps/carto_data
+
+
+
+
+mklv -y lv_ameliap -t jfs2 -x 1024 vg_apps 5G
+
+crfs -v jfs2 -d lv_ameliap  -m /apps/matl/packages -A yes -p rw -t no && mount /apps/matl/packages
+
+
+
+mklv -y lv_express -t jfs2 -x 1024 vg_apps 1G
+
+crfs -v jfs2 -d lv_express -m /apps/dmexpress/ -A yes -p rw -t no
+
+
+mklv -y lv_cobol -t jfs2 -x 1024 vg_apps 1G
+
+crfs -v jfs2 -d lv_cobol  -m /apps/cobol -A yes -p rw -t no
+
+mklv -y lv_oraclient -t jfs2 -x 1024 vg_data 15G
+
+crfs -v jfs2 -d lv_oraclient -m /apps/oracle/product/1120cli32 -A yes -p rw -t no && mount /apps/oracle/product/1120cli32
+
+
+mklv -y lv_oradbfbck -t jfs2 -x 1024 vg_data 5G
+
+crfs -v jfs2 -d lv_oradbfbck  -m /apps/oradbf/backup -A yes -p rw -t no && mount /apps/oradbf/backup
+
+
+mklv -y lv_exploit -t jfs2 -x 1024 vg_apps 2G
+
+crfs -v jfs2 -d lv_exploit  -m /apps/exploit -A yes -p rw -t no && mount /apps/exploit
+
+
+mklv -y lv_unikix -t jfs2 -x 1024 vg_apps 500M
+
+crfs -v jfs2 -d lv_unikix  -m /apps/unikix -A yes -p rw -t no && mount /apps/unikix
+
+******************************************************************************************************
+
+CHECK PREREQUIS ORACLE :
+
+1.2.2	Présence des filesets obligatoires
+=============================================
+
+
+
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+lslpp -l bos.adt.lib
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.lib                6.1.2.0  COMMITTED  Base Application Development
+                                                 Libraries
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+lslpp -l bos.adt.libm
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.adt.libm              6.1.7.16  COMMITTED  Base Application Development
+                                                 Math Library
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+lslpp -l bos.perf.libperfstat
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.libperfstat      6.1.7.17  COMMITTED  Performance Statistics Library
+                                                 Interface
+
+Path: /etc/objrepos
+  bos.perf.libperfstat      6.1.7.17  COMMITTED  Performance Statistics Library
+                                                 Interface
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+lslpp -l bos.perf.perfstat
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.perfstat         6.1.7.17  COMMITTED  Performance Statistics
+                                                 Interface
+
+Path: /etc/objrepos
+  bos.perf.perfstat          6.1.0.0  COMMITTED  Performance Statistics
+                                                 Interface
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+lslpp -l bos.perf.proctools
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.perf.proctools        6.1.7.16  COMMITTED  Proc Filesystem Tools
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+
+lslpp -l bos.rte
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  bos.rte                   6.1.7.15  COMMITTED  Base Operating System Runtime
+
+Path: /etc/objrepos
+  bos.rte                   6.1.7.15  COMMITTED  Base Operating System Runtime
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+lslpp -l xlC.aix61.rte
+  Fileset                      Level  State      Description
+  ----------------------------------------------------------------------------
+Path: /usr/lib/objrepos
+  xlC.aix61.rte             11.1.0.2  COMMITTED  XL C/C++ Runtime for AIX 6.1
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+
+1.2.3	Présence des fixes obligatoires
+=========================================
+
+
+
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /home/root :
+->instfix -i -k IV09580
+    All filesets for IV09580 were found.
+
+
+1.2.4	Test system en 64bits
+==================================
+
+
+/usr/bin/getconf HARDWARE_BITMODE
+64
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+/usr/bin/getconf KERNEL_BITMODE
+64
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+bootinfo -K
+64
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+/usr/sbin/lsattr -E -l sys0 -a realmem
+realmem 14680064 Amount of usable physical memory in Kbytes False
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+/usr/sbin/lsps -a
+Page Space      Physical Volume   Volume Group    Size %Used Active Auto  Type Chksum
+hd6             hdisk57           rootvg       38912MB     1   yes   yes    lv     0
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+lsattr -E -l sys0 -a maxuproc
+maxuproc 6144 Maximum number of PROCESSES allowed per user True
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+chdev -l sys0 -a maxuproc='16384'
+sys0 changed
+s00va9923996 => PRODUCTION MAROC  SV4  (root) /home/root :
+
+
+------------------------------------------cobol --------------------------------------------
+
+mkdir -p /apps/cobol/sx5.1
+
+
+->echo $A2_PRODUITS
+/apps
+
+
+->echo $ORACLE_HOME/bin/rtsora
+/bin/rtsora
+
+
+ajout de la ligne : dans /etc/inittab
+
+cp -p /etc/inittab /etc/inittab_20131025
+
+ipcmf:2345:wait:$A2_UNIX/outils/jserex >/dev/null 2>&1
+
+
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/cobol/sx5.1 :
+->gtar xvzf /ficsav/EQUIPE_MEO/SocleV4/cobsx51.tar.Z
+
+
+
+>rm rtsora
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/cobol/sx5.1/bin :
+->ln .fs rtsstd rtsora
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/cobol/sx5.1/bin :
+->ln -fs rtsstd rtsora
+
+
+
+export COBDIR=$A2_PRODUITS/cobol/sx5.1
+export LIBPATH=$COBDIR/lib:$LIBPATH
+export COBCONFIG=$COBDIR/lib/ATKXCOBCONFIG 
+export COBTERMINFO=$COBDIR/terminfo
+export PATH=$COBDIR/bin:$PATH
+
+
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/cobol/sx5.1/lmf :
+->./lmfinstall
+
+Enter the directory name where you wish to install License Manager
+(Press Enter for default directory /opt/microfocus/mflmf)
+/usr/lib/mflmf
+/usr/lib/mflmf does not exist
+
+
+/usr/lib/mflmf
+/usr/lib/mflmf does not exist
+do you wish to create it ? (y/n)
+y
+Empty database created ok
+Do you want only superuser to be able to access the License Admin System? (y/n)
+y
+It is recommended that you let license manager autostart at boot time
+Do you want license manager to be automatically started at boot time? (y/n)
+y
+LMF installation complete
+
+
+
+013/10/25 11:08:55  Summary of AS Licenses Installed, In System  and In Use:
+-----------------------------------------------------------------------------
+   Installed   Sys   In Use
+   ---------   ---   ------
+/apps/cobol/sx5.1
+    Unlim        0       0             Server Express 32-bit    (Model 2)
+
+Continue...
+
+
+->ps -ef | grep -i ./mflm_manager
+    root 26935506        1   0 11:07:28      -  0:00 ./mflm_manager
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/cobol/sx5.1/aslmf :
+->
+
+
+----------------------------------------Installation dmpexpress ---------------------
+
+
+mkdir -p /apps/dmexpress/6.9
+
+cd /apps/dmexpress/
+
+tar xvf /ficsav/EQUIPE_MEO/SocleV4/dmexpress_6911_aix61_32bit.tar
+
+
+
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /ficsav/EQUIPE_MEO/SocleV4 :
+->cp DMExpressLicense.txt /apps/dmexpress/6.9
+
+cd /apps/dmexpress/6.9
+
+./applykey
+
+1.  CONTROLLING LANGUAGE.  The controlling language of this SLA will be
+English.  Les parties aux presentes confirment leur volontei' que cette
+--------------------------------------------------------------------------------
+ I (A)ccept  |  I (D)ecline  |  (N)ext Page  |  (P)revious Page  |  (Q)uit :
+
+     The license key you provided enables the following components
+     and features for the displayed configuration:
+
+     DMExpress Components
+         DMExpress Engine
+         DMExpress Server
+
+     System
+         Computer name: Any
+         Hardware model: Any
+         Number of processors: Unlimited
+
+     License Expiry Date
+         11/24/2013
+
+     Optional Features
+         No Optional Features
+
+                        Press ENTER to continue...
+
+     The new license key has been successfully applied.
+
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/dmexpress/6.9 :
+->
+
+ 
+*************************** installation amelia *****************************
+
+
+
+
+->vi param.s00va9923996
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/amelia/config :
+->
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/amelia/config :
+->
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/amelia/config :
+->export PATH=$A2I_REP/outils:$PATH
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/amelia/config :
+->nohup $A2I_REP/sh/a2instd
+Sending output to nohup.out
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/amelia/config :
+
+
+**************************************conf environnement atlas
+
+reduction du vg_data pour vg_apps
+
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/exploit :
+->reducevg vg_data hdiskpower56
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/exploit :
+->bootinfo -s hdiskpower56
+111540
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/exploit :
+->extendvg -f vg_data hdiskpower56
+S00VA9923996 = PRODUCTION SOCLE V4 MAROC  (root) /apps/exploit :
+->
+
+->
+
+
+
+voir le fichier : fs_config_atlas pour la creation des FS ci-dessous
+
+
+//dev/lv_2v0SV4             5,00       4,79    5%      285     1% /apps/atlas/atlas2v0SV4
+/dev/lv_uf1SV4            11,00       8,76   21%    75066     4% /apps/atlas/atlas2v0SV4/uf1SV4
+/dev/lv_uf1ficsavSV4     105,00      78,69   26%        6     1% /apps/atlas/atlas2v0SV4/uf1SV4/ficsavSV4
+/dev/lv_uf1data1SV4       42,00      41,23    2%      155     1% /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4
+/dev/lv_uf1infocdrSV     100,00      99,98    1%        4     1% /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/infocdrSV4
+/dev/lv_uf1ficSV4        375,00     325,17   14%    19848     1% /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/ficSV4
+/dev/lv_uf1impSV4         16,00       2,79   83%     8982     2% /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/impSV4
+/dev/lv_uf1infocSV4       85,00      84,99    1%        5     1% /apps/atlas/atlas2v0SV4/uf1SV4/data1SV4/infocSV4
+
+*************************************** installation unikix ***************************************
+
+cd $A2_PRODUITS/unikix
+
+mkdir t11.3.3
+
+=========================================================================
+REPRISE LOIC
+
+COPIE CONF IMPRIMANTE
+
+RECUPERATION DU QCONFIG ET HOSTS DE LA PROD SV2
+
+TAR DU REP LPD
+
+DETAR DE L4ARCHIVE BCK_LPD.tgz
+
+===========================================================================

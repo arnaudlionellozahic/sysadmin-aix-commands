@@ -1,0 +1,16 @@
+ 19  [ 24/10/2012 11:17:48 ] lvmdiskscan
+  103  [ 26/10/2012 14:27:47 ] lvcreate -L 2048 -n lv_oracle vg_apps
+  104  [ 26/10/2012 14:27:47 ] echo "/dev/vg_apps/lv_oracle /apps/oracle ext3 defaults 1 2" >>/etc/fstab
+  105  [ 26/10/2012 14:27:47 ] mke2fs -O has_journal -j -i 1024 /dev/vg_apps/lv_oracle
+  110  [ 26/10/2012 14:28:20 ] lvcreate -L 8G -n lv_mntora vg_apps
+  111  [ 26/10/2012 14:28:20 ] echo "/dev/vg_apps/lv_mntora /apps/mntoracle ext3 defaults 1 2" >>/etc/fstab
+  112  [ 26/10/2012 14:28:20 ] mke2fs -O has_journal -j -i 1024 /dev/vg_apps/lv_mntora
+  117  [ 26/10/2012 14:29:26 ] lvcreate -L 3096 -n lv_agent11g vg_apps
+  118  [ 26/10/2012 14:29:27 ] echo "/dev/vg_apps/lv_agent11g  /apps/oracle/111/oem  ext3 defaults 1 2" >>/etc/fstab
+  119  [ 26/10/2012 14:29:27 ] mke2fs -O has_journal -j -i 1024 /dev/vg_apps/lv_agent11g
+  156  [ 26/10/2012 15:19:57 ] lvcreate -L 6G  -n lvstdrdb11203 vg_apps
+  157  [ 26/10/2012 15:19:57 ] echo "/dev/vg_apps/lvstdrdb11203 /apps/oracle/11203/rdb/std ext3 defaults 1 2" >>/etc/fstab
+  158  [ 26/10/2012 15:19:57 ] mke2fs -O has_journal -j -i 1024 /dev/vg_apps/lvstdrdb11203
+  163  [ 26/10/2012 15:20:24 ] lvcreate -L 2048 -n lv_oraclelog vg_apps
+  164  [ 26/10/2012 15:20:24 ] echo "/dev/vg_apps/lv_oraclelog /apps/oracle/log ext3 defaults 1 2" >>/etc/fstab
+  165  [ 26/10/2012 15:20:24 ] mke2fs -O has_journal -j -i 1024 /dev/vg_apps/lv_oraclelog

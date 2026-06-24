@@ -1,0 +1,540 @@
+powermt display dev=all | egrep "^Pseudo name|^Symmetrix ID|^Logical device" | awk '
+         /Pseudo name/ { FS="=" ; p=$NF }
+         /Symmetrix ID/ { FS="=" ; S=$NF }
+         /Logical device/ { FS="=" ; id=$NF; print S"  "id"  "p }'
+		 
+		 
+###########################################################################################
+
+lspv | egrep "3C74|3C75|3C76|3C77|3C78|3C79|3C7A|3C7B|3C7C|3C7D|3C7E|3C7F|3C80|3C81|3C82|3718|3719|371A|3C73|1F71|1F72|1F73|1F74|31BF|31C0|331B|3322|3323|3648|31C1|3218|321C|331A"
+
+###########################################################################################
+
+powermt display dev=all | egrep "^Pseudo name|^Symmetrix ID|^Logical device" | awk '
+         /Pseudo name/ { FS="=" ; p=$NF }
+         /Symmetrix ID/ { FS="=" ; S=$NF }
+         /Logical device/ { FS="=" ; id=$NF; print S"  "id"  "p }' | egrep "3C74|3C75|3C76|3C77|3C78|3C79|3C7A|3C7B|3C7C|3C7D|3C7E|3C7F|3C80|3C81|3C82|3718|3719|371A|3C73|1F71|1F72|1F73|1F74|31BF|31C0|331B|3322|3323|3648|31C1|3218|321C|331A"
+		 
+		 000295700039  3718  hdiskpower345
+000295700039  3719  hdiskpower346
+000295700039  371A  hdiskpower347
+000295700039  1F71  hdiskpower348
+000295700039  1F72  hdiskpower349
+000295700039  1F73  hdiskpower350
+000295700039  1F74  hdiskpower351
+000295700039  31BF  hdiskpower352
+000295700039  31C0  hdiskpower353
+000295700039  31C1  hdiskpower354
+000295700039  3218  hdiskpower355
+000295700039  321C  hdiskpower356
+000295700039  331A  hdiskpower357
+000295700039  331B  hdiskpower358
+000295700039  3322  hdiskpower359
+000295700039  3323  hdiskpower360
+000295700039  3648  hdiskpower361
+000295700039  3C73  hdiskpower362
+000295700039  3C74  hdiskpower363
+000295700039  3C75  hdiskpower364
+000295700039  3C76  hdiskpower365
+000295700039  3C77  hdiskpower366
+000295700039  3C78  hdiskpower367
+000295700039  3C79  hdiskpower368
+000295700039  3C7A  hdiskpower369
+000295700039  3C7B  hdiskpower370
+000295700039  3C7C  hdiskpower371
+000295700039  3C7D  hdiskpower372
+000295700039  3C7E  hdiskpower373
+000295700039  3C7F  hdiskpower374
+000295700039  3C80  hdiskpower375
+000295700039  3C81  hdiskpower376
+000295700039  3C82  hdiskpower377
+
+
+###########################################################################################
+
+hdiskpower346   00c129ee0e4b450a                    None
+hdiskpower347   00c129ee0e4c1262                    None
+hdiskpower348   00cc0afc13ca36cd                    extvgBCV        active
+hdiskpower349   00cc0afc13c3b03b                    extvgBCV        active
+hdiskpower350   00cc0afc13c158ea                    extvgBCV        active
+hdiskpower351   00cc0afc13bf5288                    extvgBCV        active
+hdiskpower352   00cc0afc13cdaceb                    extvgBCV        active
+hdiskpower353   00cc0afc13cc79ab                    extvgBCV        active
+hdiskpower354   00cc0afc13c89c63                    extvgBCV1       active
+hdiskpower355   00cc0afc13caccd0                    extvgBCV1       active
+hdiskpower356   00cc0afc13c885d8                    extvgBCV1       active
+hdiskpower357   00cc0afc13c69a3b                    extvgBCV1       active
+hdiskpower358   00cc0afc13c48b33                    extvgBCV1       active
+hdiskpower359   00cc0afc13c367b4                    extvgBCV1       active
+hdiskpower360   00cc0afc13c16a68                    extvgBCV1       active
+hdiskpower361   00cc0afc13cee2ee                    extvgBCV1       active
+hdiskpower362   00cc0afcca0fd1b1                    None
+hdiskpower363   00c129ee0e546912                    None
+hdiskpower364   00c129ee0e49a25b                    None
+hdiskpower365   00c129ee0e4cd689                    None
+hdiskpower366   00c129ee0e505f0a                    None
+hdiskpower367   00c129ee0e5721a3                    None
+hdiskpower368   00c129ee0e536058                    None
+hdiskpower369   00c129ee0e48bd4e                    None
+hdiskpower370   00c129ee0e56fb29                    None
+hdiskpower371   00c129ee0e4a2202                    None
+hdiskpower372   00c129ee0e4b84ec                    None
+hdiskpower373   00c129ee0e500a9e                    None
+hdiskpower374   00c129ee0e4fdec1                    None
+hdiskpower375   00c129ee0e4f5441                    None
+hdiskpower376   00c129ee0e4e79a8                    None
+hdiskpower377   00c129ee0e4cf8e6                    None
+
+###########################################################################################
+manque vg_apps et vg_data
+###########################################################################################
+
+[parva4022575:root:/storecfg:] lsvg -p vg_data
+vg_data:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdisk1            active            870         601         78..03..172..174..174
+
+###########################################################################################
+VALIDATION BASCULE
+###########################################################################################
+
+[parva4022575:root:/apps/oradbf/atpr01:] ls -lartR
+total 24
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  lost+found
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas_NC
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas_hb
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  bkof
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  histo_temp
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  histosdp
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log1
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log2
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log3
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  users
+drwxr-xr-x    2 300      dba             256 Apr 22 2009  undo
+drwxr-xr-x    2 300      dba             256 Dec  4 2012  system
+drwxr-xr-x    2 300      dba             256 Dec  7 2012  temp
+-rw-rw-rw-    1 300      dba            5849 Jan 22 01:41 renom.sh
+drwxr-xr-x    2 300      dba             256 Mar 29 13:41 archive
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 .
+drwxr-xr-x    2 300      dba             256 Mar 31 03:21 sysaux
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl3
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl2
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl1
+drwxr-xr-x    3 root     system          256 Apr  5 12:24 ..
+./lost+found:
+total 8
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./atlas:
+total 16
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    2 300      dba             256 Jun 12 2010  index1
+drwxr-xr-x    2 300      dba            4096 Jan  4 2013  data1
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./atlas/index1:
+total 57905264
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+drwxr-xr-x    2 300      dba             256 Jun 12 2010  .
+-rwxr-xr-x    1 300      dba      1331695616 Apr  5 2016  atpr01_atlas_i01_8.dbf
+-rwxr-xr-x    1 300      dba      1394610176 Apr  5 2016  atpr01_atlas_i01_7.dbf
+-rwxr-xr-x    1 300      dba      1866469376 Apr  5 2016  atpr01_atlas_i01_6.dbf
+-rwxr-xr-x    1 300      dba      1363152896 Apr  5 2016  atpr01_atlas_i01_5.dbf
+-rwxr-xr-x    1 300      dba      3596619776 Apr  5 2016  atpr01_atlas_i01_4.dbf
+-rwxr-xr-x    1 300      dba      1488982016 Apr  5 2016  atpr01_atlas_i01_3.dbf
+-rwxr-xr-x    1 300      dba      17179865088 Apr  5 2016  atpr01_atlas_i01_2.dbf
+-rwxr-xr-x    1 300      dba      1426067456 Apr  5 2016  atpr01_atlas_i01_1.dbd
+
+./atlas/data1:
+total 189804752
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+-rwxr-xr-x    1 300      dba             146 May 20 2009  afiedt.buf
+drwxr-xr-x    2 300      dba            4096 Jan  4 2013  .
+-rwxr-xr-x    1 300      dba      8912900096 Apr  5 2016  atpr01_atlas_d01_9.dbf
+-rwxr-xr-x    1 300      dba      17179865088 Apr  5 2016  atpr01_atlas_d01_8.dbf
+-rwxr-xr-x    1 300      dba      4225765376 Apr  5 2016  atpr01_atlas_d01_7.dbf
+-rwxr-xr-x    1 300      dba      4540338176 Apr  5 2016  atpr01_atlas_d01_6.dbf
+-rwxr-xr-x    1 300      dba      4414509056 Apr  5 2016  atpr01_atlas_d01_5.dbf
+-rwxr-xr-x    1 300      dba      4383051776 Apr  5 2016  atpr01_atlas_d01_4.dbf
+-rwxr-xr-x    1 300      dba      4634710016 Apr  5 2016  atpr01_atlas_d01_3.dbf
+-rwxr-xr-x    1 300      dba      4697624576 Apr  5 2016  atpr01_atlas_d01_2.dbf
+-rwxr-xr-x    1 300      dba      5767172096 Apr  5 2016  atpr01_atlas_d01_14.dbf
+-rwxr-xr-x    1 300      dba      17179865088 Apr  5 2016  atpr01_atlas_d01_13.dbf
+-rwxr-xr-x    1 300      dba      5295312896 Apr  5 2016  atpr01_atlas_d01_12.dbf
+-rwxr-xr-x    1 300      dba      5326770176 Apr  5 2016  atpr01_atlas_d01_11.dbf
+-rwxr-xr-x    1 300      dba      5672800256 Apr  5 2016  atpr01_atlas_d01_10.dbf
+-rwxr-xr-x    1 300      dba      4949282816 Apr  5 2016  atpr01_atlas_d01_1.dbd
+
+./atlas_NC:
+total 8
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  data1
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  index1
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./atlas_NC/data1:
+total 2867216
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+-rwxr-xr-x    1 300      dba      1468010496 Apr  5 2016  atpr01_atlas_NC_1.dbf
+
+./atlas_NC/index1:
+total 2150416
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+-rwxr-xr-x    1 300      dba      1101008896 Apr  5 2016  atpr01_atlas_NC_1.dbf
+
+./atlas_hb:
+total 8
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    2 300      dba             256 Dec 23 2011  indx1
+drwxr-xr-x    2 300      dba             256 Dec 27 2012  data1
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./atlas_hb/indx1:
+total 716808
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+drwxr-xr-x    2 300      dba             256 Dec 23 2011  .
+-rwxr-xr-x    1 300      dba       367005696 Apr  5 2016  atpr01_atlas_hb_I01.dbf
+
+./atlas_hb/data1:
+total 66322448
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+drwxr-xr-x    2 300      dba             256 Dec 27 2012  .
+-rwxr-xr-x    1 300      dba      16777220096 Apr  5 2016  atpr01_atlas_hb_D02.dbf
+-rwxr-xr-x    1 300      dba      17179865088 Apr  5 2016  atpr01_atlas_hb_D01.dbf
+
+./bkof:
+total 8
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  data1
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  index1
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./bkof/data1:
+total 819224
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+-rwxr-xr-x    1 300      dba       104861696 Apr  5 2016  atpr01_bkof_d01_3.dbf
+-rwxr-xr-x    1 300      dba       314576896 Apr  5 2016  atpr01_bkof_d01_1.dbf
+
+./bkof/index1:
+total 122896
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+-rwxr-xr-x    1 300      dba        10489856 Apr  5 2016  atpr01_bkof_i01_2.dbf
+-rwxr-xr-x    1 300      dba        52432896 Apr  5 2016  atpr01_bkof_i01_1.dbf
+
+./histo_temp:
+total 8
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  data1
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  index1
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./histo_temp/data1:
+total 1146896
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+-rwxr-xr-x    1 300      dba       587206656 Apr  5 2016  atpr01_histo_temp_d01.1.dbf
+
+./histo_temp/index1:
+total 921608
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+-rwxr-xr-x    1 300      dba       471863296 Apr  5 2016  atpr01_histo_temp_i01.1.dbf
+
+./histosdp:
+total 8
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  data1
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  index1
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./histosdp/data1:
+total 38604832
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+-rwxr-xr-x    1 300      dba      17175678976 Apr  5 2016  histosdp_D01_2.dbf
+-rwxr-xr-x    1 300      dba      2589986816 Apr  5 2016  histosdp_D01_1.dbf
+
+./histosdp/index1:
+total 3829784
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  ..
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+-rwxr-xr-x    1 300      dba      1824526336 Apr  5 2016  histosdp_I01_2.dbf
+-rwxr-xr-x    1 300      dba       136318976 Apr  5 2016  histosdp_I01_1.dbf
+
+./log1:
+total 163856
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+-rwxr-xr-x    1 300      dba        83886592 Apr  5 2016  log4atpr01.log
+
+./log2:
+total 163856
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+-rwxr-xr-x    1 300      dba        83886592 Apr  5 2016  log5atpr01.log
+
+./log3:
+total 163856
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+-rwxr-xr-x    1 300      dba        83886592 Apr  5 2016  log6atpr01.log
+
+./users:
+total 16539680
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+-rwxr-xr-x    1 300      dba      8258588672 Apr  5 2016  usersatpr01.dbd
+-rwxr-xr-x    1 300      dba       209719296 Apr  5 2016  perfstat.dbf
+
+./undo:
+total 39202888
+drwxr-xr-x    2 300      dba             256 Apr 22 2009  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+-rwxr-xr-x    1 300      dba      5009051648 Apr  5 2016  atpr01_undotbs_u04.dbf
+-rwxr-xr-x    1 300      dba      4939845632 Apr  5 2016  atpr01_undotbs_u03.dbf
+-rwxr-xr-x    1 300      dba      5020585984 Apr  5 2016  atpr01_undotbs_u02.dbf
+-rwxr-xr-x    1 300      dba      5102374912 Apr  5 2016  atpr01_undotbs_u01.dbf
+
+./system:
+total 1044512
+drwxr-xr-x    2 300      dba             256 Dec  4 2012  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+-rwxr-xr-x    1 300      dba        10489856 Apr  5 2016  tools01.dbf
+-rwxr-xr-x    1 300      dba       524292096 Apr  5 2016  sys01atpr01.dbf
+
+./temp:
+total 63488104
+drwxr-xr-x    2 300      dba             256 Dec  7 2012  .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+-rwxr-xr-x    1 300      dba      6291460096 Mar 31 03:24 atpr01temp_d06.dbd
+-rwxr-xr-x    1 300      dba      5242884096 Mar 31 03:25 atpr01temp_d02.dbd
+-rwxr-xr-x    1 300      dba      5242884096 Mar 31 03:25 atpr01temp_d01.dbd
+-rwxr-xr-x    1 300      dba      5242884096 Apr  3 00:00 atpr01temp_d05.dbd
+-rwxr-xr-x    1 300      dba      5242884096 Apr  3 00:00 atpr01temp_d04.dbd
+-rwxr-xr-x    1 300      dba      5242884096 Apr  3 00:00 atpr01temp_d03.dbd
+
+./archive:
+total 8
+drwxr-xr-x    2 300      dba             256 Mar 29 13:41 .
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+
+./sysaux:
+total 1638424
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+drwxr-xr-x    2 300      dba             256 Mar 31 03:21 .
+-rw-r-----    1 300      dba       838864896 Apr  5 2016  atpr01_sysaux01.dbf
+
+./ctl3:
+total 50664
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 .
+-rw-r-----    1 300      dba        25935872 Apr  5 2016  ctl3atpr01.ctl
+
+./ctl2:
+total 50664
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 .
+-rw-r-----    1 300      dba        25935872 Apr  5 2016  ctl2atpr01.ctl
+
+./ctl1:
+total 50664
+drwxr-xr-x   21 300      dba            4096 Mar 31 03:20 ..
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 .
+-rw-r-----    1 300      dba        25935872 Apr  5 2016  ctl1atpr01.ctl
+[parva4022575:root:/apps/oradbf/atpr01:] vi toto
+[parva4022575:root:/apps/oradbf/atpr01:] ls )lart
+[parva4022575:root:/apps/oradbf/atpr01:] ls -lart
+total 32
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  lost+found
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas_NC
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas_hb
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  bkof
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  histo_temp
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  histosdp
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log1
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log2
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log3
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  users
+drwxr-xr-x    2 300      dba             256 Apr 22 2009  undo
+drwxr-xr-x    2 300      dba             256 Dec  4 2012  system
+drwxr-xr-x    2 300      dba             256 Dec  7 2012  temp
+-rw-rw-rw-    1 300      dba            5849 Jan 22 01:41 renom.sh
+drwxr-xr-x    2 300      dba             256 Mar 29 13:41 archive
+drwxr-xr-x    2 300      dba             256 Mar 31 03:21 sysaux
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl3
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl2
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl1
+drwxr-xr-x    3 root     system          256 Apr  5 12:24 ..
+-rw-r--r--    1 root     system           17 Apr  5 15:17 toto
+drwxr-xr-x   21 300      dba            4096 Apr  5 15:17 .
+[parva4022575:root:/apps/oradbf/atpr01:] rm toto
+[parva4022575:root:/apps/oradbf/atpr01:] ls -lart
+total 24
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  lost+found
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas_NC
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  atlas_hb
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  bkof
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  histo_temp
+drwxr-xr-x    4 300      dba             256 Jan  3 2009  histosdp
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log1
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log2
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  log3
+drwxr-xr-x    2 300      dba             256 Jan  3 2009  users
+drwxr-xr-x    2 300      dba             256 Apr 22 2009  undo
+drwxr-xr-x    2 300      dba             256 Dec  4 2012  system
+drwxr-xr-x    2 300      dba             256 Dec  7 2012  temp
+-rw-rw-rw-    1 300      dba            5849 Jan 22 01:41 renom.sh
+drwxr-xr-x    2 300      dba             256 Mar 29 13:41 archive
+drwxr-xr-x    2 300      dba             256 Mar 31 03:21 sysaux
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl3
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl2
+drwxr-xr-x    2 300      dba             256 Mar 31 03:24 ctl1
+drwxr-xr-x    3 root     system          256 Apr  5 12:24 ..
+drwxr-xr-x   21 300      dba            4096 Apr  5 15:17 .
+[parva4022575:root:/apps/oradbf/atpr01:]
+
+
+
+
+###########################################################################################
+###########################################################################################
+FICHIER CORRECT SUR parva4000632
+###########################################################################################
+###########################################################################################
+[s00va9923997:root:/storecfg/parva4000632:] cat listdisk_parva4000632.txt
+#**********************************************************************
+#           PRODUCTION & BACKUP DISKS                                 *
+#**********************************************************************
+
+SYMMETRIXID     DEVID   PVID                VG             NlPRD          USE     NlBCK
+000295700039    49B8    none                None           hdiskpower60   PROD    PROBLEME
+000295700039    49B9    none                None           hdiskpower61   PROD    PROBLEME
+000295700039    49BA    none                None           hdiskpower62   PROD    PROBLEME
+000295700039    49BB    none                None           hdiskpower63   PROD    PROBLEME
+000295700039    49BC    none                None           hdiskpower64   PROD    PROBLEME
+000295700039    49BD    none                None           hdiskpower65   PROD    PROBLEME
+000295700039    49BE    none                None           hdiskpower66   PROD    PROBLEME
+000295700039    49BF    none                None           hdiskpower67   PROD    PROBLEME
+000295700039    49C0    none                None           hdiskpower68   PROD    PROBLEME
+000295700039    49C1    none                None           hdiskpower69   PROD    PROBLEME
+000295700039    49C2    none                None           hdiskpower70   PROD    PROBLEME
+000295700039    49C3    none                None           hdiskpower71   PROD    PROBLEME
+000295700039    49C4    none                None           hdiskpower72   PROD    PROBLEME
+000295700039    49C5    none                None           hdiskpower73   PROD    PROBLEME
+000295700039    49C6    none                None           hdiskpower74   PROD    PROBLEME
+000295700039    49C7    00c81a17be1caf16    None           hdiskpower75   PROD    PROBLEME
+000295700039    4445    00c3502e438211d7    extvgBCV       hdiskpower31   PROD    hdiskpower123
+000295700039    4446    00c3502e43871930    extvgBCV       hdiskpower32   PROD    hdiskpower124
+000295700039    4447    00c3502e438bfbdf    extvgBCV       hdiskpower33   PROD    hdiskpower125
+000295700039    4448    00c3502e4381dc2d    extvgBCV       hdiskpower34   PROD    hdiskpower126
+000295700039    4449    00c3502e4386dcda    extvgBCV       hdiskpower35   PROD    hdiskpower127
+000295700039    444A    00c3502e438bc7a3    extvgBCV       hdiskpower36   PROD    hdiskpower128
+000295700039    444B    00c3502e4381557b    extvgBCV       hdiskpower37   PROD    hdiskpower129
+000295700039    444C    00c3502e43868482    extvgBCV       hdiskpower38   PROD    hdiskpower130
+000295700039    0F9B    00c81a1757fabe71    extvgBCV       hdiskpower4    PROD    hdiskpower174
+000295700039    444D    00c3502e438b6669    extvgBCV1      hdiskpower39   PROD    hdiskpower131
+000295700039    444E    00c3502e438133e5    extvgBCV1      hdiskpower40   PROD    hdiskpower132
+000295700039    444F    00c3502e43867092    extvgBCV1      hdiskpower41   PROD    hdiskpower133
+000295700039    4450    00c3502e438b6a57    extvgBCV1      hdiskpower42   PROD    hdiskpower134
+000295700039    4451    00c3502e438205b9    extvgBCV1      hdiskpower43   PROD    hdiskpower135
+000295700039    4452    00c3502e43868c3c    extvgBCV1      hdiskpower44   PROD    hdiskpower136
+000295700039    4453    00c3502e438b6e78    extvgBCV1      hdiskpower45   PROD    hdiskpower137
+000295700039    4454    00c3502e43814059    extvgBCV1      hdiskpower46   PROD    hdiskpower138
+000295700039    4455    00c3502e438629e8    extvgBCV1      hdiskpower47   PROD    hdiskpower139
+000295700039    4456    00c3502e438b241e    extvgBCV1      hdiskpower48   PROD    hdiskpower140
+000295700039    4457    00c3502e43812ef8    extvgBCV1      hdiskpower49   PROD    hdiskpower141
+000295700039    4458    00c81a17ccb75adf    extvgBCV2      hdiskpower50   PROD    hdiskpower142
+000295700039    4459    00c81a17ccbd16f1    extvgBCV2      hdiskpower51   PROD    hdiskpower143
+000295700039    445A    00c81a17ccb46f51    extvgBCV2      hdiskpower52   PROD    hdiskpower144
+000295700039    445B    00c81a17ccbb3889    extvgBCV2      hdiskpower53   PROD    hdiskpower145
+000295700039    445C    00c81a17ccb6c76d    extvgBCV2      hdiskpower54   PROD    hdiskpower146
+000295700039    445D    00c81a17ccbbe961    extvgBCV2      hdiskpower55   PROD    hdiskpower147
+000295700039    445E    00c81a17ccb9a079    extvgBCV2      hdiskpower56   PROD    hdiskpower148
+000295700039    445F    00c81a17ccbfda3e    extvgBCV2      hdiskpower57   PROD    hdiskpower149
+000295700039    4460    00c81a17ccb56a5b    extvgBCV2      hdiskpower58   PROD    hdiskpower150
+000295700039    4461    00c81a17ccbaf273    extvgBCV2      hdiskpower59   PROD    hdiskpower151
+000295700039    4430    00c3502e438dc770    extvga1        hdiskpower10   PROD    hdiskpower102
+000295700039    4431    00c3502e43837e16    extvga1        hdiskpower11   PROD    hdiskpower103
+000295700039    4432    00c3502e4388ad4f    extvga1        hdiskpower12   PROD    hdiskpower104
+000295700039    205A    00c81a17fcd0ace9    extvga1        hdiskpower3    PROD    hdiskpower97
+000295700039    442C    00c3502e4388c960    extvga1        hdiskpower6    PROD    hdiskpower98
+000295700039    442D    00c3502e438dedc5    extvga1        hdiskpower7    PROD    hdiskpower99
+000295700039    442E    00c3502e4383db10    extvga1        hdiskpower8    PROD    hdiskpower100
+000295700039    442F    00c3502e4388a960    extvga1        hdiskpower9    PROD    hdiskpower101
+000295700039    4433    00c3502e438e6f0d    extvgd0        hdiskpower13   PROD    hdiskpower105
+000295700039    4434    00c3502e43841a3e    extvgd0        hdiskpower14   PROD    hdiskpower106
+000295700039    4435    00c3502e4388fc23    extvgd0        hdiskpower15   PROD    hdiskpower107
+000295700039    4436    00c3502e438e0c4c    extvgd0        hdiskpower16   PROD    hdiskpower108
+000295700039    4437    00c3502e438409df    extvgd0        hdiskpower17   PROD    hdiskpower109
+000295700039    4438    00c3502e4388db47    extvgd0        hdiskpower18   PROD    hdiskpower110
+000295700039    4439    00c3502e438e10a3    extvgd0        hdiskpower19   PROD    hdiskpower111
+000295700039    443A    00c3502e43840c6c    extvgd0        hdiskpower20   PROD    hdiskpower112
+000295700039    443B    00c3502e4389b445    extvgd0        hdiskpower21   PROD    hdiskpower113
+000295700039    443C    00c3502e438e755b    extvgd0        hdiskpower22   PROD    hdiskpower114
+000295700039    443D    00c3502e43842624    extvgd0        hdiskpower23   PROD    hdiskpower115
+000295700039    443E    00c3502e4388e13d    extvgd0        hdiskpower24   PROD    hdiskpower116
+000295700039    3A8D    00c81a170b79fc2b    extvgd01       hdiskpower2    PROD    hdiskpower177
+000295700039    4440    00c3502e4383f342    extvgd01       hdiskpower26   PROD    hdiskpower118
+000295700039    4441    00c3502e4388c2b8    extvgd01       hdiskpower27   PROD    hdiskpower119
+000295700039    4442    00c3502e438da21a    extvgd01       hdiskpower28   PROD    hdiskpower120
+000295700039    4443    00c3502e43859723    extvgd01       hdiskpower29   PROD    hdiskpower121
+000295700039    4444    00c3502e438c1e36    extvgd01       hdiskpower30   PROD    hdiskpower122
+000295700039    42DD    00cc9e8b3cd58821    vg_apps        hdiskpower0    PROD    hdiskpower176
+000295700039    42DE    00cc9e8b3cd9868b    vg_data        hdiskpower1    PROD    hdiskpower175
+000295700039    443F    00c3502e438e1864    vg_data        hdiskpower25   PROD    hdiskpower117
+000295700039    1F06    00c129eeb06b57f7    0627_vg0_bcv1  ------------   BCKP    hdiskpower199
+000295700039    1F07    00c129eeb0648ad3    0627_vg0_bcv1  ------------   BCKP    hdiskpower200
+000295700039    1F08    00c129eeb05e6e62    0627_vg0_bcv1  ------------   BCKP    hdiskpower201
+000295700039    1F09    00c129eeb067376d    0627_vg0_bcv1  ------------   BCKP    hdiskpower202
+000295700039    1F0A    00c129eeb0609428    0627_vg0_bcv1  ------------   BCKP    hdiskpower203
+000295700039    1F0B    00c129eeb06b6377    0627_vg0_bcv1  ------------   BCKP    hdiskpower204
+000295700039    1F0C    00c129eeb0651c4a    0627_vg0_bcv1  ------------   BCKP    hdiskpower205
+000295700039    1F0D    00c129eeb05ec869    0627_vg0_bcv1  ------------   BCKP    hdiskpower206
+000295700039    1F0E    00c129eeb067436f    0627_vg0_bcv1  ------------   BCKP    hdiskpower207
+000295700039    1F0F    00c129eeb063ec8d    0627_vg0_bcv1  ------------   BCKP    hdiskpower208
+000295700039    1F10    00cd9fdd9c4725e2    0627_vg0_bcv2  ------------   BCKP    hdiskpower209
+000295700039    1F11    00cd9fdd9c4d750b    0627_vg0_bcv2  ------------   BCKP    hdiskpower210
+000295700039    1F12    00cd9fdd9c441830    0627_vg0_bcv2  ------------   BCKP    hdiskpower211
+000295700039    1F13    00cd9fdd9c4a727d    0627_vg0_bcv2  ------------   BCKP    hdiskpower212
+000295700039    1F14    00cd9fdd9c506cb6    0627_vg0_bcv2  ------------   BCKP    hdiskpower213
+000295700039    1F15    00cd9fdd9c4735ff    0627_vg0_bcv2  ------------   BCKP    hdiskpower214
+000295700039    1F16    00cd9fdd9c4d8b31    0627_vg0_bcv2  ------------   BCKP    hdiskpower215
+000295700039    1F17    00cd9fdd9c44812b    0627_vg0_bcv2  ------------   BCKP    hdiskpower216
+000295700039    1F18    00cd9fdd9c4ac503    0627_vg0_bcv2  ------------   BCKP    hdiskpower217
+000295700039    1F19    00c129eeb064cda7    0627_vg1_bcv1  ------------   BCKP    hdiskpower218
+000295700039    1F1A    00c129eeb06cc531    0627_vg1_bcv1  ------------   BCKP    hdiskpower219
+000295700039    1F1B    00c129eeb06b4da5    0627_vg1_bcv1  ------------   BCKP    hdiskpower220
+000295700039    1F1C    00c129eeb068ec25    0627_vg1_bcv1  ------------   BCKP    hdiskpower221
+000295700039    1F1D    00cd9fdd9c4f29cf    0627_vg1_bcv2  ------------   BCKP    hdiskpower222
+000295700039    1F1E    00cd9fdd9c49c70a    0627_vg1_bcv2  ------------   BCKP    hdiskpower223
+000295700039    1F1F    00cd9fdd9c52c955    0627_vg1_bcv2  ------------   BCKP    hdiskpower224
+000295700039    1F20    00cd9fdd9c4c786e    0627_vg1_bcv2  ------------   BCKP    hdiskpower225
+000295700039    1F21    00c129eeb0676d4d    0627_vg2_bcv1  ------------   BCKP    hdiskpower226
+000295700039    1F22    00c129eeb06623e7    0627_vg2_bcv1  ------------   BCKP    hdiskpower227
+000295700039    1F23    00c129eeb0647d99    0627_vg2_bcv1  ------------   BCKP    hdiskpower228
+000295700039    1F24    00c129eeb07175f5    0627_vg2_bcv1  ------------   BCKP    hdiskpower229
+000295700039    1F25    00cd9fdd9c5575f0    0627_vg2_bcv2  ------------   BCKP    hdiskpower230
+000295700039    1F26    00cd9fdd9c4cdd04    0627_vg2_bcv2  ------------   BCKP    hdiskpower231
+000295700039    1F27    00cd9fdd9c54cb61    0627_vg2_bcv2  ------------   BCKP    hdiskpower232
+000295700039    1F28    00cd9fdd9c4d02e1    0627_vg2_bcv2  ------------   BCKP    hdiskpower233
+000295700039    1F05    00cd9fdd9c507bfd    0627_vg0_bcv2  ------------   BCKP    hdiskpower234
+[s00va9923997:root:/storecfg/parva4000632:] ls -lttr
+total 336
+-rwxrwxrwx    1 root     system        10962 Nov 27 13:18 listdisk_parva4000632.txt
+-rwxrwxrwx    1 root     system         1261 Nov 27 13:18 netcfg_parva4000632.txt
+-rwxrwxrwx    1 root     system       127296 Nov 27 13:18 infodisks
+-rwxrwxrwx    1 root     system        13347 Nov 27 13:18 filesystems
+-rwxrwxrwx    1 root     system         4234 Nov 27 13:18 Prerequis.txt
+[s00va9923997:root:/storecfg/parva4000632:]
+
+
+BACKUP
+cat listdisk_parva4022575.txt | grep -w BCKP | awk  '{ print $NF }'

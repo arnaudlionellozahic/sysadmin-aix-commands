@@ -1,0 +1,96 @@
+oot@s00va9927160:/$ df -g
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/hd4           0.38      0.08   78%     4529    18% /
+/dev/hd2           2.75      0.44   84%    54179    34% /usr
+/dev/hd9var        1.00      0.86   15%      996     1% /var
+/dev/hd3           1.00      0.52   48%      706     1% /tmp
+/dev/hd1           0.12      0.12    2%     1173     4% /home
+/proc                 -         -    -         -     -  /proc
+/dev/hd10opt       1.25      0.76   40%     5054     3% /opt
+/dev/lvusrecc      0.25      0.12   54%     1410     5% /usr/ecc
+/dev/lv_CoreDP      0.12      0.12    1%        5     1% /var/core
+/dev/livedump      0.25      0.25    1%        4     1% /var/adm/ras/livedump
+/dev/lv_ILMT       0.12      0.10   21%      233     1% /opt/itlm
+/dev/lv_masters      2.00      1.58   21%     1702     1% /itsmasters
+/dev/lv_apps       0.50      0.42   16%      988     1% /apps
+/dev/lv_tng        0.75      0.60   21%     3526     3% /apps/unicenter
+/dev/lv_tng_logs      0.25      0.24    4%      329     1% /apps/unicenter/EM/3.1/opr/logs
+/dev/lv_tng_base      1.00      0.96    5%       27     1% /apps/unicenter/EM/3.1/bases
+/dev/lv_nas        0.12      0.12    7%      116     1% /apps/unicenter/AT/3.1/NewAgentScript
+/dev/lv_perfs      1.50      0.44   71%       52     1% /apps/sys/log/stats
+/dev/lv_save       0.50      0.50    1%        4     1% /apps/sys/log/save
+/dev/lv_mksysb      5.00      1.18   77%       10     1% /apps/sys/back
+/dev/lv_nimsoft      0.12      0.10   20%       55     1% /apps/nimsoft
+/dev/lv_esm        0.50      0.18   65%      158     1% /apps/esm/9.0
+/dev/lv_etac       0.62      0.45   28%     2546     3% /apps/eTAC
+/dev/lv_scm        0.50      0.42   17%      717     1% /apps/SCM/5.1
+/dev/lv_OMNI       0.25      0.23    8%      241     1% /apps/OmniVision
+/dev/lv_itcm       2.00      1.93    4%      731     1% /apps/ITCM
+/dev/lv_deploy      1.25      0.49   61%      599     1% /apps/Deploy
+/dev/hd11admin      0.12      0.12    1%        5     1% /admin
+
+
+J'ai donc lancer la commande mount -a :
+
+
+root@s00va9927160:/ficsav/EQUIPE_MEO$ mount -a
+mount: /dev/hd1 on /home: Device busy
+mount: /proc on /proc: Device busy
+mount: /dev/hd10opt on /opt: Device busy
+mount: /dev/lvusrecc on /usr/ecc: Device busy
+mount: /dev/lv_CoreDP on /var/core: Device busy
+mount: /dev/livedump on /var/adm/ras/livedump: Device busy
+mount: /dev/lv_savecfg on /savecfg: I/O error
+mount: /dev/lv_ILMT on /opt/itlm: Device busy
+mount: /dev/lv_masters on /itsmasters: Device busy
+mount: /dev/lv_meo on /ficsav/EQUIPE_MEO: Device busy
+mount: /dev/lv_apps on /apps: Not owner
+mount: /dev/lv_tng on /apps/unicenter: Device busy
+mount: /dev/lv_tng_logs on /apps/unicenter/EM/3.1/opr/logs: Device busy
+mount: /dev/lv_tng_base on /apps/unicenter/EM/3.1/bases: Device busy
+mount: /dev/lv_nas on /apps/unicenter/AT/3.1/NewAgentScript: Device busy
+mount: /dev/lv_perfs on /apps/sys/log/stats: Device busy
+mount: /dev/lv_save on /apps/sys/log/save: Device busy
+mount: /dev/lv_mksysb on /apps/sys/back: Device busy
+mount: /dev/lv_atsec on /apps/oradbf/atsec: I/O error
+mount: /dev/lv_aptf01 on /apps/oradbf/aptf01: I/O error
+mount: /dev/lv_nimsoft on /apps/nimsoft: Device busy
+mount: /dev/lv_exploit on /apps/exploit: I/O error
+mount: /dev/lv_work on /apps/exploit/work: No such file or directory
+mount: /dev/lv_outilsCID on /apps/exploit/outilsCID: No such file or directory
+mount: /dev/lv_esm on /apps/esm/9.0: Device busy
+mount: /dev/lv_etac on /apps/eTAC: Not owner
+mount: /dev/lv_atlas on /apps/atlas/atlas2v0: I/O error
+mount: /dev/lv_uf1 on /apps/atlas/atlas2v0/uf1: No such file or directory
+mount: /dev/lv_uf1data1 on /apps/atlas/atlas2v0/uf1/data1: No such file or directory
+mount: /dev/lv_infocdr on /apps/atlas/atlas2v0/uf1/data1/infocdr: No such file or directory
+mount: /dev/lv_infoc on /apps/atlas/atlas2v0/uf1/data1/infoc: No such file or directory
+mount: /dev/lv_uf1imp on /apps/atlas/atlas2v0/uf1/data1/imp: No such file or directory
+mount: /dev/lv_uf1fic on /apps/atlas/atlas2v0/uf1/data1/fic: No such file or directory
+mount: /dev/lv_arch on /apps/arch: I/O error
+mount: /dev/lv_scm on /apps/SCM/5.1: Device busy
+mount: /dev/lv_OMNI on /apps/OmniVision: Device busy
+mount: /dev/lv_itcm on /apps/ITCM: Device busy
+mount: /dev/lv_deploy on /apps/Deploy: Device busy
+mount: /dev/hd11admin on /admin: Device busy
+mount: /dev/lv_oraclient on /apps/oracle/product/1120cli32: I/O error
+mount: /dev/lv_oradbfbck on /apps/oradbf/backup: I/O error
+
+
+
+
+$ lsvg -l extvga1
+extvga1:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv_exploit          jfs2       42      42      1    closed/syncd  /apps/exploit
+loglv02             jfs2log    1       1       1    closed/syncd  N/A
+lv_work             jfs2       224     224     1    closed/syncd  /apps/exploit/work
+lv_atlas            jfs2       24      24      1    closed/syncd  /apps/atlas/atlas2v0
+lv_atsec            jfs2       3       3       1    closed/syncd  /apps/oradbf/atsec
+lv_aptf01           jfs2       64      64      1    closed/syncd  /apps/oradbf/aptf01
+lv_outilsCID        jfs2       80      80      1    closed/syncd  /apps/exploit/outilsCID
+lv_oradbfbck        jfs2       40      40      1    closed/syncd  /apps/oradbf/backup
+lv_savecfg          jfs2       24      24      1    closed/syncd  /savecfg
+lv_arch             jfs2       376     376     1    closed/syncd  /apps/arch
+lv_oraclient        jfs2       120     120     1    closed/syncd  /apps/oracle/product/1120cli32
+lv_bcksv2           jfs2       800     800     7    closed/syncd  N/A

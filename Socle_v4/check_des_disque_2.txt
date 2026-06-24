@@ -1,0 +1,251 @@
+
+
+SV4 disque :
+
+cd /usr/local/bin
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+./checkAIX disk
+           +--------------------------------------------------+
+           |                                                  |
+           |            Debut de l autite Systeme             |
+           |                                                  |
+           +--------------------------------------------------+
+
+PARAM 1 ==> disk OK
+        +--------------------------------------------------------+
+        | ID disque | Nom disque  | Volume group   | disponible  |
+        +--------------------------------------------------------+
+        |           |  hdiskpower0|            None|          Yes|
+        |           |  hdiskpower1|            None|          Yes|
+        |           |  hdiskpower2|            None|          Yes|
+        |           |  hdiskpower3|            None|          Yes|
+        |           |  hdiskpower4|            None|          Yes|
+        |           |  hdiskpower5|            None|          Yes|
+        |           |  hdiskpower6|            None|          Yes|
+        |           |  hdiskpower7|            None|          Yes|
+        |           |  hdiskpower8|            None|          Yes|
+        |           |  hdiskpower9|            None|          Yes|
+        |           | hdiskpower10|            None|          Yes|
+        |           | hdiskpower11|            None|          Yes|
+        |           | hdiskpower12|            None|          Yes|
+        |           | hdiskpower13|            None|          Yes|
+        |           | hdiskpower14|            None|          Yes|
+        |           | hdiskpower15|            None|          Yes|
+        +--------------------------------------------------------+
+
+
+            +-------------------------------------------------+
+            |                                                 |
+            |                 Fin de l'Audit                  |
+            |                                                 |
+            +-------------------------------------------------+
+
+parva4020782 => PRODUCTION SENEGAL SV4  (root) /usr/local/bin :
+
+
+
+PARVA4001843 => PRODUCTION Senegal (root) /usr/local/bin :
+./checkAIX disk
+           +--------------------------------------------------+
+           |                                                  |
+           |            Debut de l autite Systeme             |
+           |                                                  |
+           +--------------------------------------------------+
+
+PARAM 1 ==> disk OK
+        +--------------------------------------------------------+
+        | ID disque | Nom disque  | Volume group   | disponible  |
+        +--------------------------------------------------------+
+        |           | hdiskpower28|         extvga2|           No|
+        |           | hdiskpower29|            None|          Yes|
+        |           | hdiskpower30|         extvga2|           No|
+        |           | hdiskpower31|         extvga2|           No|
+        |           | hdiskpower32|         extvga2|           No|
+        |           | hdiskpower33|         extvga2|           No|
+        |           | hdiskpower34|         extvga2|           No|
+        |           | hdiskpower35|       extvgBCV2|           No|
+        |           | hdiskpower36|       extvgBCV2|           No|
+        |           | hdiskpower37|       extvgBCV2|           No|
+        |           | hdiskpower38|         vg_apps|           No|
+        |           | hdiskpower39|            None|          Yes|
+        |           | hdiskpower40|            None|          Yes|
+        |           | hdiskpower41|            None|          Yes|
+        |           | hdiskpower42|            None|          Yes|
+        |           | hdiskpower43|        extvgBCV|           No|
+        |           | hdiskpower44|        extvgBCV|           No|
+        |           | hdiskpower45|        extvgBCV|           No|
+        |           | hdiskpower46|        extvgBCV|           No|
+        |           | hdiskpower47|        extvgBCV|           No|
+        |           | hdiskpower48|        extvgBCV|           No|
+        |           | hdiskpower49|       extvgBCV1|           No|
+        |           | hdiskpower50|       extvgBCV1|           No|
+        |           | hdiskpower51|       extvgBCV1|           No|
+        |           | hdiskpower52|         vg_apps|           No|
+        +--------------------------------------------------------+
+
+
+            +-------------------------------------------------+
+            |                                                 |
+            |                 Fin de l'Audit                  |
+            |                                                 |
+            +-------------------------------------------------+
+			
+			
+			
+TF :
+
+			
+			
+			
+			
+			
+			
+
+BACKUP :
+
+
+PARVA4001843 => PRODUCTION Senegal (root) /apps/atlas/atlas2v0/uf1/ficsav :
+powermt display dev=hdiskpower35
+Pseudo name=hdiskpower35lsv
+Symmetrix ID=000295700006
+Logical device ID=1D50
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   1 fscsi1                   hdisk119  FA 10fB   active  alive       0      0
+   1 fscsi1                   hdisk144  FA  7fB   active  alive       0      0
+   0 fscsi0                   hdisk39   FA  8fA   active  alive       0      0
+   0 fscsi0                   hdisk64   FA  9fA   active  alive       0      0
+
+
+
+PARVA4001843 => PRODUCTION Senegal (root) /apps/atlas/atlas2v0/uf1/ficsav :
+
+
+
+s00va9923997 => Machine Backup RBEM SV4 (root) /usr/local/bin :./checkAIX disk
+           +--------------------------------------------------+
+           |                                                  |
+           |            Debut de l autite Systeme          |
+           |                                                  |
+           +--------------------------------------------------+
+
+PARAM 1 ==> disk OK
+        +--------------------------------------------------------+
+        | ID disque | Nom disque  | Volume group   | disponible  |
+        +--------------------------------------------------------+
+        |        B7C|  hdiskpower0|            None|          Yes|
+        |        B7D|  hdiskpower1|            None|          Yes|
+        |        B7E|  hdiskpower2|            None|          Yes|
+        |        B7F|  hdiskpower3|            None|          Yes|
+        |        D50|  hdiskpower4|            None|          Yes|
+        |        D52|  hdiskpower5|            None|          Yes|
+        |        D54|  hdiskpower6|            None|          Yes|
+        |        D58|  hdiskpower7|            None|          Yes|
+        |        D5A|  hdiskpower8|            None|          Yes|
+        |        D5C|  hdiskpower9|            None|          Yes|
+        |        D5E| hdiskpower10|            None|          Yes|
+        |        D60| hdiskpower11|            None|          Yes|
+        |        "j$| hdiskpower12|            None|          Yes|
+        |        "j%| hdiskpower13|            None|          Yes|
+        |        "j&| hdiskpower14|            None|          Yes|
+        |        "j'| hdiskpower15|            None|          Yes|
+        |        #-#| hdiskpower16|            None|          Yes|
+        |        #-$| hdiskpower17|            None|          Yes|
+        |        #-&| hdiskpower18|            None|          Yes|
+        |        #-(| hdiskpower19|            None|          Yes|
+        |        #-*| hdiskpower20|            None|          Yes|
+        |        #-,| hdiskpower21|            None|          Yes|
+        |        #-.| hdiskpower22|            None|          Yes|
+        |        #-:| hdiskpower23|            None|          Yes|
+        |        #-<| hdiskpower24|            None|          Yes|
+        |        #->| hdiskpower25|            None|          Yes|
+        |        #-@| hdiskpower26|            None|          Yes|
+        |        #-H| hdiskpower27|            None|          Yes|
+        |        #-J| hdiskpower28|            None|          Yes|
+        |        #-L| hdiskpower29|            None|          Yes|
+        |        #-N| hdiskpower30|            None|          Yes|
+        |        #-P| hdiskpower31|            None|          Yes|
+        |        #-R| hdiskpower32|            None|          Yes|
+        |        #-T| hdiskpower33|            None|          Yes|
+        |        #-V| hdiskpower34|            None|          Yes|
+        |        #-X| hdiskpower35|            None|          Yes|
+        |        #-Z| hdiskpower36|            None|          Yes|
+        |        #-\| hdiskpower37|            None|          Yes|
+        |        #-^| hdiskpower38|            None|          Yes|
+        |        #-`| hdiskpower39|            None|          Yes|
+        |        #-h| hdiskpower40|            None|          Yes|
+        |        #-j| hdiskpower41|            None|          Yes|
+        |        #-l| hdiskpower42|            None|          Yes|
+        |        #-n| hdiskpower43|            None|          Yes|
+        |        #-p| hdiskpower44|            None|          Yes|
+        |        #-r| hdiskpower45|            None|          Yes|
+        |        #-t| hdiskpower46|            None|          Yes|
+        |        #-v| hdiskpower47|            None|          Yes|
+        |        #-x| hdiskpower48|            None|          Yes|
+        |        #-z| hdiskpower49|            None|          Yes|
+        |        #-|| hdiskpower50|            None|          Yes|
+        |        #-~| hdiskpower51|            None|          Yes|
+        |        #."| hdiskpower52|            None|          Yes|
+        |        #.$| hdiskpower53|            None|          Yes|
+        |        #.&| hdiskpower54|            None|          Yes|
+        |        #.(| hdiskpower55|            None|          Yes|
+        |        #.*| hdiskpower56|            None|          Yes|
+        |        #.,| hdiskpower57|            None|          Yes|
+        |        #..| hdiskpower58|            None|          Yes|
+        |        #.:| hdiskpower59|            None|          Yes|
+        |        #.<| hdiskpower60|            None|          Yes|
+        |        #.>| hdiskpower61|            None|          Yes|
+        |        #.@| hdiskpower62|            None|          Yes|
+        |        #.H| hdiskpower63|            None|          Yes|
+        |        #.J| hdiskpower64|            None|          Yes|
+        |        #.L| hdiskpower65|            None|          Yes|
+        |        #.N| hdiskpower66|            None|          Yes|
+        |        #.P| hdiskpower67|            None|          Yes|
+        |        #.R| hdiskpower68|            None|          Yes|
+        |        #.T| hdiskpower69|            None|          Yes|
+        |        #.V| hdiskpower70|            None|          Yes|
+        |        #.X| hdiskpower71|            None|          Yes|
+        |        #.Z| hdiskpower72|            None|          Yes|
+        |        2B5| hdiskpower73|            None|          Yes|
+        |        2B9| hdiskpower74|            None|          Yes|
+        |        FBE| hdiskpower75|            None|          Yes|
+        |        FC2| hdiskpower76|            None|          Yes|
+        |        FC6| hdiskpower77|            None|          Yes|
+        |        FCA| hdiskpower78|            None|          Yes|
+        |        FDE| hdiskpower79|            None|          Yes|
+        |        FE2| hdiskpower80|            None|          Yes|
+        |        !!#| hdiskpower81|            None|          Yes|
+        |        !<?| hdiskpower82|            None|          Yes|
+        |        !\(| hdiskpower83|            None|          Yes|
+        |        !\,| hdiskpower84|            None|          Yes|
+        |        !\:| hdiskpower85|            None|          Yes|
+        |        !\>| hdiskpower86|            None|          Yes|
+        |        !\H| hdiskpower87|            None|          Yes|
+        |        !<<| hdiskpower88|            None|          Yes|
+        +--------------------------------------------------------+
+
+
+            +-------------------------------------------------+
+            |                                                 |
+            |                 Fin de l'Audit                  |
+            |                                                 |
+            +-------------------------------------------------+
+
+s00va9923997 => Machine Backup RBEM SV4 (root) /usr/local/bin :
+
+
+	===================================================================================
+/dev/lv_uf1ficsav        105,00      81,29   23%        6     1% /apps/atlas/atlas2v0/uf1/ficsav
+/dev/lv_uf1data1          42,00      41,23    2%      157     1% /apps/atlas/atlas2v0/uf1/data1
+/dev/lv_uf1infocdr       100,00      99,98    1%        4     1% /apps/atlas/atlas2v0/uf1/data1/infocdr
+/dev/lv_uf1infoc          85,00      84,99    1%        5     1% /apps/atlas/atlas2v0/uf1/data1/infoc
+/dev/lv_uf1imp            16,00       2,79   83%     8982     2% /apps/atlas/atlas2v0/uf1/data1/imp
+/dev/lv_uf1fic           375,00     202,45   47%    23098     1% /apps/atlas/atlas2v0/uf1/data1/fic
+	
+			
+			
+
+

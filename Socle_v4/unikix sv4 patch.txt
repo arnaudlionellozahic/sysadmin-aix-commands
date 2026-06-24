@@ -1,0 +1,39 @@
+J'ai complété la synthèse de COPA  et t'ai renvoyé le GDI . 
+Pour faire fonctionner la 11.2.0.4 , il ne  faudra pas oublier de mettre à jour 2 outils (contenus dans le package 00022272.tar)  et  les profileA2  dans les environnements ATLAS.
+en postionnant explicitement la variable ORACLE_HOME (voir paragraphe 4.9 fichier lisezmoi).
+J'ai aussi  rajouté le patch pour Unikix comme vu en CT .
+
+
+Cdt
+JCG 
+
+Synthèse du GDI
+-->
+PPC JCG 15/10/2015
+
+J'ai demandé un retransfert de ce GDI  pour le compléter par rapport à l'intervention de COPA en précisant les composants utiles dans le cadre du passage à Oracle 11.2.0.4 en SV4 (AIX  6.1) .
+
+Les composants nécessaires sont donc:
+ 
+1) Les Docs (contenu dans le fichier documentation-oracle11204_sv4.zip attaché au GDI dans suivi) : 
+
+       - Doc chapeau du SV4  la plus à jour à cette date : lisezmoi_fr_V2.7 .doc (référençant  les docs ci-dessous)
+       - Installation partie serveur : inst_ora_11204_db64_fr_V1.1.doc.
+       - Installation partie cliente :  inst_ora_11204_cli32_fr_V1.1.doc.
+       - MIGRATION DES BASES DE DONNEES (ORACLE 9 OU 10) VERS ORACLE 11 : mig_ora_11204_fr_V1.1.doc.
+
+      (Une doc optionnelle au cas où le site aurait déja migré ses BDs en 11.2.0.2 )
+      -  MIGRATION DES BASES DE DONNEES ORACLE 11.2.0.2 VERS ORACLE 11.2.0.4 mig_ora_11202_11204_fr_V1.1.doc.
+
+2) Les masters produits associés :  (Dans /apps/tar_des_produits/socle_v4 sur atldsi)
+
+      - 00022272.tar (package d'outils différentiels relivrant uniquement les outils impactés par la 11.2.0.4 : 2 fichiers valdef)
+      - oracle_11.2.0.4_client.tar.gz
+      - oracle_11.2.0.4_serveur.tar.gz
+      -  bin_1134_aix61.tar.Z
+
+
+Remarque importante: 
+En complément , comme il y a eu un effet de bord avec Unikix détecté post livraison (du fait qu'on a séparé les niveaux de correctifs oracle 
+sur des installations distinctes pour se rapprocher des normes IT)  , il faut aussi patcher Unikix 11.3.4  sur le SV4 (similaire au problème  détecté en SV4+ du GDI 230194) 
+Suivez la procédure du GDI 230194 en utilisant  le composant compatible SV4 :   bin_1134_aix61.tar  au lieu du composant SV4+ : bin_1134_aix71.tar .

@@ -1,0 +1,1637 @@
+COTE ATLAS
+
+
+==============
+extvgBCV
+==============
+
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ lsvg -l extvgBCV
+extvgBCV:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv_uf1              jfs2       120     120     1    open/syncd    /apps/atlas/atlas2v0/uf1
+loglv03             jfs2log    1       1       1    open/syncd    N/A
+lv_uf1data1         jfs2       800     800     2    open/syncd    /apps/atlas/atlas2v0/uf1/data1
+lv_uf1fic           jfs2       2320    2320    7    open/syncd    /apps/atlas/atlas2v0/uf1/data1/fic
+lv_uf1imp           jfs2       120     120     1    open/syncd    /apps/atlas/atlas2v0/uf1/data1/imp
+lv_orion            jfs2       16      16      1    open/syncd    /apps/orion
+lv_ptcom            jfs2       4       4       1    open/syncd    /apps/ptcom
+lv_loans            jfs2       8       8       1    open/syncd    /apps/loans
+lv_evatl            jfs2       16      16      1    open/syncd    /apps/evatl
+lv_portf            jfs2       8       8       1    open/syncd    /apps/portf
+lv_ead              jfs2       28      28      1    open/syncd    /apps/ead
+lv_nyrsk            jfs2       4       4       1    open/syncd    /apps/nyrsk
+lv_evtec            jfs2       16      16      1    open/syncd    /apps/evtec
+
+
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ lsvg -p extvgBCV
+extvgBCV:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower31      active            435         0           00..00..00..00..00
+hdiskpower32      active            435         0           00..00..00..00..00
+hdiskpower33      active            435         0           00..00..00..00..00
+hdiskpower34      active            435         19          00..00..00..00..19
+hdiskpower35      active            435         0           00..00..00..00..00
+hdiskpower36      active            435         0           00..00..00..00..00
+hdiskpower37      active            435         0           00..00..00..00..00
+hdiskpower38      active            435         0           00..00..00..00..00
+
+
+
+HDISK31=4445
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower31
+Pseudo name=hdiskpower31
+Symmetrix ID=000295700039
+Logical device ID=4445
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk108  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk184  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk260  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk32   FA  5gA   active  alive       0      0
+
+
+HDISK 32 ID=4446
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower32
+Pseudo name=hdiskpower32
+Symmetrix ID=000295700039
+Logical device ID=4446
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk109  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk185  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk261  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk33   FA  5gA   active  alive       0      0
+
+
+
+HDISK33 ID=4447
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower33
+Pseudo name=hdiskpower33
+Symmetrix ID=000295700039
+Logical device ID=4447
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk110  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk186  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk262  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk34   FA  5gA   active  alive       0      0
+
+
+
+HDISK34 ID=4448
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower34
+Pseudo name=hdiskpower34
+Symmetrix ID=000295700039
+Logical device ID=4448
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk111  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk187  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk263  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk35   FA  5gA   active  alive       0      0
+
+
+
+HDISK35 ID=4449
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower35
+Pseudo name=hdiskpower35
+Symmetrix ID=000295700039
+Logical device ID=4449
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk112  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk188  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk264  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk36   FA  5gA   active  alive       0      0
+
+
+
+HDISK36 ID=444A
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower36
+Pseudo name=hdiskpower36
+Symmetrix ID=000295700039
+Logical device ID=444A
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk113  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk189  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk265  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk37   FA  5gA   active  alive       0      0
+
+
+
+HDISK37 ID=444B
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower37
+Pseudo name=hdiskpower37
+Symmetrix ID=000295700039
+Logical device ID=444B
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk114  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk190  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk266  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk38   FA  5gA   active  alive       0      0
+
+
+
+HDISK38 ID=444C
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower38
+Pseudo name=hdiskpower38
+Symmetrix ID=000295700039
+Logical device ID=444C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk115  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk191  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk267  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk39   FA  5gA   active  alive       0      0
+
+
+
+==========
+extvgBCV1
+==========
+
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ lsvg -l extvgBCV1
+extvgBCV1:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv_atpr01           jfs2       4272    4272    10   open/syncd    /apps/oradbf/atpr01
+loglv05             jfs2log    1       1       1    open/syncd    N/A
+
+
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ lsvg -p extvgBCV1
+extvgBCV1:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower39      active            435         0           00..00..00..00..00
+hdiskpower40      active            435         0           00..00..00..00..00
+hdiskpower41      active            435         0           00..00..00..00..00
+hdiskpower42      active            435         0           00..00..00..00..00
+hdiskpower43      active            435         0           00..00..00..00..00
+hdiskpower44      active            435         0           00..00..00..00..00
+hdiskpower45      active            435         0           00..00..00..00..00
+hdiskpower46      active            435         0           00..00..00..00..00
+hdiskpower47      active            435         0           00..00..00..00..00
+hdiskpower48      active            435         78          00..00..00..00..78
+hdiskpower49      active            435         434         87..86..87..87..87
+
+
+HDISK39 ID=444D
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower39
+Pseudo name=hdiskpower39
+Symmetrix ID=000295700039
+Logical device ID=444D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk116  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk192  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk268  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk40   FA  5gA   active  alive       0      0
+
+
+
+HDISK40 ID=444E
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower40
+Pseudo name=hdiskpower40
+Symmetrix ID=000295700039
+Logical device ID=444E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk117  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk193  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk269  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk41   FA  5gA   active  alive       0      0
+
+
+
+HDISK41 ID=444F
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower41
+Pseudo name=hdiskpower41
+Symmetrix ID=000295700039
+Logical device ID=444F
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk118  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk194  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk270  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk42   FA  5gA   active  alive       0      0
+
+
+
+HDISK42 ID=4450
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower42
+Pseudo name=hdiskpower42
+Symmetrix ID=000295700039
+Logical device ID=4450
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk119  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk195  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk271  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk43   FA  5gA   active  alive       0      0
+
+
+HDISK43 ID=4451
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower43
+Pseudo name=hdiskpower43
+Symmetrix ID=000295700039
+Logical device ID=4451
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk120  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk196  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk272  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk44   FA  5gA   active  alive       0      0
+
+
+HDISK44 ID=4452
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower44
+Pseudo name=hdiskpower44
+Symmetrix ID=000295700039
+Logical device ID=4452
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk121  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk197  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk273  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk45   FA  5gA   active  alive       0      0
+
+
+
+HDISK45 ID=4453
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower45
+Pseudo name=hdiskpower45
+Symmetrix ID=000295700039
+Logical device ID=4453
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk122  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk198  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk274  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk46   FA  5gA   active  alive       0      0
+
+
+
+HDISK46 ID=4454
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower46
+Pseudo name=hdiskpower46
+Symmetrix ID=000295700039
+Logical device ID=4454
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk123  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk199  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk275  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk47   FA  5gA   active  alive       0      0
+
+
+
+HDISK47 ID=4455
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower47
+Pseudo name=hdiskpower47
+Symmetrix ID=000295700039
+Logical device ID=4455
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk124  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk200  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk276  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk48   FA  5gA   active  alive       0      0
+
+
+
+HDISK48 ID=4456
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower48
+Pseudo name=hdiskpower48
+Symmetrix ID=000295700039
+Logical device ID=4456
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk125  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk201  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk277  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk49   FA  5gA   active  alive       0      0
+
+
+
+HDISK49 ID=4457
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower49
+Pseudo name=hdiskpower49
+Symmetrix ID=000295700039
+Logical device ID=4457
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk126  FA 12gA   active  alive       0      0
+   1 fscsi2                   hdisk202  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk278  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk50   FA  5gA   active  alive       0      0
+
+
+
+
+
+
+==========
+extvgBCV2
+==========
+
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ lsvg -l extvgBCV2
+extvgBCV2:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv_atdr01           jfs2       4272    4272    10   open/syncd    /apps/oradbf/atdr01
+loglv06             jfs2log    1       1       1    open/syncd    N/A
+
+
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ lsvg -p extvgBCV2
+extvgBCV2:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower50      active            435         0           00..00..00..00..00
+hdiskpower51      active            435         0           00..00..00..00..00
+hdiskpower52      active            435         0           00..00..00..00..00
+hdiskpower53      active            435         0           00..00..00..00..00
+hdiskpower54      active            435         0           00..00..00..00..00
+hdiskpower55      active            435         0           00..00..00..00..00
+hdiskpower56      active            435         0           00..00..00..00..00
+hdiskpower57      active            435         0           00..00..00..00..00
+hdiskpower58      active            435         0           00..00..00..00..00
+hdiskpower59      active            435         77          00..00..00..00..77
+
+
+HDISK50 ID=4458
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower50
+Pseudo name=hdiskpower50
+Symmetrix ID=000295700039
+Logical device ID=4458
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk127  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk203  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk279  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk51   FA  5gA   active  alive       0      0
+
+
+
+HDISK51 ID=4459
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower51
+Pseudo name=hdiskpower51
+Symmetrix ID=000295700039
+Logical device ID=4459
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk128  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk204  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk280  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk52   FA  5gA   active  alive       0      0
+
+
+
+HDISK52 ID=445A
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower52
+Pseudo name=hdiskpower52
+Symmetrix ID=000295700039
+Logical device ID=445A
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk129  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk205  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk281  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk53   FA  5gA   active  alive       0      0
+
+
+
+HDISK53 ID=445B
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower53
+Pseudo name=hdiskpower53
+Symmetrix ID=000295700039
+Logical device ID=445B
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk130  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk206  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk282  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk54   FA  5gA   active  alive       0      0
+
+
+
+HDISK54 ID=445C
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower54
+Pseudo name=hdiskpower54
+Symmetrix ID=000295700039
+Logical device ID=445C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk131  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk207  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk283  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk55   FA  5gA   active  alive       0      0
+
+
+
+HDISK55 ID=445D
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower55
+Pseudo name=hdiskpower55
+Symmetrix ID=000295700039
+Logical device ID=445D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk132  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk208  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk284  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk56   FA  5gA   active  alive       0      0
+
+
+
+HDISK56 ID=445E
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower56
+Pseudo name=hdiskpower56
+Symmetrix ID=000295700039
+Logical device ID=445E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk133  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk209  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk285  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk57   FA  5gA   active  alive       0      0
+
+
+
+HDISK57 ID=445F
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower57
+Pseudo name=hdiskpower57
+Symmetrix ID=000295700039
+Logical device ID=445F
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk134  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk210  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk286  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk58   FA  5gA   active  alive       0      0
+
+
+
+
+HDISK58 ID=4460
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower58
+Pseudo name=hdiskpower58
+Symmetrix ID=000295700039
+Logical device ID=4460
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk135  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk211  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk287  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk59   FA  5gA   active  alive       0      0
+
+
+
+
+HDISK59 ID=4461
+root@s00va9927160:/apps/Storage_Replication_Manager_Perl/backup$ powermt display dev=hdiskpower59
+Pseudo name=hdiskpower59
+Symmetrix ID=000295700039
+Logical device ID=4461
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk136  FA 12gA   active  alive       0      1
+   1 fscsi2                   hdisk212  FA  6gB   active  alive       0      0
+   1 fscsi2                   hdisk288  FA 11gB   active  alive       0      0
+   0 fscsi0                   hdisk60   FA  5gA   active  alive       0      0
+
+
+
+
+
+
+
+
+COTE TF EXTVGBCV
+
+=============
+7160_vg0_bcv1
+==============
+
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -l 7160_vg0_bcv1
+7160_vg0_bcv1:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv00                jfs2       120     120     1    open/syncd    /7160/bcv1/apps/atlas/atlas2v0/uf1
+lv01                jfs2log    1       1       1    open/syncd    N/A
+lv_uf1data1bcv1     jfs2       800     800     2    open/syncd    /7160/bcv1/apps/atlas/atlas2v0/uf1/data1
+lv02                jfs2       2320    2320    7    open/syncd    /7160/bcv1/apps/atlas/atlas2v0/uf1/data1/fic
+lv03                jfs2       120     120     1    open/syncd    /7160/bcv1/apps/atlas/atlas2v0/uf1/data1/imp
+lv_orionbcv1        jfs2       16      16      1    open/syncd    /7160/bcv1/apps/orion
+lv_ptcombcv1        jfs2       4       4       1    open/syncd    /7160/bcv1/apps/ptcom
+lv_loansbcv1        jfs2       8       8       1    open/syncd    /7160/bcv1/apps/loans
+lv04                jfs2       16      16      1    open/syncd    /7160/bcv1/apps/evatl
+lv05                jfs2       8       8       1    open/syncd    /7160/bcv1/apps/portf
+lv06                jfs2       28      28      1    open/syncd    /7160/bcv1/apps/ead
+lv07                jfs2       4       4       1    open/syncd    /7160/bcv1/apps/nyrsk
+lv08                jfs2       16      16      1    open/syncd    /7160/bcv1/apps/evtec
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -p 7160_vg0_bcv1
+7160_vg0_bcv1:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower28      active            435         251         23..00..54..87..87
+hdiskpower29      active            435         258         51..00..33..87..87
+hdiskpower30      active            435         0           00..00..00..00..00
+hdiskpower31      active            435         70          00..00..00..00..70
+hdiskpower32      active            435         0           00..00..00..00..00
+hdiskpower33      active            435         0           00..00..00..00..00
+hdiskpower34      active            435         0           00..00..00..00..00
+hdiskpower35      active            435         0           00..00..00..00..00
+
+
+HDISK28 ID=483A
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower28
+Pseudo name=hdiskpower28
+Symmetrix ID=000295700039
+Logical device ID=483A
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk116  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk174  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk232  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk290  FA 11hA   active  alive       0      0
+
+
+HDISK29 ID=483B
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower29
+Pseudo name=hdiskpower29
+Symmetrix ID=000295700039
+Logical device ID=483B
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk117  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk175  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk233  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk291  FA 11hA   active  alive       0      0
+
+
+HDISK30 ID=483C
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower30
+Pseudo name=hdiskpower30
+Symmetrix ID=000295700039
+Logical device ID=483C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk118  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk176  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk234  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk292  FA 11hA   active  alive       0      0
+
+
+HDISK31 ID=483D
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower31
+Pseudo name=hdiskpower31
+Symmetrix ID=000295700039
+Logical device ID=483D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk119  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk177  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk235  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk293  FA 11hA   active  alive       0      0
+
+
+
+HDISK32 ID=483E
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower32
+Pseudo name=hdiskpower32
+Symmetrix ID=000295700039
+Logical device ID=483E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk120  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk178  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk236  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk294  FA 11hA   active  alive       0      0
+
+
+HDISK33 ID=483F
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower33
+Pseudo name=hdiskpower33
+Symmetrix ID=000295700039
+Logical device ID=483F
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk121  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk179  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk237  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk295  FA 11hA   active  alive       0      0
+
+
+
+HDISK34 ID=4840
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower34
+Pseudo name=hdiskpower34
+Symmetrix ID=000295700039
+Logical device ID=4840
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk122  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk180  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk238  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk296  FA 11hA   active  alive       0      0
+
+
+
+HDISK35 ID=4841
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower35
+Pseudo name=hdiskpower35
+Symmetrix ID=000295700039
+Logical device ID=4841
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk123  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk181  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk239  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk297  FA 11hA   active  alive       0      0
+
+
+
+
+=============
+7160_vg1_bcv1
+=============
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -l 7160_vg1_bcv1
+7160_vg1_bcv1:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv_atpr01           jfs2       4272    4272    10   open/syncd    /apps/oradbf/atpr01
+loglv05             jfs2log    1       1       1    open/syncd    N/A
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -p 7160_vg1_bcv1
+7160_vg1_bcv1:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower36      active            435         0           00..00..00..00..00
+hdiskpower37      active            435         0           00..00..00..00..00
+hdiskpower38      active            435         0           00..00..00..00..00
+hdiskpower39      active            435         0           00..00..00..00..00
+hdiskpower40      active            435         0           00..00..00..00..00
+hdiskpower41      active            435         0           00..00..00..00..00
+hdiskpower42      active            435         0           00..00..00..00..00
+hdiskpower43      active            435         0           00..00..00..00..00
+hdiskpower44      active            435         0           00..00..00..00..00
+hdiskpower45      active            435         78          00..00..00..00..78
+hdiskpower46      active            435         434         87..86..87..87..87
+
+
+
+HDISK36 ID=4842
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower36
+Pseudo name=hdiskpower36
+Symmetrix ID=000295700039
+Logical device ID=4842
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk124  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk182  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk240  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk298  FA 11hA   active  alive       0      0
+
+
+
+HDISK37 ID=4843
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower37
+Pseudo name=hdiskpower37
+Symmetrix ID=000295700039
+Logical device ID=4843
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk125  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk183  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk241  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk299  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK38 ID=4844
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower38
+Pseudo name=hdiskpower38
+Symmetrix ID=000295700039
+Logical device ID=4844
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk126  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk184  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk242  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk300  FA 11hA   active  alive       0      0
+
+
+
+HDISK39 ID=4845
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower39
+Pseudo name=hdiskpower39
+Symmetrix ID=000295700039
+Logical device ID=4845
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk127  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk185  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk243  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk301  FA 11hA   active  alive       0      0
+
+
+
+HDISK40 ID=4846
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower40
+Pseudo name=hdiskpower40
+Symmetrix ID=000295700039
+Logical device ID=4846
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk128  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk186  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk244  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk302  FA 11hA   active  alive       0      0
+
+
+
+HDISK41 ID=4847
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower41
+Pseudo name=hdiskpower41
+Symmetrix ID=000295700039
+Logical device ID=4847
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk129  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk187  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk245  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk303  FA 11hA   active  alive       0      0
+
+
+
+HDISK42 ID=4848
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower42
+Pseudo name=hdiskpower42
+Symmetrix ID=000295700039
+Logical device ID=4848
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk130  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk188  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk246  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk304  FA 11hA   active  alive       0      0
+
+
+
+HDISK43 ID=4849
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower43
+Pseudo name=hdiskpower43
+Symmetrix ID=000295700039
+Logical device ID=4849
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk131  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk189  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk247  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk305  FA 11hA   active  alive       0      0
+
+
+
+HDISK44 ID=484A
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower44
+Pseudo name=hdiskpower44
+Symmetrix ID=000295700039
+Logical device ID=484A
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk132  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk190  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk248  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk306  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK45 ID=484B
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower45
+Pseudo name=hdiskpower45
+Symmetrix ID=000295700039
+Logical device ID=484B
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk133  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk191  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk249  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk307  FA 11hA   active  alive       0      0
+
+
+
+HDISK46 ID=484C
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower46
+Pseudo name=hdiskpower46
+Symmetrix ID=000295700039
+Logical device ID=484C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk134  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk192  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk250  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk308  FA 11hA   active  alive       0      0
+
+
+
+==============
+7160_vg2_bcv1
+==============
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -l 7160_vg2_bcv1
+7160_vg2_bcv1:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+lv_atdr01           jfs2       4272    4272    10   open/syncd    /apps/oradbf/atdr01
+loglv06             jfs2log    1       1       1    open/syncd    N/A
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -p 7160_vg2_bcv1
+7160_vg2_bcv1:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower47      active            435         0           00..00..00..00..00
+hdiskpower48      active            435         0           00..00..00..00..00
+hdiskpower49      active            435         0           00..00..00..00..00
+hdiskpower50      active            435         0           00..00..00..00..00
+hdiskpower51      active            435         0           00..00..00..00..00
+hdiskpower52      active            435         0           00..00..00..00..00
+hdiskpower53      active            435         0           00..00..00..00..00
+hdiskpower54      active            435         0           00..00..00..00..00
+hdiskpower55      active            435         0           00..00..00..00..00
+hdiskpower56      active            435         77          00..00..00..00..77
+
+
+
+HDISK47 ID=484D
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower47
+Pseudo name=hdiskpower47
+Symmetrix ID=000295700039
+Logical device ID=484D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk135  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk193  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk251  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk309  FA 11hA   active  alive       0      0
+
+
+
+HDISK48 ID=484E
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower48
+Pseudo name=hdiskpower48
+Symmetrix ID=000295700039
+Logical device ID=484E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk136  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk194  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk252  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk310  FA 11hA   active  alive       0      0
+
+
+
+HDISK49 ID=484F
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower49
+Pseudo name=hdiskpower49
+Symmetrix ID=000295700039
+Logical device ID=484F
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk137  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk195  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk253  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk311  FA 11hA   active  alive       0      0
+
+
+
+HDISK50 ID=4850
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower50
+Pseudo name=hdiskpower50
+Symmetrix ID=000295700039
+Logical device ID=4850
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk138  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk196  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk254  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk312  FA 11hA   active  alive       0      0
+
+
+HDISK51 ID=4851
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower51
+Pseudo name=hdiskpower51
+Symmetrix ID=000295700039
+Logical device ID=4851
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk139  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk197  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk255  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk313  FA 11hA   active  alive       0      0
+
+
+
+HDISK52 ID=4852
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower52
+Pseudo name=hdiskpower52
+Symmetrix ID=000295700039
+Logical device ID=4852
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk140  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk198  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk256  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk314  FA 11hA   active  alive       0      0
+
+
+
+HDISK53 ID=4853
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower53
+Pseudo name=hdiskpower53
+Symmetrix ID=000295700039
+Logical device ID=4853
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk141  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk199  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk257  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk315  FA 11hA   active  alive       0      0
+
+
+HDISK54 ID=4854
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower54
+Pseudo name=hdiskpower54
+Symmetrix ID=000295700039
+Logical device ID=4854
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk142  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk200  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk258  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk316  FA 11hA   active  alive       0      0
+
+
+
+HDISK55 ID=4855
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower55
+Pseudo name=hdiskpower55
+Symmetrix ID=000295700039
+Logical device ID=4855
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk143  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk201  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk259  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk317  FA 11hA   active  alive       0      0
+
+
+
+HDISK56 ID=4856
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower56
+Pseudo name=hdiskpower56
+Symmetrix ID=000295700039
+Logical device ID=4856
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk144  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk202  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk260  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk318  FA 11hA   active  alive       0      0
+
+
+
+
+==============
+7160_vg0_bcv2
+==============
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -l 7160_vg0_bcv2
+7160_vg0_bcv2:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+fslv_uf1            jfs2       120     120     1    open/syncd    /fs/apps/atlas/atlas2v0/uf1
+fsloglv03           jfs2log    1       1       1    open/syncd    N/A
+fslv_uf1data1       jfs2       800     800     2    open/syncd    /fs/apps/atlas/atlas2v0/uf1/data1
+fslv_uf1fic         jfs2       1760    1760    5    open/syncd    /fs/apps/atlas/atlas2v0/uf1/data1/fic
+fslv_uf1imp         jfs2       120     120     1    open/syncd    /fs/apps/atlas/atlas2v0/uf1/data1/imp
+fslv_orion          jfs2       16      16      1    open/syncd    /fs/apps/orion
+fslv_ptcom          jfs2       4       4       1    open/syncd    /fs/apps/ptcom
+fslv_loans          jfs2       8       8       1    open/syncd    /fs/apps/loans
+fslv_evatl          jfs2       16      16      1    open/syncd    /fs/apps/evatl
+fslv_portf          jfs2       8       8       1    open/syncd    /fs/apps/portf
+fslv_ead            jfs2       28      28      1    open/syncd    /fs/apps/ead
+fslv_nyrsk          jfs2       4       4       1    open/syncd    /fs/apps/nyrsk
+fslv_evtec          jfs2       16      16      1    open/syncd    /fs/apps/evtec
+
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -p 7160_vg0_bcv2
+7160_vg0_bcv2:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower57      active            435         251         23..00..54..87..87
+hdiskpower58      active            435         258         51..00..33..87..87
+hdiskpower59      active            435         0           00..00..00..00..00
+hdiskpower60      active            435         70          00..00..00..00..70
+hdiskpower61      active            435         0           00..00..00..00..00
+hdiskpower62      active            435         0           00..00..00..00..00
+hdiskpower63      active            435         0           00..00..00..00..00
+hdiskpower64      active            435         0           00..00..00..00..00
+
+
+
+HDISK57 ID=4857
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower57
+Pseudo name=hdiskpower57
+Symmetrix ID=000295700039
+Logical device ID=4857
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk145  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk203  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk261  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk319  FA 11hA   active  alive       0      0
+
+
+
+HDISK58 ID=4858
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower58
+Pseudo name=hdiskpower58
+Symmetrix ID=000295700039
+Logical device ID=4858
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk146  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk204  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk262  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk320  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK59 ID=4859
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower59
+Pseudo name=hdiskpower59
+Symmetrix ID=000295700039
+Logical device ID=4859
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk147  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk205  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk263  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk321  FA 11hA   active  alive       0      0
+
+
+
+HDISK60 ID=485A
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower60
+Pseudo name=hdiskpower60
+Symmetrix ID=000295700039
+Logical device ID=485A
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk148  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk206  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk264  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk322  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK61 ID=485B
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower61
+Pseudo name=hdiskpower61
+Symmetrix ID=000295700039
+Logical device ID=485B
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk149  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk207  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk265  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk323  FA 11hA   active  alive       0      0
+
+
+
+HDISK62 ID=485C
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower62
+Pseudo name=hdiskpower62
+Symmetrix ID=000295700039
+Logical device ID=485C
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk150  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk208  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk266  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk324  FA 11hA   active  alive       0      0
+
+
+
+HDISK63 ID=485D
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower63
+Pseudo name=hdiskpower63
+Symmetrix ID=000295700039
+Logical device ID=485D
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk151  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk209  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk267  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk325  FA 11hA   active  alive       0      0
+
+
+
+HDISK64 ID=485E
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower64
+Pseudo name=hdiskpower64
+Symmetrix ID=000295700039
+Logical device ID=485E
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk152  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk210  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk268  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk326  FA 11hA   active  alive       0      0
+
+
+
+
+
+==============
+7160_vg1_bcv2
+==============
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -l 7160_vg1_bcv2
+7160_vg1_bcv2:
+LV NAME             TYPE       LPs     PPs     PVs  LV STATE      MOUNT POINT
+fslv_atpr01         jfs2       4272    4272    10   open/syncd    /fs/apps/oradbf/atpr01
+fsloglv05           jfs2log    1       1       1    open/syncd    N/A
+
+
+
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) lsvg -p 7160_vg1_bcv2
+7160_vg1_bcv2:
+PV_NAME           PV STATE          TOTAL PPs   FREE PPs    FREE DISTRIBUTION
+hdiskpower65      active            435         0           00..00..00..00..00
+hdiskpower66      active            435         0           00..00..00..00..00
+hdiskpower67      active            435         0           00..00..00..00..00
+hdiskpower68      active            435         0           00..00..00..00..00
+hdiskpower69      active            435         0           00..00..00..00..00
+hdiskpower70      active            435         0           00..00..00..00..00
+hdiskpower71      active            435         0           00..00..00..00..00
+hdiskpower72      active            435         0           00..00..00..00..00
+hdiskpower73      active            435         0           00..00..00..00..00
+hdiskpower74      active            435         78          00..00..00..00..78
+hdiskpower75      active            435         434         87..86..87..87..87
+
+
+
+HDISK65 ID=485F
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower65
+Pseudo name=hdiskpower65
+Symmetrix ID=000295700039
+Logical device ID=485F
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk153  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk211  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk269  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk327  FA 11hA   active  alive       0      0
+
+
+
+HDISK66 ID=4860
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower66
+Pseudo name=hdiskpower66
+Symmetrix ID=000295700039
+Logical device ID=4860
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk154  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk212  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk270  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk328  FA 11hA   active  alive       0      0
+
+
+
+HDISK67 ID=4861
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower67
+Pseudo name=hdiskpower67
+Symmetrix ID=000295700039
+Logical device ID=4861
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk155  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk213  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk271  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk329  FA 11hA   active  alive       0      0
+
+
+
+HDISK68 ID=4862
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower68
+Pseudo name=hdiskpower68
+Symmetrix ID=000295700039
+Logical device ID=4862
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk156  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk214  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk272  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk330  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK69 ID=4863
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower69
+Pseudo name=hdiskpower69
+Symmetrix ID=000295700039
+Logical device ID=4863
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk157  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk215  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk273  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk331  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK70 ID=4864
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower70
+Pseudo name=hdiskpower70
+Symmetrix ID=000295700039
+Logical device ID=4864
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk158  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk216  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk274  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk332  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK71 ID=4865
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower71
+Pseudo name=hdiskpower71
+Symmetrix ID=000295700039
+Logical device ID=4865
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk159  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk217  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk275  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk333  FA 11hA   active  alive       0      0
+
+
+
+HDISK72 ID=4866
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower72
+Pseudo name=hdiskpower72
+Symmetrix ID=000295700039
+Logical device ID=4866
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk160  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk218  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk276  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk334  FA 11hA   active  alive       0      0
+
+
+
+
+HDISK73 ID=4867
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower73
+Pseudo name=hdiskpower73
+Symmetrix ID=000295700039
+Logical device ID=4867
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk161  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk219  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk277  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk335  FA 11hA   active  alive       0      0
+
+
+
+HDISK74 ID=4868
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower74
+Pseudo name=hdiskpower74
+Symmetrix ID=000295700039
+Logical device ID=4868
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk162  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk220  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk278  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk336  FA 11hA   active  alive       0      0
+
+
+
+HDISK75 ID=4869
+s00va9925566 => PRODUCTION TIMEFINDER SV4 (root) powermt display dev=hdiskpower75
+Pseudo name=hdiskpower75
+Symmetrix ID=000295700039
+Logical device ID=4869
+state=alive; policy=SymmOpt; priority=0; queued-IOs=0;
+==============================================================================
+--------------- Host ---------------   - Stor -   -- I/O Path --  -- Stats ---
+###  HW Path               I/O Paths    Interf.   Mode    State   Q-IOs Errors
+==============================================================================
+   0 fscsi0                   hdisk163  FA  5hB   active  alive       0      0
+   0 fscsi0                   hdisk221  FA 12hB   active  alive       0      0
+   1 fscsi2                   hdisk279  FA  6hA   active  alive       0      0
+   1 fscsi2                   hdisk337  FA 11hA   active  alive       0      0
+
+
+
+
+merci 
+
+17:45:48:   
+
+17:45:48:   
+
+17:45:49: cautil sel job id=jbcv17160,*,* li |grep Job:
+Job: jadsm1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jadsm2
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jdisk1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jdisk2
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: joras1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavei
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavf1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jstat1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+ 
+
+17:45:54: cautil sel job id=jbcv27160,*,* li |grep Job:
+Job: jadsm1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jadsm2
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jdisk1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jdisk2
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jfresh
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: joras1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jreloc
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavee
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavei
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsaveo
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavev
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavf1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavfo
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavlo
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jsavpf
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+Job: jstat1
+  Cyclic Job: No    Cycle Frequency: 0060   Cycle Count:
+

@@ -1,0 +1,166 @@
+ROOT.ROOT POUR STOPPER ETAC
+
+Mb?S3EUa
+
+
+root@s00va9949845:/$ df -g |grep apps
+/dev/lv_apps       0.50      0.46    9%      343     1% /apps
+/dev/lv_mksysb      5.00      4.68    7%       34     1% /apps/sys/back
+/dev/lv_OMNI       0.25      0.23    7%      177     1% /apps/OmniVision
+/dev/lv_perfs      5.81      5.32    9%       54     1% /apps/sys/log/stats
+/dev/lv_save       1.00      1.00    1%      149     1% /apps/sys/log/save
+/dev/lv_deploy      4.00      2.26   44%      123     1% /apps/Deploy
+/dev/lv_etac       0.56      0.40   30%     2544     3% /apps/eTAC
+/dev/lv_nimsoft      0.56      0.53    6%      334     1% /apps/nimsoft
+/dev/lv_scm        0.50      0.42   16%      575     1% /apps/SCM/5.1
+/dev/lv_itcm       2.00      1.94    4%      709     1% /apps/ITCM
+/dev/lv_mqapp      1.00      0.36   64%     5309     6% /apps/mqm/product
+/dev/lv_mqadm      0.38      0.37    3%      252     1% /apps/mqm/admin
+/dev/lv_cft        3.00      2.07   32%     2903     1% /apps/cft
+/dev/lv_oracle      8.00      7.97    1%       11     1% /apps/oracle
+/dev/lv_oracle11     15.00      6.38   58%    41395     3% /apps/oracle/product/1120
+/dev/lv_oraclient     15.00     11.12   26%    10738     1% /apps/oracle/product/1120cli32
+/dev/lv_oraclework     13.00     12.95    1%        4     1% /apps/work/ora_1120
+/dev/lv_oradbf      1.00      0.99    1%        5     1% /apps/oradbf
+/dev/lv_oradbfbck    160.00    159.48    1%        4     1% /apps/oradbf/backup
+/dev/lv_arch      20.00     19.92    1%        4     1% /apps/arch
+/dev/lv_amelia      7.00      3.36   53%    89009    11% /apps/amelia
+/dev/lv_packages      6.00      5.84    3%        4     1% /apps/amelia/packages
+/dev/lv_matlgdi      8.00      7.97    1%        4     1% /apps/matl/GDI
+/dev/lv_express      1.00      0.86   15%      146     1% /apps/dmexpress
+/dev/lv_cobol      1.00      0.69   32%     9415     6% /apps/cobol
+/dev/lv_unikix      0.50      0.37   26%     1627     2% /apps/unikix
+/dev/lv_ead        4.00      3.98    1%        4     1% /apps/ead
+/dev/lv_exploit      4.00      1.40   66%    32414     9% /apps/exploit
+/dev/lv_work      65.00     64.51    1%     1079     1% /apps/exploit/work
+/dev/lv_shell      0.12      0.12    4%      251     1% /apps/exploit/shell
+/dev/lvmeoatlas2      2.00      1.99    1%        4     1% /apps/meoatlas2
+/dev/lv_atlas2v0      4.00      3.98    1%        4     1% /apps/atlas/atlas2v0
+/dev/lv_ppe        1.00      0.99    1%        4     1% /apps/ppe
+/dev/lv_xrdj       0.25      0.25    1%        4     1% /apps/xrdj
+/dev/lv_usd        0.25      0.25    1%        4     1% /apps/usd
+/dev/lv_carto      1.00      0.99    1%        9     1% /apps/carto_data
+/dev/lv_cl3211204     10.00      6.08   40%    10602     1% /apps/oracle/product/11204cli32
+/dev/lvoracle11204     10.00      0.83   92%    40720    18% /apps/oracle/product/11204
+/dev/lv_orawork11204     13.00      9.07   31%    10604     1% /apps/work/ora_11204
+
+
+
+
+root@s00va9949845:/$ umount /apps/work/ora_11204
+root@s00va9949845:/$ umount /apps/oracle/product/11204
+root@s00va9949845:/$ umount /apps/oracle/product/11204cli32
+root@s00va9949845:/$ umount /apps/carto_data
+root@s00va9949845:/$ umount /apps/usd
+root@s00va9949845:/$ umount /apps/xrdj
+root@s00va9949845:/$ umount /apps/ppe
+root@s00va9949845:/$ umount /apps/atlas/atlas2v0
+root@s00va9949845:/$ umount /apps/meoatlas2
+root@s00va9949845:/$ umount /apps/exploit/shell
+root@s00va9949845:/$ umount /apps/exploit/work
+root@s00va9949845:/$ umount /apps/exploit
+root@s00va9949845:/$ umount /apps/ead
+root@s00va9949845:/$ umount /apps/unikix
+root@s00va9949845:/$ umount /apps/cobol
+root@s00va9949845:/$ umount /apps/dmexpress
+root@s00va9949845:/$ umount /apps/matl/GDI
+you have mail in /usr/spool/mail/root
+root@s00va9949845:/$ umount /apps/amelia/packages
+root@s00va9949845:/$ umount /apps/amelia
+umount: error unmounting /dev/lv_amelia: Device busy
+root@s00va9949845:/$ fuser -kuxc /apps/amelia
+/apps/amelia:  27590836c(root) 28049648c(root)
+root@s00va9949845:/$ umount /apps/amelia
+root@s00va9949845:/$ umount /apps/arch
+root@s00va9949845:/$ umount /apps/oradbf/backup
+root@s00va9949845:/$ umount /apps/oradbf
+root@s00va9949845:/$ umount /apps/work/ora_1120
+root@s00va9949845:/$ umount /apps/oracle/product/1120cli32
+root@s00va9949845:/$ umount /apps/oracle/product/1120
+root@s00va9949845:/$ umount /apps/oracle
+root@s00va9949845:/$ umount /apps/cft
+root@s00va9949845:/$ umount /apps/mqm/admin
+root@s00va9949845:/$ umount /apps/mqm/product
+root@s00va9949845:/$ umount /apps/ITCM
+root@s00va9949845:/$ umount /apps/SCM/5.1
+umount: error unmounting /dev/lv_scm: Device busy
+root@s00va9949845:/$ fuser -kxuc /apps/SCM/5.1
+/apps/SCM/5.1:  10158230c(root) 14090482c(root)
+root@s00va9949845:/$ umount /apps/SCM/5.1
+root@s00va9949845:/$ umount /apps/nimsoft
+umount: error unmounting /dev/lv_nimsoft: Device busy
+root@s00va9949845:/$ fuser -kxuc /apps/nimsoft
+/apps/nimsoft:  6160492c(root) 6422762c(root)
+root@s00va9949845:/$ umount /apps/nimsoft
+root@s00va9949845:/$ mount /apps/SCM/5.1
+root@s00va9949845:/$ mount /apps/nimsoft
+root@s00va9949845:/$ mount /apps/ITCM
+
+
+
+cd /
+
+root@s00va9949845:/$ gtar cvzf /ficsav/EQUIPE_MEO/apps.tgz apps
+apps/
+apps/AccessControlShared/
+apps/AccessControlShared/accommon.ini
+apps/AccessControlShared/bin/
+apps/AccessControlShared/bin/AgentManager
+
+ARRET ETAC
+
+root@s00va9949845:/etc/local/stop$ /etc/local/eTAC status |grep -i version
+CA ControlMinder version 12.6 installed in /apps/eTAC
+VeRsIoN: 12.62-0 (632) Compiled On:Jan 20 2013 20:54:35 _AIX610._RS6000  30026
+root@s00va9949845:/etc/local/stop$ /etc/local/eTAC stop
+
+== Lancement stop.ksh ==
+
+CA ControlMinder secons v12.62.0.632 - Console utility
+Copyright (c) 2010 CA. All rights reserved.
+CA ControlMinder is now DOWN !
+Liste des binaires passwd: /usr/bin/passwd /bin/passwd
+Fichier /usr/bin/passwd remplace
+Fichier /bin/passwd non remplace
+
+
+
+root@s00va9949845:/apps$ df -g |grep apps
+/dev/lv_apps       0.50      0.46    9%      343     1% /apps
+/dev/lv_mksysb      5.00      4.68    7%       34     1% /apps/sys/back
+/dev/lv_OMNI       0.25      0.23    7%      177     1% /apps/OmniVision
+/dev/lv_perfs      5.81      5.32    9%       54     1% /apps/sys/log/stats
+/dev/lv_save       1.00      1.00    1%      149     1% /apps/sys/log/save
+/dev/lv_deploy      4.00      2.26   44%      123     1% /apps/Deploy
+/dev/lv_etac       0.56      0.40   30%     2544     3% /apps/eTAC
+/dev/lv_scm        0.50      0.42   16%      575     1% /apps/SCM/5.1
+
+
+
+mklv -y lv_apps -t jfs2 -e x vg_apps 8G
+crfs -v jfs2 -d lv_apps -m /apps -A yes -p rw -a agblksize=4096 -a logname=INLINE && mount /apps
+
+
+MOUNT DES FS
+
+RELANCE ETAC
+
+
+root@s00va9949845:/apps/oracle$ /etc/local/eTAC start
+
+== Lancement start.ksh ==
+
+== Execution du script BaseRebuild ==
+
+== Lancement seload ==
+
+=== Modification des fichiers passwd ===
+Liste des binaires passwd: /usr/bin/passwd /bin/passwd
+Fichier /usr/bin/passwd remplace
+Fichier /bin/passwd non remplace
+
+== seosd lance ==
+
+
+== fin du script ==
+

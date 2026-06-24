@@ -1,0 +1,16 @@
+nous avons défini un mot de passe temporaire qui n'est valable qu'une seule fois : T@ste123
+
+Merci de modifier ce dernier une fois la connexion effectuée. 
+
+Pour information, sur les serveurs eTAC : 
+
+- passwd nom_compte
+=> permet de réinitialisé le mot de passe d'un compte tiers
+cela positionne un mot de passe provisoire qui est à changer à la première connexion (sinon le compte est alors bloqué)
+
+- passwd -x nom_compte
+=> permet de changer le mot de asse d'un compte tiers
+cela positionne un mot de passe définitif respectant la politique de mot de passe appliquée au compte (expiration à 90 ou 180 jours ou sans expiration)
+
+Lorsque que vous devez changer le mot de passe d'un compte sans connaître son mot de passe actuel :
+vous devez tout d'abord le réinitialiser via "passwd nom_compte" puis le changer "passwd -x nom_compte" pour le fixer correctement et éviter le blocage etac après la 1ère connexion

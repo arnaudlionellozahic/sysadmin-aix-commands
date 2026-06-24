@@ -1,0 +1,61 @@
+alter database add logfile group 1 (    '/apps/oracledata/IAM1DZP0/osys1/red11.rdo',
+                                        '/apps/oracledata/IAM1DZP0/osys2/red12.rdo'
+                                ) size 1024M reuse;
+
+alter database add logfile group 2 (    '/apps/oracledata/IAM1DZP0/osys1/red21.rdo',
+                                        '/apps/oracledata/IAM1DZP0/osys3/red22.rdo'
+                                ) size 1024M;
+
+alter database add logfile group 3 (    '/apps/oracledata/IAM1DZP0/osys2/red31.rdo',
+                                        '/apps/oracledata/IAM1DZP0/osys3/red32.rdo'
+                                ) size 1024M;
+
+alter database add logfile group 4 (   '/apps/oracledata/IAM1DZP0/osys1/red41.rdo',
+                                        '/apps/oracledata/IAM1DZP0/osys2/red42.rdo'
+                                ) size 1024M;
+
+alter database add logfile group 5 (   '/apps/oracledata/IAM1DZP0/osys1/red51.rdo',
+                                        '/apps/oracledata/IAM1DZP0/osys3/red52.rdo'
+                                ) size 1024M;
+
+alter database add logfile group 6 (   '/apps/oracledata/IAM1DZP0/osys2/red61.rdo',
+                                        '/apps/oracledata/IAM1DZP0/osys3/red62.rdo'
+                                ) size 1024M;
+
+
+
+Ensuite ils ont droppé les anciens. 
+
+
+ALTER DATABASE DROP LOGFILE GROUP 7;
+ALTER DATABASE DROP LOGFILE GROUP 8;
+ALTER DATABASE DROP LOGFILE GROUP 9;
+ALTER DATABASE DROP LOGFILE GROUP 10;
+ALTER DATABASE DROP LOGFILE GROUP 11;
+ALTER DATABASE DROP LOGFILE GROUP 12;
+
+
+ALTER SYSTEM SWITCH LOGFILE;
+
+Donc, "logiquement", si vous faite la même démarche, vous devriez pouvoir 
+créer les groupe 1 à 6 et ensuite dropper les groupe 7 à 12. 
+
+
+
+PENSER A DEL LES RDO DE 30G AVANT GTAR
+/apps/oracledata/IAM1DZP0/osys3/red112.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 15 10:30 /apps/oracledata/IAM1DZP0/osys1/red111.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 15 12:41 /apps/oracledata/IAM1DZP0/osys3/red122.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 15 12:41 /apps/oracledata/IAM1DZP0/osys2/red121.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 16 04:55 /apps/oracledata/IAM1DZP0/osys2/red72.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 16 04:55 /apps/oracledata/IAM1DZP0/osys1/red71.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 16 10:30 /apps/oracledata/IAM1DZP0/osys3/red82.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 16 10:30 /apps/oracledata/IAM1DZP0/osys1/red81.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 16 12:48 /apps/oracledata/IAM1DZP0/osys3/red92.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 16 12:48 /apps/oracledata/IAM1DZP0/osys2/red91.rdo
+-rw-r-----    1 oracle   dba      32212255232 Oct 16 18:18 /apps/oracledata/IAM1DZP0/osys2/red102.rdo
+
+PARVA4020783 => PRODUCTION IAM SV 4 RBIS (root) /apps/oracle/backup/IAM1DZP0:
+->du -sg *
+86.63   IAM1DZP0.tar.Z
+

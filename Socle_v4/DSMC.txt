@@ -1,0 +1,12 @@
+GUINNE
+
+dsmc q ar -se=TSM-ARZ108 "/apps/atlas/atlas2v0/uf1/ficsav/JAS9C1*201506*"
+
+
+ANTILLES
+
+dsmc q ar -se=TSM-ARZ105 "/ficsav/parva4000627/apres/*20150813*"
+
+NCAL
+
+dsmc q ar -se=TSM-ARZ205 "/ficsav/parva4000839/apres/*20150724*"

@@ -1,0 +1,59 @@
+PROBLEME DE PLACE SUR UN FS POUR DETARRER UNE BASE
+
+Bonjour,
+
+Cela va être compliqué de restaurer la base + fichiers de SA4.
+Je te propose de commencer par la base et pour cela :
+
+- de supprimer  le contenu de /apps/Rennes/reserve_vgenvsa2 (voir avec tesls collègues qui ont des archives dans ce répertoire)
+- de supprimer  le FS /apps/Rennes/reserve_vgenvsa2 et le lv_RENNES_sa2
+- de détacher les disques hdiskpower25 et hdiskpower26 de vg_env_sa2 pour les attacher à extvgda
+- de recréer sur vg_env_sa2  le  lv_RENNES_sa2 et son point de montage le FS /apps/Rennes/reserve_vgenvsa2 avec le l'espace restant (environ 50 Go)
+- d'agrandir le lv_atpsa4 de 100 go et de faire la restauration
+
+Je cherche une solution pour le /fic mais je pense que cela va passer par une commande de disques.
+Merci de m'informer de la réalisation de cette solution
+
+PROCEDURE
+
+pour voir les lv liées aux disques
+lspv -l hdiskpower25
+lspv -l hdiskpower26
+
+demonter le fs
+umount /apps/Rennes/reserve_vgenvsa2
+
+au cas oû le fs ne se demonte pas on fait 
+lsof | grep /apps/Rennes/reserve_vgenvsa2
+ou
+fuser -c /apps/Rennes/reserve_vgenvsa2
+
+ps -ef | grep 6008832   
+kill -9 6008832
+
+umount /apps/Rennes/reserve_vgenvsa2   : le fs est demonté, on peut le supprimer 
+
+rmfs /apps/Rennes/reserve_vgenvsa2
+
+pour détacher les disques hdiskpower25 et hdiskpower26 du vg vg_env_sa2
+reducevg vg_env_sa2 hdiskpower25 
+reducevg vg_env_sa2 hdiskpower26
+
+pour afficher le disque utilisé par le vg:
+lsvg vg_env_sa2 -p
+
+on rattache le disque au vg extvgda
+extendvg extvgda hdiskpower25
+extendvg extvgda hdiskpower26
+
+recréer l'ancien lv (lv_RENNES_sa2) sur l'ancien vg (vg_env_sa2)
+mklv -y lv_RENNES_sa2 -t jfs2 -x 4096 vg_env_sa2 50G
+
+recréer le l'ancien fs (/apps/Rennes/reserve_vgenvsa2 )
+crfs -v jfs2 -d lv_RENNES_sa2 -m /apps/Rennes/reserve_vgenvsa2 -A yes -p rw -t no
+
+monter l'ancien fs 
+mount  /apps/Rennes/reserve_vgenvsa2  
+    
+agrandir l'epace sur la quel on fait la restauration
+chfs -a size=+100G /apps/oradbf/atpsa4

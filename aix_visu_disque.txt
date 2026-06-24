@@ -1,0 +1,155 @@
+ 
+CARACTÉRISTIQUE DES DISQUES		   
+Afficher la liste des disques physiques connectés	lsdev -Cc disk	   
+Voir les disques virtuels	datapath query device
+lsattr -El vpath2	   
+Savoir si un DD est un DD local ou appartient à une baie	lsparent -C -l hdisk1	   
+Informations détaillées d'un disque	lqueryvg -p hdisk0 -At	   
+Afficher la taille du disque	bootinfo -s hdisk1	   
+Savoir dans quel VG se trouve un disque	lsvg -n hdisk8	   
+CARACTERISTIQUE DES PV		   
+Lister les PV
+	lspv
+	   
+Informations du PV	lspv "HDiskX"	   
+Lister les LV présent sur le PV	lspv –l "HDiskX"	   
+CARACTERISTIQUE DES VG		   
+Lister les VG
+	lsvg
+	   
+Informations du VG	lsvg Nom_VG	   
+Lister le PV du VG	lsvg -p Nom_VG	   
+Lister les LV présent sur le VG	lsvg -l Nom_VG	   
+CARACTERISTIQUE DES LV		   
+Lister les LV	lslv	   
+Connaître les FS présent sur un DD	lqueryvg -p hdisk0 -At	   
+Informations générales d'un LV	lslv Nom_LV	   
+CARACTERISTIQUE DES FS		   
+Lister les FS se trouvant dans un VG	lsvgfs rootvg	   
+Lister un FS en Mo	df –m FS	   
+Effectuer un relevé des caractéristiques de tous les FS	lsjfs	   
+CRÉATION		   
+CRÉATION D'UN VG		   
+Créer un VG rootvg comprenant les disks hd1 et hd2	mkvg -y rootvg hd1 hd2	   
+Créer un Big VG datavg comprenant les disks hd1 et hd2	mkvg -B -y datavg hd1 hd2	   
+Creer un VG avec des PPSize de 32M	mkvg -s 32 -y datavg hdisk2	   
+CREATION D'UN LV		   
+Créer un LV lv_oracle de type jfs2 sur le rootvg d'une taille de 480Mo	mklv -y 'lv_oracle' -t 'jfs2' rootvg 480M	   
+CRÉATION D'UN FS		   
+Créer un FS pour le LV lvtest	crfs -v jfs2 -g VG -d LV -a size=5400 -m /FS	   
+Créer un FS pour le LV lvtest associé avec montage automatique	crfs -v jfs2 -d 'lv_oracle' -m '/exec/products/oracle' -Ayes -prw -tno	   
+REDIMENSIONNEMENT		   
+AGRANDISSEMENT VG		   
+Ajouter un disque au VG	extendvg NOMVG hdiskX	   
+REDUCTION VG		   
+Supprimer le disk2 du VG datavg	reducevg -d datavg hdisk2 	   
+AGRANDISSEMENT FS (à chaud)		   
+Augmenter le FS de 1 000 Mo	chfs -a size=+1000M FS
+	    
+Fixer la taille finale du FS = 400000 * 512 octets	chfs -a size=400000 FS	   
+REDUCTION FS		   
+Réduire le FS de 1000 Mo	chfs –a size =-1000M FS	   
+RENOMMER		   
+Renommer un LV		   
+Renommage du LV	chlv -n Nouveau_Nom Ancien_Nom	   
+SUPPRESSION		   
+Supprime le DISK du VG ainsi que tous les LV	reducevg -df rootvg hdisk2	   
+Suppression d’un LV	rmlv LV	   
+Suppression LV + /etc/filesystems	rmfs -r /appli/lvtest
+	   
+Supprimer la copie d'un LV	rmlvcopy lv00 1 hdisk2	   
+AUTRES GESTION		   
+ADMINISTRATION PV		   
+Autoriser au disque hdisk3 l'ajout de partitions	chpv -a y hdisk3	   
+Migration d'un disque vers un autre	migratepv DISQUE_SOURCE DISQUE_DEST	   
+Tester un disque	dd if=/dev/pdisk0 of=/dev/null bs=4096	   
+Effacer le pvid de hdisk1	chdev -l hdisk1 -a pv=clear	   
+Reconstruire la LVCB, la VGDA sur un PV	synclvodm -v VG	   
+ADMINISTRATION VG		   
+Activer / Désactiver un VG	varyonvg VG
+varyoffvg VG	   
+Activer / Désactiver le VG au démarrage	chvg -a y VG
+chvg -a n VG	   
+Réorganise l'assignation des PPs	reorgvg VG	   
+Conversion du VG Big VG	chvg -f -B VG	   
+Augmenter le nombre de PV pour un VG
+(5=2PV; 4=4PV; 3=8PV; 2=16PV ...)	chvg -t 3 Nom_VG	   
+Exporter / Importer un VG	varyoffvg VG
+exportvg VG
+importvg -y VG_new
+varyonvg VG_new	   
+ADMINISTRATION LV		   
+Modification du nombre Max LP pour un LV	chlv -x 1024 lvtest	   
+Mirrorer un LV	mklvcopy LV 2 hdisk2
+syncvg -l LV	   
+Déplacer un LV dans un nouveau VG	cplv -y LV_S -v VG LV_D	   
+Migration d'un LV d'un disque vers un autre	migratepv -l Nom_LV DISQUE_SOURCE DISQUE_DEST	   
+ADMINISTRATION FS		   
+Pour voir les users présents sur le FS	fuser -cu NomFS	   
+Pour killer les users présents sur le FS	fuser -kxuc /mnt	   
+Changement du point de montage	chfs -m /export/newml /export/ML_AIX53	   
+Auto mount un FS	chfs -A /FS	   
+Défragmenter /tmp	defragfs /tmp	   
+Afficher l'état de la fragmentation	defragfs -q /tmp	   
+Afficher un rapport sur la fragmentation	defragfs -r /tmp	   
+GESTION MIRROIR		   
+Supprimer le mode mirroir d'un LV	rmlvcopy lv_nsh 1 hdisk14	   
+Mirrorer un VG	mirrorvg -S -Q -m VG hdisk3
+unmirrorvg VG hdisk3	   
+Synchronisation	syncvg –l LV
+syncvg –v VG	   
+GESTION DES PPs/PV PAR VG			   
+Nb de PV | Nombre max de PPs/PV	Commande AIX		   
+2 | 1625665024	chvg -t 5 VG
+chvg -B -t 7 VG		   
+4 | 812832512	chvg -t 4 VG
+chvg -B -t 6 VG		   
+8 | 406416256	chvg -t 3 VG
+chvg -B -t 5 VG		   
+16 | 20328128	chvg -t 2 VG
+chvg -B -t 4 VG		   
+32 | 10164064	chvg -t 1 VG
+chvg -B -t 3 VG		   
+64 | 2032	chvg -B -t 2 VG		   
+128 | 1016	chvg -B -t 1 VG
+		 
+Autres
+<br="" FS="" le="" sur="" gros="" plus="" les="" fichiers="" 30="" 
+find . -type f -ls -xdev | awk '{print $7"\t"$11}' | sort -n | tail -30
+
+Connaître les FS en Read-Only
+for fs in `df -P | awk '/^\/dev/ {print $6}'`;do touch $fs/toto; [ $? -eq 0 ] && rm -f $fs/toto || echo "FS $fs KO";done
+
+Taille des disques (Affichage en Mo.)
+lspv | awk '{ printf "print \"%s: \\c\"; bootinfo -s %s; ", $1, $1 }' | sh
+
+Caractéristiques du VG rootvg
+lsvg rootvg; echo; lsvg -p rootvg; echo; lsvg -l rootvg
+
+Copie fiable du répertoire courant
+find . -xdev | cpio –pdl /mnt2
+
+Supprimer des fichiers d’un certaine date
+for i in `ll | grep 2009 | awk '{print $9}'`; do rm -f $i; done
+
+<br="" en="" symboliques="" liens="" des="" 
+find / -type l | perl -lne 'print if ! -e'
+
+Connaitre les informations relatives à un fichier
+istat FILE
+La commande tune2fs permet de paramétrer l’exécution d’un fsck automatique sur des partitions ext2 ou ext3
+Faire une vérification toutes les semaines
+tune2fs -i 1w /dev/hda7
+
+Exemple de consultation de ces paramètres
+tune2fs -l /dev/hda7
+
+Check file system
+fsck -p /dev/lv8
+Cas Précis
+AIX ERROR DISQUE
+Tester les disques ou il y a des erreurs répertoriés dans errpt 
+for i in ` errpt | grep 1213181610 | awk ' { print $5 } ' | uniq | sort -n ` 
+do 
+dd if=/dev/$i of=/dev/null count=1000 
+done

@@ -1,0 +1,11 @@
+745     ftp -n <<EOF
+        open sxanoz14
+        user root Vendredi!
+        bin
+        prompt
+        hash
+        lcd /tmp
+        cd /export/nim/shells
+        mget script_inst_powerpath_emc_hds.ksh
+        bye
+        EOF

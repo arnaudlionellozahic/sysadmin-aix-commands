@@ -1,0 +1,31 @@
+RECUPERER LES SCRIPTS SUR UNE AUTRE MACHINE ET LES COPIER DANS /APPS/SYS/TSM
+
+root@s00va9934113:	$ ls -ltr
+total 40
+
+-rwxr-xr-x    1 root     sys            3557 Sep 17 13:59 tsmincStatc.ksh
+-rwxr-xr-x    1 root     sys            7906 Sep 17 14:00 adsminc.ksh
+-rwxr-xr-x    1 root     sys            1965 Sep 17 14:06 makedsm_opt.sh
+
+
+CREER LE FICHIER DSM.SYS (RECUPERER LES INFOS SUR http://aesio.bp2i.echonet/tsm )
+
+
+   - INSTANCE : TSM-ARZ210
+
+   - PORT 28858
+
+
+   - TCP SERVEUR ADRESS : s00va9925817
+
+
+EXECUTER LE makedsm_opt.sh
+
+
+AJOUTER LE PAVE POUR SAUVEGARDE INCREMENTAL DANS LA CRONTAB
+
+
+
+#####  MEO IRB      #####
+0 16 * * 0-6 /apps/sys/tsm/adsminc.ksh > /tmp/adsminc_cron.log 2>&1
+#####  Fin MEO IRB  #####

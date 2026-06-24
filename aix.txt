@@ -1,0 +1,139 @@
+lspv | grep power (pour lister les disque de type power)
+
+powermt display dev=all | egrep "^Pseudo name|^Symmetrix ID|^Logical device" | awk '
+        /Pseudo name/ { FS="=" ; p=$NF }
+        /Symmetrix ID/ { FS="=" ; S=$NF }
+        /Logical device/ { FS="=" ; id=$NF; print S"  "id"  "p }'
+(pour lister les disques power sur baie)
+
+##################
+comment fair un gtar
+se mettre dans le répertoire puis :
+ cd /apps/toto
+ gtar -czvf /apps/oradbf/atdr01/atpsa10tgz_sa10.tgz .
+
+dans cette exemple on prend ce qui est dans le répertoire toto pour créer une archive atpsa10tgz_sa10.tgz 
+
+gtar -cvzpf /ficsav/XTSAVE.bnp_exploit.tgz . --exclude=/apps/exploit/work
+
+gtar -cvf - . | compress > toto.tar.Z
+
+###################
+
+
+#Number of processor
+lsdev -Cc processor |wc -l
+
+#find information on processors 
+lscfg -vp |grep -ip proc 
+
+###############################
+pour changer une option de fs:
+
+unmount des FS en question tel que du bas vers le haut :
+
+/dev/lv_atpr01_new    445,00     60,77   87%       87     1% /apps/oradbf/atpr01
+/dev/lv_atpr01_arc1     45,00     44,82    1%        4     1% /apps/oradbf/atpr01/archive
+/dev/lv_atpr01_log1      2,00      1,96    3%        5     1% /apps/oradbf/atpr01/log1
+/dev/lv_atpr01_log2      2,00      1,96    3%        5     1% /apps/oradbf/atpr01/log2
+/dev/lv_atpr01_log3      2,00      1,96    3%        5     1% /apps/oradbf/atpr01/log3
+/dev/lv_atpr01_ctl1      1,00      0,98    3%        6     1% /apps/oradbf/atpr01/ctl1
+/dev/lv_atpr01_ctl2      1,00      0,98    3%        6     1% /apps/oradbf/atpr01/ctl2
+/dev/lv_atpr01_ctl3      1,00      0,98    3%        6     1% /apps/oradbf/atpr01/ctl3
+
+puis faire:
+
+chfs -a options='rw' /apps/oradbf/atpr01/ctl3 ainsi de suite
+
+puis mount du haut vers le bas
+
+##################################
+
+trier la taille des fichiers ou répertoire gros pour exemple
+
+du -ksx /home/* |sort -rn | more
+
+#################################
+
+pour voir la swap
+
+lsps -s
+
+Total Paging Space   Percent Used
+      4096MB              28%
+
+
+lsps -a
+
+Page Space      Physical Volume   Volume Group    Size %Used Active Auto  Type Chksum
+hd6             hdisk0            rootvg        4096MB    28   yes   yes    lv     0
+
+
+svmon -Pg -t 10 |grep -p Pid  (afin de voir quel sont les processus consommateur de la swap)
+
+lparstat -i (pour voir la configuration d'une partition)
+
+##############################
+
+l988193@parva4015075:/home/l988193$ svmon | grep memory | awk '{ print $4/256 "MB"}'
+49.6719MB
+
+l988193@parva4015075:/home/l988193$ prtconf -m
+Memory Size: 23552 MB
+
+l988193@parva4015075:/home/l988193$ svmon -Put 2 | head -n 10
+
+-------------------------------------------------------------------------------
+     Pid Command          Inuse      Pin     Pgsp  Virtual 64-bit Mthrd  16MB
+39453160 ksh              46748     8164      768    49269      N     N     N
+
+     PageSize                Inuse        Pin       Pgsp    Virtual
+     s    4 KB                 220          4          0        149
+     m   64 KB                2908        510         48       3070
+
+    Vsid      Esid Type Description              PSize  Inuse   Pin Pgsp Virtual
+
+##################################
+
+574     ifconfig -a
+577     smitty tcpip
+578     lsattr -El en3
+alias4        159.50.14.118,255.255.255.0 IPv4 Alias including Subnet Mask           True
+alias6                                    IPv6 Alias including Prefix Length         True
+arp           on                          Address Resolution Protocol (ARP)          True
+authority                                 Authorized Users                           True
+broadcast                                 Broadcast Address                          True
+mtu           1500                        Maximum IP Packet Size for This Device     True
+netaddr       159.50.14.184               Internet Address                           True
+netaddr6                                  IPv6 Internet Address                      True
+netmask       255.255.255.0               Subnet Mask                                True
+prefixlen                                 Prefix Length for IPv6 Internet Address    True
+remmtu        576                         Maximum IP Packet Size for REMOTE Networks True
+rfc1323                                   Enable/Disable TCP RFC 1323 Window Scaling True
+security      none                        Security Level                             True
+state         up                          Current Interface Status                   True
+tcp_mssdflt                               Set TCP Maximum Segment Size               True
+tcp_nodelay                               Enable/Disable TCP_NODELAY Option          True
+tcp_recvspace                             Set Socket Buffer Space for Receiving      True
+tcp_sendspace                             Set Socket Buffer Space for Sending        True
+
+
+
+########################################
+
+oot@parva4006588:/$ lsuser -f hrbmpd | egrep "loginretries|unsuccessful_login_count"
+        loginretries=5
+        unsuccessful_login_count=11
+
+pour éviter des aller-retour inutiles en astreinte j'ai debloqué le compte
+root@parva4006588:/$ chuser unsuccessful_login_count=0 hrbmpd
+root@parva4006588:/$ lsuser -f hrbmpd | egrep "loginretries|unsuccessful_login_count"
+        loginretries=5
+        unsuccessful_login_count=0
+
+##################################
+
+
+
+
+
