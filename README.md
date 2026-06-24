@@ -880,17 +880,18 @@ e. Transmit the data files to IBM.
 (5) Include the pedbg from the HMC (FSM or SDMC) 
 
 # How to disable LPM from command line
+Enable/Disable
 ```
-chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=1"
-chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=0"
-lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F name,migration_disabled
+chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=1"                                              # desactivation lpm
+chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=0"                                              # activation lpm
+lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F name,migration_disabled         # statut de l'attribut
 ```
 
 # Disable de toutes les lpars HEAHMC01 en 1 ligne de commande
 ```
-for serv in $(lssyscfg -r sys -F name | sort)
+for serv in $(lssyscfg -r sys -F name | sort) # liste des serveurs
 do
-   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")
+   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")   # liste des lpar excluant les VIOS et le STORES_POOL
    do
       chsyscfg -m $serv -r lpar -p $lpar -i "migration_disabled=1"  # modification de l'attribut
    done
@@ -903,11 +904,11 @@ lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F "name,migra
 ```
 # en 1 ligne de commande sur toutes les lpars
 ```
-for serv in $(lssyscfg -r sys -F name | sort)
+for serv in $(lssyscfg -r sys -F name | sort) # liste des serveurs
 do
-   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")
+   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")  #liste des lpars excluant les VIOS et le STORES_POOL
    do
-      lssyscfg -m $serv -r lpar --filter "lpar_names=$lpar" -F "name,migration_disabled"
+      lssyscfg -m $serv -r lpar --filter "lpar_names=$lpar" -F "name,migration_disabled"   # display de l'attribut
    done
 done
 ```
