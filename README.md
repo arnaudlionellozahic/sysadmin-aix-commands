@@ -1,6 +1,5 @@
 Hello, I've put the work of my AIX's years in this repo
 
-
 # Diagnostic Configuration LPAR
     lparstat -i <= vue hyperviseur
     bindprocessor -q <= vue OS, donc hyperthreading, SMT sous AIX
@@ -884,16 +883,16 @@ e. Transmit the data files to IBM.
 
 Enable/Disable
 ```
-chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=1"                                              # desactivation lpm
-chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=0"                                              # activation lpm
-lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F name,migration_disabled         # statut de l'attribut
+chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=1"
+chsyscfg -m SERVER_NAME -r lpar -p LPAR_NAME -i "migration_disabled=0"
+lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F name,migration_disabled
 ```
 
 Disable de toutes les lpars HEAHMC01 en 1 ligne de commande
 ```
-for serv in $(lssyscfg -r sys -F name | sort) # liste des serveurs
+for serv in $(lssyscfg -r sys -F name | sort)
 do
-   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")   # liste des lpar excluant les VIOS et le STORES_POOL
+   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")
    do
       chsyscfg -m $serv -r lpar -p $lpar -i "migration_disabled=1"  # modification de l'attribut
    done
@@ -905,11 +904,11 @@ lssyscfg -m SERVER_NAMES -r lpar --filter "lpar_names=LPAR_NAMES" -F "name,migra
 ```
 en 1 ligne de commande sur toutes les lpars
 ```
-for serv in $(lssyscfg -r sys -F name | sort) # liste des serveurs
+for serv in $(lssyscfg -r sys -F name | sort)
 do
-   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")  #liste des lpars excluant les VIOS et le STORES_POOL
+   for lpar in $(lssyscfg -m $serv -r lpar -F name | sort | grep -v -e "hlavi" -e "heavi" -e "POOL")
    do
-      lssyscfg -m $serv -r lpar --filter "lpar_names=$lpar" -F "name,migration_disabled"   # display de l'attribut
+      lssyscfg -m $serv -r lpar --filter "lpar_names=$lpar" -F "name,migration_disabled"
    done
 done
 ```
