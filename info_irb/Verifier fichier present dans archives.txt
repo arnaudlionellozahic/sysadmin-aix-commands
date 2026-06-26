@@ -1,0 +1,37 @@
+Disconnected from Oracle9i Enterprise Edition Release 9.2.0.6.0 - 64bit Production
+JServer Release 9.2.0.6.0 - Production
+
+
+
+
+
+
+dsmc q ar "/apps/oradbf/backup/atdr01/compress/atdr01*"
+
+
+ /apps/oradbf/backup/atdr01/compress/atdr011112310647.tar.Z 01/02/16   MAS9K2_19_03012012_1035
+
+
+
+
+
+dsmc ret -se=TSMEMEAVAUZ -virtualnodename=parva4000627 -password=parva4000627 "/apps/oradbf/backup/atdr01/compress/atdr011112310647.tar.Z" /ficsav/EQUIPE_MEO/ANIS/PARDEM637130/
+
+
+
+
+
+
+gtar tvzf atdr011112310647.tar.Z | grep -e APC_IDC1R553 -e APC_IDC1R554
+
+
+
+gtar -xvzf FIC.JSAVF1.20130424.010938.tar.Z "./WAM_IJM06101-ABJ-SAV" "./WAM_PJM20101-ABJ" "./WAM_PJM20101.AV-ABJ" "./WAM_PJM20101.AP-ABJ"
+
+
+
+
+WAM_IJM06101-ABJ-SAV
+WAM_PJM20101-ABJ 
+WAM_PJM20101.AV-ABJ
+WAM_PJM20101.AP-ABJ

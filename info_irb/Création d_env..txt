@@ -1,0 +1,66 @@
+Les étapes à faire pour chaques environnement :
+
+
+
+
+MEO_ENV=qc1
+
+choix du lanceur (c'est à toi de voir le meilleurs, prendre le dernier et vérifier qu'il correspond bien à l'env ) :
+
+ls -tr $(grep -l $MEO_ENV /apps/exploit/tng/lance*)
+
+
+
+for MEO_ENV in sa1 sa11 sd3 sd4 sd5 sd6 sc1 sc2 sc3 sc4 ca1 ref
+do 
+echo $MEO_ENV 
+
+MEO_LANCE=$(ls -tr $(grep -l $MEO_ENV /apps/exploit/tng/lance*)|tail -1)
+
+echo "MEO_ENV : $MEO_LANCE"
+
+done 
+
+A2_ENV_MEO=$(grep A2_ENV= $MEO_LANCE |awk -F'"' '{print $2}')
+A2_LIBENV_MEO=$(grep A2_LIBENV= $MEO_LANCE |awk -F'"' '{print $2}')
+A2_KIX_PORT_MEO=$(grep A2_KIX_PORT= $MEO_LANCE |awk -F'"' '{print $2}')
+A2_KIX_PORTCLI_MEO=$(grep A2_KIX_PORTCLI= $MEO_LANCE |awk -F'"' '{print $2}'|head -1)
+A2_KIX_PORTTCP_MEO=$(grep A2_KIX_PORTTCP= $MEO_LANCE |awk -F'"' '{print $2}')
+A2_BASE_MEO=$(grep A2_BASE= $MEO_LANCE |awk -F'"' '{print $2}')
+A2_BASE_DR_MEO=$(grep A2_BASE_DR= $MEO_LANCE |awk -F'"' '{print $2}')
+
+
+sed -e "s/\(A2_LIBENV=\)\(.*\)/\1\"$A2_LIBENV_MEO\"/" \
+-e "s/\(A2_ENV=\)\(.*\)/\1$A2_ENV_MEO/" \
+-e "s/\(A2_KIX_PORT=\)\(.*\)/\1$A2_KIX_PORT_MEO/" \
+-e "s/\(A2_KIX_PORTCLI=\)\(.*\)/\1$A2_KIX_PORTCLI_MEO/" \
+-e "s/\(A2_KIX_PORTTCP=\)\(.*\)/\1$A2_KIX_PORTTCP_MEO/" \
+-e "s/\(ORACLE_SID=\)\(.*\)/\1$A2_BASE_MEO/" \
+-e "s/\(ORACLE_SID_DR=\)\(.*\)/\1$A2_BASE_DR_MEO/" \
+-e "s/\(A2_BASE=\)\(.*\)/\1$A2_BASE_MEO/" \
+-e "s/\(A2_BASE_DR=\)\(.*\)/\1$A2_BASE_DR_MEO/" /apps/exploit/profiles/initenv/init_env_atlas_rf1  > /apps/exploit/profiles/initenv/init_env_atlas_$MEO_ENV
+
+done
+
+
+
+
+sa11
+MEO_ENV : init_env_atlas_sa11
+sd3
+MEO_ENV : init_env_atlas_sa11
+sd4
+MEO_ENV : init_env_atlas_sa11
+sd5
+MEO_ENV : init_env_atlas_sa11
+sd6
+MEO_ENV : init_env_atlas_sa11
+
+
+
+
+
+
+
+
+ 

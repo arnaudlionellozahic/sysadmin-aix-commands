@@ -1,0 +1,35 @@
+Récuperer archives via FTP:
+---------------------------
+
+
+
+
+  - se connecter en prod sur lequel se trouve les fichiers à récuperer
+
+  - # ftp parva......   --------> ici serveur de pré-prod sur lequel on va copier
+
+  - # ****user****mdp*****
+
+  - # ftp> bin
+
+  - # prom
+
+  - # cd /apps/sources_antilles_gdi174012/   -----> rép. cible
+
+  - # lcd /ficsav/RCC_ADC_NCAL   ------> rép. source
+
+  - # put COMP_ATL_PROD_APRES_MEP.tgz  ------> archive à récuperer
+
+  - # lcd /apps/oradbf/backucd p  --------> rép. source
+
+  - # put FIC.uf1.gtar_20120826  ------> archive à récuperer
+
+  - # 
+
+
+
+
+
+
+
+

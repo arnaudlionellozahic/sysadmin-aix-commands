@@ -1,0 +1,4 @@
+
+
+cd /apps/sys/unicenter/exploitation
+           ./WATCH_FileSystem.ksh 0 /apps/oradbf/atdr01  

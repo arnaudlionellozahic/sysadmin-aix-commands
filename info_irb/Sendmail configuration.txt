@@ -1,0 +1,66 @@
+
+
+
+parva4001842 => PRODUCTION Mali  (root) /etc/mail :  ---------> verification du serveur mail
+grep ^DS /etc/mail/sendmail.cf
+
+DSPARPOP002.FR.NET.INTRA   ---------->  ici c'est le serveur mail, mais par defaut il faut DSvip-m-parpop.fr.net.intra
+
+
+Modification du fichier sendmail.cf:
+------------------------------------
+
+Backuper le fichier avant tout.
+
+
+parva4001842 => PRODUCTION Mali  (root) /etc/mail :
+vi sendmail.cf
+
+
+# DECnet relay host
+#DCmailer:relayhostname
+#CPDECNET
+
+# The relay host that handles all X400 mail.
+#DXmailer:relayhostname
+
+# "Smart" relay host (may be null)
+# Relay host to forward outgoing mail not in the local domain to.
+# To forward ALL mail to this relay host, uncomment the appropriate
+# rule in ruleset 0, as indicated by the ruleset's comments.
+#DSmailer:relayhostname
+DSPARPOP002.FR.NET.INTRA    -------------------------------------------->  ligne à changer par DSvip-m-parpop.fr.net.intra
+
+# who I send unqualified names (that is, names without @host) to
+# (null means deliver locally)
+# Use this relay to send all local mail to a central server
+#DRmailer:relayhostname
+DR
+
+
+Effectuer le test:
+------------------
+
+parva4001842 => PRODUCTION Mali  (root) /etc/mail :
+echo "Subject: TEST " | sendmail -v -f paris_ips_meo_irb@bnpparibas.com -t anis.tarkhani@externe.bnpparibas.com
+anis.tarkhani@externe.bnpparibas.com... Connecting to vip-m-parpop.fr.net.intra. via relay...
+220 pars09413603.fr.net.intra ESMTP Service (Lotus Domino Release 8.5.1FP5) ready at Thu, 7 Mar 2013 15:24:34 +0100
+>>> EHLO parva4001842.fr.net.intra
+250-pars09413603.fr.net.intra Hello parva4001842.fr.net.intra ([159.50.50.148]), pleased to meet you
+250-HELP
+250-DSN
+250-SIZE 23068672
+250-8BITMIME
+250 PIPELINING
+>>> MAIL From:<paris_ips_meo_irb@bnpparibas.com> SIZE=15
+250 paris_ips_meo_irb@bnpparibas.com... Sender OK
+>>> RCPT To:<anis.tarkhani@externe.bnpparibas.com>
+>>> DATA
+250 anis.tarkhani@externe.bnpparibas.com... Recipient OK
+354 Enter message, end with "." on a line by itself
+>>> .
+250 Message accepted for delivery
+anis.tarkhani@externe.bnpparibas.com... Sent (Message accepted for delivery)
+Closing connection to vip-m-parpop.fr.net.intra.
+>>> QUIT
+221 pars09413603.fr.net.intra SMTP Service closing transmission channel

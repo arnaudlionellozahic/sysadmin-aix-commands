@@ -1,0 +1,43 @@
+
+
+===================================================
+VERSION FRANCAISE
+===================================================
+
+1 - Installation et mise à jour des tables : TD246
+
+                Fichiers requis :
+
+                o_modindxtd246.GDI178959
+
+2 - Aller dans le répertoire crebase via la commande cdcre
+
+3 - Copier par ftp (en mode binaire) les scripts :
+
+                o_modindxtd246.GDI178959
+
+        Faire :
+                        chmod a+x o_*.GDI178959
+
+4 - Lancer les sripts sur l'environnement de la base :
+
+                o_modindxtd246.GDI178959 $A2_BASE_OWN mot_de_passe
+
+
+5 - si l'environnement est désynchronisé (A2_EAD est défini)
+
+                        export A2_BASE_LOC=USERS
+                        export A2_BASE_LOC_IDX=USERS
+
+                o_modindxtd246.GDI178959 $A2_EAD $A2_EAD
+
+
+        si l'environnement n'est pas désynchronisé
+
+                        schema="R${A2_TYPE_ENV#?}"
+                        export A2_BASE_LOC=USERS
+                        export A2_BASE_LOC_IDX=USERS
+
+            o_modindxtd246.GDI178959 $schema $schema
+
+6 - Dans tous les cas, lancer o_gen_syn_grant $A2_BASE_OWN mot_de_passe

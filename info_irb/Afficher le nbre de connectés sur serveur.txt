@@ -1,0 +1,13 @@
+
+
+PARVA4000634 => PRODUCTION Maroc (atlas) /apps/oradbf/backup/savarc :
+kixdump -Ss
+12/10/2012 14:27:54 kixdump     :KIX6742I Entering version 810p11.BNPP - 04/06/2011
+
+Application Summary:
+
+Application   KIXSYS
+             /apps/atlas/atlas2v0/uf1/data1/kix
+
+#Users   Total Txs   #TX Procs    TX/sec    Max Tx/sec
+  1342   0000047396        020   34.917       66.983

@@ -1,0 +1,3 @@
+sous l'environnement choisi faire:
+
+echo $A2_CONVERT

@@ -1,0 +1,21 @@
+
+
+Commande pour lister les dg :
+
+symdg list
+
+
+
+Pour trouver les DG appairages :
+
+Regarder les Logs du jrdfsy du j9r1Maro
+
+
+
+Voici les commandes SRDF :
+
+symrdf -g dg_0634_BCV2 -RDF1 -bcv query (pour vérifier l'état des paires SRDF)
+
+symrdf -g dg_0634_BCV2 -RDF1 -bcv split (passer mettre les paires en état split) si les paires sont dans l'état synchronized
+
+Vous pouvez trouver les commandes srdf dans le script RDF_action.ksh qui se trouve dans /apps/exploit/shell

@@ -1,0 +1,36 @@
+
+
+parva4000632 => PRODUCTION ALGERIE  (root) /apps/sys/log/stats/PSSTAT :
+
+ls -ltr |sort -n +4 |more
+
+-rw-r--r--    1 root     sys         5620269 Jun 22 2012  psstat_parva4000632_22062012.txt
+-rw-r--r--    1 root     sys         5743896 Sep 15 2012  psstat_parva4000632_15092012.txt
+-rw-r--r--    1 root     sys         5777763 Nov 29 23:50 psstat_parva4000632_29112012.txt
+-rw-r--r--    1 root     sys         5954379 Jan 21 2012  psstat_parva4000632_21012012.txt
+-rw-r--r--    1 root     sys         6001451 Sep 22 2012  psstat_parva4000632_22092012.txt
+-rw-r--r--    1 root     sys         6130300 Nov 30 23:50 psstat_parva4000632_30112012.txt
+-rw-r--r--    1 root     sys         6176084 Mar 24 2012  psstat_parva4000632_24032012.txt
+-rw-r--r--    1 root     sys         6281762 Jan 20 2012  psstat_parva4000632_20012012.txt
+-rw-r--r--    1 root     sys         6283452 Feb 18 2012  psstat_parva4000632_18022012.txt
+-rw-r--r--    1 root     sys         6345778 Nov 24 23:50 psstat_parva4000632_24112012.txt
+-rw-r--r--    1 root     sys         6369074 Nov 16 23:50 psstat_parva4000632_16112012.txt
+-rw-r--r--    1 root     sys         6395386 Nov 15 23:50 psstat_parva4000632_15112012.txt
+-rw-r--r--    1 root     sys         6395587 Dec 21 23:50 psstat_parva4000632_21122012.txt
+-rw-r--r--    1 root     sys         6414595 Dec 22 23:50 psstat_parva4000632_22122012.txt
+-rw-r--r--    1 root     sys         6416816 Mar 23 2012  psstat_parva4000632_23032012.txt
+
+
+
+parva4000632 => PRODUCTION ALGERIE  (root) /apps/sys/log/stats/PSSTAT :
+
+rm psstat_parva4000632*2012*
+
+
+
+parva4000632 => PRODUCTION ALGERIE  (root) /apps/sys/log/stats/PSSTAT :
+df -g .
+
+Filesystem    GB blocks      Free %Used    Iused %Iused Mounted on
+/dev/Olv_apps      7.94      2.56   68%    82311     4% /apps
+

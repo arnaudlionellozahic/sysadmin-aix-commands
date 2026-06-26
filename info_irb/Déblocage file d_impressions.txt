@@ -1,0 +1,31 @@
+
+Déblocage de files d'impressions :
+
+
+parva4000632 => PRODUCTION ALGERIE  (root) / : lpstat -pIUG74
+
+Queue   Dev   Status    Job Files              User         PP %   Blks  Cp Rnk
+------- ----- --------- --- ------------------ ---------- ---- -- ----- --- ---
+IUG74   hp@UG READY
+
+
+parva4000632 => PRODUCTION ALGERIE  (root) / : disable IUG74
+
+parva4000632 => PRODUCTION ALGERIE  (root) / : banner TEST | lp -dIUG74
+
+Job number is: 826
+parva4000632 => PRODUCTION ALGERIE  (root) / : lpstat -pIUG74
+
+Queue   Dev   Status    Job Files              User         PP %   Blks  Cp Rnk
+------- ----- --------- --- ------------------ ---------- ---- -- ----- --- ---
+IUG74   hp@UG DOWN
+              QUEUED    826 STDIN.5398528      root                   1   1   1
+
+
+parva4000632 => PRODUCTION ALGERIE  (root) / : enable IUG74
+
+parva4000632 => PRODUCTION ALGERIE  (root) / : lpstat -pIUG74
+
+Queue   Dev   Status    Job Files              User         PP %   Blks  Cp Rnk
+------- ----- --------- --- ------------------ ---------- ---- -- ----- --- ---
+IUG74   hp@UG READY

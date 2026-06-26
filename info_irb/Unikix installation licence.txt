@@ -1,0 +1,95 @@
+
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /usr/local/MeoBackup/jclscript/hors_site :
+cd /apps/unikix
+
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/unikix :
+ls
+lost+found  t7.1.15     t8.0.1      t8.0.1.tgz
+
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/unikix :
+cd t8.0.1
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/unikix/t8.0.1 :
+ls
+
+Copyright                    THIRDPARTYLICENSEREADME.txt  com_hist                     etc                          local                        test
+INSTEBM                      VERSION                      copy                         help                         pack
+README                       XAsrc                        doc                          instpsg                      public
+README.117627-03             batchenv                     docs                         jarfiles                     scbin
+README.license               bin                          ebm_hist                     lib                          src
+
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/unikix/t8.0.1 :
+cd lib
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/unikix/t8.0.1/lib :
+ls -ltr *lic
+
+-rw-r--r--    1 root     system           99 May  4 2005  005373DA4C00.lic
+-rw-r--r--    1 root     system           91 Dec  6 2007  0022A2CA4C00.lic
+-rw-r--r--    1 root     system           91 May 18 2009  00C547704C00.lic
+-rw-r--r--    1 conv     conv            101 Jun 22 2009  00C239CA4C00.lic
+
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/unikix/t8.0.1/lib :
+uname -m
+00C079304C00
+
+parva4000642 => PRE-PRODUCTION ALGERIE  (root) /apps/unikix/t8.0.1/lib :  -----> ici nous créeons un nouveau fichier licence avec le bon 
+vi 00C079304C00.lic								 le bon numéro de chassis serveur correspondant, 00C079304C00 étant le nouveau.
+										 Nous insérons dans le fichier la licence Unikix correspondant: le pavé de 4 lignes:--|
+																		     |----------------|
+"00C079304C00.lic" [Nouveau fichier]										        |----------------------------|
+BNP Paribas - Guinee								      |---------------------------------|
+CustCode 00098FC13 Serial 31216		<---------------------------------------------|
+00C079304C00
+DU6PNC5MT7KAJOKH8TY6EQIT6KHCE9HWD8U
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+"00C079304C00.lic" [Nouveau fichier] 4 lignes, 102 caractères

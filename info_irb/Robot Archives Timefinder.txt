@@ -1,0 +1,33 @@
+TimeFinder parva4006680 (/ficsav/nomPROD/avant_ou_apres/*date*)  ===>> TSM-ARZ105
+	parva4001843 Sénégal
+	parva4000633 Reunion
+	parva4000632 Algérie
+	parva4000627 Antilles
+	parva4000625 CIV/Burkina
+
+
+TimeFinder parva4004782 (/ficsav/nomPROD/avant_ou_apres/*date*)  ===>> TSM-TRANSVERSE-VAUZ
+	parva4004789 Egypte
+	parva4000839 Noucal
+	parva4000626 Bahrein (pas géré chez nous)
+
+
+TimeFinder parva4000630 (/sav/parva4000634/*date*)  ===>> TSM-EMEAM
+	parva4000634 Maroc
+
+Autre site en direct sur la prod Atlas 
+(/ficsav/*fic* et /apps/oradbf/backup/atpr01/compress/*base*)
+	parva4001842 Mali (TSM-ARZ108)
+	parva4001835 Guinée (TSM-ARZ108)
+	parva4004793 Libye (TSM-ARZ102)
+
+
+dsmc q ar -se=TSM-EMEA-VAUZ -virtualnodename=atmeum-prd -password=atmeum-prd 
+
+Ancien robot qui peuvent servirent:
+TSM-EMEA-VAUZ
+TSM-TRANSVERSE-VAUZ
+tsmemeavauz
+TSMEMEAVAUZ
+TSM-EMEA-MANZ1
+TSMEMEAM

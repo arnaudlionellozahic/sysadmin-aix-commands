@@ -1,0 +1,23 @@
+
+_ Reinitialisation du Mdp :
+---------------------------
+
+
+
+ATLDSI - INFOSI - INFDSI, ce sont les 3 différents serveurs sur lesquels ont peux modifier ou débloquer un user,
+
+le reste c'est SAAM.
+
+Mdp par defaut : atlas
+
+
+
+Se connecter en root Gesap543!
+
+
+
+- gesusers  ----> créer compte
+
+- delock_user "identifiant utilisateur"  ----> debloquer compte
+
+- smit user  ----> reinitialisation du nbre de connection.

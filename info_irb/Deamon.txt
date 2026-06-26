@@ -1,0 +1,8 @@
+En cas de demande de relance du deamon jfsba1, c'est le traitement jfsba0 qu'il faut relancer (c'est lui qui lance le 1) :
+-----------------------------------------------------------------------------------------------------------------------------
+
+cdei (pour etre a la base de l'env)
+
+[parva4006384|infoc|IAM1ANP0|04750|40051|antill]:/apps/antill/infoc $ lance_anti jfsba0 /apps/antill/infoc/dwh_dr/log/JFSBA1.log DWH_M 0
+
+Verification avec un ps -ef | grep -i jfsba1 (si il est absent aller vérifier la log créer)

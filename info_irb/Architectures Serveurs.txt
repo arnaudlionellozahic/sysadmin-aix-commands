@@ -1,0 +1,88 @@
+
+BNPINET:
+--------
+
+
+PARTIE WEB :
+############
+
+
+Nouvelle archi :
+----------------
+
+Prod : Maroc, Réunion, Sénégal, Tunisie, Burkina, Côte d’Ivoire, Algerie, Gabon : pars04014224 et (bck pars04014225)
+
+Preprod :	parv04015077 et parv04015076 (ancienne archi)
+
+
+
+Ancienne archi :
+----------------
+
+Prod Guadeloupe, Guinée : pars04001912 et (bck pars04001913)
+
+Caledonie , Mali : pars04001914 et (bck pars04001917)
+
+Guyane, Martinique : pars04001915 et (bck pars04001918)
+
+Egypte : pars04001916 et (bck pars04001919)
+
+
+
+PARTIE DATA:
+############
+
+
+Nouvelle archi : Maroc, Réunion, Sénégal, Tunisie, Gabon, Burkina, Côte d’Ivoire, Algerie.
+
+Prod : 		parva4015739
+Backup :	parva4015741
+Preprod :	parva4015075
+
+
+
+Ancienne archi : Guadeloupe, Guinée, Calédonie , Mali, Guyane, Martinique, Egypte
+
+Prod : 		parsa4001576
+Backup :	parsa4001026
+Preprod :	parsa4001325
+
+
+
+###########################################################################################################################
+
+
+Webapps multi-EAR:
+------------------
+
+Maroc        ---->  Businnes (Parva4022527)  Presentation (Parva4022526)
+
+
+Sen/Guin/Alg/Ant/Burk/Ncal/Réu ---->  Businnes (Parva4022525)  Presentation (Parva4022524)
+
+
+
+
+Webapps mono-EAR:
+-----------------
+
+Ant/Ncal/Reu ( COS SAE APCE )  -------> Business (Parva4004785)  Presentation (Parva4004784)
+
+
+############################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

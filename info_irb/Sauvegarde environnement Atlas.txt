@@ -1,0 +1,26 @@
+
+
+Sauvegarder base + fichier env V05 qui devra etre gardée 3 mois:
+----------------------------------------------------------------
+
+
+Base 	------->  /apps/oradbf/atpv05
+
+
+Fichier ------->  /apps/atlas/atlas2v0/v05/data1/fic
+
+
+
+
+gtar cvzf /ficsav/EQUIPE_MEO/anis/v05/v05.fic.tar.Z_20130321_Maro ./
+
+ckpdb /ficsav/EQUIPE_MEO/anis atpv05
+
+dsmc arch -archmc=ARCH0030 -desc="Bckup_Maro_v05_20130321" /ficsav/EQUIPE_MEO/anis/atpv05/compress/*
+dsmc arch -archmc=ARCH0030 -desc="Bckup_Maro_v05_20130321" /ficsav/EQUIPE_MEO/anis/v05/*
+
+dsmc q ar -desc="Bckup_Maro_v05_20130321" "/ficsav/EQUIPE_MEO/anis/*"
+
+
+
+

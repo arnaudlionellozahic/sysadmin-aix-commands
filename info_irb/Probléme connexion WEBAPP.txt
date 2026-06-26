@@ -1,0 +1,67 @@
+
+Verifier dans un 1er temps la connexion sur " http://parva4004775:9091/admin/secure/logon.do " 
+
+Onglet:
+
+Ressources --> Fournisseurs JDBC ---> Oracle JDBC Provider for srv_u40041_ptcom_algerie_b > 
+
+
+Selectionner le bon environnement puis cliquer sur " Tester la connexion ".
+
+
+
+
+Ensuite Aller sur la préprod atlas concernée:
+
+
+se connecter su - atlas puis choisir l'envorinnoment concerné:
+
+aller dans  " /apps/oracle/network/admin ":
+
+
+{parva4000642} (atlas) {Environnement de Maintenance 4 - sa18} /apps/oracle/network/admin$ ls -ltr
+
+-rwxrwxr-x    1 oracle   dba            3089 Mar 26 2009  listener.ora.23122009
+-rwxrwxr-x    1 oracle   dba            3186 Dec 23 2009  listener.ora.03022010
+-rwxrwxr-x    1 oracle   dba            5537 Dec 23 2009  tnsnames.ora.03022010
+-rwxrwxr-x    1 oracle   dba            3671 Feb  3 2010  listener.ora.31122010
+-rwxrwxr-x    1 oracle   dba            6793 May 31 2010  tnsnames.ora.19092011
+-rw-r--r--    1 oracle   dba              74 Dec 30 2010  listener_status
+-rwxrwxr-x    1 oracle   dba            3766 Dec 31 2010  listener.ora.19092011
+-rwxrwxr-x    1 oracle   dba            3862 Sep 19 2011  listener.ora_20120507
+-rwxrwxr-x    1 oracle   dba            7044 Sep 27 2011  tnsnames.ora.20120615
+-rwxrwxr-x    1 oracle   dba            3958 May  7 2012  listener.ora.20120615
+-rwxrwxr-x    1 oracle   dba            7295 Jun 15 2012  tnsnames.ora_20121205
+-rwxrwxr-x    1 oracle   dba            7545 Dec  5 11:38 tnsnames.ora_20130205
+-rw-r--r--    1 oracle   dba            7791 Feb  5 12:2
+-rwxrwxr-x    1 oracle   dba            7792 Feb  5 12:24 tnsnames.ora
+-rwxrwxr-x    1 oracle   dba            4245 Feb  5 12:41 listener.ora
+
+
+Verfier et modifier en rajoutant les information concernant l'environnement concernné:
+
+dans tnsnames.ora:
+
+atpsa18 =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = parva4000642)(PORT = 1526))
+      (ADDRESS = (PROTOCOL = TCP)(HOST = parva4000642)(PORT = 1521))
+    )
+          (CONNECT_DATA = (SID = atpsa18)
+          )
+
+
+dans listener.ora:
+
+
+ )
+   (SID_DESC =
+      (SID_NAME = atpsa18)
+      (ORACLE_HOME = /apps/oracle/product/920)
+    )
+
+
+
+Puis en fin, aller verifier l'url et la connexion.
+

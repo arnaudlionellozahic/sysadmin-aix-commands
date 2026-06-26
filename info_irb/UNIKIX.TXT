@@ -1,0 +1,54 @@
+Urgent : Lors des demande d'A/R du KIX il faut absolument être sure de savoir de quelle unikix dont ils parlent et qu'ils fournissent les raisons ?
+
+Voici la méthode pour BKOF/SIGO :
+
+Veuillez choisir l'environnement de programmes pour l'EAD
+1) sortie
+2) adoat|400|51
+3) orion|031|01
+4) ptcom|015|00
+5) evatl|001|00
+Votre choix ...2
+Schema de reference (A2_EAD)=R2875052180
+Entrer votre identifiant terminal Unikix ? :
+Voulez vous utiliser l interface graphique (n = default) ?
+Voulez-vous travailler dans l'environnement bank office (Y/N) [N] ? Y
+
+Vérifier que vous êtes bin dans la partie BKOF : 
+- Avec un cdk :
+PARVA4000625 => PRODUCTION COTE D IVOIRE - BURKINA FASO (atlas) /apps/atlas/atlas2v0/uf1 : cdk
+PARVA4000625 => PRODUCTION COTE D IVOIRE - BURKINA FASO (atlas) /apps/atlas/atlas2v0/uf1/data1_bkof/kix :
+
+- Puis, le port 26099 avec le kixok : 
+PARVA4000625 => PRODUCTION COTE D IVOIRE - BURKINA FASO (atlas) /apps/atlas/atlas2v0/uf1/data1_bkof/kix : testkix
+Cote_d_Ivoire_PROD : UNIKIX est actif ...
+PARVA4000625 => PRODUCTION COTE D IVOIRE - BURKINA FASO (atlas) /apps/atlas/atlas2v0/uf1/data1_bkof/kix : kixok
+Unikix n'est pas arrêté
+q 190840842 0x07048028 --rw-rw-rw- atlas atlas
+q 187695115 0x2b048028 --rw-rw-rw- atlas atlas
+q 189792268 0x25048028 --rw-rw-rw- atlas atlas
+(...)
+m 768608170 0x0f048028 --rw-rw-rw- atlas atlas
+m 562038710 0x1a048028 --rw-rw-rw- atlas atlas
+CAUTION: Unikix has been started by atlas, not by atlas!
+Le service reseau A2_KIX_PORTCLI (26099) toujours actif.
+tcp4 0 0 *.26099 *.* LISTEN
+atlas 6520948 1 0 Nov 24 - 0:01 unikixmain -F -Mt180M -Mc40M -S256M -j300 -TM -Q -DDN -P26099 -L10 -l /apps/unikix/t8.0.1/bin/sx4.0
+
+Effectuer l'A/R (l'erreur ci-dessous est normale) :
+kixstop
+kixok
+
+kixstart
+table SIT ok
+Unikix TNE non démarré : vérifiez vos paramètres A2_KIX_PORT et A2_KIX_TRANS
+
+
+
+
+
+PARVA4000633 => PROD ATLAS 2 REUNION SFDI (atlas)
+
+/apps/atlas/atlas2v0/uf1/site/bincics$kixtran -t cini
+
+10/17/2012 19:23:46 kxepifuncs  :[kixtran] CICS_EpiInitialize return code: CICS_EPI_ERR_FAILED

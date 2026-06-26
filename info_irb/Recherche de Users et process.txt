@@ -1,0 +1,78 @@
+
+ # Verifier les process qui travaillent dans un rep:
+----------------------------------------------------
+
+
+parva4000643 => PRE-PRODUCTION REUNION  (root) / : lsof -P | grep /apps/oradbf/atpr01  -----> ici dans "/atpr01"
+
+
+oracle    2293914  oracle   19u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   20u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   21u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   22uW VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   23u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   24u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   25u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   26u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+oracle    2293914  oracle   27u  VREG               40,9      1288490189100 5329754586964033536 /apps/oradbf/atpr01 (/dev/lv_atpr01)
+   |         |
+   |         |
+   |         ---->   N° process
+   |
+   ----> User utilisant le process, ici oracle mais aussi Id utilisateur.
+
+
+ 
+
+ # Afficher le process:
+-----------------------
+
+
+parva4000643 => PRE-PRODUCTION REUNION  (root) / : ps -ef | grep 2293914  ----> ici nous avons choisi un des process de liste au dessus
+
+
+  oracle 2293914       1   0 22:09:13      -  0:00 ora_lgwr_atpr01
+    root 5116100 1933362   0 12:26:07 pts/40  0:00 grep 2293914
+
+
+
+ # Liste le user en fonction de l'Id:
+-------------------------------------
+
+
+
+parva4000643 => PRE-PRODUCTION REUNION  (root) / : grep l907993 /etc/passwd ----> ici on veux savoir qui est "l907993"
+
+
+l907993:!:907993:0:Anis TARKHANI,:/home/l907993:/bin/ksh ----> l'Id l907993 c'est "Anis TARKHANI"
+
+
+
+ # Liste l'arboressence du user pour un process, du début à la fin:
+-------------------------------------------------------------------
+
+
+parva4000643 => PRE-PRODUCTION REUNION  (root) / : poctree 2293914 ----> ici on renseigne sur quel process
+
+
+
+
+ # Afficher tous les users connecté sur le serveur:
+---------------------------------------------------
+
+
+parva4000643 => PRE-PRODUCTION REUNION  (root) / : f ----> on peux aussi utiliser la commande "w" ou "who"
+
+
+Login                               Name              TTY Idle    When    Site Info
+l784008                          Stephane DULAC        p0    6:26 Thu 12:06  2 8552
+l354970                          Nabil SABOUR          p5    6:26 Wed 20:17
+l867199                          Loubna PRUNET         p37   6:26 Mon 15:17
+l354971                          Mourad LIMOUNI        p38   6:26 Mon 15:22  ,,
+l354971                          Mourad LIMOUNI        p41   6:26 Mon 15:40  ,,
+l907993                          Anis TARKHANI         p40        Wed 16:51
+l544728                          Arumugam VEDANAYAGAM  p45     39 Mon 16:08
+
+
+
+

@@ -1,0 +1,32 @@
+
+
+Arrêt listener :
+
+cd $TNS_ADMIN
+
+Coté infocentre :
+/apps/oracle/network/admin$ lsnrctl @listener_stop_LISTENER
+
+Coté Atlas:
+/apps/oracle/network/admin$lsnrctl @listener_stop 
+
+Sur les autres applis :
+/apps/oracle/network/admin$ lsnrctl stop LISTENER
+
+
+
+relance listener :
+
+cd $TNS_ADMIN
+
+Coté infocentre :
+/apps/oracle/network/admin$ lsnrctl @listener_start_LISTENER
+
+Coté Atlas:
+/apps/oracle/network/admin$lsnrctl @listener_start 
+
+Sur les autres applis :
+/apps/oracle/network/admin$ lsnrctl start LISTENER
+
+
+On remplace status par start pour avoir le status

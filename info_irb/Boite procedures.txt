@@ -1,0 +1,565 @@
+Tache reccurentes de la boite :
+-------------------------------
+
+-> Classement des mails
+-> Gestion des comptes (ajout / reinitialisation / prolongations)
+-> Verifications et modifications des calendrier (sous TNG, sous Atlas/Infocentre et BNPinet)
+
+-> Redemarrage ou Incidens TNG
+
+-> Problème de TP
+-> Problème de Web app / Redémarrage de Webapp + SVI MAROC
+
+-> Problème d'impressions
+
+-> Récupération Log websphere
+-> Recuperation log carte One-shot 3Tiers
+
+-> Suivi des Fresh Copy
+-> Vérifier une fresh copy
+-> Bloquer ou re-activer une fres-copy
+
+
+Applis :
+--------
+
+-> WEBDOC - DOCUBASE - PRINT :
+
+- On ne gère pas la partie websphere de la Lybie (envoyer aux GPMX pour réattribution)
+
+##########################################################################################################
+##########################################################################################################
+
+
+Réinitialisation de mot de passe :
+----------------------------------
+
+Nous prenons en charge les comptes de certaines machines de dev :
+
+ATLDSI		parva1000543
+INFOSI/GcLOsI	parva1010587
+INFDSI		
+
+
+Ces machines sont sous Etac, mais du a des incompatibilités avec leurs application (dont PACBASE) nous crée encore des comptes sur cette machine.
+Ces comptes ont tous une durée limite de validité dans le temps, et il arrive fréquement que l'on nous demande la prolongation d'un compte ou alors la modification du mot de passe/
+
+-----------------------------------
+
+Demande type :
+
+
+Bonjour,
+
+Est-il possible de me réinitialiser mon mdp sur atldsi svp ?
+
+login : i645012
+
+Cdt, 
+
+Fama Ndaw
+
+-----------------------------------
+
+# gesuser
+
+
+======================================
+         GESTION  DES  UTILISATEURS
+    Vous etes connecte sur: parva1000543
+======================================
+
+
+1 )      Creation d'un user
+2 )      Modification d'un user
+3 )      Prolongation d'un user
+4 )      Consultation informations d'un user
+5 )      Vérouillage/Déverrouillage d'un user
+6 )      Quitter
+
+rentrer votre choix:
+
+
+On prend le choix 3 pour prolonger la validité du compte  du demandeur.
+
+
+==============================================
+========== Prologation d'un utilisateur ======
+==== Vous etes connecte sur: parva1000543 ====
+==============================================
+
+
+Veuillez entrer l'identifiant du user a prolonger (ex: i915234) : i645012
+La date d'expiration actuelle du user Fama Ndaw idf: i645012 est le : 01/11/13
+Voulez vous vraiment prolonger le user ? Confirmez en tapant [O/o] : o
+Durée de la prolongation en MOIS (par défaut: 6 mois maximum 9 mois a partir de la date du jour)?:
+
+
+###################################################################################################
+###################################################################################################
+### Prolongement du user Fama Ndaw i645012 jusqu'au 01/04/14 réalisé avec succès ###
+###################################################################################################
+###################################################################################################
+root@parva1000543:
+/
+
+Pour réinitialiser le mot de passe du demandeur, on utilise la commande suivante :
+
+# delock_user i645012
+Le user n'est pas locked => On continue
+Trop de tentatives de connexions infructeuses (07)) => Corrigé
+Voulez-vous reinitialiser le password de i645012 (o/n)?o
+Password reinitialisé
+root@parva1000543:
+/
+#
+
+Dans le cas ou le mail est incomplet et que l'on a pas l'identifiant de la personne, ou un identifiant sans lettre devant,
+on peut chercher dans les comptes existant de la machine afin de retrouver l'information :
+
+
+# grep 645012 /etc/passwd
+i645012:!:645012:501:Fama Ndaw xxxx xxxxx fama.ndaw@externe.bnpparibas.com:/apps/home/i645012:/usr/bin/ksh
+root@parva1000543:
+/
+# grep -i fama /etc/passwd
+i645012:!:645012:501:Fama Ndaw xxxx xxxxx fama.ndaw@externe.bnpparibas.com:/apps/home/i645012:/usr/bin/ksh
+root@parva1000543:
+/
+#
+
+
+
+##########################################################################################################
+##########################################################################################################
+
+Creation de user :
+------------------
+
+
+1) Généralement les demandes d'ajout de compte arrive sous cette forme :
+
+
+###########################
+Bonjour,
+
+Les comptes Pacbase et Report K941895 ont été créés pour l'utilisateur/trice MOREIRA R Roberto.
+Merci à l'équipe MEO IRB de créér sur les  machines ci-dessous les comptes associés K941895 en prenant le compte K137885 comme exemple :
+
+	parva1010587 (INFOSI)
+# id k137885
+uid=137885(k137885) gid=556(bfilsi)
+
+
+Cordialement,
+Equipe TMA PAC
+###########################
+
+Quand un utilisateur sur lequel prendre exemple n'est pas fourni, il faut en demander un
+
+2) On se connecte sur la machine spécifié et on lance gesuser :
+
+root@parva1010587:/$ gesuser
+
+
+======================================
+         GESTION  DES  UTILISATEURS
+    Vous etes connecte sur: parva1010587
+======================================
+
+
+1 )      Creation d'un user
+2 )      Modification d'un user
+3 )      Prolongation d'un user
+4 )      Consultation informations d'un user
+5 )      Vérouillage/Déverrouillage d'un user
+6 )      Quitter
+
+rentrer votre choix:
+
+
+On selectionne le choix 4 afin de récupéré des informations sur le user que l'on nous a fournis en exemple :
+
+--------------------------------------------
+Choisissez le matricule concerné (sur parva1010587):k137885
+
+
+Et on concerve dans un bloc note les informations fourni :
+
+--------------------------------------------
+Choisissez le matricule concerné (sur parva1010587):k137885
+--------------------------------------------
+Matricule :      k137885
+Nom :            BOURLET
+Prenom :         Stephane
+Tel :            76122
+Machine :        XXXXX
+Mail :           stephane.bourlet@bnpparibas.com
+
+Expiration :     0101000014
+Lock :           false
+Home :           /apps/home/k137885
+Su :             true
+Login :          true
+
+Groupe primaire :        bfilsi
+Groupes secondaires :    bfilsi
+--------------------------------------------
+
+
+3) On retourne sur le menu on on sélectionne le choix 1 pour créer un compte :
+
+
+==============================================
+========== Creation d'un utilisateur =========
+==== Vous etes connecte sur: parva1010587 ====
+==============================================
+
+
+i + idf => DSI Paris
+s + mat => DSI Casablanca
+k + idf => Métier BFICB-SFDI
+v + mat => VIVEO Nantes
+u + mat => UNILOG Bordeaux
+d + mat => SDP
+
+
+Veuillez entrer la lettre correspondante a l equipe ci-dessus suivi de l identifiant (ex: i915234) : k941895
+
+
+On spécifie le nom du groupe primaire, puis les groupes primaire comme pour l'utilisateur donné en exemple :
+
+Veuillez entrer le nom du groupe principal auquel appartient le user (un des groupes ci-dessus) : bfilsi
+Veuillez entrer le nom des groupes secondaires separes par des virgules (ex : sys,viveo,staff) : bfilsi
+
+
+On garde le home directory donné en exemple (copié-collé) :
+
+Veuillez entrer le home directory du user (ex : /apps/home/k941895) : /apps/home/k941895
+
+
+On fournis les informations demandé (pas obligatoire en dehors du nom) :
+
+Veuillez entrer la description de la forme suivante : NOM prenom tel poste adresse_mail (ex :BITTA Gilbert 75670 PARW00087470 gilbert.bitta@externe.bnpparibas.com) : MOREIRA R_Roberto
+
+
+Puis on fourni la date d'expiration du compte (6 mois) :
+
+Veuillez entrer la date d expiration du user en respectant la syntaxe MMJJHHMMAA (ex : pour le 15/08/2007 a 16:45 taper 0815164507) : 0401100014
+User k941895 cree avec succes
+root@parva1010587:/$
+
+
+4) On fait un retour au demandeur :
+
+
+Bonjour,
+
+Votre compte k941895 a été crée avec le mot de passe par défault atlas
+
+Cordialement
+
+
+##########################################################################################################
+##########################################################################################################
+
+Fichier PTAUX
+-------------
+
+Une fois par mois, on nous demande de transférer sur les machines de production ATLAS un fichier "PTAUX" :
+
+
+Le fichier nous est envoyé par mail ou par ticket ARS :
+
+"Bonjour, 
+ Ci-joint, le fichier Ptaux à intégrer pour le traitement OASIS sur les données de Septembre 2013"
+
+
+1) Après avoir enregistré ce fichier sur nos ordinateur, on le transfert en ftp dans nos répertoire HOME sur la machine Atlas Prod concerné.
+Il est important d'effectuer le transfert en mode ASCII.
+
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+ls -ltr /home/l877468
+total 34
+-rw-r-----    1 l877468  system        17325 Oct  1 10:06 PTAUX
+
+
+2) On copie le fichier dans $A2_FIC sur la machine :
+
+- On se connecte en atlas et on se place dans le répertoire fic :
+
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+cdf
+
+
+- On vérifie qu'un fichier PTAUX n'existe pas, et si oui on le sauvegarde :
+
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+ls -ltr PTAUX
+-rwxrwxr-x    1 atlas    atlas         17550 Sep  2 12:27 PTAUX
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+cp -p PTAUX PTAUX_20131001
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+
+- On copie le fichier, en utilisateur root, puis on lui met les bons droit et propriétaires :
+
+PARVA4001843 => PRODUCTION Senegal (root) /apps/atlas/atlas2v0/uf1/data1/fic :
+mv /home/l877468/PTAUX .
+PARVA4001843 => PRODUCTION Senegal (root) /apps/atlas/atlas2v0/uf1/data1/fic :
+ls -ltr PTAUX
+-rw-r-----    1 l877468  system        17325 Oct  1 10:06 PTAUX
+PARVA4001843 => PRODUCTION Senegal (root) /apps/atlas/atlas2v0/uf1/data1/fic :
+chmod 777 PTAUX
+PARVA4001843 => PRODUCTION Senegal (root) /apps/atlas/atlas2v0/uf1/data1/fic :
+chown atlas:atlas PTAUX
+PARVA4001843 => PRODUCTION Senegal (root) /apps/atlas/atlas2v0/uf1/data1/fic :
+
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+ls -ltr PTAUX
+-rwxrwxrwx    1 atlas    atlas         17325 Oct  1 10:06 PTAUX
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+
+3) On fait une réponse par mail :
+
+"Bonjour,
+
+Le fichier PTAUX a été transféré sur la machine :
+
+PARVA4001843 => PRODUCTION Senegal (atlas) /apps/atlas/atlas2v0/uf1/data1/fic :
+ls -ltr PTAUX
+-rwxrwxrwx    1 atlas    atlas         17325 Oct  1 10:06 PTAUX
+
+Cordialement"
+
+
+##########################################################################################################
+##########################################################################################################
+
+Redémarrage TNG
+---------------
+
+Lorque que TNG n'ait plus disponible sur un site de PRE-PRODUCTION (jamais sur la production, pour cela on crée un ticket), on peut redémarrer UNICENTER :
+
+1) Type de demande par mail :
+
+"Bonjour ,
+
+TNG n'est pas opérationnel sur la machine Maroc.
+
+Merci de voir
+
+apps/atlas/atlas2v0/v14/data1/imp$ 
+cautil sub tjob id=jvcdFT14,jvmvcd,01
+Remote identifier = 4001876 UNIX_CMDS    
+CCI inquiry reveals no occurrences with this session id, check CAISCHD0005 value
+, or for workload to be inactive 
+CAU9UAC - Cannot communicate with CAU9LCS daemon
+{parva4001876} (atlas) {Environnement de qualif des DACs
+
+Cordialement
+STT"
+
+2) Relance de TNG :
+
+En user root :
+
+parva4001876 => Pre PRODUCTION Maroc  (root) / :
+unicntrl stop all
+
+
+-> Verifier si il y a des process /apps/unicenter/EM*
+
+ps -ef | grep /apps/unicenter/EM
+
+
+Redémarrage :
+
+parva4001876 => Pre PRODUCTION Maroc  (root) / :
+unicntrl start all
+
+!!!!!!! IMPORTANT !!!!!!!!!!!!
+
+*PENSER A REDEMARRER L'AUTOSUB*
+
+parva4001876 => Pre PRODUCTION Maroc  (root) / :
+cautil start autosub
+
+
+Si la commande rend une erreur, il faut attendre quelques minutes et la relancer.
+
+
+##########################################################################################################
+##########################################################################################################
+
+Problèmes Kix :
+---------------
+
+{parva4001876} (atlas) {Environnement V410 - v24}
+/apps/atlas/atlas2v0/v24$
+kixtran -t aa01
+
+
+
+
+KIX0370T           Transaction AA01  not found in PCT
+
+--------
+
+Il y a un manque au niveau du fichier PCT, on va donc le recréer avec la commande :
+
+
+
+{parva4001876} (atlas) {Environnement V410 - v24}
+/apps/atlas/atlas2v0/v24/data1/kix$
+ls -ltr
+total 9224
+lrwxrwxrwx    1 atlas    atlas            43 Jul  9 13:29 tct.tbl -> /apps/exploit/outils/kixref80/40050/tct.tbl
+lrwxrwxrwx    1 atlas    atlas            43 Jul  9 13:29 ppt.tbl -> /apps/exploit/outils/kixref80/40050/ppt.tbl
+lrwxrwxrwx    1 atlas    atlas            43 Jul  9 13:29 fct.tbl -> /apps/exploit/outils/kixref80/40050/fct.tbl
+lrwxrwxrwx    1 atlas    atlas            43 Jul  9 13:29 dct.tbl -> /apps/exploit/outils/kixref80/40050/dct.tbl
+-rw-rw-rw-    1 atlas    atlas           396 Jul  9 13:30 plt.tbl
+-rw-rw-r--    1 atlas    atlas           248 Jul  9 13:31 sit.tbl
+-rw-rw-r--    1 atlas    atlas            83 Jul  9 13:31 parmvct
+
+
+On lance la commande pour avoir a nouveau le lien du fichier PCT :
+
+{parva4001876} (atlas) {Environnement V410 - v24}
+/apps/atlas/atlas2v0/v24/data1/kix$
+crelienkix
+Release Unikix 8.0.1adoat
+adoat  : 400.51
+orion  : 031.01
+ptcom  : 030.00
+rfper  : 020.00
+argos  : 010.01
+
+
+On vérifie dans le répertoire unikix (cdk) :
+
+{parva4001876} (atlas) {Environnement V410 - v24}
+/apps/atlas/atlas2v0/v24/data1/kix$
+ls -ltr
+total 9224
+(...)
+srwx------    1 atlas    atlas             0 Oct  4 12:32 kixpipe.3911856
+-rw-rw-r--    1 atlas    atlas         60023 Oct  4 12:32 unikixmain.log
+-rw-rw-r--    1 atlas    atlas          1015 Oct  4 12:32 dumpsi.log
+lrwxrwxrwx    1 atlas    atlas            43 Oct  4 12:33 tct.tbl -> /apps/exploit/outils/kixref80/40050/tct.tbl
+lrwxrwxrwx    1 atlas    atlas            48 Oct  4 12:33 ppt.tbl -> /apps/ead/FTG/R705569824/kixref/kixref80/ppt.tbl
+lrwxrwxrwx    1 atlas    atlas            48 Oct  4 12:33 pct.tbl -> /apps/ead/FTG/R705569824/kixref/kixref80/pct.tbl
+lrwxrwxrwx    1 atlas    atlas            48 Oct  4 12:33 fct.tbl -> /apps/ead/FTG/R705569824/kixref/kixref80/fct.tbl
+lrwxrwxrwx    1 atlas    atlas            43 Oct  4 12:33 dct.tbl -> /apps/exploit/outils/kixref80/40050/dct.tbl
+
+On redémarre le kix :
+
+{parva4001876} (atlas) {Environnement V410 - v24}
+/apps/atlas/atlas2v0/v24/data1/kix$
+kixstop
+{parva4001876} (atlas) {Environnement V410 - v24}
+/apps/atlas/atlas2v0/v24/data1/kix$
+kixstart
+Release Unikix 8.0.1
+table SIT ok
+
+On test :
+
+{parva4001876} (atlas) {Environnement V410 - v24}
+/apps/atlas/atlas2v0/v24/data1/kix$
+kixtran -t aa01
+
+              W     W  EEEEE  L      CCCCC   OOOO   M   M  EEEEE
+              W     W  E      L     C       O    O  MM MM  E
+              W     W  EEE    L     C       O    O  M M M  EEE
+               W W W   E      L     C       O    O  M   M  E
+                W W    EEEEE  LLLLL  CCCCC   OOOO   M   M  EEEEE
+
+
+                                oooo   n    n
+                               o    o  n n  n
+                               o    o  n  n n
+                                oooo   n    n
+
+
+       A         TTTTTTTT   LL              A          SSSSSS          222222
+      A A           TT      LL             A A        SS              22    22
+     AA AA          TT      LL            AA AA       SS                    22
+    AA   AA         TT      LL           AA   AA       SSSSSS             22
+   AAAAAAAAA        TT      LL          AAAAAAAAA           SS          22
+  AA       AA       TT      LL         AA       AA          SS        22
+ AA         AA      TT      LLLLLLL   AA         AA    SSSSSS         22222222
+Enter your terminal identifier : ____
+                         F4
+
+
+10/04/2013 12:34:31 kxepifuncs  :[kixtran]: CICS_EpiDelTerminal TermIndex - 0 return code: CICS_
+
+
+----------------------------------------
+
+Redemarrage SVI Maroc
+---------------------
+
+SVI est le service de consultation en ligne 
+
+
+----------------------------------------
+
+Pouvez vous nous donner les traces de deux cartes COS sur la Production Antilles le 13/11/2012 :
+
+Voici les numéros des deux cartes :
+
+-9250002205000027123
+-9250002205000068028
+
+
+Récupérer l’archive des access.log à la date indiqué :
+cdihs 
+
+
+
+
+------------------------------------------
+
+parva4000643 => PRE-PRODUCTION REUNION  (root) / :
+cd /apps/meoatlas2/outils/CPP1
+parva4000643 => PRE-PRODUCTION REUNION  (root) /apps/meoatlas2/outils/CPP1 :
+ls -ltr
+total 96
+drwxrwxrwx    6 oracle   dba             512 Jun 30 2010  base
+drwxrwxrwx    2 atlas    atlas           512 Mar 30 2012  script
+drwxrwxrwx    2 atlas    atlas           512 May 23 2013  jcl_TF
+drwxrwxrwx    2 atlas    atlas           512 Jun 26 15:12 unicenter
+drwxrwxrwx    2 atlas    atlas          1024 Jul 25 11:20 jcl
+drwxrwxrwx    2 atlas    atlas         16896 Nov 29 14:00 imp
+drwxrwxrwx    2 atlas    atlas           512 Nov 29 14:00 tmp
+drwxr-xr-x    2 atlas    atlas           512 Nov 29 14:00 fic
+parva4000643 => PRE-PRODUCTION REUNION  (root) /apps/meoatlas2/outils/CPP1 :
+cd script
+parva4000643 => PRE-PRODUCTION REUNION  (root) /apps/meoatlas2/outils/CPP1/script :
+ls -ltr
+total 16
+-rwxr-xr-x    1 root     system          898 Nov 12 2009  CheckLanceur
+-rwxrwxr-x    1 root     system         1238 Mar  9 2012  HoldEnvRef_TF
+parva4000643 => PRE-PRODUCTION REUNION  (root) /apps/meoatlas2/outils/CPP1/script :
+./HoldEnvRef_TF
+Situation Actuelle :
+-------------------
+Rafraichissement  de l'environnement de reference est actif
+
+Voulez vous holder l'environnement de reference ? (o/n)
+Repondre par O/o pour oui, N/n pour non :  [N]
+O
+Bye Bye
+you have mail in /usr/spool/mail/root
+parva4000643 => PRE-PRODUCTION REUNION  (root) /apps/meoatlas2/outils/CPP1/script :
+./HoldEnvRef_TF
+Situation Actuelle :
+-------------------
+Rafraichissement  de l'environnement de reference est actif
+
+Voulez vous holder l'environnement de reference ? (o/n)
+Repondre par O/o pour oui, N/n pour non :  [N]
+N
+Bye Bye
+parva4000643 => PRE-PRODUCTION REUNION  (root) /apps/meoatlas2/outils/CPP1/script :

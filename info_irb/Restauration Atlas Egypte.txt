@@ -1,0 +1,257 @@
+RESTAURATION EGYPTE:
+####################
+
+
+
+Commencer par verfier le nom du robot sur timefinder:
+
+  - Se connecter sur timefinder en root.
+
+  - # . cenv
+
+  - # cdi
+
+  - # ls -ltr JADSM*
+
+  - # cat JADSM1.....  ----> faire un cat de la derniere log
+
+Il ne reste plus qu'a lire le nom du robot utilisé pour la sauvegarde
+
+
+
+
+
+
+1> RECUPERER L'ARCHIVE BASE DE DONNEE:
+--------------------------------------
+
+
+
+lancer cette commande pour lister archives existante:
+
+
+dsmc q ar -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/atpr01*20120912*"
+
+
+Résulat:  
+
+
+Size  Archive Date - Time    File - Expires on - Description
+             ----  -------------------    -------------------------------
+49,578,303,665  B  09/01/12   01:56:17    /ficsav/parva4004789/avant/atpr01.20120831.195108.tgz 10/31/12   bcv1_20120901
+
+
+récuper /ficsav/parva4004789/avant/atpr01.20120831.195108.tgz pour l'integrer à la commande dsmc suivante
+qui permettra d'aller récuperer l'archive dans le rep /ANIS:
+
+
+dsmc ret  -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/atpr01.20120912.034746.tgz" /apps/proviSENE/ZAG/
+
+
+
+2> RECUPERER LES ARCHIVES FIC:
+------------------------------
+
+
+Lancer cette commande pour lister archives existante/
+
+
+dsmc q ar -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/FIC*20120912*"
+
+
+Résultat:
+
+             Size  Archive Date - Time    File - Expires on - Description
+             ----  -------------------    -------------------------------
+11,411,368,462  B  09/01/12   04:20:50    /ficsav/parva4004789/avant/FIC.JSAVF1.20120831.195108.tar.Z 10/31/12   bcv1_20120901_
+
+ 8,324,302,007  B  09/01/12   03:56:12    /ficsav/parva4004789/avant/FIC.JSAVF2.20120831.195108.tar.Z 10/31/12   bcv1_20120901_
+
+
+récuperer /ficsav/parva4004789/avant/FIC.JSAVF1.20120831.195108.tar.Z 
+          /ficsav/parva4004789/avant/FIC.JSAVF2.20120831.195108.tar.Z
+
+
+
+dsmc ret  -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/FIC.JSAVF1.20120912.034747.tar.Z" /apps/proviSENE/ZAG/apres/
+
+
+dsmc ret  -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/FIC.JSAVF2.20120912.034746.tar.Z" /apps/proviSENE/ZAG/apres/
+
+
+
+3> RECUPERER LES ARCHIVES COMPOSANT:
+------------------------------------
+
+Lancer cette commande pour lister archives existante/
+
+
+dsmc q ar -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/ENV*20120912*"
+
+
+Résultat:
+
+          Size  Archive Date - Time    File - Expires on - Description
+             ----  -------------------    -------------------------------
+   765,676,602  B  09/01/12   08:38:05    /ficsav/parva4004789/apres/ENV_ATLAS.20120901.031300.tgz 10/31/12   bcv2_20120901_
+     1,407,157  B  09/01/12   08:38:04    /ficsav/parva4004789/apres/ENV_FOCUS.20120901.031300.tgz 10/31/12   bcv2_20120901_
+   118,641,529  B  09/01/12   09:07:01    /ficsav/parva4004789/apres/ENV_LOANS.20120901.031300.tgz 10/31/12   bcv2_20120901_
+    76,819,795  B  09/01/12   09:10:51    /ficsav/parva4004789/apres/ENV_ORION.20120901.031300.tgz 10/31/12   bcv2_20120901_
+
+
+récuperer /ficsav/parva4004789/apres/ENV_ATLAS.20120901.031300.tgz
+	  /ficsav/parva4004789/apres/ENV_FOCUS.20120901.031300.tgz
+	  /ficsav/parva4004789/apres/ENV_LOANS.20120901.031300.tgz
+
+
+
+Pour récuperer tous les composants en meme temps:
+-------------------------------------------------
+
+dsmc ret -pi -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/ENV*.20120912.0347*.tgz" /apps/proviSENE/ZAG/apres/
+
+
+
+
+Sinon manuellement:
+-------------------
+
+
+
+dsmc ret  -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/ENV*20120904*" /ficsav/EQUIPE_MEO/ANIS
+
+
+dsmc ret  -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/ENV_ATLAS.20120912.034746.tgz" /apps/proviSENE/ZAG/
+
+
+dsmc ret  -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/ENV_ORION.20120904.122319.tgz" /ficsav/EQUIPE_MEO/ANIS/
+
+
+dsmc ret  -se=TSM-EMEA-VAUZ -virtualnodename=parva4004782 -password=parva4004782 "/ficsav/parva4004789/apres/ENV_ORION.20120901.031300.tgz" /ficsav/EQUIPE_MOE/ANIS/PARDEM000629561/
+
+
+
+
+
+4> RESTAURATION DE LA BASE:
+---------------------------
+
+
+
+Toutes les base en Préprod doivent être en noarchive. 
+
+Sinon elle peuvent se figer : 
+
+{parva4000639} (atlas) {Developpement Site - BICI - Cote d Ivoire/Burkina Faso - sa4}
+/apps/atlas/atlas2v0/sa4$sqlplus '/as sysdba'
+SQL> archive log list
+mode Database log              mode Archive
+Archivage automatique             Désactivé
+
+/apps/atlas/atlas2v0/sa4$o_stop.sh atpsa4
+
+Vérifier : ps -ef |grep atpsa4
+
+/apps/atlas/atlas2v0/sa4$o_start.sh atpsa4 noarchive
+/apps/atlas/atlas2v0/sa4$sqlplus '/as sysdba'
+SQL> archive log list
+mode Database log              mode No Archive
+Archivage automatique             Désactivé
+
+
+
+
+  - Connectez-vous dans l’environnement cible (su – atlas, choix xx)
+
+  - Arrêtez unikix s’il est démarré (kixok , puis kixstop)
+
+  - Passer oracle (sesu root ; su oracle)
+
+  - Lancer l’outil de clonage, puis répondre aux questions
+
+    cd /apps/meoatlas2/outils
+
+    ./clonage.sh
+
+
+    Entrer la base Source [si different de atpr01]: 
+    Entrer la base Cible: atpsa2
+    Entrer Le chemin complet de l'archive de la base: /ficsav/EQUIPE_MOE/ANIS/PARDEM000629561/atpr01.20120831.195108.tgz
+
+
+Corriger le fichier cloner.sql.atpr04:
+
+     cd /ficsav/EQUIPE_MEO/ANIS/PARDEM000631654 ; vi cloner.sql.atpr04
+
+     export ORACLE_SID=atpr04
+
+     sqlplus '/ as sysdba'
+
+     shutdown abort;
+
+     @cloner.sql.atpr04;
+
+
+
+--------------------------- Verifications: -----------------------------
+1. Executer Requete sql pour verfier si fichiers MISSING (Cf doc clonage)
+2. Se connecter dans l'envt cible et verifier le resultat de atldat
+
+*** Ne pas oublier de lancer le CRYPTAGE de la base atdsa8 ***
+
+5> RESTAURATION DES FIC:
+------------------------
+
+
+  - Aller dans:    
+
+          /apps/atlas/atlas2v0/sd2/data1/
+
+  - Effacer le repertoire fic:
+
+          rm -rf fic
+
+  - Ensuite aller dans:
+
+         /apps/atlas/atlas2v0/sa8/data1/fic/ 
+
+  - Lancer le gtar:
+
+        gtar -xzvf /ficsav/EQUIPE_MOE/ANIS/PARDEM000631654/FIC.JSAVF1.20120820.143439.tar.Z && gtar -xzvf /ficsav/EQUIPE_MOE/ANIS/PARDEM000631654/FIC.JSAVF2.20120820.143439.tar.Z
+
+
+
+6> RESTAURATION DES COMPOSANTS:
+--------------------------------
+
+ 
+   . pour les composants atlas se connecter à l'environnement puis "su - atlas"
+
+    
+     dans /apps/atlas/atlas2v0/xxx 
+    faire la commande suivante #export AT_REP_ENV=$(ls|grep -vE "^data|^fic|lost|backup|ficsav|infoc")
+
+      vérifier avec un echo #echo $AT_REP_ENV
+      
+
+      puis effacer:  rm -rf $AT_REP_ENV
+
+    .  ensuite restaurer l'archive atlas dans ce répertoire.
+
+    .  pour orion ou ptcom , même chose mais dans le répertoire /apps/orion/031/xxx  (ou 020 ou 010, ça dépend de la version)
+                     						/apps/ptcom/010/xxx
+  
+
+
+Atlas
+gtar -xzvf /ficsav/EQUIPE_MOE/ANIS/PARDEM000631654/ENV_ATLAS.20120901.031300.tgz
+
+Orion
+gtar -xzvf /ficsav/EQUIPE_MOE/ANIS/PARDEM000631654/ENV_ATLAS.20120820.144545.tgz
+
+Focus
+gtar -xzvf /ficsav/EQUIPE_MEO/ANIS/PARDEM000631142/apres/ENV_FOCUS.20120904.122319.tgz
+
+Loans
+gtar -xzvf /ficsav/EQUIPE_MOE/ANIS/PARDEM000629561/ENV_LOANS.20120901.031300.tgz
+

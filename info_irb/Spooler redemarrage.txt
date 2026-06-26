@@ -1,0 +1,43 @@
+
+
+parva4000634 => PRODUCTION MAROC  (root) /:
+lssrc -g spooler
+Subsystem         Group            PID          Status
+ writesrv         spooler          7672010      active
+ lpd              spooler          7249982      active
+ qdaemon          spooler          5726302      active
+
+
+parva4000634 => PRODUCTION MAROC  (root) /:
+stopsrc -g spooler
+0513-044 The writesrv Subsystem was requested to stop.
+0513-044 The qdaemon Subsystem was requested to stop.
+0513-044 The lpd Subsystem was requested to stop.
+
+
+
+
+parva4000634 => PRODUCTION MAROC  (root) /:
+lssrc -g spooler
+Subsystem         Group            PID          Status
+ qdaemon          spooler          5726302      stopping
+ writesrv         spooler                       inoperative
+ lpd              spooler                       inoperative
+
+
+
+parva4000634 => PRODUCTION MAROC  (root) /:
+startsrc -g spooler
+0513-059 The writesrv Subsystem has been started. Subsystem PID is 4653192.
+0513-059 The lpd Subsystem has been started. Subsystem PID is 6820054.
+0513-029 The qdaemon Subsystem is already active.
+Multiple instances are not supported.
+
+
+
+parva4000634 => PRODUCTION MAROC  (root) /:
+lssrc -g spooler
+Subsystem         Group            PID          Status
+ qdaemon          spooler          5726302      stopping
+ writesrv         spooler          4653192      active
+ lpd              spooler          6820054      active

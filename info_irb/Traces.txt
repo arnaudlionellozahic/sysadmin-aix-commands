@@ -1,0 +1,66 @@
+
+
+PARVA4004793 =>  PROD ATLAS 2 LIBYE SFDI (root)
+/apps/matl/trace$ls -ltr *27.01.14*
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 00:55 login_27.01.14_00
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 01:55 login_27.01.14_01
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 02:55 login_27.01.14_02
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 03:55 login_27.01.14_03
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 04:55 login_27.01.14_04
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 05:55 login_27.01.14_05
+-rw-rw-rw-    1 l925372  atlas            18 Jan 27 06:28 l925372_pts7_27.01.14_06
+-rwxrwxrwx    1 cft      atlas           620 Jan 27 06:55 login_27.01.14_06
+-rw-rw-rw-    1 l572321  atlas           508 Jan 27 07:14 l572321_pts6_27.01.14_06
+-rw-rw-rw-    1 atlas    atlas          2388 Jan 27 07:18 l572321_pts6_27.01.14_07
+-rwxrwxrwx    1 cft      atlas           307 Jan 27 07:55 login_27.01.14_07
+-rwxrwxrwx    1 cft      atlas           224 Jan 27 08:55 login_27.01.14_08
+-rwxrwxrwx    1 cft      atlas           412 Jan 27 09:55 login_27.01.14_09
+-rwxrwxrwx    1 cft      atlas           357 Jan 27 10:55 login_27.01.14_10
+-rw-rw-rw-    1 l815291  atlas            24 Jan 27 11:46 l815291_pts3_27.01.14_
+-rwxrwxrwx    1 cft      atlas           413 Jan 27 11:55 login_27.01.14_11
+-rwxrwxrwx    1 cft      atlas           839 Jan 27 12:58 login_27.01.14_12
+-rwxrwxrwx    1 cft      atlas           412 Jan 27 13:58 login_27.01.14_13
+-rw-rw-rw-    1 l536417  atlas          2434 Jan 27 14:02 l536417_pts6_27.01.14_
+-rw-rw-rw-    1 l666390  atlas           496 Jan 27 14:08 l666390_pts9_27.01.14_
+-rw-rw-rw-    1 l487284  atlas           498 Jan 27 14:20 l487284_pts10_27.01.14
+-rw-rw-rw-    1 l536417  atlas          2680 Jan 27 14:38 l536417_pts6_27.01.14_
+-rwxrwxrwx    1 cft      atlas           826 Jan 27 14:55 login_27.01.14_14
+-rw-rw-rw-    1 l486468  atlas          2776 Jan 27 15:26 l486468_pts5_27.01.14_
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 15:55 login_27.01.14_15
+-rw-rw-rw-    1 l517332  atlas          2498 Jan 27 16:35 l517332_pts3_27.01.14_
+-rwxrwxrwx    1 cft      atlas           204 Jan 27 16:55 login_27.01.14_16
+-rw-rw-rw-    1 l666256  atlas           476 Jan 27 17:00 l666256_pts5_27.01.14_
+-rw-rw-rw-    1 l234834  atlas          2774 Jan 27 17:29 l234834_pts2_27.01.14_
+-rwxrwxrwx    1 cft      atlas           713 Jan 27 17:30 login_27.01.14_17
+-rw-rw-rw-    1 l907993  atlas           896 Jan 27 17:33 l907993_pts6_27.01.14_
+PARVA4004793 =>  PROD ATLAS 2 LIBYE SFDI (root)
+/apps/matl/trace$
+PARVA4004793 =>  PROD ATLAS 2 LIBYE SFDI (root)
+/apps/matl/trace$grep dspn  *27.01.14*
+l234834_pts2_27.01.14_09:
+l234834_pts2_27.01.14_09:
+l234834_pts2_27.01.14_09:
+l486468_pts5_27.01.14_12:
+l486468_pts5_27.01.14_12:
+l536417_pts6_27.01.14_13:
+l536417_pts6_27.01.14_13:
+l536417_pts6_27.01.14_13:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l536417_pts6_27.01.14_14:
+l907993_pts6_27.01.14_17:
+l907993_pts6_27.01.14_17:
+l907993_pts6_27.01.14_17:
+l907993_pts6_27.01.14_17:
+l907993_pts6_27.01.14_17:

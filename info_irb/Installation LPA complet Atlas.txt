@@ -1,0 +1,470 @@
+/////
+install GDI PARDEM555325 : sur parva4000627 : Prévu le 25/06/12
+--------------------------------------------------------
+.Pardem:
+
+Bonjour,
+
+Merci de bien vouloir installer la LPA n°166073 sur la machine de production ANTILLES.
+
+Cordialement,
+
+
+.REMEDY
+
+Creation PARCHG000273351 OK
+validation 2/2
+
+
+.Recup sous ATLDSI
+
+230 User l883933 logged in.
+ftp> bin
+200 Type set to I.
+ftp> prompt
+Mode interactif inactif.
+ftp> cd /apps/EnvoiParLigne/00013275
+250 CWD command successful.
+ftp> ls l-tr
+200 PORT command successful.
+550 l-tr: No such file or directory
+ftp> ls -ltr
+200 PORT command successful.
+150 Opening data connection for /bin/ls.
+total 30336
+-rw-rw-rw-   1 s527224  pck         1068195 May 15 11:31 ATL.ASA.PCK00.Z
+-rw-rw-rw-   1 s527224  pck          850013 May 15 11:31 ATL.ASA.PCF00.Z
+-rw-rw-rw-   1 s527224  pck         4384689 May 15 11:31 ATL.ASA.PCB00.Z
+-rw-rw-rw-   1 s527224  pck         1801948 May 15 11:31 ATL.ASA.PCA00.Z
+-rw-rw-rw-   1 s527224  pck         4714496 May 22 17:20 LPA166073-U400.51.exe
+-rw-rw-rw-   1 s527224  pck           72704 May 22 17:20 LPA-166073-U400.51-ANTILLES.doc
+-rw-rw-rw-   1 s527224  pck             945 May 22 17:20 Guide d'installation pct ppt LPA 166073.TXT
+-rw-rw-rw-   1 s527224  pck             342 May 22 17:20 ppt.lpa166073
+-rw-rw-rw-   1 s527224  pck              99 May 22 17:20 pct.lpa166073
+-rw-rw-rw-   1 s527224  pck             378 May 22 17:20 STRUCT.AJOUT
+-rw-rw-rw-   1 s527224  pck             468 May 22 17:20 tabrub.AJOUT
+-rw-rw-rw-   1 s527224  pck              69 May 22 17:20 tabtab.AJOUT
+-rwxrwxr--   1 s527224  pck         2600960 May 22 17:29 00013275.tar
+-rw-rw-r--   1 s527224  pck            3329 May 22 17:29 00013275_FR_note_install.txt
+-rw-rw-r--   1 s527224  pck            3121 May 22 17:29 00013275_EN_install_note.txt
+226 Transfer complete.
+ftp> mget *
+200 PORT command successful.
+150 Opening data connection for 00013275.tar (2600960 bytes).
+226 Transfer complete.
+2600960 octets reçus en 0.4212 secondes (6031 ko/s)
+local : 00013275.tar distant : 00013275.tar
+200 PORT command successful.
+150 Opening data connection for 00013275_EN_install_note.txt (3121 bytes).
+226 Transfer complete.
+3121 octets reçus en 0.003797 secondes (802.7 ko/s)
+local : 00013275_EN_install_note.txt distant : 00013275_EN_install_note.txt
+200 PORT command successful.
+150 Opening data connection for 00013275_FR_note_install.txt (3329 bytes).
+226 Transfer complete.
+3329 octets reçus en 4.7e-05 secondes (6.917e+04 ko/s)
+local : 00013275_FR_note_install.txt distant : 00013275_FR_note_install.txt
+200 PORT command successful.
+150 Opening data connection for ATL.ASA.PCA00.Z (1801948 bytes).
+226 Transfer complete.
+1801948 octets reçus en 0.2377 secondes (7402 ko/s)
+local : ATL.ASA.PCA00.Z distant : ATL.ASA.PCA00.Z
+200 PORT command successful.
+150 Opening data connection for ATL.ASA.PCB00.Z (4384689 bytes).
+226 Transfer complete.
+4384689 octets reçus en 1.397 secondes (3065 ko/s)
+local : ATL.ASA.PCB00.Z distant : ATL.ASA.PCB00.Z
+200 PORT command successful.
+150 Opening data connection for ATL.ASA.PCF00.Z (850013 bytes).
+226 Transfer complete.
+850013 octets reçus en 0.2778 secondes (2988 ko/s)
+local : ATL.ASA.PCF00.Z distant : ATL.ASA.PCF00.Z
+200 PORT command successful.
+150 Opening data connection for ATL.ASA.PCK00.Z (1068195 bytes).
+226 Transfer complete.
+1068195 octets reçus en 0.329 secondes (3171 ko/s)
+local : ATL.ASA.PCK00.Z distant : ATL.ASA.PCK00.Z
+200 PORT command successful.
+150 Opening data connection for Guide d'installation pct ppt LPA 166073.TXT (945 bytes).
+226 Transfer complete.
+945 octets reçus en 0.008474 secondes (108.9 ko/s)
+local : Guide d'installation pct ppt LPA 166073.TXT distant : Guide d'installation pct ppt LPA 166073.TXT
+200 PORT command successful.
+150 Opening data connection for LPA-166073-U400.51-ANTILLES.doc (72704 bytes).
+226 Transfer complete.
+72704 octets reçus en 0.03286 secondes (2160 ko/s)
+local : LPA-166073-U400.51-ANTILLES.doc distant : LPA-166073-U400.51-ANTILLES.doc
+200 PORT command successful.
+150 Opening data connection for LPA166073-U400.51.exe (4714496 bytes).
+226 Transfer complete.
+4714496 octets reçus en 0.7592 secondes (6064 ko/s)
+local : LPA166073-U400.51.exe distant : LPA166073-U400.51.exe
+200 PORT command successful.
+150 Opening data connection for STRUCT.AJOUT (378 bytes).
+226 Transfer complete.
+378 octets reçus en 0.008952 secondes (41.24 ko/s)
+local : STRUCT.AJOUT distant : STRUCT.AJOUT
+200 PORT command successful.
+150 Opening data connection for pct.lpa166073 (99 bytes).
+226 Transfer complete.
+99 octets reçus en 0.003541 secondes (27.3 ko/s)
+local : pct.lpa166073 distant : pct.lpa166073
+200 PORT command successful.
+150 Opening data connection for ppt.lpa166073 (342 bytes).
+226 Transfer complete.
+342 octets reçus en 4.1e-05 secondes (8146 ko/s)
+local : ppt.lpa166073 distant : ppt.lpa166073
+200 PORT command successful.
+150 Opening data connection for tabrub.AJOUT (468 bytes).
+226 Transfer complete.
+468 octets reçus en 3.9e-05 secondes (1.172e+04 ko/s)
+local : tabrub.AJOUT distant : tabrub.AJOUT
+200 PORT command successful.
+150 Opening data connection for tabtab.AJOUT (69 bytes).
+226 Transfer complete.
+69 octets reçus en 4.3e-05 secondes (1567 ko/s)
+local : tabtab.AJOUT distant : tabtab.AJOUT
+
+
+.Déplacement sous packages
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/matl/packages$cp /apps/matl/GDI/GDI166073/00013275.tar .
+
+
+
+.Installation
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/matl/packages$a2interf_env -i  00013275 -B
+
+
+-> pb de version
+
+.Retour dans la demande.
+Bonjour,
+
+Nous avons un message d'erreur nous indiquant une régression de version possible lors de l'installation du GDI.
+
+Test patch precedent
+f_confirmPatchNOK :
+        le patch du site ( SPATCH=51 )
+        n'est pas celui attendu ( 50 )
+Voulez vous continuer ?
+Repondre par O/o pour oui, N/n pour non :  [ N ]
+
+Doit-on continuer?
+
+
+Cordialement,
+
+
+-> Retour
+Bonjour,
+
+Merci de forcer l'installation, vous répondez par OUI et vous continuez.
+
+Merci de votre collaboration habituelle.
+
+
+Cordialement,
+
+
+.Verification
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/matl/packages$ a2interf -c 00000542 -m cat
+
+
+Les composants suivants vont etre livres depuis /apps/amelia/sessions/00000542/data/02/files vers /apps/atlas/atlas2v0/uf1 par atlas
+
+No GDI   Nom    T N  Date reception    Date livraison
+------ -------  - - ----------------- -----------------
+162258 CCW901A0 5 6 02446591 27/03/12 22/05/12 17:27:05 ==> OK
+162258 CCW912A0 5 6 02447713 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM0002 2 6 02446601 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM0003 2 6 02447718 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM0008 2 6 02446608 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM002 3 6 02446593 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00222 3 6 02446594 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00233 3 6 02446595 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00288 3 6 02446596 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM003 3 6 02447714 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00322 3 6 02447715 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00333 3 6 02447716 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00388 3 6 02447717 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM008 3 6 02446604 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00822 3 6 02446605 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00833 3 6 02446606 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00888 3 6 02446607 27/03/12 22/05/12 17:27:05 ==> OK
+2012.06.26 04:12 inst_comp: Step 8 terminé. OK.
+
+
+.Install pct et ppt
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/matl/GDI/GDI166073$chmod a+r *.lpa166073
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/matl/GDI/GDI166073$ls -ltr *.lpa166073
+-rw-rw-r--    1 atlas    atlas           342 Jun 25 06:06 ppt.lpa166073
+-rw-rw-r--    1 atlas    atlas            99 Jun 25 06:06 pct.lpa166073
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/matl/GDI/GDI166073$cdxk
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/exploit/outils/kixref80/40050$cp /apps/matl/GDI/GDI166073/*.lpa166073 .
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/exploit/outils/kixref80/40050$ls -ltr *.lpa166073
+-rw-rw-r--    1 atlas    atlas           342 Jun 26 04:19 ppt.lpa166073
+-rw-rw-r--    1 atlas    atlas            99 Jun 26 04:19 pct.lpa166073
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/exploit/outils/kixref80/40050$livpctppt ppt.lpa166073
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/exploit/outils/kixref80/40050$livpctppt ppt.lpa166073
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/exploit/outils/kixref80/40050$crepct
+EAD detected ....
+Release Unikix 8.0.1adoat
+adoat  : 400.51
+orion  : 031.01
+ptcom  : 015.01
+Info : Le fichier /apps/exploit/outils/kixref80/40050/pct.site detecte.
+Il sera utilise pour la creation de la table Unikix
+To generate .tbl from .lst
+pct.lst converted successfully to pct.tbl
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/exploit/outils/kixref80/40050$creppt
+EAD detected ....
+Release Unikix 8.0.1adoat
+adoat  : 400.51
+orion  : 031.01
+ptcom  : 015.01
+Info : Le fichier /apps/exploit/outils/kixref80/40050/ppt.site detecte.
+Il sera utilise pour la creation de la table Unikix
+
+List of Source ppt File(s) :
+----------------------------
+-rw-rw-r--    1 conv     a2instal      27944 Sep 10 2009  /apps/exploit/ead/orion/031/kixref/kixref80/ppt.lst
+-rwxrwxr-x    1 conv     conv          16212 Oct  5 2005  /apps/exploit/ead/ptcom/015/kixref/kixref80/ppt.lst
+-rw-rw-r--    1 atlas    atlas        264678 Jun 26 04:22 /apps/exploit/outils/kixref80/40050/ppt.lst
+-rw-rw-rw-    1 atlas    conv           3405 Jun 10 09:42 /apps/exploit/outils/kixref80/40050/ppt.site
+
+To generate .tbl from .lst
+ppt.lst converted successfully to ppt.tbl
+
+
+
+.Install LPA
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$cp tabtab.AJOUT tabtab.AJOUT_20120626
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$cp tabrub.AJOUT tabrub.AJOUT_20120626
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$cp STRUCT.AJOUT STRUCT.AJOUT_20120626
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$ls -ltr *.AJOUT*
+-rwxrwxr-x    1 atlas    atlas            68 Jun 10 10:12 tabtab.AJOUT
+-rwxrwxr-x    1 atlas    atlas           308 Jun 10 10:12 tabrub.AJOUT
+-rwxrwxr-x    1 atlas    atlas           248 Jun 10 10:12 STRUCT.AJOUT
+-rwxrwxr-x    1 atlas    atlas            68 Jun 26 04:32 tabtab.AJOUT_20120626
+-rwxrwxr-x    1 atlas    atlas           308 Jun 26 04:32 tabrub.AJOUT_20120626
+-rwxrwxr-x    1 atlas    atlas           248 Jun 26 04:32 STRUCT.AJOUT_20120626
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$cp /apps/matl/GDI/GDI166073/*AJOUT .
+
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$ls -ltr *.AJOUT*
+-rwxrwxr-x    1 atlas    atlas            68 Jun 26 04:32 tabtab.AJOUT_20120626
+-rwxrwxr-x    1 atlas    atlas           308 Jun 26 04:32 tabrub.AJOUT_20120626
+-rwxrwxr-x    1 atlas    atlas           248 Jun 26 04:32 STRUCT.AJOUT_20120626
+-rwxrwxr-x    1 atlas    atlas            69 Jun 26 04:34 tabtab.AJOUT
+-rwxrwxr-x    1 atlas    atlas           468 Jun 26 04:34 tabrub.AJOUT
+-rwxrwxr-x    1 atlas    atlas           378 Jun 26 04:34 STRUCT.AJOUT
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$UPDATE_STRUCT
+DEBUT TRAITEMENT / START PROCESSING
+EAD Detected
+/apps/atlas/atlas2v0/ficref/40050/STRUCT.400.51 GENERATION OK
+/apps/atlas/atlas2v0/ficref/40050/tabtab.400.51 GENERATION OK
+/apps/atlas/atlas2v0/ficref/40050/tabrub.400.51 GENERATION OK
+orion 031.01 : Nothing to do
+ptcom 015.01 : Nothing to do
+FIN TRAITEMENT / END PROCESSING
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$creunitab
+ CREUNITAB FOR EAD
+Info : Le fichier /apps/atlas/atlas2v0/ficref/40050/tabtab.DIN047.00 detecte.
+Info : Le fichier /apps/atlas/atlas2v0/ficref/40050/tabrub.DIN047.00 detecte.
+Info : Le fichier /apps/atlas/atlas2v0/ficref/40050/STRUCT.DIN047.00 detecte.
+/apps/exploit/ead/orion/031/gestab/tabtab.orion.031.01
+/apps/exploit/ead/orion/031/gestab/tabrub.orion.031.01
+/apps/exploit/ead/ptcom/015/gestab/tabtab.ptcom.015.01
+/apps/exploit/ead/ptcom/015/gestab/tabrub.ptcom.015.01
+DIN VERSION : DIN047.00
+DIN VERSION : DIN047.00
+Installation UNITAB version PTF 40050
+Entrer le mot de passe de l'utilisateur Oracle atlas [atlas] :
+Chargement termine anormalement (voir fichier /apps/atlas/atlas2v0/uf1/data1/jcl/o_creunitab.ead.log)
+Chargement termine
+Copie des programmes et des maps UNITAB version 2.0
+source : /apps/exploit/outilsora/binunitO920sx4.0
+Copie terminee
+
+
+
+.Message d'erreur
+.Copie de sauvegarde
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/fic$cp ATL.ASA.PCA00.Z ATL.ASA.PCA00.Z_20120626
+/apps/atlas/atlas2v0/uf1/data1/fic$cp ATL.ASA.PCF00.Z ATL.ASA.PCF00.Z_20120626
+/apps/atlas/atlas2v0/uf1/data1/fic$cp ATL.ASA.PCK00.Z ATL.ASA.PCK00.Z_20120626
+/apps/atlas/atlas2v0/uf1/data1/fic$cp ATL.ASA.PCB00.Z ATL.ASA.PCB00.Z_20120626
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/fic$ls -ltr ATL.ASA.PC*
+-rwxrwxr-x    1 atlas    atlas       1776113 Jun 10 08:29 ATL.ASA.PCA00.Z
+-rwxrwxr-x    1 atlas    atlas        848971 Jun 10 08:30 ATL.ASA.PCF00.Z
+-rwxrwxr-x    1 atlas    atlas       1064953 Jun 10 08:31 ATL.ASA.PCK00.Z
+-rwxrwxr-x    1 atlas    atlas       4337317 Jun 10 08:32 ATL.ASA.PCB00.Z
+-rwxrwxr-x    1 atlas    atlas       1776113 Jun 26 04:39 ATL.ASA.PCA00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas        848971 Jun 26 04:40 ATL.ASA.PCF00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas       1064953 Jun 26 04:40 ATL.ASA.PCK00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas       4337317 Jun 26 04:40 ATL.ASA.PCB00.Z_20120626
+
+
+-rwxrwxr-x    1 atlas    atlas       1776113 Jun 26 04:39 ATL.ASA.PCA00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas        848971 Jun 26 04:40 ATL.ASA.PCF00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas       1064953 Jun 26 04:40 ATL.ASA.PCK00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas       4337317 Jun 26 04:40 ATL.ASA.PCB00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas       1723755 Jun 26 04:56 ATL.ASA.PCA00.Z
+-rwxrwxr-x    1 atlas    atlas        848971 Jun 26 04:57 ATL.ASA.PCF00.Z
+-rwxrwxr-x    1 atlas    atlas       1064953 Jun 26 04:57 ATL.ASA.PCK00.Z
+-rwxrwxr-x    1 atlas    atlas       4337317 Jun 26 04:58 ATL.ASA.PCB00.Z
+
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/ficref/40050$cp ATL.ASA.PCA00.Z ATL.ASA.PCA00.Z_20120626
+/apps/atlas/atlas2v0/ficref/40050$cp ATL.ASA.PCK00.Z ATL.ASA.PCK00.Z_20120626
+/apps/atlas/atlas2v0/ficref/40050$cp ATL.ASA.PCF00.Z ATL.ASA.PCF00.Z_20120626
+/apps/atlas/atlas2v0/ficref/40050$cp ATL.ASA.PCB00.Z ATL.ASA.PCB00.Z_20120626
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/fic$ls -ltr ATL.ASA.PC*
+-rwxrwxr-x    1 atlas    atlas       1767639 Feb  5 05:34 ATL.ASA.PCA00.Z
+-rwxrwxr-x    1 atlas    atlas       1062414 Feb  5 05:34 ATL.ASA.PCK00.Z
+-rwxrwxr-x    1 atlas    atlas        847177 Feb  5 05:34 ATL.ASA.PCF00.Z
+-rwxrwxr-x    1 atlas    atlas       4335230 Feb  5 05:34 ATL.ASA.PCB00.Z
+-rwxrwxr-x    1 atlas    atlas       1767639 Jun 26 04:41 ATL.ASA.PCA00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas       1062414 Jun 26 04:41 ATL.ASA.PCK00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas        847177 Jun 26 04:41 ATL.ASA.PCF00.Z_20120626
+-rwxrwxr-x    1 atlas    atlas       4335230 Jun 26 04:42 ATL.ASA.PCB00.Z_20120626
+
+
+.Execution dasa90
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/fic$dasa90
+DASA90 - **************************************************************
+DASA90 - *               FIN NORMALE DU JOB DASA90                    *
+DASA90 - **************************************************************
+
+DASA90 - Fin de job 26/06/12 04:56:58 - 00:00:16 - RC = 0
+
+.Execution dasa91
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/fic$dasa91
+DASA91 - **************************************************************
+DASA91 - *               FIN NORMALE DU JOB DASA91                    *
+DASA91 - **************************************************************
+
+DASA91 - Fin de job 26/06/12 04:57:17 - 00:00:13 - RC = 0
+
+
+.Execution dasa92
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/fic$dasa92
+DASA92 - **************************************************************
+DASA92 - *               FIN NORMALE DU JOB DASA92                    *
+DASA92 - **************************************************************
+
+DASA92 - Fin de job 26/06/12 04:57:48 - 00:00:09 - RC = 0
+
+.Execution dasa93
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/fic$dasa93
+DASA93 - **************************************************************
+DASA93 - *               FIN NORMALE DU JOB DASA93                    *
+DASA93 - **************************************************************
+
+DASA93 - Fin de job 26/06/12 04:58:38 - 00:00:35 - RC = 0
+
+
+
+.Recreation des liens
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/imp$cpficref
+
+
+PARVA4000627 => PROD ATLAS 2 ANTILLES - GUYANE SFDI (atlas)
+/apps/atlas/atlas2v0/uf1/data1/imp$crelien
+
+
+
+.Retour dans la demande
+
+Bonjour,
+
+L'installation a été réalisée.
+
+Les composants suivants vont etre livres depuis /apps/amelia/sessions/00000542/data/02/files vers /apps/atlas/atlas2v0/uf1 par atlas
+
+No GDI   Nom    T N  Date reception    Date livraison
+------ -------  - - ----------------- -----------------
+162258 CCW901A0 5 6 02446591 27/03/12 22/05/12 17:27:05 ==> OK
+162258 CCW912A0 5 6 02447713 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM0002 2 6 02446601 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM0003 2 6 02447718 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM0008 2 6 02446608 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM002 3 6 02446593 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00222 3 6 02446594 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00233 3 6 02446595 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00288 3 6 02446596 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM003 3 6 02447714 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00322 3 6 02447715 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00333 3 6 02447716 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00388 3 6 02447717 29/03/12 22/05/12 17:27:05 ==> OK
+162258 IM008 3 6 02446604 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00822 3 6 02446605 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00833 3 6 02446606 27/03/12 22/05/12 17:27:05 ==> OK
+162258 IM00888 3 6 02446607 27/03/12 22/05/12 17:27:05 ==> OK
+2012.06.26 04:12 inst_comp: Step 8 terminé. OK.
+
+
+
+Cordialement,
+
+
+
+
+
+##################### FINI - OK ########################

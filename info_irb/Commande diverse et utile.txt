@@ -1,0 +1,6 @@
+
+
+Commande de listage et trie :
+-----------------------------
+
+ls -ltr | sort +4 -nr |grep -v Mar | head -20

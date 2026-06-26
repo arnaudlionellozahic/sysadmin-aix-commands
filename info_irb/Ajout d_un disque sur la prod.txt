@@ -1,0 +1,23 @@
+
+
+PARVA4000634 => PRODUCTION Maroc (atlas) /apps/exploit/shell/gestion :
+ls
+baie_parva4000634.lst  bcv2-r2.lst            bcv2.lst.old           disk.ksh               std.lst
+bcv1.lst               bcv2-r2.lst.old        cree_dg.ksh            disk_dispo             std.lst.old
+bcv1.lst.old           bcv2.lst               disk-attrib.ksh        maj-ADSM.ksh           testvg.ksh
+
+
+1)FAIRE UNE COPIE DE TOUT LES FICHIERS .lst
+bcv1.lst   bcv2.lst    std.lst     bcv2-r2.lst
+
+2)MODIFIER LES 4 FICHIER .lst EN AJOUTANT L'ID DU DISQUE VIA VI
+A ajouter en fin de fichier
+
+3)LANCER cree_dg.ksh
+
+4)LANCER maj-ADSM.ksh pour mettre a jour les ficheirs coté TimeFinder
+
+5)VERIFIER SUR LE SERVUR TIMEFINDER SI LA MAJ est ok
+DANS /apps/exploit/shell/dg/parva4000634
+
+Voila c'est terminé !!! 

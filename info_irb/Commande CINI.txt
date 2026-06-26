@@ -1,0 +1,14 @@
+Lors de livraison de composant, on peut nous demander de lancer la commande CINI sous UNIKIX, 
+il y a juste a lancer la commande ci-dessous sous atlas:
+
+
+PARVA4000633 => PROD ATLAS 2 REUNION SFDI (atlas)
+
+/apps/atlas/atlas2v0/uf1/site/bincics$ kixtran -t cini
+
+10/17/2012 19:23:46 kxepifuncs  :[kixtran] CICS_EpiInitialize return code: CICS_EPI_ERR_FAILED
+
+
+Le message s'erreur est lié au fait que unkix est arréter, mais rien d'alarmant,
+c'est juste que les composant livré en prod ne seront pas pris en compte immédiatement,
+et le seront lors du prochain reboot ( dans la nuit ).

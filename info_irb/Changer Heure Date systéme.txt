@@ -1,0 +1,69 @@
+
+Passer par smitty:
+
+
+
+Move cursor to desired item and press Enter.
+
+  Software Installation and Maintenance
+  Software License Management
+  Devices
+  System Storage Management (Physical & Logical Storage)
+  Security & Users
+  Communications Applications and Services
+  Workload Partition Administration
+  Print Spooling
+  Advanced Accounting
+  Problem Determination
+  Performance & Resource Scheduling
+  System Environments      <-------------------------------------------
+  Processes & Subsystems
+  Applications
+  Installation Assistant
+  Cluster Systems Management
+  Using SMIT (information only)
+
+
+
+Move cursor to desired item and press Enter.
+
+  Stop the System
+  Aix Security Expert
+  Assign the Console
+  Change / Show Date, Time, and Time Zone  <------------------------------
+  Manage Language Environment
+  Change / Show Characteristics of Operating System
+  Change / Show Number of Licensed Users
+  Broadcast Message to all Users
+  Manage System Logs
+  Change / Show Characteristics of System Dump
+  Change/Show Default Browser
+  Change System User Interface
+  Manage Remote Reboot Facility
+  Manage System Hang Detection
+
+
+
+Move cursor to desired item and press Enter.
+
+  Change / Show Date and Time    <------------------------------------------
+  Change Time Zone Using System Defined Values
+  Change Time Zone Using User Entered Values
+
+
+
+                                                                       Change / Show Day and Time
+
+Type or select values in entry fields.
+Press Enter AFTER making all desired changes.
+
+                                                        [Entry Fields]
+  YEAR (00-99)                                       [13]                                                                                                                                 #
+  MONTH (01-12)                                      [04]                                                                                                                                 #
+  DAY (01-31)                                        [30]                                                                                                                                 #
+
+  HOUR (00-23)                                       [11]                                                                                                                                 #
+  MINUTES (00-59)                                    [23]                                                                                                                                 #
+  SECONDS (00-59)                                    [54] 
+
+

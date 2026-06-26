@@ -1,0 +1,125 @@
+
+Installation GDI sans récupération du packages via atldsi :
+-----------------------------------------------------------
+
+
+
+
+
+PARVA4000632 => PRODUCTION Algerie (atlas) /apps/atlas/atlas2v0/uf1 : gdi_instal   -------> lancer le script 
+
+
+ Veuillez entrer le chemin absolu du GDI ou de la LPA ( sur atldsi): /apps/EnvoiParLigne/00015844  ---------> renseigner le chemin du packages
+
+
+ Veuillez entrer le numero de package: 00015844   ----------> renseigner le num. du packages
+
+
+
+ Veuillez entrer le nom du lanceur: lance_Alge   ---------> renseigner le nom du lanceur
+
+
+Puis ensuite répondre au différente questions comme d'habitude.
+
+
+
+
+
+
+
+
+########################################################################################################
+
+
+
+
+
+Pour une installation GDI en production verifier ce qui suit:
+
+
+En pré-prod: /apps/matl/packages§ls | grep [numero package]
+
+verifier si existant, sinon suspendre l'idelphe et demander l'installation en pré-prod.
+
+########################################################################################################
+
+
+
+1> ATTENTION TOUJOURS VERIFIER POUR L'INSTALLATION D'UN GDI EN PRODUCTION, SI DEJA INSTALLER EN PRE-PROD:
+
+  - Si pas installé en pré-prod, faire demande au demandeur,
+    sinon continuer le reste de la procédure.
+
+
+2> Aller dans le mail de livraison, puis verifier les infos suivantes:
+
+* N° GDI 
+* Destinataire
+* Version livrée > Version destinataire
+* Verifier qu'il n'y a qu'un package AMELIA de livré
+
+
+3> Créer un répertoire GDI+n°:
+
+  /apps/matl/GDI$mkdir GDIxxxxxx
+
+
+4> Récuperer le package:
+
+  - se connecter en root
+  - /apps/matl/GDI/GDI174014$ftp ATLDSI
+  - ftp>bin
+  - prompt
+  - ftp>cd /apps/EnvoiParLigne/n°package
+  - mget *
+  - une fois fini ftp>by
+
+5> Copie du .tar récuperer dans A2_PACKAGES:
+
+  - su - atlas
+  - choix: 2
+  - cp -p 00014301.tar $A2_PACKAGES   dans --->  /apps/matl/GDI/GDI173935
+
+6> Installation du GDI: ATTENTION NE PAS FAIRE PENDANT LA PERIODE DE SAUVEGARDE
+
+  - lancer AMELIA:
+
+  - a2interf_env -i 00014007 -B (-K)------> sur demande pour forcer l'installation.
+
+
+  - a2interf -i 00015000 -B -L lance_Mali ---------> autre type d'installation.
+
+
+7> Rapport Idelphe:
+
+  - /apps/matl/packages$a2interf -c 00000758 -m cat
+  - faire copie écran de :
+
+
+No GDI   Nom    T N  Date reception    Date livraison
+------ -------  - - ----------------- -----------------
+171498 EAP001 1 6 02582764 14/08/12 30/08/12 16:01:28 ==> OK
+2012.09.03 09:03 inst_comp: Step 8 terminé. OK.
+
+2012.09.03 09:03 inst_comp: Step 09 requis
+2012.09.03 09:03 inst_comp: Step 9 : test de présence des composants (testpres205).
+Test de presence des composants dans /apps/amelia/sessions/00000577/data/01/files
+2012.09.03 09:03 inst_comp: Step 9 terminé. OK.
+
+2012.09.03 09:03 inst_comp: Step 10 requis
+2012.09.03 09:03 inst_comp: Step 10: Copie des composants (copiecomp205).
+Copie de /apps/amelia/sessions/00000577/data/01/files/EAP001.scb.Z vers /apps/atlas/atlas2v0/uf1/src/.
+INFO : RCBACKUP=0 EAP001.scb.Z sauvegarde dans /apps/amelia/sessions/00000577/backup/apps/atlas/atlas2v0/uf1/src/EAP001.scb.Z
+INFO : RCINSTALL=0 EAP001.scb.Z installe dans /apps/atlas/atlas2v0/uf1/src/EAP001.scb.Z.
+ faite
+Copie de /apps/amelia/sessions/00000577/data/01/files/EAP001.gnt vers /apps/atlas/atlas2v0/uf1/binbtch/.
+INFO : RCBACKUP=0 EAP001.gnt sauvegarde dans /apps/amelia/sessions/00000577/backup/apps/atlas/atlas2v0/uf1/binbtch/EAP001.gnt
+INFO : RCINSTALL=0 EAP001.gnt installe dans /apps/atlas/atlas2v0/uf1/binbtch/EAP001.gnt.
+ faite
+2012.09.03 09:03 inst_comp: Step 10 terminé. OK.
+
+#########################################################################
+     Fin traitement de la session 00000577 par l'automate d'installation
+#########################################################################
+
+  - Copier dans le rapport de fin dans Idelphe.

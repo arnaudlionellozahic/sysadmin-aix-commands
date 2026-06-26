@@ -1,0 +1,46 @@
+Rajouter id pour connection environnement atlas:
+-------------------------------------------------
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/exploit/profiles/initenv/aut :
+ls -ltr
+total 144
+-r--r--r--    1 atlas    atlas            58 Jun 30 13:43 autorise_ml5.old
+-rwxrwxr-x    1 l649177  system           56 Sep  4 12:28 autorise_qc1
+-r--r--r--    1 atlas    atlas            96 Sep 18 12:17 autorise_sa9
+-rwxrwxr-x    1 atlas    atlas            48 Sep 21 07:20 autorise_sa7
+-rwxrwxr-x    1 atlas    atlas           797 Sep 21 07:33 autorise_sa14.sav
+-rwxrwxr-x    1 atlas    atlas            72 Sep 21 07:39 autorise_sa14
+-r--r--r--    1 atlas    atlas          6687 Oct  1 14:48 refuses_sa9
+-r--r--r--    1 atlas    atlas           675 Oct  2 15:56 refuses_sa7
+-rwxrwxr-x    1 atlas    atlas           120 Oct  4 06:40 autorise_sa12
+-r--r--r--    1 atlas    atlas          3195 Oct  5 08:01 refuses_sa12
+-r--r--r--    1 atlas    atlas          9760 Oct  5 08:43 refuses_qc1
+-r--r--r--    1 atlas    atlas          2322 Oct  5 08:51 refuses_sa14
+-r--r--r--    1 atlas    atlas           143 Oct  5 09:21 autorise_ml5
+-r--r--r--    1 atlas    atlas          6339 Oct  5 09:22 refuses_ml5
+
+
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/exploit/profiles/initenv/aut :
+cat autorise_ml5
+l139969
+etudes
+l865294
+l792491
+l412520
+l515655
+l797617
+l866949
+l376417
+l856387
+l453593
+l536415
+l886549
+l813911
+l536415
+l649177
+l907993
+l802946
+

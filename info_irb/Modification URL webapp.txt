@@ -1,0 +1,137 @@
+
+
+Modification du fichier sur le serveur Business: {parva4004775}
+------------------------------------------------
+
+Le fichier à modifier est le fichier « rmiServer.properties » qui se trouve dans le répertoire /apps/appliweb/site/evolan/loans_site_b.ear/setting (cds)
+
+
+{parva4004775} {Preprod RB Metier} {egypte - loans_eg_b - Pas_de_response_file} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_b.ear/setting$ ls -ltr
+total 32
+-rw-r--r--    1 was5     web            5831 May 29 11:38 rmiServer.properties_sa8
+-rw-r--r--    1 was5     web            5831 May 29 11:38 rmiServer.properties
+
+
+La variable « middleware.unikix.port » contient le numéro du port « TCP UniKix » de l’environnement sur lequel pointe la webapp.
+
+
+{parva4004775} {Preprod RB Metier} {egypte - loans_eg_b - Pas_de_response_file} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_b.ear/setting$ grep middleware.unikix.port rmiServer.properties
+
+middleware.unikix.port=56019 ---------> Port TCP unikix
+
+
+#	Dans le cas d’une demande de bascule du TP vers  un environnement particulier,
+#	Vérifier si un fichier rmiServer.properties suffixé par le nom de l’environnement demandé,
+#	Si c’est le cas, copier simplement le fichier suffixé en « rmiServer.properties » 
+
+
+{parva4004775} {Preprod RB Metier} {egypte - loans_eg_b - Pas_de_response_file} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_b.ear/setting$
+
+cp -p rmiServer.properties_sa8 rmiServer.properties
+
+
+#	Si le fichier middleware.properties suffixé par le nom de l’environnement n’existe pas, 
+#	créer un nouveau fichier suffixé par le nom du nouvel environnement,
+#	modifier la ligne middleware.unikix.port=  en renseignant le port TCP UniKix de l’environnement en question (information à récupérer sur le serveur de préprod atlas),
+#	copier le fichier créé en rmiServer.properties:
+
+
+{parva4004775} {Preprod RB Metier} {egypte - loans_eg_b - Pas_de_response_file} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_b.ear/setting$
+
+cp -p rmiServer.properties rmiServer.properties_sa8  ------------> une fois créer, modifier le Port TCP unikix
+
+cp -p rmiServer.properties_sa8 rmiServer.properties  ------------> le recopier pour prise en compte
+
+
+
+
+Modification du fichier sur le serveur présentation: {parva4004774}
+----------------------------------------------------
+
+Le fichier à modifier est le fichier « middleware.properties» qui se trouve dans le répertoire /apps/appliweb/site/evolan/loans_site_p.ear/loans_site_p.war/setting (cds)
+
+
+{parva4004774} {Preprod RB Presentation} {egypte - loans_eg_p - evolan-loans-eg.staging.echonet} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_p.ear/loans_eg_p.war/setting$ ls -ltr
+total 72
+-rw-r--r--    1 was5     web             162 Aug 23 2010  printing.properties
+-rw-r--r--    1 was5     web             301 Aug 23 2010  crypto.properties
+-rw-r--r--    1 was5     web             305 May 29 10:37 business.properties
+-rw-r--r--    1 was5     web            1100 May 29 10:37 ui.properties
+-rw-r--r--    1 was5     web            2764 May 29 10:37 trace.properties
+-rw-r--r--    1 was5     web            2134 May 29 10:37 middleware.properties
+-rw-r--r--    1 was5     web             175 May 29 10:37 keys.properties
+-rw-r--r--    1 was5     web             434 May 29 10:37 cache.properties
+-rw-r--r--    1 was5     web            2203 May 29 10:37 application.properties
+
+
+La variable « middleware.unikix.port » contient le numéro du port « TCP UniKix » de l’environnement sur lequel pointe la webapp.
+
+
+{parva4004774} {Preprod RB Presentation} {reunion - loans_re_p - evolan-loans-re.staging.echonet} (was5)
+/apps/appliweb/reunion/evolan/loans_re_p.ear/loans_re_p.war/setting$ 
+grep middleware.unikix.port middleware.properties
+
+middleware.unikix.port=19028  ---------->  Port TCP unikix
+
+
+#	Dans le cas d’une demande de bascule du TP vers  un environnement particulier,
+#	Vérifier si un fichier middleware.properties suffixé par le nom de l’environnement demandé,
+#	Si c’est le cas, copier simplement le fichier suffixé en « middleware.properties » 
+
+{parva4004774} {Preprod RB Presentation} {egypte - loans_eg_p - evolan-loans-eg.staging.echonet} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_p.ear/loans_eg_p.war/setting$ 
+
+cp -p middleware.properties_sa8 middleware.properties
+
+
+#	Si le fichier middleware.properties suffixé par le nom de l’environnement n’existe pas, 
+#	créer un nouveau fichier suffixé par le nom du nouvel environnement,
+#	modifier la ligne middleware.unikix.port=  en renseignant le port TCP UniKix de l’environnement en question (information à récupérer sur le serveur de préprod atlas),
+#	copier le fichier créé en middleware.properties:
+
+
+parva4004774} {Preprod RB Presentation} {egypte - loans_eg_p - evolan-loans-eg.staging.echonet} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_p.ear/loans_eg_p.war/setting$ 
+
+cp -p middleware.properties middleware.properties_sa8  ------------> une fois créer, modifier le Port TCP unikix
+
+cp -p middleware.properties_sa8 middleware.properties  ------------> le recopier pour prise en compte
+
+
+
+#	Une fois les modifications effectuées sur les serveurs Businness et Présentation,
+#	il faut faire un A/R de la webapp:
+
+
+{parva4004775} {Preprod RB Metier} {egypte - loans_eg_b - Pas_de_response_file} (was5)
+
+/apps/meoatlas2/outils$ ./rest_web.sh "loans_eg_b"
+
+
+
+Retour par mail:
+----------------
+
+
+Bonjour, 
+
+La modification a été fait et la webapp redémarrée. 
+
+Présentation:
+
+{parva4004775} {Preprod RB Metier} {egypte - loans_eg_b - Pas_de_response_file} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_b.ear/setting$ grep middleware.unikix.port rmiServer.properties
+
+middleware.unikix.port=56019
+
+Business :
+
+{parva4004774} {Preprod RB Presentation} {egypte - loans_eg_p - evolan-loans-eg.staging.echonet} (was5)
+/apps/appliweb/egypte/evolan/loans_eg_p.ear/loans_eg_p.war/setting$ grep middleware.unikix.port middleware.properties
+
+middleware.unikix.port=56019

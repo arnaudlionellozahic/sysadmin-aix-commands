@@ -1,0 +1,66 @@
+oracle@parva4002348:IAM1MAP0:10.2.0:/apps/oracle/ sqlplus '/as sysdba'
+
+SQL*Plus: Release 9.2.0.6.0 - Production on Fri Jun 21 22:22:55 2013
+
+Copyright (c) 1982, 2002, Oracle Corporation.  All rights reserved.
+
+Connected to an idle instance.
+
+SQL> shutdown immediate
+Database closed.
+Database dismounted.
+ORACLE instance shut down.
+
+
+SQL> startup mount
+ORACLE instance started.
+
+Total System Global Area 2150863000 bytes
+Fixed Size                   745624 bytes
+Variable Size            1610612736 bytes
+Database Buffers          536870912 bytes
+Redo Buffers                2633728 bytes
+Database mounted.
+
+
+SQL> archive log list
+Database log mode              Archive Mode
+Automatic archival             Enabled
+Archive destination            /apps/oracle/arch/IAM1MAP0
+Oldest online log sequence     402464
+Next log sequence to archive   402466
+Current log sequence           402466
+SQL> select database_role,open_mode,log_mode from v$database;
+
+DATABASE_ROLE    OPEN_MODE  LOG_MODE
+---------------- ---------- ------------
+PRIMARY          MOUNTED    ARCHIVELOG
+
+SQL> alter database noarchivelog;
+
+Database altered.
+
+SQL>
+SQL>  select database_role,open_mode,log_mode from v$database;
+
+DATABASE_ROLE    OPEN_MODE  LOG_MODE
+---------------- ---------- ------------
+PRIMARY          MOUNTED    NOARCHIVELOG
+
+SQL> archive log list
+Database log mode              No Archive Mode
+Automatic archival             Enabled
+Archive destination            /apps/oracle/arch/IAM1MAP0
+Oldest online log sequence     402464
+Current log sequence           402466
+SQL> alter database open;
+
+Database altered.
+
+SQL>  select database_role,open_mode,log_mode from v$database;
+
+DATABASE_ROLE    OPEN_MODE  LOG_MODE
+---------------- ---------- ------------
+PRIMARY          READ WRITE NOARCHIVELOG
+
+SQL> quit

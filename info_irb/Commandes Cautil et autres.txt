@@ -1,0 +1,45 @@
+
+CMD : 
+	cautil status monitor ;	cautil start autosub		/etc/local/tng (secadmin -z ; stop)/ start ; secadmin –a ; -i all ; -c ;
+	cautil sel conl start=02-01-2008 li |grep msfa 
+	cautil sel conl start="($dfj,$autos:00:00)" end="($now)" li
+	cautil sel jobpred id="(jfj1$suff,jasf9x,01)" pset="j9f2$suff" pjob="j9f2ok" li 	/ 	cautil sel jobres id="(dcu16*,dcsza0,*,*)" li
+	cautil sel jobsethist id=jpt6Bahr list | grep End		/ 	tri*,* li
+	cautil sel tjobpred list | grep Predecessor | wc -l     (nombre de prédedesseur au tracking limité par CAISCHD0027 : apps/unicenter/sche/log/parva1001193:grep -i variable * )
+	cautil cancel tjobset id=toto purge=yes
+	cautil list calend id=base* exp=y
+	cautil alter jobsetpred id=jid8Meum pset=jtp2Meum work=CURRENT newpset=jtp2Meum newpjob=jcics2 newpjno=*
+	cautil sel tjobsetpred id=* pset=dtb1* li               cautil sel tjobpred id=*,*,* pset=dtb1* li
+
+PLANIF : 
+	
+	$CAIGLBL0000/sche/scripts/schdfore JOB "*" 14-JUN-2008  (job qui tourne la date)
+	PROCESS : (Arret) ps -ef |  grep -v grep | grep -e unicenter -e aws -e cadb -e triggag -e cam -e caft ;  ipcs -a | grep cadb ; 
+		ipcrm –s ou –m identifiant IPC
+	unidbclr ( process orphan )
+	ccinet status ; ps -ef |grep ccirmtd ; cawto TEST_OPR ;
+	unicycle opr (Event Manager not active ) 	unishutdown all && unistart all
+	ccinet status | grep "INACT RETRY" ; ps -ef |grep ccirmtd  puis kill -3 "process"  ;   
+	La service CCI Remote n'est pas actif sur ce serveur :	pour le relancer, tapez:       unicycle cci ???
+	oprping (not responding) unicntrl stop/start opr (unicycle opr) / 	oprlogs full : geslog.sh
+	Cannot communicate with CAU9LCD daemon : unicycle sche (all)
+
+ENF : 
+	unifstat (CA-ENF Generic Server)
+
+
+CALEND :
+	$TNG_EXPLOIT : gestlogAT.sh	gestlogEM.sh	(vide log TNG, 35 jours sans param)
+		en root : sql; / connect to caiunidb; (ou cashdb) / select * from system.specauth where userid like '%452466%'; / grant dba to l452466; / release; / quit;
+		caladmin -r
+
+
+
+
+Exemple d’un jobset : Les successeurs du jobset j9f2
+Les jobsets : 	cautil sel jobsetpred id=* pset=j9f2* li
+Les jobs : 	cautil sel jobpred id=*,*,* pset=j9f2* li
+
+Exemple d’un job : Les successeurs du job j9f2ok
+Les jobsets : 	cautil sel jobsetpred id=* pset="j9f2*" pjob="j9f2ok" li
+Les jobs :     	cautil sel jobpred id=*,*,* pset="j9f2$suff" pjob="j9f2ok" li

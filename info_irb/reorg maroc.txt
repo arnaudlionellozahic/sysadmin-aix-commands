@@ -1,0 +1,138 @@
+Vérifier que la log que le  DAS9OR s’est terminé en fin normale.
+
+le jcics1 devrait tomber en Abort
+cautil start autosub
+submiter le jcics1
+
+Vérifier que la base est correctement démarrer et dans le bon mode.
+
+PARVA4000634 => PRODUCTION Maroc (atlas) /apps/atlas/atlas2v0/uf1 :
+ps -ef | grep atpr01 | grep ora_
+  oracle  1138818        1   0 08:34:51      -  0:00 ora_cjq0_atpr01
+  oracle  1159370        1   0 08:34:51      -  0:18 ora_ckpt_atpr01
+  oracle  1917126        1   0 08:34:50      -  0:16 ora_dbw0_atpr01
+  oracle  2638048        1   0 08:34:51      -  0:00 ora_reco_atpr01
+  oracle  3907608        1   0 08:34:50      -  0:11 ora_dbw1_atpr01
+  oracle  5976308        1   0 08:34:51      -  0:04 ora_arc1_atpr01
+  oracle  6385684        1   0 08:34:50      -  0:00 ora_pmon_atpr01
+  oracle  7864376        1   0 08:34:51      -  0:01 ora_smon_atpr01
+  oracle 10055808        1   0 08:34:51      -  0:09 ora_lgwr_atpr01
+  oracle 11370622        1   0 08:34:51      -  0:04 ora_arc0_atpr01
+
+
+9.2.0.6.0
+sesu oracle
+sqlplus "/as sysdba"
+
+SQL> archive log list;
+mode Database log              mode Archive
+Archivage automatique             Activé
+Destination de l'archive             /apps/arch/atpr01/archive
+Séquence de journal en ligne la plus ancienne     612571
+Séquence de journal suivante à archiver      612573
+Séquence de journal courante            612573
+
+
+Réactiver l’autosub
+cautil start autosub
+
+
+réactiver CFT
+su - cft
+cftstart
+cftping
+
+
+Check du tracking afin de vérifier s’il n’y a pas d’abort.
+cautil status monitor
+
+Envoi d’un mail au SDM, GPMX, pilotage, BDSI MAGRHEB et PARIS IPS MEO IRB afin d’indiquer la fin l’opération
+
+
+#############################################################################
+
+                          BNP PARIBAS
+
+Toute personne qui se connecte ou tente de se connecter à ce
+système, qu'elle y soit autorisée ou non, reconnaît que ses
+activités peuvent être surveillées et enregistrées et que les
+informations correspondantes lui seront opposées si nécessaire,
+notamment en cas de non-respect des règles internes.
+
+
+
+Any person who connects to this system or attemps to do so,
+whether duly authorized or not, acknowledges that their activities
+may be monitored or recorded and that the related informations
+could be used against them if relevant, notably in case of
+corporate rules violation.
+
+#############################################################################
+
+parva4000634
+
+System under eTAC supervision
+
+login:l907993
+l907993's Password:
+[compat]: You entered an invalid login name or password.
+
+
+login: l907993
+l907993's Password:
+*******************************************************************************
+*                                                                             *
+*                                                                             *
+*  AIX Version 5.3  Technology Level 09-07          Hostname : parva4000634   *
+*                                                                             *
+*                                                                             *
+*******************************************************************************
+1 unsuccessful login attempt since last login.
+Last unsuccessful login: Mon Mar 25 04:12:32 2013 on /dev/pts/8 from parw00137541.fr.net.intra
+Last login: Sat Mar 23 16:20:19 2013 on /dev/pts/10 from parw00137541.fr.net.intra
+
+parva4000634 => PRODUCTION MAROC  (l907993) /home/l907993:
+sesu -
+Please enter your password:
+Please enter your password:
+No Files Systems > 90% in use
+parva4000634 => PRODUCTION MAROC  (root) /:
+ps -ef | grep $ORACLE_SID
+usage: grep [-r] [-R] [-H] [-L] [-E|-F] [-c|-l|-q] [-insvxbhwy] [-p[parasep]] -e pattern_list...
+        [-f pattern_file...] [file...]
+usage: grep [-E|-F] [-c|-l|-q] [-insvxbhwy] [-p[parasep]] [-e pattern_list...]
+        -f pattern_file... [file...]
+usage: grep [-E|-F] [-c|-l|-q] [-insvxbhwy] [-p[parasep]] pattern_list [file...]
+parva4000634 => PRODUCTION MAROC  (root) /:
+echo $ORACLE_SID
+
+parva4000634 => PRODUCTION MAROC  (root) /:
+. oraenv
+ksh: oraenv:  not found
+parva4000634 => PRODUCTION MAROC  (root) /:
+su - oracle
+1) Sortie
+2) Oracle 8.1.7.4
+3) Oracle 9.2.0
+Choisir l'environnement souhaite...3
+oracle::/apps/oracle> . oraenv
+ORACLE_SID = [oracle] ? atpr01
+oracle:atpr01:/apps/oracle> sqlplus "/as sysdba"
+
+SQL*Plus: Release 9.2.0.6.0 - Production on Mon Mar 25 04:15:15 2013
+
+Copyright (c) 1982, 2002, Oracle Corporation.  All rights reserved.
+
+
+Connected to:
+Oracle9i Enterprise Edition Release 9.2.0.6.0 - 64bit Production
+JServer Release 9.2.0.6.0 - Production
+
+SQL> archive log list;
+Database log mode              Archive Mode
+Automatic archival             Enabled
+Archive destination            /apps/arch/atpr01/archive
+Oldest online log sequence     614701
+Next log sequence to archive   614703
+Current log sequence           614703
+SQL>

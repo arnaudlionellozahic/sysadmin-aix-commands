@@ -1,0 +1,108 @@
+
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) / :
+echo $COBDIR
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) / :
+cd /apps/cobol
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol :
+ls
+lost+found  sx2.2       sx4.0
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol :
+export COBDIR=/apps/cobol/sx4.0
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol :
+echo $COBDIR
+/apps/cobol/sx4.0
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol :
+cd $COBDIR
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol/sx4.0 :
+cd aslmf
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol/sx4.0/aslmf :
+./apptrack
+The License database is corrupt due to copying, restoration or tampering
+Run $COBDIR/aslmf/aslmdbrecover to recover the database
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol/sx4.0/aslmf :
+$COBDIR/aslmf/aslmdbrecover
+
+sh: devas:  not found
+You must set an access password, before proceeding
+Enter 6 characters as the password
+(6 spaces removes password)
+******    --------------------------->  mot de passe = 6 espaces à taper
+Please re-enter the new password
+******
+Password removed
+
+Application Server License Administration System - AppTrack
+-----------------------------------------------------------
+1.   License List
+2.   License Summary
+3.   License Install     <----------------
+4.   License Uninstall
+5.   Change/Set Password
+6.   Reinitialize Licensing
+7.   Current Users
+9.   Quit
+Enter the Menu Selection
+
+Ready to install license
+Enter the Serial Number part of the License Key:
+600000370487AI+
+Enter the License Number part of the License Key:
+03060 1003F FF9A0 F7B09 98DE
+License installed ok
+
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /apps/cobol/sx4.0/aslmf :
+cd /usr/lib/mflmf
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /usr/lib/mflmf :
+./mflmcmd
+The license database is corrupt due to copying, moving or tampering.
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /usr/lib/mflmf :
+./lmfdbrecover
+
+Empty database created ok
+
+License db recovery utility (lmfdbrecover) starting
+
+1. Text Mode license install    <---------------
+2. Screen Mode license install
+3. Exit with no license install
+1
+
+Micro Focus License Manager Command Line Interface
+--------------------------------------------------
+Select the function you require from the list:
+License Install   - Enter 'I'
+I
+Ready to install license
+
+Enter the Serial Number part of the License Key:
+600000366933AI+
+
+Enter the License Number part of the License Key:
+03030 1003E 7F4A2 B990A 5631
+
+License added ok
+
+Install another license? (y/n)
+n
+
+lmfdbrecover complete
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /usr/lib/mflmf :
+./mflmman
+MF-LMF:Sun Sep 22 15:42:30 2013: LMF Starting
+
+parva4000636 => BACKUP 2 ATLAS2 IRS AIX 5.3 (Marne Sud) (root) /usr/lib/mflmf :
+ps -ef | grep mana
+    root  757786       1   0 15:42:30      -  0:00 ./mflm_manager

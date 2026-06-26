@@ -1,0 +1,129 @@
+
+Démontage et suppression du jfs: ATTENTION FAIRE UNE SAUVEGARDE AVANT SI REMPLI:
+--------------------------------------------------------------------------------
+
+
+
+unmount /apps/oradbf/atpml5 && rmfs /apps/oradbf/atpml5
+
+
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/meoatlas2/outils :
+ps -ef | grep 987164
+    root  987164  151608   0   Oct 04 pts/94  0:00 -ksh
+    root 8228942 6295642   0 13:29:38 pts/25  0:00 grep 987164
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/meoatlas2/outils :
+ps -ef | grep 1593536
+   atlas 1593536       1   0   Aug 28      -  0:00 ora_reco_atpml5
+    root 4935738 6295642   0 13:29:55 pts/25  0:00 grep 1593536
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/meoatlas2/outils :
+ps -ef | grep 4677796
+   atlas 4677796       1   0   Aug 28      -  2:11 ora_ckpt_atpml5
+    root 4772050 6295642   0 13:30:08 pts/25  0:00 grep 4677796
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/meoatlas2/outils :
+ps -ef | grep 4714728
+   atlas 4714728       1   0   Aug 28      -  0:22 ora_lgwr_atpml5
+    root 8065150 6295642   0 13:30:17 pts/25  0:00 grep 4714728
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/meoatlas2/outils :
+ps -ef | grep 4751566
+   atlas 4751566       1   0   Aug 28      -  0:54 ora_dbw0_atpml5
+    root 5984482 6295642   0 13:30:29 pts/25  0:00 grep 4751566
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/meoatlas2/outils :
+ps -ef | grep 4792402
+   atlas 4792402       1   0   Aug 28      -  1:20 ora_smon_atpml5
+    root 7172238 6295642   0 13:28:56 pts/25  0:00 grep 4792402
+
+fuser -ck /apps/oradbf/atpml5
+
+
+unmount /apps/oradbf/atpml5 && rmfs /apps/oradbf/atpml5
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/meoatlas2/outils :
+unmount /apps/oradbf/atpml5 && rmfs /apps/oradbf/atpml5
+rmlv: Logical volume lv_atpml5 is removed.
+
+
+
+{parva4000639} (atlas) {Mali - Developpement Site - ml5}
+/apps/oradbf/atpml5$lslv lv_atpml5
+LOGICAL VOLUME:     lv_atpml5              VOLUME GROUP:   extvgV400ML
+LV IDENTIFIER:      00c239ca00004c00000001281b91fb4e.18 PERMISSION:     read/write
+VG STATE:           active/complete        LV STATE:       opened/syncd
+TYPE:               jfs                    WRITE VERIFY:   off
+MAX LPs:            512                    PP SIZE:        128 megabyte(s)
+COPIES:             1                      SCHED POLICY:   parallel
+LPs:                200                    PPs:            200
+STALE PPs:          0                      BB POLICY:      relocatable
+INTER-POLICY:       minimum                RELOCATABLE:    yes
+INTRA-POLICY:       middle                 UPPER BOUND:    32
+MOUNT POINT:        /apps/oradbf/atpml5    LABEL:          /apps/oradbf/atpml5
+
+
+
+
+Création du FS en jfs2 avec smitty :
+------------------------------------
+
+
+# smit mklv
+=> Choisir le VG :
+* VOLUME GROUP name                                  		[extvga1]
+
+                             Add a Logical Volume
+  Logical volume NAME                                	[lv_atl2v0sb7]
+* VOLUME GROUP name                                 	extvga1
+* Number of LOGICAL PARTITIONS                	[80]
+  PHYSICAL VOLUME names                             	[]
+  Logical volume TYPE                                		[jfs2] 
+
+
+Création du FS en ligne de commande :
+-------------------------------------
+
+Créer le repertoire:		/apps/oradbf/atdsa5 
+
+				mklv -y lv_atdsa5 -t jfs2 -x 1024 extvgda 80
+
+apres tu crées ton fs		crfs -v jfs2 -d lv_atdsa5 -m /apps/oradbf/atdsa5 -A yes -p rw -t no
+
+puis tu peux le monter		 mount /apps/oradbf/atdsa5
+
+oublies pas les droits		chown -R oracle:dba atdsa5; chmod -R 775 atdsa5
+
+
+
+
+Changement des droits du FS:
+----------------------------
+
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/oradbf/atpml5 :
+ls -ld /apps/oradbf/atpml5
+
+drwxrwxr-x    2 atlas    atlas           512 Apr 20 2010  /apps/oradbf/atpml5
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/oradbf/atpml5 :
+chown oracle.dba /apps/oradbf/atpml5
+
+parva4000639 => PRE-PRODUCTION COTE D IVOIRE - BURKINA FASO - MALI  (root) /apps/oradbf/atpml5 :
+ls -ld /apps/oradbf/atpml5
+
+drwxrwxr-x    2 oracle   dba             512 Apr 20 2010  /apps/oradbf/atpml5
+
+
+
+
+
+mount /apps/oradbf/atpml5 && df -g /apps/oradbf/atpml5
+

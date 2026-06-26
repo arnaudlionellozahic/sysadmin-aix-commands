@@ -1,0 +1,8 @@
+
+
+		
+
+for i in $(ls JGIC*)
+do
+rm $i
+done

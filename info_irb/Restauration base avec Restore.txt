@@ -1,0 +1,13 @@
+Restauration de base sur 
+
+se conncecter sur l'environnement 
+sesu oracle
+
+cd /apps/exploit/outilsora
+
+/new_restore_base.sh fcihier chemin complet base_cible  base_source ( atpr01
+{parva4001877} (oracle) {Environement test Nouvelle Segmentation - Guinee - sa3}
+
+/apps/exploit/outilsora$./new_restore_base.sh /ficsav/EQUIPE_MEO/ANIS/PARDEM000650941/compress/atpr011209192001.tar.Z atpml5 atpr01
+
+Demarrage de la restauration de la base :atpml5

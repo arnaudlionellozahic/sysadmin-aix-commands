@@ -1,0 +1,46 @@
+
+Maroc:
+------
+
+- Samedi 22/03/2014 Forcer jf25/jasf25 aprés m9b1 COMPL vers 15h00, il dure environ 1h00.
+
+- tous les jours vers 9h00, verifier les jfu50 si COMPL ON et OFF, si COMPL focer les jfu62 ON et OFF.
+
+- la nuit checker:
+
+  vers 21h30 verfier jtp2 en START et vérifier de temps en temps le batch
+
+  ouverture Tp entre 4h00 et 5h00 heure Paris.
+
+- Voir avec Thomas pour démontage Fs atpr01.
+
+
+Antilles:
+---------
+
+- tous les jours vers 9h00, verifier si Tp ouvert, car normalement la fin du Finjour vers 7h00 Paris.
+
+
+Egypte: ( à partir du 23/03)
+-------
+
+- Tous les soirs, verifier le batch, ouverture Tp vers 2h30 Paris.
+
+
+Senegal:
+--------
+
+- Verifier DAS550 ( nbre de siéges tranferer / temps )
+
+
+Infocentre:
+-----------
+
+Maroc ON et OFF, monter au tracking jfu99 ON et OFF et les lancer, juste le samedi aprés fermeture agence.
+
+
+
+
+
+  
+

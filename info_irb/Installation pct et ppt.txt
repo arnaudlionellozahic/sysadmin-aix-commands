@@ -1,0 +1,33 @@
+                                          
+					Installation de pct et ppt :
+
+
+
+faire attention au kix
+
+
+
+Fichier requis :
+
+   ppt.lst.XXXXXXXXX
+   pct.lst.XXXXXXXXX
+
+
+- Aller dans le répertoire outils unikix via la commande cdxk
+
+- copier par ftp (en mode binaire) le script :
+
+    ppt.lst.XXXXXXXXX
+    pct.lst.XXXXXXXXX
+
+- Faire : 
+    chmod a+x *.lst.XXXXXXXXX
+
+
+Executer la commande suivante :
+
+   livpctppt ppt.lst.XXXXXXXXX
+   livpctppt pct.lst.XXXXXXXXX
+
+
+Lancer crepct et creppt et relance unikix.

@@ -1,0 +1,156 @@
+
+
+
+PARVA4002805
+
+ su - ssp
+
+ Choix du site
+
+ les fichiers arrivent toutes les nuits dans cd /apps/cft_data/recv/ssl_alge ou cd $SSL_RECEP
+
+
+
+Ordres des jobsets:
+-------------------
+
+1)	trig	-------> TJS0
+2)	JJSO    -------> verifie la présence du fichier dans /apps/cft_data/recv/ssl_alge
+3)	JSA2	-------> sauvegarde avant
+4)	JJS1
+5)	JJS2
+6)	HJS2	-------> sauvegarde hebdomadaire
+7)	JSB2	-------> sauvegarde apres
+8)	JSSP	-------> envoi de mail
+9)	JTSM	-------> envoi sur bande
+
+Avant tout il faut aller recupérer l'archives dans /apps/ssp/alge/sp030/data1/savecft et la copiée dans /apps/cft_data/recv/ssl_alge (voir plus bas).
+
+Sous TNG holder tous les jobsets du site, puis verifier chaque prédécésseur,pour chaque QUALIF et lancer en 1er JJS0.
+Une fois COMPL faire un REALESE de tout les autres concerant le même QUALIF.
+
+
+
+Aller dans:
+-----------
+
+
+{parva4002805[2][R030]}/apps/oradbf/backup/hub1alge> cd $SSL_RECEP
+
+{parva4002805[2][R030]}/apps/cft_data/recv/ssl_alge> ls -ltr
+total 1488
+
+-rw-------    1 ssp      cft           22589 May 15 2012  nohup.out
+-rw-rw-r--    1 cft      cft          733200 Mar 19 00:14 SSP_CFT_parva4000632.tgz  ----> fichier recu la veille
+
+{parva4002805[2][R030]}/apps/cft_data/recv/ssl_alge> cdj
+
+{parva4002805[2][R030]}/apps/ssp/alge/sp030/jcl> cd ../data1/savecft
+
+{parva4002805[2][R030]}/apps/ssp/alge/sp030/data1/savecft> ls -ltr| tail
+
+
+-rw-rw-r--    1 cft      cft         1123817 Mar 06 23:28 SSP_CFT_parva4000632.tgz.Alge.20130306
+-rw-rw-r--    1 cft      cft          812079 Mar 07 22:10 SSP_CFT_parva4000632.tgz.Alge.20130307
+-rw-rw-r--    1 cft      cft         1201523 Mar 11 01:40 SSP_CFT_parva4000632.tgz.Alge.20130310
+-rw-rw-r--    1 cft      cft          973878 Mar 12 01:39 SSP_CFT_parva4000632.tgz.Alge.20130311
+-rw-rw-r--    1 cft      cft          714123 Mar 12 23:07 SSP_CFT_parva4000632.tgz.Alge.20130312
+-rw-rw-r--    1 cft      cft          728758 Mar 13 23:12 SSP_CFT_parva4000632.tgz.Alge.20130313
+-rw-rw-r--    1 cft      cft          769887 Mar 14 23:15 SSP_CFT_parva4000632.tgz.Alge.20130314
+-rw-rw-r--    1 cft      cft          864378 Mar 18 01:22 SSP_CFT_parva4000632.tgz.Alge.20130317  -------> fichier à récuperer dans /apps/cft_data/recv/ssl_alge/. pour reprise
+-rw-rw-r--    1 cft      cft           36140 Mar 19 00:14 cft_arrival.log
+-rw-rw-r--    1 cft      cft          733200 Mar 19 00:14 SSP_CFT_parva4000632.tgz.Alge.20130318
+
+
+{parva4002805[2][R030]}/apps/ssp/alge/sp030/data1/savecft> cp -p SSP_CFT_parva4000632.tgz.Alge.20130317 /apps/cft_data/recv/ssl_alge/.
+
+ 
+
+
+{parva4002805[2][R030]}/apps/cft_data/recv/ssl_alge> mv SSP_CFT_parva4000632.tgz.Alge.20130317 SSP_CFT_parva4000632.tgz
+
+
+{parva4002805[2][R030]}/apps/cft_data/recv/ssl_alge> ls -ltr
+total 1552
+
+-rw-------    1 ssp      cft           22589 May 15 2012  nohup.out
+-rw-rw-r--    1 ssp      cft          769887 Mar 14 23:15 SSP_CFT_parva4000632.tgz
+
+
+
+
+Verification que le service est démarré avant la reprise:
+---------------------------------------------------------
+
+
+
+{parva4002805[2][R030]}/apps/cft_data/recv/ssl_alge> service -list
+
+Host                 Service
+-------------------- -------------------------------------------
+parva4002805         SKLookup_registration.usdm.account_sk
+parva4002805         SKLookup_registration.usdm.customer_sk
+parva4002805         SKLookup_registration.usdm.item_account_sk
+parva4002805         SKLookup_registration.usdm.dep_account_sk
+parva4002805         com.searchspace.itm.SurrogateKeyServer.usdm
+parva4002805         scheduler
+parva4002805         ITMLogin
+parva4002805         rmi
+parva4002805         ITMLogin:regreport
+parva4002805         SKLookup_registration.usdm.counterparty_sk
+parva4002805         ITMLogin:ddconfig
+parva4002805         ITMLogin:batchReportEngine
+parva4002805         com.searchspace.itm.SurrogateKeyServer.sfc
+parva4002805         ITMLogin:daemon
+parva4002805         SKLookup_registration.usdm.reci_account_sk
+parva4002805         SKLookup_registration.usdm.orig_account_sk
+parva4002805         com.searchspace.itm.SurrogateKeyServer.aml
+
+
+
+
+
+Lors de reprise de plusieurs journée envoyé sur bandes les archives pour faire de la place: (ici tous les fichiers suivi d'une *)
+-------------------------------------------------------------------------------------------
+
+
+PARVA4002805 => PROD SSL IRS TUNISIE-ALGERIE (root) /apps/oradbf/backup/hub1alge : ->ls -ltr
+total 70043472
+
+-rw-rw-r--    1 ssp      ssp        78673979 Mar 13 23:14 data1-JAVANT_DH_jsa2_fichiers-1303132313.tar.Z		*
+-rw-rw-r--    1 oracle   dba       446752341 Mar 13 23:16 hub1alge-JAVANT_DH_jsa2_bases-1303132314.tar.Z		*
+-rw-rw-r--    1 ssp      ssp       989679927 Mar 13 23:17 data1-IEF-JAVANT_DH_jsa2_fichiers-1303132314.tar.Z		*
+-rw-rw-r--    1 ssp      ssp          136962 Mar 13 23:18 data1-log-JAVANT_DH_jsa2_fichiers-1303132318.tar.Z		*
+-rw-rw-r--    1 ssp      ssp       164611293 Mar 13 23:18 data1-IEFBIN-JAVANT_DH_jsa2_fichiers-1303132317.tar.Z		*
+-rw-rw-r--    1 ssp      ssp             257 Mar 13 23:18 data1-ARCHI-JAVANT_DH_jsa2_fichiers-1303132318.tar.Z		*
+-rw-rw-r--    1 oracle   dba      5911965343 Mar 13 23:30 ief1alge-JAVANT_DH_jsa2_bases-1303132316.1.tar.Z		*
+-rw-rw-r--    1 oracle   dba      9230467864 Mar 13 23:52 ief1alge-JAVANT_DH_jsa2_bases-1303132316.2.tar.Z		*
+-rw-rw-r--    1 ssp      ssp        78709857 Mar 14 00:33 data1-JAPRES_SP_jsb2_fichiers-1303140033.tar.Z		*
+-rw-rw-r--    1 oracle   dba       446786945 Mar 14 00:35 hub1alge-JAPRES_SP_jsb2_bases-1303140033.tar.Z		*
+-rw-rw-r--    1 ssp      ssp       992824203 Mar 14 00:36 data1-IEF-JAPRES_SP_jsb2_fichiers-1303140033.tar.Z		*
+-rw-rw-r--    1 ssp      ssp       164746473 Mar 14 00:37 data1-IEFBIN-JAPRES_SP_jsb2_fichiers-1303140036.tar.Z		*
+-rw-rw-r--    1 ssp      ssp         1042853 Mar 14 00:37 data1-log-JAPRES_SP_jsb2_fichiers-1303140037.tar.Z		*
+-rw-rw-r--    1 ssp      ssp             257 Mar 14 00:37 data1-ARCHI-JAPRES_SP_jsb2_fichiers-1303140037.tar.Z		*
+-rw-rw-r--    1 oracle   dba      5912001543 Mar 14 00:49 ief1alge-JAPRES_SP_jsb2_bases-1303140035.1.tar.Z		*
+-rw-rw-r--    1 oracle   dba      9231684895 Mar 14 01:11 ief1alge-JAPRES_SP_jsb2_bases-1303140035.2.tar.Z		*
+-rw-rw-r--    1 ssp      ssp        78810869 Mar 19 12:44 data1-JAVANT_DH_jsa2_fichiers-1303191243.tar.Z
+-rw-rw-r--    1 oracle   dba       446845607 Mar 19 12:45 hub1alge-JAVANT_DH_jsa2_bases-1303191244.tar.Z
+-rw-rw-r--    1 ssp      ssp       992824203 Mar 19 12:46 data1-IEF-JAVANT_DH_jsa2_fichiers-1303191244.tar.Z
+-rw-rw-r--    1 ssp      ssp          138347 Mar 19 12:46 data1-log-JAVANT_DH_jsa2_fichiers-1303191246.tar.Z
+-rw-rw-r--    1 ssp      ssp       164774171 Mar 19 12:46 data1-IEFBIN-JAVANT_DH_jsa2_fichiers-1303191246.tar.Z
+-rw-rw-r--    1 ssp      ssp             257 Mar 19 12:46 data1-ARCHI-JAVANT_DH_jsa2_fichiers-1303191246.tar.Z
+-rw-rw-r--    1 oracle   dba       528252928 Mar 19 12:46 ief1alge-JAVANT_DH_jsa2_bases-1303191245.1.tar.Z
+
+
+
+
+
+dstssl && dstitm  RELANCE DES SERVICES
+
+dshitm && dshssl  ARRET DES SERVICES
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+
+Boucle pour Changer les minuscule en majuscule:
+-----------------------------------------------
+
+
+for i in $(ls ny* |cut -c1-8 )
+do
+mv $i".txt" $(echo $i | tr 'a-z' 'A-Z')".txt_20130320"
+
+
+-rwxrwxr-x    1 atlas    atlas             0 Mar 20 06:01 ny06aa84.txt
+-rwxrwxr-x    1 atlas    atlas           410 Mar 20 06:01 ny05aa84.txt
+-rwxrwxr-x    1 atlas    atlas           492 Mar 20 06:01 ny04aa84.txt
+-rwxrwxr-x    1 atlas    atlas           738 Mar 20 06:01 ny03aa84.txt
+-rwxrwxr-x    1 atlas    atlas             0 Mar 20 06:01 ny02aa84.txt
+-rwxrwxr-x    1 atlas    atlas         97478 Mar 20 06:01 ny01aa84.txt
+-rwxrwxr-x    1 atlas    atlas         31823 Mar 20 06:01 ny00aa84.txt
+
+
+
+
+
+
+
+for i in $(ls JGIC*)
+do
+rm $i
+done
+
+
+
+
+for i in $(grep ATL09107 *)
+do
+done
+
+
+for i in $(ls)
+do
+grep -il ATL09107 $i
+done
+
+
+for i in $(ls)
+do
+grep AD_ATL_BMRC_RISQUES_09107.txt $i
+done
+
+
+
+for i in $(grep ATL09107)
+do
+grep | $i
+done
+
+
+for i in $(lspv | grep -i none | grep -i power)
+do
+echo 1 2 3 4 | xargs
+echo $i
+bootinfo -s $i
+done
+
+
+for i in $(lspv | grep -i none | grep -i power | xargs -n 4)
+do
+echo $i
+bootinfo -s $i
+done
+
+for i in $(lspv | grep -i none | awk '{print $1}' | grep power)
+do
+TAILLE='bootinfo -s' $i
+echo $i: $TAILLE
+done
+
+
+
+
+for i in $(lspv | grep -i none | awk '{print $1}' | grep power)
+do
+TAILLE=$(bootinfo -s $i)
+echo $i: $TAILLE
+done
+
+
+Boucle pour Changer les minuscule en majuscule:
+-----------------------------------------------
+
+
+for i in $(ls ny* |cut -c1-8 )
+do
+mv $i".txt" $(echo $i | tr 'a-z' 'A-Z')".txt_20130320"
+done
+
+
+
+

@@ -1,0 +1,237 @@
+
+Commencer par verfier le nom du robot sur timefinder:
+
+  - Se connecter sur timefinder en root.
+
+  - # . cenv
+
+  - # cdi
+
+  - # ls -ltr JADSM*
+
+  - # cat JADSM.....  ----> faire un cat de la derniere log
+
+Il ne reste plus qu'a lire le nom du robot utilisé pour la sauvegarde
+
+
+
+
+dsmc pour base :
+----------------
+
+dsmc q ar -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/atpr01*201208*"
+IBM Tivoli Storage Manager
+Command Line Backup-Archive Client Interface
+  Client Version 6, Release 1, Level 3.0
+  Client date/time: 09/04/12   04:29:42
+(c) Copyright by IBM Corporation and other(s) 1990, 2009. All Rights Reserved.
+
+Node Name: PARVA4006680
+Session established with server TSM-ARZ105: AIX
+  Server Version 6, Release 1, Level 5.10
+  Server date/time: 09/04/12   10:32:13  Last access: 09/04/12   10:12:57
+
+             Size  Archive Date - Time    File - Expires on - Description
+             ----  -------------------    -------------------------------
+23,947,435,812  B  08/15/12   14:39:00    /ficsav/parva4000627/apres/atpr01.20120815.040059.tgz 09/19/12   bcv2_20120815_0904_201
+20814_parva4000627
+23,944,728,897  B  08/17/12   12:40:52    /ficsav/parva4000627/apres/atpr01.20120817.035952.tgz 09/21/12   bcv2_20120817_0900_201
+20816_parva4000627
+24,374,958,797  B  08/31/12   12:22:37    /ficsav/parva4000627/apres/atpr01.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_201
+20830_parva4000627
+23,056,769,007  B  08/02/12   19:44:36    /ficsav/parva4000627/apres/atpr01.20120802.095220.tgz 09/06/12   bcv2_20120802_1506_201
+20801_parva4000627
+24,250,808,128  B  08/30/12   20:11:35    /ficsav/parva4000627/apres/atpr01.20120830.040239.tgz 11/28/12   bcv2_20120830_0930_201
+20829_parva4000627
+24,010,309,115  B  08/18/12   14:55:10    /ficsav/parva4000627/apres/atpr01.20120818.032600.tgz 09/22/12   bcv2_20120818_0900_201
+20817_parva4000627
+24,105,688,815  B  08/21/12   11:22:28    /ficsav/parva4000627/apres/atpr01.20120821.032750.tgz 11/19/12   bcv2_20120821_0900_201
+20820_parva4000627
+24,173,132,340  B  08/26/12   19:30:41    /ficsav/parva4000627/apres/atpr01.20120826.120124.tgz 11/24/12   bcv2_20120826_1621_201
+20824_parva4000627
+24,072,928,645  B  08/22/12   18:42:17    /ficsav/parva4000627/apres/atpr01.20120822.043303.tgz 11/20/12   bcv2_20120822_1536_201
+20821_parva4000627
+24,108,634,896  B  08/24/12   14:07:47    /ficsav/parva4000627/apres/atpr01.20120824.035305.tgz 11/22/12   bcv2_20120824_0900_201
+20823_parva4000627
+24,094,084,716  B  08/23/12   15:43:31    /ficsav/parva4000627/apres/atpr01.20120823.040647.tgz 11/21/12   bcv2_20120823_0914_201
+20822_parva4000627
+23,210,712,002  B  08/04/12   19:47:23    /ficsav/parva4000627/apres/atpr01.20120804.034321.tgz 09/08/12   bcv2_20120804_0900_201
+20803_parva4000627
+23,174,594,435  B  08/03/12   19:13:03    /ficsav/parva4000627/apres/atpr01.20120803.033410.tgz 09/07/12   bcv2_20120803_0900_201
+20802_parva4000627
+23,426,483,287  B  08/07/12   13:19:48    /ficsav/parva4000627/apres/atpr01.20120807.034248.tgz 09/11/12   bcv2_20120807_0900_201
+20806_parva4000627
+23,672,734,455  B  08/11/12   12:50:29    /ficsav/parva4000627/apres/atpr01.20120811.033018.tgz 09/15/12   bcv2_20120811_0900_201
+20810_parva4000627
+23,561,074,589  B  08/10/12   14:57:00    /ficsav/parva4000627/apres/atpr01.20120810.032226.tgz 09/14/12   bcv2_20120810_0900_201
+20809_parva4000627
+23,469,871,398  B  08/08/12   14:59:00    /ficsav/parva4000627/apres/atpr01.20120808.040041.tgz 09/12/12   bcv2_20120808_0902_201
+20807_parva4000627
+23,506,713,115  B  08/09/12   14:51:30    /ficsav/parva4000627/apres/atpr01.20120809.032121.tgz 09/13/12   bcv2_20120809_0900_201
+20808_parva4000627
+23,859,579,663  B  08/14/12   15:15:16    /ficsav/parva4000627/apres/atpr01.20120814.043819.tgz 09/18/12   bcv2_20120814_0927_201
+20813_parva4000627
+24,138,723,808  B  08/25/12   11:45:03    /ficsav/parva4000627/apres/atpr01.20120825.032451.tgz 11/23/12   bcv2_20120825_0900_201
+20824_parva4000627
+
+dsmc ret -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/atpr01.20120831.040524.tgz" /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/
+
+
+
+dsmc pour fichiers :
+--------------------
+
+
+dsmc q ar -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/FIC*201208*"
+
+IBM Tivoli Storage Manager
+Command Line Backup-Archive Client Interface
+  Client Version 6, Release 1, Level 3.0
+  Client date/time: 09/04/12   04:59:44
+(c) Copyright by IBM Corporation and other(s) 1990, 2009. All Rights Reserved.
+
+Node Name: PARVA4006680
+Session established with server TSM-ARZ105: AIX
+  Server Version 6, Release 1, Level 5.10
+  Server date/time: 09/04/12   11:02:14  Last access: 09/04/12   11:02:06
+
+             Size  Archive Date - Time    File - Expires on - Description
+             ----  -------------------    -------------------------------
+24,276,406,907  B  08/22/12   15:40:40    /ficsav/parva4000627/apres/FIC.JSAVF1.20120822.043303.tar.Z 11/20/12   bcv2_20120822_1536_20120821_parva4000627
+24,229,175,153  B  08/18/12   09:17:12    /ficsav/parva4000627/apres/FIC.JSAVF1.20120818.032600.tar.Z 09/22/12   bcv2_20120818_0900_20120817_parva4000627
+23,909,415,691  B  08/26/12   16:24:39    /ficsav/parva4000627/apres/FIC.JSAVF1.20120826.120124.tar.Z 11/24/12   bcv2_20120826_1621_20120824_parva4000627
+24,404,723,524  B  08/28/12   12:24:23    /ficsav/parva4000627/apres/FIC.JSAVF1.20120828.045103.tar.Z 11/26/12   bcv2_20120828_0959_20120827_parva4000627
+24,443,300,821  B  08/30/12   09:43:36    /ficsav/parva4000627/apres/FIC.JSAVF1.20120830.040239.tar.Z 11/28/12   bcv2_20120830_0930_20120829_parva4000627
+24,594,101,987  B  08/31/12   09:06:24    /ficsav/parva4000627/apres/FIC.JSAVF1.20120831.040524.tar.Z 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+14,523,014,583  B  08/30/12   16:33:12    /ficsav/parva4000627/apres/FIC.JSAVF2.20120830.040239.tar.Z 11/28/12   bcv2_20120830_0930_20120829_parva4000627
+14,579,892,429  B  08/02/12   18:29:21    /ficsav/parva4000627/apres/FIC.JSAVF2.20120802.095220.tar.Z 09/06/12   bcv2_20120802_1506_20120801_parva4000627
+24,329,382,134  B  08/17/12   09:08:41    /ficsav/parva4000627/apres/FIC.JSAVF1.20120817.035952.tar.Z 09/21/12   bcv2_20120817_0900_20120816_parva4000627
+14,387,463,863  B  08/14/12   14:18:34    /ficsav/parva4000627/apres/FIC.JSAVF2.20120814.043819.tar.Z 09/18/12   bcv2_20120814_0927_20120813_parva4000627
+24,162,696,981  B  08/14/12   09:40:34    /ficsav/parva4000627/apres/FIC.JSAVF1.20120814.043819.tar.Z 09/18/12   bcv2_20120814_0927_20120813_parva4000627
+14,334,197,886  B  08/07/12   12:07:06    /ficsav/parva4000627/apres/FIC.JSAVF2.20120807.034248.tar.Z 09/11/12   bcv2_20120807_0900_20120806_parva4000627
+14,320,935,258  B  08/11/12   11:36:35    /ficsav/parva4000627/apres/FIC.JSAVF2.20120811.033018.tar.Z 09/15/12   bcv2_20120811_0900_20120810_parva4000627
+23,911,621,806  B  08/08/12   09:17:15    /ficsav/parva4000627/apres/FIC.JSAVF1.20120808.040041.tar.Z 09/12/12   bcv2_20120808_0902_20120807_parva4000627
+23,884,471,562  B  08/07/12   09:09:35    /ficsav/parva4000627/apres/FIC.JSAVF1.20120807.034248.tar.Z 09/11/12   bcv2_20120807_0900_20120806_parva4000627
+14,576,063,303  B  08/04/12   14:28:46    /ficsav/parva4000627/apres/FIC.JSAVF2.20120804.034321.tar.Z 09/08/12   bcv2_20120804_0900_20120803_parva4000627
+23,875,583,302  B  08/04/12   09:29:10    /ficsav/parva4000627/apres/FIC.JSAVF1.20120804.034321.tar.Z 09/08/12   bcv2_20120804_0900_20120803_parva4000627
+14,576,447,175  B  08/18/12   13:54:10    /ficsav/parva4000627/apres/FIC.JSAVF2.20120818.032600.tar.Z 09/22/12   bcv2_20120818_0900_20120817_parva4000627
+14,599,166,588  B  08/17/12   11:42:52    /ficsav/parva4000627/apres/FIC.JSAVF2.20120817.035952.tar.Z 09/21/12   bcv2_20120817_0900_20120816_parva4000627
+24,297,441,543  B  08/15/12   09:20:21    /ficsav/parva4000627/apres/FIC.JSAVF1.20120815.040100.tar.Z 09/19/12   bcv2_20120815_0904_20120814_parva4000627
+14,722,809,050  B  08/15/12   13:36:05    /ficsav/parva4000627/apres/FIC.JSAVF2.20120815.040100.tar.Z 09/19/12   bcv2_20120815_0904_20120814_parva4000627
+14,265,305,751  B  08/09/12   13:36:24    /ficsav/parva4000627/apres/FIC.JSAVF2.20120809.032121.tar.Z 09/13/12   bcv2_20120809_0900_20120808_parva4000627
+14,298,936,911  B  08/03/12   17:29:51    /ficsav/parva4000627/apres/FIC.JSAVF2.20120803.033411.tar.Z 09/07/12   bcv2_20120803_0900_20120802_parva4000627
+24,123,072,504  B  08/02/12   15:23:01    /ficsav/parva4000627/apres/FIC.JSAVF1.20120802.095220.tar.Z 09/06/12   bcv2_20120802_1506_20120801_parva4000627
+23,894,238,915  B  08/03/12   09:28:43    /ficsav/parva4000627/apres/FIC.JSAVF1.20120803.033411.tar.Z 09/07/12   bcv2_20120803_0900_20120802_parva4000627
+23,869,008,584  B  08/09/12   09:19:51    /ficsav/parva4000627/apres/FIC.JSAVF1.20120809.032121.tar.Z 09/13/12   bcv2_20120809_0900_20120808_parva4000627
+23,880,573,448  B  08/10/12   09:14:17    /ficsav/parva4000627/apres/FIC.JSAVF1.20120810.032226.tar.Z 09/14/12   bcv2_20120810_0900_20120809_parva4000627
+14,292,529,803  B  08/08/12   13:31:58    /ficsav/parva4000627/apres/FIC.JSAVF2.20120808.040041.tar.Z 09/12/12   bcv2_20120808_0902_20120807_parva4000627
+14,288,200,313  B  08/10/12   13:29:19    /ficsav/parva4000627/apres/FIC.JSAVF2.20120810.032227.tar.Z 09/14/12   bcv2_20120810_0900_20120809_parva4000627
+24,036,856,306  B  08/11/12   09:08:48    /ficsav/parva4000627/apres/FIC.JSAVF1.20120811.033018.tar.Z 09/15/12   bcv2_20120811_0900_20120810_parva4000627
+14,551,251,256  B  08/21/12   10:23:30    /ficsav/parva4000627/apres/FIC.JSAVF2.20120821.032750.tar.Z 11/19/12   bcv2_20120821_0900_20120820_parva4000627
+14,457,782,889  B  08/22/12   17:40:23    /ficsav/parva4000627/apres/FIC.JSAVF2.20120822.043303.tar.Z 11/20/12   bcv2_20120822_1536_20120821_parva4000627
+14,468,229,829  B  08/25/12   10:58:17    /ficsav/parva4000627/apres/FIC.JSAVF2.20120825.032451.tar.Z 11/23/12   bcv2_20120825_0900_20120824_parva4000627
+14,427,327,518  B  08/24/12   13:09:26    /ficsav/parva4000627/apres/FIC.JSAVF2.20120824.035307.tar.Z 11/22/12   bcv2_20120824_0900_20120823_parva4000627
+14,410,990,565  B  08/23/12   14:42:05    /ficsav/parva4000627/apres/FIC.JSAVF2.20120823.040647.tar.Z 11/21/12   bcv2_20120823_0914_20120822_parva4000627
+23,967,236,710  B  08/02/12   02:11:51    /ficsav/parva4000627/apres/FIC.JSAVF1.20120801.200032.tar.Z 09/06/12   bcv2_20120802_0203_20120731_parva4000627
+24,326,076,014  B  08/21/12   09:03:19    /ficsav/parva4000627/apres/FIC.JSAVF1.20120821.032750.tar.Z 11/19/12   bcv2_20120821_0900_20120820_parva4000627
+24,228,946,155  B  08/23/12   09:36:36    /ficsav/parva4000627/apres/FIC.JSAVF1.20120823.040647.tar.Z 11/21/12   bcv2_20120823_0914_20120822_parva4000627
+24,243,153,989  B  08/24/12   09:15:40    /ficsav/parva4000627/apres/FIC.JSAVF1.20120824.035305.tar.Z 11/22/12   bcv2_20120824_0900_20120823_parva4000627
+24,290,778,707  B  08/25/12   09:09:01    /ficsav/parva4000627/apres/FIC.JSAVF1.20120825.032451.tar.Z 11/23/12   bcv2_20120825_0900_20120824_parva4000627
+14,134,357,000  B  08/26/12   18:39:49    /ficsav/parva4000627/apres/FIC.JSAVF2.20120826.120124.tar.Z 11/24/12   bcv2_20120826_1621_20120824_parva4000627
+14,672,216,836  B  08/31/12   10:44:50    /ficsav/parva4000627/apres/FIC.JSAVF2.20120831.040524.tar.Z 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+
+dsmc ret -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/FIC.JSAVF1.20120831.040524.tar.Z" /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/
+dsmc ret -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/FIC.JSAVF2.20120831.040524.tar.Z" /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/
+
+
+dsmc pour composants:
+---------------------
+
+dsmc q ar -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 "/ficsav/parva4000627/apres/*20120831*"
+
+
+IBM Tivoli Storage Manager
+Command Line Backup-Archive Client Interface
+  Client Version 6, Release 1, Level 3.0
+  Client date/time: 09/04/12   05:10:06
+(c) Copyright by IBM Corporation and other(s) 1990, 2009. All Rights Reserved.
+
+Node Name: PARVA4006680
+Session established with server TSM-ARZ105: AIX
+  Server Version 6, Release 1, Level 5.10
+  Server date/time: 09/04/12   11:12:36  Last access: 09/04/12   11:12:23
+
+             Size  Archive Date - Time    File - Expires on - Description
+             ----  -------------------    -------------------------------
+24,594,101,987  B  08/31/12   09:06:24    /ficsav/parva4000627/apres/FIC.JSAVF1.20120831.040524.tar.Z 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+       803,548  B  08/31/12   13:52:41    /ficsav/parva4000627/apres/bin-infocentre.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+            45  B  08/31/12   14:20:13    /ficsav/parva4000627/apres/work.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+     1,305,767  B  08/31/12   09:05:45    /ficsav/parva4000627/apres/ENV_FOCUS.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+   895,824,755  B  08/31/12   09:02:07    /ficsav/parva4000627/apres/ENV_ATLAS.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+24,374,958,797  B  08/31/12   12:22:37    /ficsav/parva4000627/apres/atpr01.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+ 9,217,471,982  B  08/31/12   13:52:42    /ficsav/parva4000627/apres/data1-impall.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+    73,005,234  B  08/31/12   09:05:46    /ficsav/parva4000627/apres/ENV_ORION.20120831.040524.tgz 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+14,672,216,836  B  08/31/12   10:44:50    /ficsav/parva4000627/apres/FIC.JSAVF2.20120831.040524.tar.Z 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+   196,973,222  B  08/31/12   11:36:17    /ficsav/parva4000627/apres/IMP.20120831.040524.tar.Z 11/29/12   bcv2_20120831_0902_20120830_parva4000627
+
+
+dsmc ret -pi -se=TSM-ARZ105 -virtualnodename=parva4006680 -password=parva4006680 -desc=bcv2_20120831_0902_20120830_parva4000627 "/ficsav/parva4000627/apres/ENV*" /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/
+
+
+-> Une fois les archives sur la pre-prod, se connecter a l'environnement souhaité : en root faire su - atlas puis sélectionner adoat
+
+Pour les FICS, aller dans CDF effacer les anciens FICS avec la commande rm -rf fic dans /apps/atlas/atlas2v0/sa2/data1
+
+Ensuite détarer les archives dans CDF : gtar -xzvf /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/apres/FIC.JSAVF1.20120831.040524.tar.Z && gtar -xzvf /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/apres/FIC.JSAVF2.20120831.040524.tar.Z  
+
+
+Restauration de la base :
+-------------------------
+
+Voici la procédure à suivre :
+
+1. Connectez-vous dans l’environnement cible (su – atlas, choix sa1)
+2. Arrêtez unikix s’il est démarré (kixok , puis kixstop)
+3. Passer oracle (sesu root ; su oracle)
+4. Lancer l’outil de clonage, puis répondre aux questions
+    cd /apps/meoatlas2/outils
+    ./clonage.sh
+
+Entrer la base Source [si different de atpr01]: 
+Entrer la base Cible: atpsa2
+Entrer Le chemin complet de l'archive de la base: /ficsav/parva4000627/apres/atpr01.20120831.040524.tgz
+
+
+
+Resauration des composants :
+----------------------------
+
+
+   . chercher là où on a trouvé les archives des fic, en utilisant le descripteur correspondant à la base restaurée. 
+
+   . pour les composants atlas se connecter à l'environnement puis
+
+    
+     dans /apps/atlas/atlas2v0/xxx 
+    faire la commande suivante #export AT_REP_ENV=$(ls|grep -vE "^data|^fic|lost|backup|ficsav")
+
+      vérifier avec un echo #echo $AT_REP_ENV
+      
+
+      puis effacer:  rm -rf $AT_REP_ENV
+
+    .  ensuite restaurer l'archive atlas dans ce répertoire.
+
+    .  pour orion ou ptcom , même chose mais dans le répertoire /apps/orion/031/xxx  (ou 020 ou 010, ça dépend de la version)
+                     						/apps/ptcom/010/xxx
+  
+
+
+Atlas
+gtar -xzvf /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/apres/ENV_ATLAS.20120831.040524.tgz
+
+Orion
+gtar -xzvf /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/apres/ENV_ORION.20120831.040524.tgz
+
+Focus
+gtar -xzvf /ficsav/EQUIPE_MEO/sebastien/PARDEM000623075/apres/ENV_FOCUS.20120831.040524.tgz

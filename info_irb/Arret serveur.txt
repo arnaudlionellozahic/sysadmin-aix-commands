@@ -1,0 +1,427 @@
+Sng5atl; 
+
+
+Arret des bases :
+
+parva4014152|Atlas2SenegalPreProdoracle::/apps/oracle >type o_stop.sh
+o_stop.sh is /apps/exploit/outilsora/o_stop.sh
+
+
+/usr/local/MeoBackup/jclscript/hors_site$ps -ef | grep pmon | awk -F "_" '{print $NF }' | grep -v root
+tipspr02
+atpr10
+atpr11
+atdr05
+atpr03
+tipspr01
+atdsa3
+atdr03
+atpr06
+atdsa2
+atpr09
+atpr12
+atpsa3
+atpr13
+atdr01
+atdr12
+atdr02
+atpr01
+atpsa2
+atpr02
+atpr05
+atpsa1
+atpr07
+atpr08
+atpr04
+
+
+Check forbidden stanza repetition in /etc/filesystems :  OK
+
+Check fs order in /etc/filesystems :  OK
+
+Check all FS with automatically mount :  NOK
+WARNING : Presence FS avec option mount=false
+Vous pouvez utiliser la commande chfs -A yes nom_du_fs
+/apps/evolan/loandesign_v2e10: option mount a false
+/apps/oradbf/atpr07: option mount a false
+/apps/atlas/atlas2v0/uf7/data1/fic: option mount a false
+/apps/oradbf/atpsa1: option mount a false
+/apps/atlas/atlas2v0/rf1/data1/imp: option mount a false
+/apps/oradbf/atpr08: option mount a false
+
+Check all mounetd FS are known :   OK
+
+Check all known FS are mounted :   NOK
+WARNING : le FS /apps/arch est monte vide
+/apps/atlas/atlas2v0/sa2/data1/imp is not mounted
+WARNING : le FS /apps/sys/back est monte vide
+/apps/oradbf/atpr03/evolan is not mounted
+/apps/evolan/loandesign_v2e10 is not mounted
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/apps/meoatlas2/outils$
+
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/apps/meoatlas2/outils$unifstat
+
+
+               Unicenter NSM Status Report
+
+           Component Name               Pid        Status
+------------------------------------  -------  --------------
+CA-Calendar Server                    5472260  running
+CA-CCI Server                         4018190  running
+CA-CCI Remote Server                  4296768  running
+CA-CCI Clean Up                       4538516  running
+CA-EM Routing Server                  1806404  running
+CA-SNMP Trap Manager                  5378286  running
+CA-SNMP Trap Multiplexer              1540244  running
+CA-DB Listener                         626752  running
+CA-DB Servers                               -  6 running
+CA-Doc Help Server                    18948284  running
+CA-ENF Generic Server                 5304442  running
+CA-Event Manager                      4153400  running
+CA-Event SAF Daemon                   4587708  running
+CA-Star Server                         954532  running
+CA-Job Management Monitor               5484612  running
+CA-Job Management Command Server        995378  running
+CA-Job Management Display Server        852128  running
+CA-Job Management Display Daemons           -  3 running
+CA-Job Management Job Tracker           4493312  running
+CA-Job Management Station Server        3268678  running
+CA-Job Management Syscon Server         22458388  running
+CA-Job Management 1.5 Job Servers           -  not active
+CA-Job Management 1.5 Event Mgrs.           -  not active
+CA-Job Management 2.0 Job Server            -  6 running
+CA-Job Management 2.0 Event Mgr.        10072140  running
+CA-Job Management Event Logger          2265326  running
+
+Status of Unicenter NSM databases:
+Database CAIUNIDB is started.
+Database CASHDB is started.
+
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/apps/meoatlas2/outils$cautil status monitor
+Date: 10/19/12     Object: MONITOR STATISTICS              Page     1
+
+Autosub status is: On --------------->  Mettre sur off avant l'arret et remettre sur on lors du redemmarage
+
+Jobset Status Summary:
+ Scheduled:            0  Operator Held:      144  Cancelled:            0
+ Running:            233  Completed:            3  Waiting Start:        2
+ Waiting Pred:       138  Total Jobsets:      520
+
+Job Status Summary:
+ Wait Manual:          0  Wait Resource:        0  Wait Syscon:          0
+ Wait Pred:         2999  Wait Start time:    814  Wait External:        0
+ Submitting:           0  Submit Complete:      0  Submit Retrying:      0
+ Submit Failed:       88
+ Operator Held:       16  Cancelled:            3  Scheduled:            0
+ Running:              0  Aborted:            216  Interrupted:          0
+ Completed:          822
+ Total Jobs:        4958
+
+Trigger Status Summary:
+ Waiting  :          290  Completed:            1  Cancelled:            0
+ Total Triggers:     291
+
+
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/apps/meoatlas2/outils$cautil stop autosub
+CASH_I_0320 00 = Monitor return code
+
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/apps/meoatlas2/outils$unifstat
+
+
+               Unicenter NSM Status Report
+
+           Component Name               Pid        Status
+------------------------------------  -------  --------------
+CA-Calendar Server                          -  not active
+CA-CCI Server                               -  not active
+CA-CCI Remote Server                        -  not active
+CA-CCI Clean Up                             -  not active
+CA-EM Routing Server                        -  not active
+CA-SNMP Trap Manager                        -  not active
+CA-SNMP Trap Multiplexer                    -  not active
+CA-DB Listener                              -  not active
+CA-DB Servers                               -  not active
+CA-Doc Help Server                          -  not active
+CA-ENF Generic Server                       -  not active
+CA-Event Manager                            -  not active
+CA-Event SAF Daemon                         -  not active
+CA-Star Server                              -  not active
+CA-Job Management Monitor                   -  not active
+CA-Job Management Command Server            -  not active
+CA-Job Management Display Server            -  not active
+CA-Job Management Display Daemons           -  not active
+CA-Job Management Job Tracker               -  not active
+CA-Job Management Station Server            -  not active
+CA-Job Management Syscon Server             -  not active
+CA-Job Management 1.5 Job Servers           -  not active
+CA-Job Management 1.5 Event Mgrs.           -  not active
+CA-Job Management 2.0 Job Server            -  not active
+CA-Job Management 2.0 Event Mgr.            -  not active
+CA-Job Management Event Logger              -  not active
+
+Status of Unicenter NSM databases:
+Database CAIUNIDB is not started.
+Database CASHDB is not started.
+
+
+tipspr02
+atpr10
+atpr11
+atdr05
+atpr03
+tipspr01
+atdsa3
+atdr03
+atpr06
+atdsa2
+atpr09
+atpr12
+
+
+
+ps -ef | grep pmon | awk -F "_" '{print $NF }' | grep -v root | grep -v oracle |head -12
+
+for i in $(ps -ef | grep pmon | awk -F "_" '{print $NF }' | grep -v root | grep -v oracle |head -12)
+do
+
+o_stop.sh $i
+
+done
+
+  ##########################################################################
+
+
+for i in $(ps -ef | grep pmon | awk -F "_" '{print $NF }' | grep -v root)
+do
+echo " base en cours d'arret $i"
+export ORACLE_SID=$i
+sqlplus "/as sysdba"
+shutdown abort;
+echo " base arretee $i"
+quit;
+
+
+done
+
+----------------------
+
+saut  #**********************************************************************
+ecrit '* S80 - unikix - ARRET UNIKIX ou UNIKIX MIROIR                      *'
+      #**********************************************************************
+        . debstep S80 unikix
+
+        if [[ $(hostname) == parva4000627 ]] || [[ $(hostname) == parva4000633 ]]
+        then
+
+                echo 'Vous DEVEZ arreter Unikix mirroir avant de continuer'
+                echo 'Assurez vous que vous avez bien arrtez unikix'
+                echo 'Des lors vous pouvez reprendre au step suivant'
+
+                A2_RCU=80
+        else
+
+                su atlas -c "if testkix ; then  kixstop; fi" >>$A2_LOG 2>&1
+                . recRCU
+        fi
+
+        . finstep S80 unikix
+        fi
+
+        if [[ $A2_JUMP -le 85 && $A2_RCU -eq 0 && $A2_RCP -eq 0 ]] then
+saut  #**********************************************************************
+ecrit '* S85 - SIGO - Arret UNIKIX BKOF                                   *'
+      #**********************************************************************
+        . debstep S85 sigo
+
+        if [[ $(hostname) == parva4000839 ]]
+        then
+
+                echo 'Unikix en mode BKOF integre'
+                echo 'Connectez vous ( su - atlas )'
+                echo 'choisissez EAD atlas'
+                echo 'Repondez " Y " à la ligne :'
+                echo 'Voulez-vous travailler dans lenvironnement bank office (Y/N) [N] ?'
+                echo 'Arretez unikix de l environnement BKOF integre si il est demarré'
+                echo 'Des lors vous pouvez reprendre au step suivant'
+
+                A2_RCU=85
+        else
+
+                grep bkof /etc/passwd | awk '{ FS=":" ; print $1 }' | while read bkof_user
+                do
+                        su - $bkof_user -c "if testkix ; then  kixstop; fi" >>$A2_LOG 2>&1
+                        . recRCU
+                done
+        fi
+
+        . finstep S85 sigo
+        fi
+
+
+
+
+Redemarrage:
+
+
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/usr/local/MeoBackup/jclscript/hors_site$./Atlas2Status
+PATH : /usr/local/MeoBackup/jclscript/hors_site/./Atlas2Status
+
+
+
+/etc/rc.d/rc2.d -----------> désactiver le demmarage auto des applications en remplacant le "S" par "s"
+
+
+PARVA4014152 => PreProduction Senegal (root) /etc/rc.d/rc2.d :ls -ltr
+total 0
+lrwxrwxrwx    1 root     system           14 Aug 18 2009  s15USD -> /etc/local/USD
+lrwxrwxrwx    1 root     system           14 Aug 18 2009  s14Uam -> /etc/local/UAM
+lrwxrwxrwx    1 root     system           16 Aug 18 2009  s99eccmad -> /etc/rc.d/eccmad
+lrwxrwxrwx    1 root     system           17 Aug 18 2009  s20oracle -> /etc/local/oracle
+lrwxrwxrwx    1 root     system           13 Aug 18 2009  s10NsmAT -> /etc/local/AT
+lrwxrwxrwx    1 root     system           13 Aug 18 2009  s05NsmEm -> /etc/local/EM
+lrwxrwxrwx    1 root     system           27 May 27 2010  s15_scheduler_tsm -> ../init.d/S15_scheduler_tsm
+lrwxrwxrwx    1 root     system           31 May 27 2010  s10_creation_bootlist -> ../init.d/S10_creation_bootlist
+lrwxrwxrwx    1 root     system           25 May 27 2010  s05_montage_nfs -> ../init.d/S05_montage_nfs
+lrwxrwxrwx    1 root     system           14 May 27 2010  s69esmrc -> /etc/local/ESM
+lrwxrwxrwx    1 root     system           15 May 27 2010  S01SEOS -> /etc/local/eTAC
+lrwxrwxrwx    1 root     system           28 Jun 24 2011  s91Omnivision -> /etc/rc.d/init.d/omnivisiond
+lrwxrwxrwx    1 root     system           14 Aug 29 2011  s15DSM -> /etc/local/DSM
+
+
+
+PARVA4014152 => PreProduction Senegal (root) /etc/rc.d/rc2.d :ls -ltr
+total 0
+lrwxrwxrwx    1 root     system           14 Aug 18 2009  S15USD -> /etc/local/USD
+lrwxrwxrwx    1 root     system           14 Aug 18 2009  S14Uam -> /etc/local/UAM
+lrwxrwxrwx    1 root     system           16 Aug 18 2009  S99eccmad -> /etc/rc.d/eccmad
+lrwxrwxrwx    1 root     system           17 Aug 18 2009  S20oracle -> /etc/local/oracle
+lrwxrwxrwx    1 root     system           13 Aug 18 2009  S10NsmAT -> /etc/local/AT
+lrwxrwxrwx    1 root     system           13 Aug 18 2009  S05NsmEm -> /etc/local/EM
+lrwxrwxrwx    1 root     system           27 May 27 2010  S15_scheduler_tsm -> ../init.d/S15_scheduler_tsm
+lrwxrwxrwx    1 root     system           31 May 27 2010  S10_creation_bootlist -> ../init.d/S10_creation_bootlist
+lrwxrwxrwx    1 root     system           25 May 27 2010  S05_montage_nfs -> ../init.d/S05_montage_nfs
+lrwxrwxrwx    1 root     system           14 May 27 2010  S69esmrc -> /etc/local/ESM
+lrwxrwxrwx    1 root     system           15 May 27 2010  S01SEOS -> /etc/local/eTAC
+lrwxrwxrwx    1 root     system           28 Jun 24 2011  S91Omnivision -> /etc/rc.d/init.d/omnivisiond
+lrwxrwxrwx    1 root     system           14 Aug 29 2011  S15DSM -> /etc/local/DSM
+
+
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/usr/local/MeoBackup/jclscript/hors_site$cautil start autosub
+CASH_I_0320 00 = Monitor return code
+
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/usr/local/MeoBackup/jclscript/hors_site$cautil status monitor
+Date: 10/19/12     Object: MONITOR STATISTICS              Page     1
+
+Autosub status is: On
+
+Jobset Status Summary:
+ Scheduled:            0  Operator Held:      144  Cancelled:            0
+ Running:            234  Completed:            3  Waiting Start:        1
+ Waiting Pred:       138  Total Jobsets:      520
+
+Job Status Summary:
+ Wait Manual:          0  Wait Resource:        0  Wait Syscon:          0
+ Wait Pred:         2999  Wait Start time:    807  Wait External:        0
+ Submitting:           0  Submit Complete:      0  Submit Retrying:      0
+ Submit Failed:       93
+ Operator Held:       16  Cancelled:            3  Scheduled:            0
+ Running:              2  Aborted:            216  Interrupted:          0
+ Completed:          822
+ Total Jobs:        4958
+
+Trigger Status Summary:
+ Waiting  :          291  Completed:            1  Cancelled:            0
+
+
+
+Redémarrage des base:
+---------------------
+
+
+
+parva4014152|Atlas2SenegalPreProdoracle::/apps/oracle >/apps/oracle/product/920/bin/dbstart
+
+
+
+Vérification:
+-------------
+
+parva4014152|Atlas2SenegalPreProdoracle::/apps/oracle >ps -ef | grep pmon
+  oracle  536704       1   0 13:42:49      -  0:00 ora_pmon_atpr10
+  oracle  696450       1   0 13:41:42      -  0:00 ora_pmon_atpr01
+  oracle  721130       1   0 13:41:57      -  0:00 ora_pmon_atpr04
+  oracle  725106       1   0 13:42:50      -  0:00 ora_pmon_atpr11
+  oracle  831676       1   0 13:42:03      -  0:00 ora_pmon_atdr01
+  oracle  970846       1   0 13:42:47      -  0:00 ora_pmon_atpr07
+  oracle 1118302       1   0 13:42:16      -  0:00 ora_pmon_atdr03
+  oracle 1380560       1   0 13:42:17      -  0:00 ora_pmon_atpsa2
+  oracle 1474790       1   0 13:42:24      -  0:00 ora_pmon_atpsa3
+  oracle 1495082       1   0 13:42:48      -  0:00 ora_pmon_atpr09
+  oracle 1519626       1   0 13:42:47      -  0:00 ora_pmon_atpr08
+  oracle 1548330       1   0 13:42:39      -  0:00 ora_pmon_atpr06
+  oracle 1593386       1   0 13:42:33      -  0:00 ora_pmon_atpr05
+  oracle 1736704       1   0 13:42:51      -  0:00 ora_pmon_atpr12
+  oracle 1781948       1   0 13:43:03      -  0:00 ora_pmon_atdsa3
+  oracle 1794276       1   0 13:42:57      -  0:00 ora_pmon_atdr12
+  oracle 1806476       1   0 13:43:02      -  0:00 ora_pmon_atdsa2
+  oracle 1855640       1   0 13:43:10      -  0:00 ora_pmon_tipspr01
+  oracle 1867964       1   0 13:43:15      -  0:00 ora_pmon_tipspr02
+  oracle 1925296       1   0 13:43:04      -  0:00 ora_pmon_atpr13
+  oracle 1929286 2224294   0 13:44:29  pts/6  0:00 grep pmon
+  oracle 1941618       1   0 13:41:50      -  0:00 ora_pmon_atpr02
+  oracle 2035924       1   0 13:41:56      -  0:00 ora_pmon_atpr03
+  oracle 2289886       1   0 13:42:56      -  0:00 ora_pmon_atpsa1
+
+
+
+/usr/local/MeoBackup/jclscript/hors_site$cd /apps/meoatlas2/outils
+{parva4014152} (atlas) {Senegal-PreProd - uf1}
+/apps/meoatlas2/outils$./Atlas2CheckFs
+
+
+Saving /etc/filesystems :  OK
+New file
+/etc/filesystems.20121019.141129
+
+Check forbidden stanza repetition in /etc/filesystems :  OK
+
+Check fs order in /etc/filesystems :  OK
+
+Check all FS with automatically mount :  NOK
+WARNING : Presence FS avec option mount=false
+Vous pouvez utiliser la commande chfs -A yes nom_du_fs
+/apps/evolan/loandesign_v2e10: option mount a false
+/apps/oradbf/atpr07: option mount a false
+/apps/atlas/atlas2v0/uf7/data1/fic: option mount a false
+/apps/oradbf/atpsa1: option mount a false
+/apps/atlas/atlas2v0/rf1/data1/imp: option mount a false
+/apps/oradbf/atpr08: option mount a false
+
+Check all mounetd FS are known :   OK
+
+Check all known FS are mounted :   NOK
+WARNING : le FS /apps/arch est monte vide
+/apps/atlas/atlas2v0/sa2/data1/imp is not mounted
+/apps/oradbf/atpr03/evolan is not mounted
+/apps/evolan/loandesign_v2e10 is not mounted
+/apps/oradbf/atpr07 is not mounted
+/apps/atlas/atlas2v0/uf7/data1/fic is not mounted
+/apps/oradbf/atpsa1 is not mounted
+/apps/atlas/atlas2v0/rf1/data1/imp is not mounted
+/apps/oradbf/atpr08 is not mounted
+/apps/oradbf/atpr07/atlas_hb/data1 is not mounted

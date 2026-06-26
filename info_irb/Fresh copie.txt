@@ -1,0 +1,56 @@
+FRESH COPIE :*
+**************
+
+
+
+Pour les Antilles et la Réunion ont trouvera en pré-prod, les archives dans :
+
+
+   /apps/atlas/backup
+
+
+Sinon pour les autres :   /apps/oradbf/backup
+
+
+
+parva4000641 => PRE-PRODUCTION ANTILLES  (root) /apps/atlas/backup : ls
+
+.atpr01.20120925.034949.tgz.ATLS3BCK.I2509095  JAS9B2.PROFILE.TGZ                             atdr01
+ENV_ATLAS.20120926.035347.tgz                  JAS9B2.a2_version.tgz                          atdr01.tar.Z
+ENV_FOCUS.20120926.035347.tgz                  JAS9B2.apps_oracle.tgz                         atpr01
+ENV_ORION.20120926.035347.tgz                  JAS9B2.bnp_exploit.tgz                         flag_fresh_copy
+FIC.JSAVF1.20120926.035347.tar.Z               JAS9B2.usr_local_bin.tgz                       tips.dmp.Z
+FIC.JSAVF2.20120926.035347.tar.Z               TNGonline_parva4000627.tgz                     tipspr01
+
+
+
+
+Concernant l'Egypte, la Russie et NCAL c'est une copie disque à disque mais non archiver que l'on trouvera dans UF1:
+
+
+PARVA4004779 => PRE-PRODUCTION ATLAS 2/OMR EGYPTE SFDI (root)
+ 
+ /apps/atlas/atlas2v0/uf1/data1/fic$ ls 
+-T                                       
+              HIC_IJC0408003.log
+-lr.DUMMY                                              HIC_IJC0409001.dat
+.DUMMY                                                 HIC_IJC0409001.log
+.OK                                                    HIC_IJC0409002.dat
+.unikixrc                                              HIC_IJC0409002.log
+01122011_RSP_IMP06201_01_SAVE                          HIC_IJC0409003.dat
+016_ELGY_20120925.txt                                  HIC_IJC0409003.log
+           .							.
+	   .							.
+	   .							.
+HIC_IJC0407003.dat                                     z
+HIC_IJC0407003.log                                     z1
+HIC_IJC0408001.dat                                     zmecri.err
+HIC_IJC0408001.log                                     zmecri.txt
+HIC_IJC0408002.dat                                     zz1
+HIC_IJC0408002.log
+HIC_IJC0408003.dat
+
+
+		
+
+
